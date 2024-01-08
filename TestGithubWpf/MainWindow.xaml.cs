@@ -24,6 +24,8 @@ namespace TestGithubWpf
         {
             InitializeComponent();
             Console.WriteLine("hello world");
+            Console.WriteLine("hello");
+            
         }
     }
 }
