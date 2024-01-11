@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace TestGithubWpf
 {
@@ -20,6 +21,16 @@ namespace TestGithubWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer gameTimer = new DispatcherTimer();
+        bool goLeft, goRight, goDown, goUp;
+        int speed = 5;
+        Rect pacmanHitBox;
+        int ghostSpeed = 10;
+        int ghostMoveStep = 160;
+        int currentGhostStep;
+        int score = 0;
+        bool gameover = false;
+        bool isGamePaused = false;
         public MainWindow()
         {
             InitializeComponent();
