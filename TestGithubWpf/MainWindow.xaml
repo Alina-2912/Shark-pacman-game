@@ -6,7 +6,1098 @@
         xmlns:local="clr-namespace:TestGithubWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <Canvas
+        Name="MyCanvas"
+        Background="Transparent"
+        Focusable="True"
+        KeyDown="CanvasKeyDown">
+        <!--  This rectangle is painted with a vertical gradient.  -->
+        <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.0" Color="Aqua" />
+                    <GradientStop Offset="0.25" Color="DeepSkyBlue" />
+                    <GradientStop Offset="0.75" Color="RoyalBlue" />
+                    <GradientStop Offset="1.0" Color="DarkBlue" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label
+            Name="txtScore"
+            Content="Score: 0"
+            FontSize="20"
+            Foreground="Black" />
+        <Rectangle
+            Name="pacman"
+            Canvas.Left="36"
+            Canvas.Top="118"
+            Width="35"
+            Height="24"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Fill="Yellow" />
+        <Rectangle
+            Name="redGuy"
+            Canvas.Left="185"
+            Canvas.Top="18"
+            Width="51"
+            Height="51"
+            Fill="Red"
+            Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle
+            Name="orangeGuy"
+            Canvas.Left="655"
+            Canvas.Top="110"
+            Width="51"
+            Height="51"
+            Fill="Orange"
+            Tag="ghost" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Name="pinkGuy"
+            Canvas.Left="173"
+            Canvas.Top="404"
+            Width="51"
+            Height="51"
+            Fill="Pink"
+            Tag="ghost" />
+        <Rectangle
+            Canvas.Left="142"
+            Canvas.Top="86"
+            Width="578"
+            Height="20"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="231"
+            Canvas.Top="171"
+            Width="402"
+            Height="20"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="142"
+            Canvas.Top="349"
+            Width="124"
+            Height="20"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="157"
+            Canvas.Top="453"
+            Width="38"
+            Height="34"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/coral.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="596"
+            Canvas.Top="349"
+            Width="124"
+            Height="20"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="142"
+            Canvas.Top="165"
+            Width="20"
+            Height="187"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="700"
+            Canvas.Top="165"
+            Width="20"
+            Height="187"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="613"
+            Canvas.Top="188"
+            Width="20"
+            Height="109"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="231"
+            Canvas.Top="188"
+            Width="20"
+            Height="109"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle
+            Canvas.Left="135"
+            Canvas.Top="485"
+            Width="38"
+            Height="82"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/seaweed2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="685"
+            Canvas.Top="485"
+            Width="44"
+            Height="82"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/seaweed2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="395"
+            Canvas.Top="487"
+            Width="76"
+            Height="82"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/seaweed.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="204"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="160"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="278"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="241"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="378"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="325"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="482"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="421"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="266"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="266"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="298"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="298"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="325"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="325"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="357"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="357"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="383"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="383"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="410"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="410"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="437"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="437"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="469"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="469"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="497"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="497"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="529"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="529"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="556"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="556"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="588"
+            Canvas.Top="248"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="588"
+            Canvas.Top="200"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="187"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="143"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="261"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="224"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="361"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="308"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="465"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="404"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="557"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="520"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="657"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="604"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="700"
+            Canvas.Top="63"
+            Width="20"
+            Height="20"
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="530"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="634"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="574"
+            Canvas.Top="134"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="187"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="143"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="261"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="224"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="361"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="308"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="465"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="404"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="557"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="520"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="657"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="604"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="700"
+            Canvas.Top="404"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="504"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="504"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="531"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="531"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="563"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="563"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="592"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="592"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="619"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="619"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="651"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="651"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="204"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="204"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="230"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="230"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="262"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="262"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="292"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="292"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="318"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="318"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="350"
+            Canvas.Top="544"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="350"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="coin">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/nemo2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <MediaElement
+            x:Name="mediaElement"
+            LoadedBehavior="Manual"
+            UnloadedBehavior="Manual" />
+        <Rectangle
+            Canvas.Left="370"
+            Canvas.Top="453"
+            Width="38"
+            Height="34"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/coral2.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="262"
+            Canvas.Top="439"
+            Width="38"
+            Height="48"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/seaweed3.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="567"
+            Canvas.Top="443"
+            Width="38"
+            Height="44"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/coral6.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="461"
+            Canvas.Top="450"
+            Width="36"
+            Height="38"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/coral3.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="664"
+            Canvas.Top="445"
+            Width="38"
+            Height="42"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="0.342,0.392"
+            StrokeThickness="3"
+            Tag="wall">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/coral4.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Name="CloseButton" Content="x" Height="21" Canvas.Left="779" Width="21" Background="Red" Click="CloseButton_Click"/>
+    </Canvas>
 </Window>
