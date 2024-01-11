@@ -38,11 +38,6 @@ namespace TestGithubWpf
             Console.WriteLine("hello");
             
         }
-        public MainWindow()
-        {
-            InitializeComponent();
-            GameSetUp();
-        }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -333,4 +328,4 @@ namespace TestGithubWpf
         }
     }
 }
-}
+
