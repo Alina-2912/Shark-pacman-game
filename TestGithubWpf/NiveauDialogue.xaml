@@ -1,0 +1,33 @@
+﻿<Window x:Class="TestGithubWpf.NiveauDialogue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestGithubWpf"
+        mc:Ignorable="d"
+        Title="NiveauDialogue" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/background.jpg"/>
+        </Grid.Background>
+        <Button Margin="180,289,473,83" FontSize="25" Content="Jouer" Click="Button1_Click"/>
+        <Button Margin="520,289,140,83" FontSize="25" Content="Annuler" Click="Button2_Click"/>
+
+        <Label Content="Difficulté" Foreground="White" FontSize="30" Margin="211,180,417,187"></Label>
+        <Rectangle Margin="280,32,210,300" RadiusX="51.02" RadiusY="51.02">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF262924"/>
+                    <GradientStop Color="#FF4DFF00" Offset="1"/>
+                    <GradientStop Color="#FF34A304" Offset="0.477"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <ComboBox Margin="362,186,0,0" Name="ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="228" Height="39">
+            <ComboBoxItem Content="Milk"></ComboBoxItem>
+            <ComboBoxItem Content="Iced Tea"></ComboBoxItem>
+            <ComboBoxItem Content="Mango Shake"></ComboBoxItem>
+        </ComboBox>
+        <Label Content="Name" Foreground="White" FontSize="30" Margin="347,58,238,316"></Label>
+    </Grid>
+</Window>
