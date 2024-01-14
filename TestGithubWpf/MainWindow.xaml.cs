@@ -34,9 +34,7 @@ namespace TestGithubWpf
         public MainWindow()
         {
             InitializeComponent();
-            Console.WriteLine("hello world");
-            Console.WriteLine("hello");
-            
+            GameSetUp();
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -135,7 +133,7 @@ namespace TestGithubWpf
             Canvas.SetTop(redGuy, 29);
 
             Canvas.SetLeft(orangeGuy, 651);
-            Canvas.SetTop(orangeGuy, 104);
+            Canvas.SetTop(orangeGuy, 120);
 
             gameTimer.Start();
             score = 0;
@@ -146,37 +144,13 @@ namespace TestGithubWpf
                 pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
                 /*************************    TO MAKE THE COINS VISIBLE AGAIN *************************/
-                if ((string)x.Tag == "coin")
+                if ((string)x.Tag == "poisson")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
                         x.Visibility = Visibility.Visible;
                     }
                 }
-                if ((string)x.Tag == "ghost")
-                {
-                    if (pacmanHitBox.IntersectsWith(hitBox))
-                    {
-                        gameTimer.Stop();
-                        gameover = true;
-                    }
-                    if (x.Name.ToString() == "orangeGuy")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
-                    }
-                    else
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
-                    }
-
-                    currentGhostStep--;
-                    if (currentGhostStep < 1)
-                    {
-                        currentGhostStep = ghostMoveStep;
-                        ghostSpeed = -ghostSpeed;
-                    }
-                }
-
             }
         }
         private void GameSetUp()
@@ -268,7 +242,7 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                if ((string)x.Tag == "coin")
+                if ((string)x.Tag == "poisson")
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
@@ -277,7 +251,7 @@ namespace TestGithubWpf
                     }
                 }
 
-                if ((string)x.Tag == "ghost")
+                if ((string)x.Tag == "pieuvre")
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox))
                     {
@@ -288,7 +262,11 @@ namespace TestGithubWpf
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
                     }
-                    else
+                    if (x.Name.ToString() == "redGuy")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                    }
+                    if (x.Name.ToString() == "pinkGuy")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
                     }
