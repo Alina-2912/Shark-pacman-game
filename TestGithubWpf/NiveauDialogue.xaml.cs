@@ -32,8 +32,7 @@ namespace TestGithubWpf
         }
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            string combo = Combo_Box(); ;
-            if (combo == "Facile") 
+            if (ComboBoxItem1.IsSelected)
             {
                 MainWindow mw = new MainWindow();
                 mw.Show();
