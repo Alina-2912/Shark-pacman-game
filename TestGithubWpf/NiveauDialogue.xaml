@@ -29,7 +29,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <ComboBox Margin="0,-40,0,0" Name="ComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="40">
-            <ComboBoxItem Content="Facile" FontSize="20"></ComboBoxItem>
+            <ComboBoxItem Name="ComboBoxItem1" Content="Facile" FontSize="20"></ComboBoxItem>
             <ComboBoxItem Content="Normale" FontSize="20"></ComboBoxItem>
             <ComboBoxItem Content="Difficile" FontSize="20"></ComboBoxItem>
         </ComboBox>
