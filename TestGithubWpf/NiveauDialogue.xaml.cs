@@ -40,7 +40,7 @@ namespace TestGithubWpf
             }
             if (ComboBoxItem2.IsSelected)
             {
-                Normal mw = new Normal();
+                Normale mw = new Normale();
                 mw.Show();
                 this.Close();
             }
