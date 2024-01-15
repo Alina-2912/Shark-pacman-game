@@ -24,11 +24,22 @@ namespace TestGithubWpf
             InitializeComponent();
 
         }
+        public string Combo_Box() 
+        {
+            string combo = ComboBox.SelectedValue.ToString();
+            return combo;
+            
+        }
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            this.Close();
+            string combo = Combo_Box(); ;
+            if (combo == "Facile") 
+            {
+                MainWindow mw = new MainWindow();
+                mw.Show();
+                this.Close();
+            }
+            
         }
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
