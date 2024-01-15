@@ -129,6 +129,9 @@
     <None Update="images\smallcweed.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\treasurebox.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="sound\gogo2.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -127,13 +127,13 @@ namespace TestGithubWpf
             Canvas.SetLeft(pacman, 50);
             Canvas.SetTop(pacman, 104);
 
-            Canvas.SetLeft(pinkGuy, 173);
+            Canvas.SetLeft(pinkGuy, 651);
             Canvas.SetTop(pinkGuy, 404);
 
-            Canvas.SetLeft(redGuy, 173);
+            Canvas.SetLeft(redGuy, 651);
             Canvas.SetTop(redGuy, 29);
 
-            Canvas.SetLeft(orangeGuy, 651);
+            Canvas.SetLeft(orangeGuy, 173);
             Canvas.SetTop(orangeGuy, 120);
 
             gameTimer.Start();
