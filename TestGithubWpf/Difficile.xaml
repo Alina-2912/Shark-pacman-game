@@ -6,7 +6,57 @@
         xmlns:local="clr-namespace:TestGithubWpf"
         mc:Ignorable="d"
         Title="Difficile" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Canvas
+        Name="MyCanvas"
+        Background="Transparent"
+        Focusable="True" Margin="0,0,0,-168">
+        <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.0" Color="Aqua" />
+                    <GradientStop Offset="0.25" Color="DeepSkyBlue" />
+                    <GradientStop Offset="0.75" Color="RoyalBlue" />
+                    <GradientStop Offset="1.0" Color="DarkBlue" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label
+            Name="txtScore"
+            Content="Score: 0"
+            FontSize="20"
+            Foreground="Black" />
+        <Rectangle
+            Name="pinkGuy"
+            Canvas.Left="173"
+            Canvas.Top="404"
+            Width="51"
+            Height="51"
+            Fill="Pink"
+            Tag="pieuvre" />
+        <Rectangle
+            Name="pacman"
+            Canvas.Left="36"
+            Canvas.Top="118"
+            Width="35"
+            Height="24"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Fill="Yellow" />
+        <Rectangle
+            Name="redGuy"
+            Canvas.Left="185"
+            Canvas.Top="18"
+            Width="51"
+            Height="51"
+            Fill="Red"
+            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle
+            Name="orangeGuy"
+            Canvas.Left="658"
+            Canvas.Top="118"
+            Width="52"
+            Height="52"
+            Fill="Orange"
+            Tag="pieuvre"  />
+    </Canvas>
 </Window>

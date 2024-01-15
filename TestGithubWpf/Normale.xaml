@@ -61,7 +61,5 @@
             Height="52"
             Fill="Orange"
             Tag="pieuvre"  />
-        
-        
     </Canvas>
 </Window>
