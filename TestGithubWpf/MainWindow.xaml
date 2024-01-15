@@ -1699,5 +1699,10 @@
                 <ImageBrush ImageSource="/stone1.jpg" />
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle Height="41" Canvas.Left="117" Stroke="Black" Canvas.Top="44" Width="631">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/rochets.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Canvas>
 </Window>
