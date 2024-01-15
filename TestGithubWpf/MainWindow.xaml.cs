@@ -23,7 +23,7 @@ namespace TestGithubWpf
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
-        int speed = 5;
+        int speed = 7;
         Rect pacmanHitBox;
         int ghostSpeed = 10;
         int ghostMoveStep = 160;
@@ -210,9 +210,10 @@ namespace TestGithubWpf
 
                 if ((string)x.Tag == "star")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
-                        itemRemover.Add(x);
+                        x.Visibility = Visibility.Hidden;
+                        score++;
                     }
                 }
 
