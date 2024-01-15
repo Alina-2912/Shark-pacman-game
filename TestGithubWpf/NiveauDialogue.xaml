@@ -30,8 +30,8 @@
         </Rectangle>
         <ComboBox Margin="0,-40,0,0" Name="ComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="40">
             <ComboBoxItem Name="ComboBoxItem1" Content="Facile" FontSize="20"></ComboBoxItem>
-            <ComboBoxItem Content="Normale" FontSize="20"></ComboBoxItem>
-            <ComboBoxItem Content="Difficile" FontSize="20"></ComboBoxItem>
+            <ComboBoxItem Name="ComboBoxItem2" Content="Normale" FontSize="20"></ComboBoxItem>
+            <ComboBoxItem Name="ComboBoxItem3" Content="Difficile" FontSize="20"></ComboBoxItem>
         </ComboBox>
         <Label Name="titreJeu" Content="Chasse Aquatique &#10;      Pac-Requin" Foreground="White" FontSize="30" Margin="0,-285,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="100"></Label>
     </Grid>
