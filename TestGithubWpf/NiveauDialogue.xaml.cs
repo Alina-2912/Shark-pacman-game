@@ -32,9 +32,21 @@ namespace TestGithubWpf
         }
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (ComboBoxItem1.IsSelected)
+          if (ComboBoxItem1.IsSelected)
             {
                 MainWindow mw = new MainWindow();
+                mw.Show();
+                this.Close();
+            }
+            if (ComboBoxItem2.IsSelected)
+            {
+                Normal mw = new Normal();
+                mw.Show();
+                this.Close();
+            }
+            if (ComboBoxItem3.IsSelected)
+            {
+                Difficile mw = new Difficile();
                 mw.Show();
                 this.Close();
             }
