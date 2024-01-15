@@ -31,6 +31,7 @@ namespace TestGithubWpf
         int score = 0;
         bool gameover = false;
         bool isGamePaused = false;
+        ImageBrush starImage = new ImageBrush();
         public MainWindow()
         {
             InitializeComponent();
@@ -281,11 +282,66 @@ namespace TestGithubWpf
         }
         private void GameLoop(object sender, EventArgs e)
         {
+            starImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\n Press P to Pause and R to Resume";
 
             movePacman();
             MoveGhost();
 
+            if (score == 16)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    Rectangle rec = new Rectangle()
+                    {
+                        Width = 30,
+                        Height = 30,
+                        Fill = starImage,
+                        //Stroke = Brushes.Red,
+                        //Visibility = Visibility.Hidden,
+                        StrokeThickness = 2,
+                    };
+                    MyCanvas.Children.Add(rec);
+                    Canvas.SetTop(rec, 529);
+                    Canvas.SetLeft(rec, 220);
+                }
+            }
+            if (score == 47)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    Rectangle rec = new Rectangle()
+                    {
+                        Width = 30,
+                        Height = 30,
+                        Fill = starImage,
+                        //Stroke = Brushes.Red,
+                        //Visibility = Visibility.Hidden,
+                        StrokeThickness = 2,
+                    };
+                    MyCanvas.Children.Add(rec);
+                    Canvas.SetTop(rec, 199);
+                    Canvas.SetLeft(rec, 489);
+                }
+            }
+            if (score == 68)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    Rectangle rec = new Rectangle()
+                    {
+                        Width = 30,
+                        Height = 30,
+                        Fill = starImage,
+                        //Stroke = Brushes.Red,
+                        Visibility = Visibility.Hidden,
+                        StrokeThickness = 2,
+                    };
+                    MyCanvas.Children.Add(rec);
+                    Canvas.SetTop(rec, 50);
+                    Canvas.SetLeft(rec, 650);
+                }
+            }
             if (score == 85)
             {
                 GameOver("You Win, you collected all of the coins");
