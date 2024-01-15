@@ -40,9 +40,6 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
-            mediaElement2.Source = uri;
-            mediaElement2.Play();
 
             MyCanvas.Focus();
             gameTimer.Tick += GameLoop;
