@@ -89,8 +89,8 @@
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle
-            Canvas.Left="157"
-            Canvas.Top="453"
+            Canvas.Left="150"
+            Canvas.Top="457"
             Width="38"
             Height="34"
             HorizontalAlignment="Left"
@@ -1020,8 +1020,8 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
         <Rectangle
-            Canvas.Left="370"
-            Canvas.Top="453"
+            Canvas.Left="384"
+            Canvas.Top="457"
             Width="38"
             Height="34"
             HorizontalAlignment="Left"
@@ -1033,8 +1033,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="262"
-            Canvas.Top="439"
+            Canvas.Left="263"
+            Canvas.Top="443"
             Width="38"
             Height="48"
             HorizontalAlignment="Left"
@@ -1047,11 +1047,11 @@
         </Rectangle>
         <Rectangle
             Canvas.Left="567"
-            Canvas.Top="443"
+            Canvas.Top="446"
             Width="38"
             Height="44"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             StrokeThickness="3"
             Tag="wall">
             <Rectangle.Fill>
@@ -1059,12 +1059,12 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="461"
-            Canvas.Top="450"
+            Canvas.Left="450"
+            Canvas.Top="454"
             Width="36"
             Height="38"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             StrokeThickness="3"
             Tag="wall">
             <Rectangle.Fill>
@@ -1072,12 +1072,12 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="664"
-            Canvas.Top="445"
+            Canvas.Left="673"
+            Canvas.Top="449"
             Width="38"
             Height="42"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             RenderTransformOrigin="0.342,0.392"
             StrokeThickness="3"
             Tag="wall">

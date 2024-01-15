@@ -32,6 +32,8 @@ namespace TestGithubWpf
         bool gameover = false;
         bool isGamePaused = false;
         ImageBrush starImage = new ImageBrush();
+        List<Rectangle> itemRemover = new List<Rectangle>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -205,6 +207,15 @@ namespace TestGithubWpf
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                if ((string)x.Tag == "star")
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    {
+                        itemRemover.Add(x);
+                    }
+                }
+
                 if ((string)x.Tag == "wall")
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox))
@@ -278,6 +289,7 @@ namespace TestGithubWpf
                         ghostSpeed = -ghostSpeed;
                     }
                 }
+                
             }
         }
         private void GameLoop(object sender, EventArgs e)
@@ -300,10 +312,12 @@ namespace TestGithubWpf
                         //Stroke = Brushes.Red,
                         //Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
+                        Tag = "star",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 529);
                     Canvas.SetLeft(rec, 220);
+                    
                 }
             }
             if (score == 47)
@@ -318,6 +332,7 @@ namespace TestGithubWpf
                         //Stroke = Brushes.Red,
                         //Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
+                        Tag = "star",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 199);
@@ -336,6 +351,7 @@ namespace TestGithubWpf
                         //Stroke = Brushes.Red,
                         Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
+                        Tag = "star",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 50);
