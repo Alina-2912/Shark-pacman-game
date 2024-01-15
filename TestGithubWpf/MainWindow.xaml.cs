@@ -52,15 +52,17 @@ namespace TestGithubWpf
                 {
                     gameTimer.Stop();
                     isGamePaused = true;
+                    mediaElement.Pause();
                 }
             }
-            /*************************    REPLAY   *************************/
+            /*************************    RESUME   *************************/
             if (e.Key == Key.R)
             {
                 if (isGamePaused)
                 {
                     gameTimer.Start();
                     isGamePaused = false;
+                    mediaElement.Play();
                 }
             }
             /*************************    RESTART - R   *************************/
