@@ -69,7 +69,7 @@ namespace TestGithubWpf
             /*************************    RESTART - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                Normale mw = new Normale();
+                MainWindow mw = new MainWindow();
                 mw.Show();
                 this.Close();
             }
@@ -383,14 +383,15 @@ namespace TestGithubWpf
             }
             if (gameover)
             {
+                int s = score;
                 txtScore.Content += "   Press R to Retry";
+                
             }
         }
-
         private void GameOver(string message)
         {
             gameTimer.Stop();
-            MessageBox.Show(message, "The Pac Man Game WPF MOO ICT");
+            MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
 
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             //Application.Current.Shutdown();
