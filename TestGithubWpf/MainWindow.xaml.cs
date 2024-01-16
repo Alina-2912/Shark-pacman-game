@@ -186,6 +186,7 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
+            itemRemover.Clear();
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
             mediaElement.Source = uri;
             mediaElement.Play();
@@ -240,6 +241,8 @@ namespace TestGithubWpf
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
+                        speed = 9;
+                        powerMode = true;
                         x.Visibility = Visibility.Hidden;
                         score++;
                     }
@@ -300,8 +303,7 @@ namespace TestGithubWpf
                     }
                     if (pacmanHitBox.IntersectsWith(hitBox) && powerMode == true)
                     {
-                        x.Visibility = Visibility.Hidden;
-                        speed = 9;
+                        itemRemover.Add(x);
                     }
                     if (x.Name.ToString() == "orangeGuy")
                     {
@@ -327,6 +329,11 @@ namespace TestGithubWpf
         }
         private void GameLoop(object sender, EventArgs e)
         {
+            foreach (Rectangle y in itemRemover)
+            {
+                MyCanvas.Children.Remove(y);
+            }
+
             starImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\n Press P to Pause and R to Resume";
 

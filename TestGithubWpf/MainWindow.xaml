@@ -84,17 +84,6 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="99"
-            Canvas.Top="181"
-            Width="51"
-            Height="163"
-            StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" >
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/seaweed2.jpg"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle
             Canvas.Left="604"
             Canvas.Top="188"
             Width="20"
@@ -112,10 +101,10 @@
             Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle
             Canvas.Left="127"
-            Canvas.Top="485"
-            Width="46"
+            Canvas.Top="487"
+            Width="42"
             Height="100"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             VerticalAlignment="Top"
             StrokeThickness="3"
             Tag="wall">
@@ -125,10 +114,10 @@
         </Rectangle>
         <Rectangle
             Canvas.Left="685"
-            Canvas.Top="485"
-            Width="49"
+            Canvas.Top="487"
+            Width="35"
             Height="100"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             VerticalAlignment="Top"
             StrokeThickness="3"
             Tag="wall">
@@ -1002,8 +991,8 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
         <Rectangle
-            Canvas.Left="384"
-            Canvas.Top="457"
+            Canvas.Left="388"
+            Canvas.Top="458"
             Width="38"
             Height="34"
             HorizontalAlignment="Left"
@@ -1054,12 +1043,12 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="681"
+            Canvas.Left="682"
             Canvas.Top="453"
             Width="38"
             Height="42"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
+            VerticalAlignment="Center"
             RenderTransformOrigin="0.342,0.392"
             StrokeThickness="3"
             Tag="wall">
@@ -1179,7 +1168,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="126"
+            Canvas.Left="110"
             Canvas.Top="349"
             Width="22"
             Height="20"
@@ -1190,18 +1179,18 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="138"
+            Canvas.Left="124"
             Canvas.Top="355"
             Width="22"
             Height="20"
             StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="151"
+            Canvas.Left="135"
             Canvas.Top="349"
             Width="22"
             Height="20"
@@ -1212,18 +1201,18 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="165"
+            Canvas.Left="147"
             Canvas.Top="355"
             Width="22"
             Height="20"
             StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="176"
+            Canvas.Left="160"
             Canvas.Top="349"
             Width="22"
             Height="20"
@@ -1234,29 +1223,29 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="188"
+            Canvas.Left="173"
             Canvas.Top="355"
             Width="22"
             Height="20"
             StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="212"
+            Canvas.Left="198"
             Canvas.Top="355"
             Width="22"
             Height="20"
             StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="200"
+            Canvas.Left="185"
             Canvas.Top="349"
             Width="22"
             Height="20"
@@ -1267,23 +1256,23 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="223"
+            Canvas.Left="209"
             Canvas.Top="349"
             Width="22"
             Height="20"
             StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="234"
+            Canvas.Left="221"
             Canvas.Top="355"
             Width="22"
             Height="20"
             StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
@@ -1294,12 +1283,12 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="701"
-            Canvas.Top="189"
-            Width="57"
-            Height="155"
+            Canvas.Left="684"
+            Canvas.Top="219"
+            Width="48"
+            Height="133"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -1314,5 +1303,24 @@
         </Rectangle>
         <Button Name="Back" Click="BackButton_Click" Content="Back" Height="22" Canvas.Left="700" Canvas.Top="1" Width="54" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Button x:Name="Next" Click="NextButton_Click" Content="Next" Height="22" Canvas.Left="629" Canvas.Top="1" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="110"
+            Canvas.Top="219"
+            Width="45"
+            Height="133"
+            StrokeThickness="3"
+            Tag="wall" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/seaweed2.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Canvas>
 </Window>
