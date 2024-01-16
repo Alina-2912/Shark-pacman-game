@@ -42,6 +42,8 @@ namespace TestGithubWpf
         {
             InitializeComponent();
             GameSetUp();
+            gameTimer.Tick += GameLoop;
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -138,7 +140,7 @@ namespace TestGithubWpf
 
             }
         }
-        private void RestartGame()
+        /*private void RestartGame()
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
             mediaElement.Source = uri;
@@ -167,7 +169,7 @@ namespace TestGithubWpf
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
-                /*************************    TO MAKE THE COINS VISIBLE AGAIN *************************/
+ 
                 if ((string)x.Tag == "poisson")
                 {
                     if (x.Visibility == Visibility.Hidden)
@@ -184,7 +186,7 @@ namespace TestGithubWpf
                 }
             }
             MoveGhost();
-        }
+        }*/
         private void GameSetUp()
         {
             itemRemover.Clear();
@@ -193,8 +195,6 @@ namespace TestGithubWpf
             mediaElement.Play();
 
             MyCanvas.Focus();
-            gameTimer.Tick += GameLoop;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Start();
             currentGhostStep = ghostMoveStep;
 
@@ -243,6 +243,7 @@ namespace TestGithubWpf
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         speed = 9;
+                        ghostSpeed = 2;
                         powerMode = true;
                         x.Visibility = Visibility.Hidden;
                         score++;
