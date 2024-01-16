@@ -1277,7 +1277,7 @@
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Tag="wall" Height="41" Canvas.Left="126"  Canvas.Top="83" Width="641" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Rectangle Tag="wall" Height="41" Canvas.Left="124"  Canvas.Top="83" Width="616" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/rochets.png"/>
             </Rectangle.Fill>
