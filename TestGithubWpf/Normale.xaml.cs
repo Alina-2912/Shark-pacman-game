@@ -38,6 +38,22 @@ namespace TestGithubWpf
             InitializeComponent();
             GameSetUp();
         }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NiveauDialogue mw = new NiveauDialogue();
+            mw.Show();
+            this.Close();
+        }
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            Difficile mw = new Difficile();
+            mw.Show();
+            this.Close();
+        }
         private void GameSetUp()
         {
 
