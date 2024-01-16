@@ -32,7 +32,7 @@
         </Rectangle>
         <Button Name="CloseButton" Content="x" Height="22" Canvas.Left="771" Width="24" Background="Red" Click="CloseButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="1"/>
         <Button Name="Back" Click="BackButton_Click" Content="Back" Height="22" Canvas.Left="700" Canvas.Top="1" Width="54" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button x:Name="Next" Click="NextButton_Click" Content="Previous" Height="22" Canvas.Left="629" Canvas.Top="1" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button x:Name="Previous" Click="PreviousButton_Click" Content="Previous" Height="22" Canvas.Left="629" Canvas.Top="1" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label
             Name="txtScore"
             Content="Score: 0"

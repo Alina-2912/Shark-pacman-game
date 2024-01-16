@@ -48,7 +48,7 @@ namespace TestGithubWpf
             mw.Show();
             this.Close();
         }
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
             Normale mw = new Normale();
             mw.Show();

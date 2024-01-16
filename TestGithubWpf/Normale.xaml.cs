@@ -54,6 +54,12 @@ namespace TestGithubWpf
             mw.Show();
             this.Close();
         }
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
+        }
         private void GameSetUp()
         {
 
