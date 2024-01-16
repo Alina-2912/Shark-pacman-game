@@ -34,6 +34,8 @@ namespace TestGithubWpf
         bool powerMode = false;
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
+        ImageBrush pacmanImage = new ImageBrush();
+        int imageRequin = 1;
 
         public MainWindow()
         {
