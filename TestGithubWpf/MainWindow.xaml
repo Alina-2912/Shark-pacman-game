@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TestGithubWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="630" Width="810"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Canvas
         Name="MyCanvas"
         Background="Transparent"
