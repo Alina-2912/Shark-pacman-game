@@ -31,12 +31,12 @@ namespace TestGithubWpf
         int score = 0;
         bool gameover = false;
         bool isGamePaused = false;
-        bool powerMode = false;
+        bool modePuissant = false;
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
         ImageBrush pacmanImage = new ImageBrush();
         int imageRequin = 1;
-        int powerModeCounter = 200;
+        int modePuissantCompteur = 200;
 
         public MainWindow()
         {
@@ -140,53 +140,6 @@ namespace TestGithubWpf
 
             }
         }
-        /*private void RestartGame()
-        {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
-
-            currentGhostStep = ghostMoveStep;
-
-            Canvas.SetLeft(pacman, 50);
-            Canvas.SetTop(pacman, 104);
-
-            Canvas.SetLeft(pinkGuy, 651);
-            Canvas.SetTop(pinkGuy, 404);
-
-            Canvas.SetLeft(redGuy, 651);
-            Canvas.SetTop(redGuy, 29);
-
-            Canvas.SetLeft(orangeGuy, 173); //173 651
-            Canvas.SetTop(orangeGuy, 120);
-
-
-            gameTimer.Start();
-            score = 0;
-
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
-
- 
-                if ((string)x.Tag == "poisson")
-                {
-                    if (x.Visibility == Visibility.Hidden)
-                    {
-                        x.Visibility = Visibility.Visible;
-                    }
-                }
-                if ((string)x.Tag == "star")
-                {
-                    if (x.Visibility == Visibility.Visible)
-                    {
-                        x.Visibility = Visibility.Hidden;
-                    }
-                }
-            }
-            MoveGhost();
-        }*/
         private void GameSetUp()
         {
             itemRemover.Clear();
@@ -198,11 +151,6 @@ namespace TestGithubWpf
             gameTimer.Start();
             currentGhostStep = ghostMoveStep;
 
-            //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
-
-            /*ImageBrush pacmanImage = new ImageBrush();
-            pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pacman.jpg"));
-            pacman.Fill = pacmanImage;*/
             ImageBrush redGhost = new ImageBrush();
             redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
             redGuy.Fill = redGhost;
@@ -242,9 +190,7 @@ namespace TestGithubWpf
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
-                        speed = 9;
-                        ghostSpeed = 2;
-                        powerMode = true;
+                        modePuissant = true;
                         x.Visibility = Visibility.Hidden;
                         score++;
                     }
@@ -298,12 +244,12 @@ namespace TestGithubWpf
 
                 if ((string)x.Tag == "pieuvre")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox) && powerMode == false)
+                    if (pacmanHitBox.IntersectsWith(hitBox) && modePuissant == false)
                     {
                         gameTimer.Stop();
                         gameover = true;
                     }
-                    if (pacmanHitBox.IntersectsWith(hitBox) && powerMode == true)
+                    if (pacmanHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
                         itemRemover.Add(x);
                     }
@@ -366,12 +312,16 @@ namespace TestGithubWpf
             {
                 imageRequin = 1;
             }
-            if (powerMode == true)
+            if (modePuissant == true)
             {
-                powerModeCounter -= 1;
-                if (powerModeCounter < 1)
+                speed = 9;
+                ghostSpeed = 2;
+                modePuissantCompteur -= 1;
+                if (modePuissantCompteur < 1)
                 {
-                    powerMode = false;
+                    speed = 7;
+                    ghostSpeed = 10;
+                    modePuissant = false;
                 }
             }
 
@@ -440,17 +390,13 @@ namespace TestGithubWpf
             if (gameover)
             {
                 int s = score;
-                txtScore.Content += "   Press R to Retry";
-                
+                txtScore.Content += "   Press R to Retry";   
             }
         }
         private void GameOver(string message)
         {
             gameTimer.Stop();
             MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
-
-            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            //Application.Current.Shutdown();
         }
     }
 }
