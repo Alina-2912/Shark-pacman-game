@@ -69,7 +69,7 @@ namespace TestGithubWpf
             /*************************    RESTART - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                StartGame();
+                RestartGame();
             }
 
             if (e.Key == Key.Left)
@@ -121,7 +121,7 @@ namespace TestGithubWpf
 
             }
         }
-        private void StartGame()
+        private void RestartGame()
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
             mediaElement.Source = uri;
