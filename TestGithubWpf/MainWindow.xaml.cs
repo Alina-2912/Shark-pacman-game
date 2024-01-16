@@ -198,9 +198,9 @@ namespace TestGithubWpf
 
             //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
-            ImageBrush pacmanImage = new ImageBrush();
+            /*ImageBrush pacmanImage = new ImageBrush();
             pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pacman.jpg"));
-            pacman.Fill = pacmanImage;
+            pacman.Fill = pacmanImage;*/
             ImageBrush redGhost = new ImageBrush();
             redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
             redGuy.Fill = redGhost;
@@ -333,22 +333,22 @@ namespace TestGithubWpf
             movePacman();
             MoveGhost();
             
-            /*switch (imageRequin)
+            switch (imageRequin)
             {
                 case 1:
                 case 2:
                 case 3:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.jpg"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.jpg"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.png"));
                     break;
                 case 7:
                 case 8:
                 case 9:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.jpg"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.png"));
                     break;
             }
             pacman.Fill = pacmanImage;
@@ -356,7 +356,7 @@ namespace TestGithubWpf
             if (imageRequin > 9)
             {
                 imageRequin = 1;
-            }*/
+            }
 
             if (score == 16)
             {

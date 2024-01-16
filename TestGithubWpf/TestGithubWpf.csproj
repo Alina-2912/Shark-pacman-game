@@ -128,6 +128,15 @@
     <None Update="images\seaweed3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\shark_chomp-ani1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\shark_chomp-ani2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\shark_chomp-ani3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="images\smallcweed.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
