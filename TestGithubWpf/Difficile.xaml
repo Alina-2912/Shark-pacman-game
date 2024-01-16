@@ -8,7 +8,8 @@
     Title="Difficile"
     Width="810"
     Height="630"
-    WindowStartupLocation="CenterScreen">
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="NoResize">
     <Canvas
         Name="MyCanvas"
         Margin="0,0,0,-168"
