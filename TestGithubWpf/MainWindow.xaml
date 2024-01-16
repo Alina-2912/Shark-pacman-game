@@ -1028,7 +1028,7 @@
         </Rectangle>
         <Rectangle
             Canvas.Left="567"
-            Canvas.Top="446"
+            Canvas.Top="443"
             Width="38"
             Height="44"
             HorizontalAlignment="Center"
@@ -1040,11 +1040,11 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="450"
-            Canvas.Top="454"
+            Canvas.Left="446"
+            Canvas.Top="457"
             Width="36"
             Height="38"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Top"
             StrokeThickness="3"
             Tag="wall">
@@ -1053,11 +1053,11 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="673"
-            Canvas.Top="449"
+            Canvas.Left="681"
+            Canvas.Top="453"
             Width="38"
             Height="42"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Top"
             RenderTransformOrigin="0.342,0.392"
             StrokeThickness="3"
