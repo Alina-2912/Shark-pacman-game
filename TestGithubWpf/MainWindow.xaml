@@ -1168,7 +1168,29 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="110"
+            Canvas.Left="90"
+            Canvas.Top="349"
+            Width="22"
+            Height="20"
+            StrokeThickness="3"
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/bubles.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="102"
+            Canvas.Top="355"
+            Width="22"
+            Height="20"
+            StrokeThickness="3"
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/bubles.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="113"
             Canvas.Top="349"
             Width="22"
             Height="20"
@@ -1195,13 +1217,13 @@
             Width="22"
             Height="20"
             StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/bubles.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="147"
+            Canvas.Left="146"
             Canvas.Top="355"
             Width="22"
             Height="20"
@@ -1212,18 +1234,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="160"
-            Canvas.Top="349"
-            Width="22"
-            Height="20"
-            StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/bubles.jpg"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="173"
+            Canvas.Left="168"
             Canvas.Top="355"
             Width="22"
             Height="20"
@@ -1234,18 +1245,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="198"
-            Canvas.Top="355"
-            Width="22"
-            Height="20"
-            StrokeThickness="3"
-            Tag="wall" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Center" >
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/bubles.jpg"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="185"
+            Canvas.Left="157"
             Canvas.Top="349"
             Width="22"
             Height="20"
@@ -1256,7 +1256,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="209"
+            Canvas.Left="179"
             Canvas.Top="349"
             Width="22"
             Height="20"
@@ -1267,7 +1267,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="221"
+            Canvas.Left="192"
             Canvas.Top="355"
             Width="22"
             Height="20"
@@ -1304,12 +1304,12 @@
         <Button Name="Back" Click="BackButton_Click" Content="Back" Height="22" Canvas.Left="700" Canvas.Top="1" Width="54" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Button x:Name="Next" Click="NextButton_Click" Content="Next" Height="22" Canvas.Left="629" Canvas.Top="1" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Rectangle
-            Canvas.Left="110"
-            Canvas.Top="219"
+            Canvas.Left="90"
+            Canvas.Top="217"
             Width="45"
             Height="133"
             StrokeThickness="3"
-            Tag="wall" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            Tag="wall" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1"/>

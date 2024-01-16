@@ -137,12 +137,13 @@ namespace TestGithubWpf
                 goRight = false;
                 goLeft = false;
                 goUp = false;
-
             }
         }
         private void GameSetUp()
         {
+
             itemRemover.Clear();
+
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
             mediaElement.Source = uri;
             mediaElement.Play();
@@ -153,13 +154,13 @@ namespace TestGithubWpf
 
             ImageBrush redGhost = new ImageBrush();
             redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
-            redGuy.Fill = redGhost;
+            violetPieuvre.Fill = redGhost;
             ImageBrush orangeGhost = new ImageBrush();
             orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
-            orangeGuy.Fill = orangeGhost;
+            orangePieuvre.Fill = orangeGhost;
             ImageBrush pinkGhost = new ImageBrush();
             pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            pinkGuy.Fill = pinkGhost;
+            rosePieuvre.Fill = pinkGhost;
         }
 
         private void movePacman()
@@ -192,7 +193,6 @@ namespace TestGithubWpf
                     {
                         modePuissant = true;
                         x.Visibility = Visibility.Hidden;
-                        score++;
                     }
                 }
                 if ((string)x.Tag == "wall")
@@ -253,15 +253,15 @@ namespace TestGithubWpf
                     {
                         itemRemover.Add(x);
                     }
-                    if (x.Name.ToString() == "orangeGuy")
+                    if (x.Name.ToString() == "orangePieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed); //-
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed); 
                     }
-                    if (x.Name.ToString() == "redGuy")
+                    if (x.Name.ToString() == "violetPieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
                     }
-                    if (x.Name.ToString() == "pinkGuy")
+                    if (x.Name.ToString() == "rosePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
                     }
@@ -334,8 +334,6 @@ namespace TestGithubWpf
                         Width = 30,
                         Height = 30,
                         Fill = starImage,
-                        //Stroke = Brushes.Red,
-                        //Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
                         Tag = "star",
                     };
@@ -354,8 +352,6 @@ namespace TestGithubWpf
                         Width = 30,
                         Height = 30,
                         Fill = starImage,
-                        //Stroke = Brushes.Red,
-                        //Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
                         Tag = "star",
                     };
@@ -373,7 +369,6 @@ namespace TestGithubWpf
                         Width = 30,
                         Height = 30,
                         Fill = starImage,
-                        //Stroke = Brushes.Red,
                         Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
                         Tag = "star",
@@ -389,7 +384,6 @@ namespace TestGithubWpf
             }
             if (gameover)
             {
-                int s = score;
                 txtScore.Content += "   Press R to Retry";   
             }
         }
