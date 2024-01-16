@@ -330,6 +330,31 @@ namespace TestGithubWpf
 
             movePacman();
             MoveGhost();
+            
+            /*switch (imageRequin)
+            {
+                case 1:
+                case 2:
+                case 3:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.jpg"));
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.jpg"));
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.jpg"));
+                    break;
+            }
+            pacman.Fill = pacmanImage;
+            imageRequin++;
+            if (imageRequin > 9)
+            {
+                imageRequin = 1;
+            }*/
 
             if (score == 16)
             {
