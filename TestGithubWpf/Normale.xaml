@@ -6,13 +6,13 @@
     xmlns:local="clr-namespace:TestGithubWpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Normale"
-    Width="800"
-    Height="450"
-    mc:Ignorable="d">
+    Width="810"
+    Height="630"
+    WindowStartupLocation="CenterScreen">
     <Canvas
         Name="MyCanvas"
         Background="Transparent"
-        Focusable="True" Margin="0,0,0,-168">
+        Focusable="True"  Margin="0,0,0,-168">
         <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -30,19 +30,19 @@
             Foreground="Black" />
         <Rectangle
             Name="pinkGuy"
-            Canvas.Left="173"
-            Canvas.Top="404"
+            Canvas.Left="185"
+            Canvas.Top="395"
             Width="51"
             Height="51"
             Fill="Pink"
             Tag="pieuvre" />
         <Rectangle
             Name="pacman"
-            Canvas.Left="36"
-            Canvas.Top="118"
+            Canvas.Left="22"
+            Canvas.Top="545"
             Width="35"
             Height="24"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Fill="Yellow" />
         <Rectangle
@@ -61,5 +61,43 @@
             Height="52"
             Fill="Orange"
             Tag="pieuvre"  />
+        <Rectangle
+            Canvas.Top="490"
+            Width="384"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Top="345"
+            Width="417"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="67" />
+        <Rectangle
+            Canvas.Top="446"
+            Width="277"
+            Height="32"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="357" RenderTransformOrigin="0.5,0.5" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.399"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle
+            x:Name="greenGuy_Copy"
+            Canvas.Left="658"
+            Canvas.Top="468"
+            Width="52"
+            Height="52"
+            Fill="Green"
+            Tag="pieuvre"  HorizontalAlignment="Center" VerticalAlignment="Top"  />
     </Canvas>
 </Window>

@@ -113,6 +113,85 @@ namespace TestGithubWpf
                 }
             }
         }
+
+        private void CanvasKeyDown(object sender, KeyEventArgs e)
+        {
+            /*************************    PAUSE   *************************/
+            if (e.Key == Key.P)
+            {
+                if (!isGamePaused)
+                {
+                    gameTimer.Stop();
+                    isGamePaused = true;
+                    //mediaElement.Pause();
+                }
+            }
+            /*************************    RESUME   *************************/
+            if (e.Key == Key.R)
+            {
+                if (isGamePaused)
+                {
+                    gameTimer.Start();
+                    isGamePaused = false;
+                    //mediaElement.Play();
+                }
+            }
+            /*************************    RESTART - R   *************************/
+            if (e.Key == Key.R && gameover)
+            {
+                //StartGame();
+            }
+
+            if (e.Key == Key.Left)
+            {
+                goLeft = true;
+                //pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
+                pacman.RenderTransformOrigin = new Point(0.5, 0.2);
+                ScaleTransform flipTrans = new ScaleTransform();
+                flipTrans.ScaleX = -1;
+                pacman.RenderTransform = flipTrans;
+                goRight = false;
+                goUp = false;
+                goDown = false;
+            }
+            if (e.Key == Key.Right)
+            {
+                goRight = true;
+                pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
+                goLeft = false;
+                goUp = false;
+                goDown = false;
+
+            }
+            if (e.Key == Key.Up)
+            {
+                if (!goUp && !goDown)
+                {
+                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
+                }
+                goUp = true;
+                pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
+                goRight = false;
+                goLeft = false;
+                goDown = false;
+
+
+            }
+            if (e.Key == Key.Down)
+            {
+                if (!goUp && !goDown)
+                {
+                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
+                }
+                goDown = true;
+                pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
+                goRight = false;
+                goLeft = false;
+                goUp = false;
+
+            }
+        }
+
         private void MoveGhost()
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
