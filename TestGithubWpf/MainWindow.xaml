@@ -31,10 +31,10 @@
         <Rectangle
             Name="pacman"
             Canvas.Left="36"
-            Canvas.Top="118"
+            Canvas.Top="125"
             Width="35"
             Height="24"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Fill="Yellow" />
         <Rectangle
@@ -84,9 +84,9 @@
         </Rectangle>
         <Rectangle
             Canvas.Left="99"
-            Canvas.Top="173"
+            Canvas.Top="181"
             Width="51"
-            Height="171"
+            Height="163"
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle.Fill>
@@ -1294,11 +1294,11 @@
         </Rectangle>
         <Rectangle
             Canvas.Left="701"
-            Canvas.Top="173"
+            Canvas.Top="189"
             Width="57"
-            Height="171"
+            Height="155"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>

@@ -31,6 +31,7 @@ namespace TestGithubWpf
         int score = 0;
         bool gameover = false;
         bool isGamePaused = false;
+        bool powerMode = false;
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
 
@@ -137,8 +138,9 @@ namespace TestGithubWpf
             Canvas.SetLeft(redGuy, 651);
             Canvas.SetTop(redGuy, 29);
 
-            Canvas.SetLeft(orangeGuy, 173);
+            Canvas.SetLeft(orangeGuy, 173); //173 651
             Canvas.SetTop(orangeGuy, 120);
+
 
             gameTimer.Start();
             score = 0;
@@ -164,6 +166,7 @@ namespace TestGithubWpf
                     }
                 }
             }
+            MoveGhost();
         }
         private void GameSetUp()
         {
@@ -225,7 +228,6 @@ namespace TestGithubWpf
                         score++;
                     }
                 }
-
                 if ((string)x.Tag == "wall")
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox))
@@ -275,14 +277,19 @@ namespace TestGithubWpf
 
                 if ((string)x.Tag == "pieuvre")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    if (pacmanHitBox.IntersectsWith(hitBox) && powerMode == false)
                     {
                         gameTimer.Stop();
                         gameover = true;
                     }
+                    if (pacmanHitBox.IntersectsWith(hitBox) && powerMode == true)
+                    {
+                        x.Visibility = Visibility.Hidden;
+                        speed = 9;
+                    }
                     if (x.Name.ToString() == "orangeGuy")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed); //-
                     }
                     if (x.Name.ToString() == "redGuy")
                     {
