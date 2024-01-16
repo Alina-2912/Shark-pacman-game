@@ -8,13 +8,18 @@
     Title="Normale"
     Width="810"
     Height="630"
-    WindowStartupLocation="CenterScreen"
-    ResizeMode="NoResize">
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen">
     <Canvas
         Name="MyCanvas"
+        Margin="0,0,0,-168"
         Background="Transparent"
-        Focusable="True"  Margin="0,0,0,-168">
-        <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top">
+        Focusable="True">
+        <Rectangle
+            Width="800"
+            Height="600"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0.0" Color="Aqua" />
@@ -24,10 +29,47 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Name="CloseButton" Content="x" Height="22" Canvas.Left="771" Width="24" Background="Red" Click="CloseButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="1"/>
-        <Button Name="Back" Click="BackButton_Click" Content="Back" Height="22" Canvas.Left="700" Canvas.Top="1" Width="54" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button x:Name="Next" Click="NextButton_Click" Content="Next" Height="22" Canvas.Left="629" Canvas.Top="1" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Button x:Name="Previous" Click="PreviousButton_Click" Content="Previous" Height="22" Canvas.Left="557" Canvas.Top="1" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button
+            Name="CloseButton"
+            Canvas.Left="771"
+            Canvas.Top="1"
+            Width="24"
+            Height="22"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Red"
+            Click="CloseButton_Click"
+            Content="x" />
+        <Button
+            Name="Back"
+            Canvas.Left="700"
+            Canvas.Top="1"
+            Width="54"
+            Height="22"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Click="BackButton_Click"
+            Content="Back" />
+        <Button
+            x:Name="Next"
+            Canvas.Left="629"
+            Canvas.Top="1"
+            Width="54"
+            Height="22"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="NextButton_Click"
+            Content="Next" />
+        <Button
+            x:Name="Previous"
+            Canvas.Left="557"
+            Canvas.Top="1"
+            Width="54"
+            Height="22"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="PreviousButton_Click"
+            Content="Previous" />
         <Label
             Name="txtScore"
             Content="Score: 0"
@@ -56,8 +98,10 @@
             Canvas.Top="18"
             Width="51"
             Height="51"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Fill="Red"
-            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Tag="pieuvre" />
         <Rectangle
             Name="orangeGuy"
             Canvas.Left="658"
@@ -65,34 +109,43 @@
             Width="52"
             Height="52"
             Fill="Orange"
-            Tag="pieuvre"  />
+            Tag="pieuvre" />
         <Rectangle
             Canvas.Top="490"
             Width="384"
             Height="30"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            Tag="wall" />
         <Rectangle
+            Canvas.Left="67"
             Canvas.Top="345"
             Width="417"
             Height="30"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="67" />
+            Tag="wall" />
         <Rectangle
+            Canvas.Left="357"
             Canvas.Top="446"
             Width="277"
             Height="32"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="0.5,0.5"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="357" RenderTransformOrigin="0.5,0.5" >
+            Tag="wall">
             <Rectangle.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90.399"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.399" />
+                    <TranslateTransform />
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
@@ -102,7 +155,9 @@
             Canvas.Top="468"
             Width="52"
             Height="52"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             Fill="Green"
-            Tag="pieuvre"  HorizontalAlignment="Center" VerticalAlignment="Top"  />
+            Tag="pieuvre" />
     </Canvas>
 </Window>
