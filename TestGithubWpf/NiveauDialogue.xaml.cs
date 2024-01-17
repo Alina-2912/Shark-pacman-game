@@ -22,6 +22,9 @@ namespace TestGithubWpf
         public NiveauDialogue()
         {
             InitializeComponent();
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/sea.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
 
         }
         public string Combo_Box() 

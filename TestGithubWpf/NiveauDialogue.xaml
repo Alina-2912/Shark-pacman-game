@@ -90,5 +90,9 @@
             Content="Chasse Aquatique &#10;      Pac-Requin"
             FontSize="30"
             Foreground="White" />
+        <MediaElement
+            x:Name="mediaElement"
+            LoadedBehavior="Manual"
+            UnloadedBehavior="Manual" />
     </Grid>
 </Window>
