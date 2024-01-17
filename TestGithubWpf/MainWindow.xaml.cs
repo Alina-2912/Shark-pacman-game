@@ -420,12 +420,12 @@ namespace TestGithubWpf
             }
             if (score == 85)
             {
-                GameOver("Vous gagnez ! \nVous avez mangez tous les poissons !");
+                GameOver("Vous avez gagné ! \nVous avez mangé tous les poissons !");
             }
             if (gameover)
             {
                 mediaElement.Close();
-                txtScore.Content += "\n\n\nCliquez R \npour Réessayer";   
+                txtScore.Content += "\n\n\nCliquer R \npour Réessayer";   
             }
         }
         private void GameOver(string message)
