@@ -164,9 +164,6 @@
     <None Update="images\treasurebox.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="sound\BTS_sea.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="sound\gogo2.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

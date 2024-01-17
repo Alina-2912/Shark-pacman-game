@@ -40,18 +40,21 @@ namespace TestGithubWpf
                 MainWindow mw = new MainWindow();
                 mw.Show();
                 this.Close();
+                mediaElement.Close();
             }
             if (ComboBoxItem2.IsSelected)
             {
                 Normale mw = new Normale();
                 mw.Show();
                 this.Close();
+                mediaElement.Close();
             }
             if (ComboBoxItem3.IsSelected)
             {
                 Difficile mw = new Difficile();
                 mw.Show();
                 this.Close();
+                mediaElement.Close();
             }
             
         }
