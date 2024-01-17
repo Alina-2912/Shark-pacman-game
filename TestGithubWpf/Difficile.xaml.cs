@@ -230,15 +230,15 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         gameover = true;
                     }
-                    if (x.Name.ToString() == "orangeGuy")
+                    if (x.Name.ToString() == "orangePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
                     }
-                    if (x.Name.ToString() == "redGuy")
+                    if (x.Name.ToString() == "violetPieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
                     }
-                    if (x.Name.ToString() == "pinkGuy")
+                    if (x.Name.ToString() == "rosePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
                     }

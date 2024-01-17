@@ -39,7 +39,7 @@
             FontSize="20"
             Foreground="Black" />
         <Rectangle
-            Name="pinkGuy"
+            Name="rosePieuvre"
             Canvas.Left="173"
             Canvas.Top="404"
             Width="51"
@@ -56,7 +56,7 @@
             VerticalAlignment="Top"
             Fill="Yellow" />
         <Rectangle
-            Name="redGuy"
+            Name="violetPieuvre"
             Canvas.Left="185"
             Canvas.Top="18"
             Width="51"
@@ -66,7 +66,7 @@
             Fill="Red"
             Tag="pieuvre" />
         <Rectangle
-            Name="orangeGuy"
+            Name="orangePieuvre"
             Canvas.Left="658"
             Canvas.Top="118"
             Width="52"
