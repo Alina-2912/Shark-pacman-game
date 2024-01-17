@@ -103,7 +103,7 @@ namespace TestGithubWpf
                     goLeft = goUp = goDown = false;
                     goRight = true;
                     pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/pacman.jpg"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/requinvuhaut05.png"));
                     pacman.Fill = pacmanImage;
                 }
                 else { Canvas.SetLeft(pacman, 790); }

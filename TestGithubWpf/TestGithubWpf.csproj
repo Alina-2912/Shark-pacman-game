@@ -110,9 +110,6 @@
     <None Update="images\orange.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="images\pacman.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="images\pink.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
