@@ -35,7 +35,9 @@ namespace TestGithubWpf
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
         ImageBrush pacmanImage = new ImageBrush();
+        ImageBrush pinkGhost = new ImageBrush();
         int imageRequin = 1;
+        int imagePieuvre = 1;
         int modePuissantCompteur = 200;
 
         public MainWindow()
@@ -76,7 +78,7 @@ namespace TestGithubWpf
                 }
             }
             /*************************    RESUME   *************************/
-            if (e.Key == Key.R)
+            if (e.Key == Key.C)
             {
                 if (isGamePaused)
                 {
@@ -160,7 +162,7 @@ namespace TestGithubWpf
             ImageBrush orangeGhost = new ImageBrush();
             orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
             orangePieuvre.Fill = orangeGhost;
-            ImageBrush pinkGhost = new ImageBrush();
+            //ImageBrush pinkGhost = new ImageBrush();
             pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
             rosePieuvre.Fill = pinkGhost;
         }
@@ -284,11 +286,12 @@ namespace TestGithubWpf
             }
 
             starImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
-            txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
+            txtScore.Content = "Score: " + score + "\nCliquer P pour mettre le jeu en pause et C pour continuer";
 
             movePacman();
             MoveGhost();
-            
+
+            ////////////////////////////////////////////ANIMATION REQUIN
             switch (imageRequin)
             {
                 case 1:
@@ -313,6 +316,42 @@ namespace TestGithubWpf
             {
                 imageRequin = 1;
             }
+
+            //////////////////////////////////////////ANIMATION PIEUVRE ROSE
+            /*switch (imagePieuvre)
+            {
+                case 1:
+                case 2:
+                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose01.png"));
+                    break;
+                case 3:
+                case 4:
+                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose02.png"));
+                    break;
+                case 5:
+                case 6:
+                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose03.png"));
+                    break;
+                case 7:
+                case 8:
+                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose04.png"));
+                    break;
+                case 9:
+                case 10:
+                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose05.png"));
+                    break;
+                case 11:
+                case 12:
+                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose06.png"));
+                    break;
+            }
+            rosePieuvre.Fill = pinkGhost;
+            imagePieuvre++;
+            if (imagePieuvre > 12)
+            {
+                imagePieuvre = 1;
+            }
+            
             /******************************************            modePuissant     **************************************/
             if (modePuissant == true)
             {
@@ -381,12 +420,12 @@ namespace TestGithubWpf
             }
             if (score == 85)
             {
-                GameOver("You Win, you collected all of the coins");
+                GameOver("Vous gagnez ! \nVous avez mangez tous les poissons !");
             }
             if (gameover)
             {
                 mediaElement.Close();
-                txtScore.Content += "   Press R to Retry";   
+                txtScore.Content += "\n\n\nCliquez R \npour Réessayer";   
             }
         }
         private void GameOver(string message)
