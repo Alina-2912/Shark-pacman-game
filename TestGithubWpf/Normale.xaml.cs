@@ -47,21 +47,27 @@ namespace TestGithubWpf
             NiveauDialogue mw = new NiveauDialogue();
             mw.Show();
             this.Close();
+            mediaElement.Close();
         }
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             Difficile mw = new Difficile();
             mw.Show();
             this.Close();
+            mediaElement.Close();
         }
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
             mw.Show();
             this.Close();
+            mediaElement.Close();
         }
         private void GameSetUp()
         {
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
             MyCanvas.Focus();
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);

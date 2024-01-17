@@ -1018,6 +1018,4 @@
             Click="PreviousButton_Click"
             Content="Niveau&#10;Précédant" />
     </Canvas>
-
-
 </Window>

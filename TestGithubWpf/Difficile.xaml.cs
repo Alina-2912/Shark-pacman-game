@@ -31,7 +31,6 @@ namespace TestGithubWpf
         int score = 0;
         bool gameover = false;
         bool isGamePaused = false;
-        bool playsound = true;
         ImageBrush pacmanImage = new ImageBrush();
         int imageRequin = 1;
 
@@ -49,12 +48,14 @@ namespace TestGithubWpf
             NiveauDialogue mw = new NiveauDialogue();
             mw.Show();
             this.Close();
+            mediaElement.Close();
         }
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
             Normale mw = new Normale();
             mw.Show();
             this.Close();
+            mediaElement.Close();
         }
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {

@@ -307,5 +307,9 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <MediaElement
+    x:Name="mediaElement"
+    LoadedBehavior="Manual"
+    UnloadedBehavior="Manual" />
     </Canvas>
 </Window>
