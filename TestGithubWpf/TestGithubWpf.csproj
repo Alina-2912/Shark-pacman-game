@@ -22,15 +22,6 @@
     <None Remove="seaweed.jpg" />
     <None Remove="seaweed2.jpg" />
     <None Remove="seaweed3.jpg" />
-    <None Remove="stone1.jpg" />
-    <None Remove="stone2.jpg" />
-    <None Remove="stone3.jpg" />
-    <None Remove="stone4.jpg" />
-    <None Remove="stone5.jpg" />
-    <None Remove="stone6.jpg" />
-    <None Remove="stone7.jpg" />
-    <None Remove="stone8.jpg" />
-    <None Remove="stone9.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,15 +53,6 @@
     <Resource Include="seaweed.jpg" />
     <Resource Include="seaweed2.jpg" />
     <Resource Include="seaweed3.jpg" />
-    <Resource Include="stone1.jpg" />
-    <Resource Include="stone2.jpg" />
-    <Resource Include="stone3.jpg" />
-    <Resource Include="stone4.jpg" />
-    <Resource Include="stone5.jpg" />
-    <Resource Include="stone6.jpg" />
-    <Resource Include="stone7.jpg" />
-    <Resource Include="stone8.jpg" />
-    <Resource Include="stone9.jpg" />
   </ItemGroup>
 
   <ItemGroup>
