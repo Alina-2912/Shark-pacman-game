@@ -360,7 +360,7 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 489);
                 }
             }
-            if (score == 68)
+            if (score == 4)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -369,13 +369,12 @@ namespace TestGithubWpf
                         Width = 30,
                         Height = 30,
                         Fill = starImage,
-                        Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
                         Tag = "star",
                     };
                     MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 50);
-                    Canvas.SetLeft(rec, 650);
+                    Canvas.SetTop(rec, 100);
+                    Canvas.SetLeft(rec, 389);
                 }
             }
             if (score == 85)
@@ -384,6 +383,7 @@ namespace TestGithubWpf
             }
             if (gameover)
             {
+                mediaElement.Close();
                 txtScore.Content += "   Press R to Retry";   
             }
         }
