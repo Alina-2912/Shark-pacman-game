@@ -33,6 +33,7 @@ namespace TestGithubWpf
         bool isGamePaused = false;
         bool playsound = true;
         ImageBrush pacmanImage = new ImageBrush();
+        int imageRequin = 1;
 
         public Difficile()
         {
@@ -220,6 +221,51 @@ namespace TestGithubWpf
         private void GameLoop(object sender, EventArgs e)
         {
             txtScore.Content = "Score: " + score + "\n Press P to Pause and R to Resume";
+
+            /*switch (imageRequin)
+            {
+                case 1:
+                case 2:
+                case 3:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.png"));
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.png"));
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
+                    break;
+                case 13:
+                case 14:
+                case 15:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.png"));
+                    break;
+                case 16:
+                case 17:
+                case 18:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.png"));
+                    break;
+                case 19:
+                case 20:
+                case 21:
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
+                    break;
+            }
+            pacman.Fill = pacmanImage;
+            imageRequin++;
+            if (imageRequin > 21)
+            {
+                imageRequin = 1;
+            }*/
 
             if (goRight)
             {
