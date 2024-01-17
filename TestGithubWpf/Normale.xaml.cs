@@ -161,7 +161,9 @@ namespace TestGithubWpf
             /*************************    RESTART - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                //StartGame();
+                Normale mw = new Normale();
+                mw.Show();
+                this.Close();
             }
 
             if (e.Key == Key.Left)

@@ -41,7 +41,7 @@
             VerticalAlignment="Top"
             Fill="Yellow" />
         <Rectangle
-            Name="redGuy"
+            Name="violetPieuvre"
             Canvas.Left="185"
             Canvas.Top="18"
             Width="51"
@@ -49,7 +49,7 @@
             Fill="Red"
             Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle
-            Name="orangeGuy"
+            Name="orangePieuvre"
             Canvas.Left="655"
             Canvas.Top="110"
             Width="51"
@@ -57,7 +57,7 @@
             Fill="Orange"
             Tag="ghost" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Rectangle
-            Name="pinkGuy"
+            Name="rosePieuvre"
             Canvas.Left="173"
             Canvas.Top="404"
             Width="51"

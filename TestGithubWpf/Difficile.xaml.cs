@@ -132,7 +132,7 @@ namespace TestGithubWpf
                 pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.  jpg"));
             }
         }
-        private void StartGame()
+        /*private void StartGame()
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
             mediaElement.Source = uri;
@@ -144,7 +144,7 @@ namespace TestGithubWpf
             Canvas.SetTop(pacman, 104);
 
             Canvas.SetLeft(pinkGuy, 173);
-            Canvas.SetTop(pinkGuy, 404);
+            Canvas.SetTop(rosePieuvre, 404);
 
             Canvas.SetLeft(redGuy, 173);
             Canvas.SetTop(redGuy, 29);
@@ -160,7 +160,6 @@ namespace TestGithubWpf
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
-                /*************************    TO MAKE THE COINS VISIBLE AGAIN *************************/
                 if ((string)x.Tag == "coin")
                 {
                     if (x.Visibility == Visibility.Hidden)
@@ -192,7 +191,7 @@ namespace TestGithubWpf
                 }
 
             }
-        }
+        }*/
         private void GameSetUp()
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
@@ -210,13 +209,13 @@ namespace TestGithubWpf
             pacman.Fill = pacmanImage;
             ImageBrush redGhost = new ImageBrush();
             redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
-            redGuy.Fill = redGhost;
+            violetPieuvre.Fill = redGhost;
             ImageBrush orangeGhost = new ImageBrush();
             orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
-            orangeGuy.Fill = orangeGhost;
+            orangePieuvre.Fill = orangeGhost;
             ImageBrush pinkGhost = new ImageBrush();
             pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            pinkGuy.Fill = pinkGhost;
+            rosePieuvre.Fill = pinkGhost;
         }
         private void GameLoop(object sender, EventArgs e)
         {
