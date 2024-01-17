@@ -22,7 +22,8 @@ namespace TestGithubWpf
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
-        int speed = 7;
+        bool noLeft, noRight, noDown, noUp;
+        int speed = 8;
         Rect pacmanHitBox;
         int ghostSpeed = 10;
         int ghostMoveStep = 160;
@@ -30,8 +31,8 @@ namespace TestGithubWpf
         int score = 0;
         bool gameover = false;
         bool isGamePaused = false;
-        ImageBrush starImage = new ImageBrush();
-        List<Rectangle> itemRemover = new List<Rectangle>();
+        bool playsound = true;
+        ImageBrush pacmanImage = new ImageBrush();
 
         public Difficile()
         {
@@ -42,94 +43,6 @@ namespace TestGithubWpf
         {
             Close();
         }
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            NiveauDialogue mw = new NiveauDialogue();
-            mw.Show();
-            this.Close();
-        }
-        private void PreviousButton_Click(object sender, RoutedEventArgs e)
-        {
-            Normale mw = new Normale();
-            mw.Show();
-            this.Close();
-        }
-        private void GameSetUp()
-        {
-
-            MyCanvas.Focus();
-            gameTimer.Tick += GameLoop;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
-            gameTimer.Start();
-            currentGhostStep = ghostMoveStep;
-
-            //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
-        }
-        private void movePacman()
-        {
-            if (goRight && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
-            {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
-            }
-            if (goLeft && Canvas.GetLeft(pacman) > 20)
-            {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
-            }
-            if (goUp && Canvas.GetTop(pacman) > 20)
-            {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
-            }
-            if (goDown && Canvas.GetTop(pacman) < Application.Current.MainWindow.Height - 60)
-            {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
-            }
-
-            pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
-                if ((string)x.Tag == "star")
-                {
-                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
-                    {
-                        x.Visibility = Visibility.Hidden;
-                        score++;
-                    }
-                }
-
-                if ((string)x.Tag == "wall")
-                {
-                    if (pacmanHitBox.IntersectsWith(hitBox))
-                    {
-                        if (goRight)
-                        {
-                            Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
-                            goRight = false;
-                        }
-
-                        if (goLeft)
-                        {
-                            Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
-                            goLeft = false;
-                        }
-
-                        if (goUp)
-                        {
-                            Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
-                            goUp = false;
-                        }
-
-                        if (goDown)
-                        {
-                            Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
-                            goDown = false;
-                        }
-                    }
-                }
-            }
-        }
-
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {
             /*************************    PAUSE   *************************/
@@ -139,106 +52,134 @@ namespace TestGithubWpf
                 {
                     gameTimer.Stop();
                     isGamePaused = true;
-                    //mediaElement.Pause();
                 }
             }
-            /*************************    RESUME   *************************/
+            /*************************    REPLAY   *************************/
             if (e.Key == Key.R)
             {
                 if (isGamePaused)
                 {
                     gameTimer.Start();
                     isGamePaused = false;
-                    //mediaElement.Play();
                 }
             }
             /*************************    RESTART - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                //StartGame();
+                StartGame();
             }
 
-            if (e.Key == Key.Left)
+            if (e.Key == Key.Left && noLeft == false)
             {
-                goLeft = true;
-                //pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
-                pacman.RenderTransformOrigin = new Point(0.5, 0.2);
-                ScaleTransform flipTrans = new ScaleTransform();
-                flipTrans.ScaleX = -1;
-                pacman.RenderTransform = flipTrans;
-                goRight = false;
-                goUp = false;
-                goDown = false;
-            }
-            if (e.Key == Key.Right)
-            {
-                goRight = true;
-                pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
-                goLeft = false;
-                goUp = false;
-                goDown = false;
-
-            }
-            if (e.Key == Key.Up)
-            {
-                if (!goUp && !goDown)
+                if (Canvas.GetLeft(pacman) >= 10)
                 {
-                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
+                    goRight = goUp = goDown = false;
+                    noRight = noUp = noDown = false;
+                    goLeft = true;
+                    pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
                 }
-                goUp = true;
-                pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
-                goRight = false;
-                goLeft = false;
-                goDown = false;
-
-
+                else { Canvas.SetLeft(pacman, 10); }
             }
-            if (e.Key == Key.Down)
+            if (e.Key == Key.Right && noRight == false)
             {
-                if (!goUp && !goDown)
+                if (Canvas.GetLeft(pacman) <= 790) // si possible remplacer 790 par la largeur de la fenètre
                 {
-                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
+                    noLeft = noUp = noDown = false;
+                    goLeft = goUp = goDown = false;
+                    goRight = true;
+                    pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/pacman.jpg"));
+                    pacman.Fill = pacmanImage;
                 }
-                goDown = true;
-                pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
-                goRight = false;
-                goLeft = false;
-                goUp = false;
+                else { Canvas.SetLeft(pacman, 790); }
+            }
+            if (e.Key == Key.Up && noUp == false)
+            {
+                if (Canvas.GetTop(pacman) >= 10)
+                {
 
+                    noRight = noDown = noLeft = false;
+                    goRight = goDown = goLeft = false;
+                    goUp = true;
+                    pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
+                }
+                else { Canvas.SetTop(pacman, 10); }
+            }
+            if (e.Key == Key.Down && noDown == false)
+            {
+                if (Canvas.GetTop(pacman) <= 590)
+                {
+                    noUp = noLeft = noRight = false;
+                    goUp = goLeft = goRight = false;
+                    goDown = true;
+                    pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
+                }
+                else { Canvas.SetTop(pacman, 590); }
             }
         }
-
-        private void MoveGhost()
+        private void Canvas_KeyUp(object sender, KeyEventArgs e)
         {
+            // if the space key is pressed AND jumping boolean is true AND player y location is above 260 pixels
+            if (e.Key == Key.Left && !goLeft && Canvas.GetTop(pacman) > 260)
+            {
+                // set jumping to true
+                goLeft = true;
+                goRight = false;
+                goUp = false;
+                goDown = false;
+                // set speed integer to -12
+                speed = -12;
+                pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.  jpg"));
+            }
+        }
+        private void StartGame()
+        {
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
+
+            currentGhostStep = ghostMoveStep;
+
+            Canvas.SetLeft(pacman, 50);
+            Canvas.SetTop(pacman, 104);
+
+            Canvas.SetLeft(pinkGuy, 173);
+            Canvas.SetTop(pinkGuy, 404);
+
+            Canvas.SetLeft(redGuy, 173);
+            Canvas.SetTop(redGuy, 29);
+
+            Canvas.SetLeft(orangeGuy, 651);
+            Canvas.SetTop(orangeGuy, 104);
+
+            gameTimer.Start();
+            score = 0;
+
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
-                if ((string)x.Tag == "poisson")
+                /*************************    TO MAKE THE COINS VISIBLE AGAIN *************************/
+                if ((string)x.Tag == "coin")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    if (x.Visibility == Visibility.Hidden)
                     {
-                        x.Visibility = Visibility.Hidden;
-                        score++;
+                        x.Visibility = Visibility.Visible;
                     }
                 }
-
-                if ((string)x.Tag == "pieuvre")
+                if ((string)x.Tag == "ghost")
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
                         gameover = true;
                     }
-                    if (x.Name.ToString() == "orangePieuvre")
+                    if (x.Name.ToString() == "orangeGuy")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
                     }
-                    if (x.Name.ToString() == "violetPieuvre")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
-                    }
-                    if (x.Name.ToString() == "rosePieuvre")
+                    else
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
                     }
@@ -252,70 +193,131 @@ namespace TestGithubWpf
 
             }
         }
+        private void GameSetUp()
+        {
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
+
+            MyCanvas.Focus();
+            gameTimer.Tick += GameLoop;
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Start();
+            currentGhostStep = ghostMoveStep;
+
+            //ImageBrush pacmanImage = new ImageBrush();
+            pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pacman.jpg"));
+            pacman.Fill = pacmanImage;
+            ImageBrush redGhost = new ImageBrush();
+            redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
+            redGuy.Fill = redGhost;
+            ImageBrush orangeGhost = new ImageBrush();
+            orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
+            orangeGuy.Fill = orangeGhost;
+            ImageBrush pinkGhost = new ImageBrush();
+            pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
+            pinkGuy.Fill = pinkGhost;
+        }
         private void GameLoop(object sender, EventArgs e)
         {
-            starImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\n Press P to Pause and R to Resume";
 
-            movePacman();
-            MoveGhost();
-
-            if (score == 16)
+            if (goRight)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    Rectangle rec = new Rectangle()
-                    {
-                        Width = 30,
-                        Height = 30,
-                        Fill = starImage,
-                        //Stroke = Brushes.Red,
-                        //Visibility = Visibility.Hidden,
-                        StrokeThickness = 2,
-                        Tag = "star",
-                    };
-                    MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 529);
-                    Canvas.SetLeft(rec, 220);
-
-                }
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
             }
-            if (score == 47)
+            if (goLeft)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    Rectangle rec = new Rectangle()
-                    {
-                        Width = 30,
-                        Height = 30,
-                        Fill = starImage,
-                        //Stroke = Brushes.Red,
-                        //Visibility = Visibility.Hidden,
-                        StrokeThickness = 2,
-                        Tag = "star",
-                    };
-                    MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 199);
-                    Canvas.SetLeft(rec, 489);
-                }
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
             }
-            if (score == 68)
+            if (goUp)
             {
-                for (int i = 0; i < 5; i++)
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
+            }
+            if (goDown)
+            {
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
+            }
+            if (goDown && Canvas.GetTop(pacman) + 80 > Application.Current.MainWindow.Height)
+            {
+                noDown = true;
+                goDown = false;
+            }
+            if (goUp && Canvas.GetTop(pacman) < 1)
+            {
+                noUp = true;
+                goUp = false;
+            }
+            if (goLeft && Canvas.GetLeft(pacman) - 10 < 1)
+            {
+                noLeft = true;
+                goLeft = false;
+            }
+            if (goRight && Canvas.GetLeft(pacman) + 70 > Application.Current.MainWindow.Width)
+            {
+                noRight = true;
+                goRight = false;
+            }
+            pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                if ((string)x.Tag == "wall")
                 {
-                    Rectangle rec = new Rectangle()
+                    if (goLeft == true && pacmanHitBox.IntersectsWith(hitBox))
                     {
-                        Width = 30,
-                        Height = 30,
-                        Fill = starImage,
-                        //Stroke = Brushes.Red,
-                        Visibility = Visibility.Hidden,
-                        StrokeThickness = 2,
-                        Tag = "star",
-                    };
-                    MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 50);
-                    Canvas.SetLeft(rec, 650);
+                        Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + 10);
+                        noLeft = true;
+                        goLeft = false;
+                    }
+                    if (goRight == true && pacmanHitBox.IntersectsWith(hitBox))
+                    {
+                        Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 10);
+                        noRight = true;
+                        goRight = false;
+                    }
+                    if (goDown == true && pacmanHitBox.IntersectsWith(hitBox))
+                    {
+                        Canvas.SetTop(pacman, Canvas.GetTop(pacman) - 10);
+                        noDown = true;
+                        goDown = false;
+                    }
+                    if (goUp == true && pacmanHitBox.IntersectsWith(hitBox))
+                    {
+                        Canvas.SetTop(pacman, Canvas.GetTop(pacman) + 10);
+                        noUp = true;
+                        goUp = false;
+                    }
+                }
+                if ((string)x.Tag == "coin")
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    {
+                        x.Visibility = Visibility.Hidden;
+                        score++;
+                    }
+                }
+                if ((string)x.Tag == "ghost")
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    {
+                        gameTimer.Stop();
+                        gameover = true;
+                    }
+                    if (x.Name.ToString() == "orangeGuy")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                    }
+                    else
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                    }
+                    currentGhostStep--;
+                    if (currentGhostStep < 1)
+                    {
+                        currentGhostStep = ghostMoveStep;
+                        ghostSpeed = -ghostSpeed;
+                    }
                 }
             }
             if (score == 85)
