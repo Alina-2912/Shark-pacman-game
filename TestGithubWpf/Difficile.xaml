@@ -986,7 +986,37 @@
             x:Name="mediaElement"
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
-        <Button Name="CloseButton" Content="x" Height="21" Canvas.Left="779" Width="21" Background="Red" Click="CloseButton_Click"/>
+        <Button
+            Name="CloseButton"
+            Canvas.Left="771"
+            Canvas.Top="1"
+            Width="24"
+            Height="22"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Red"
+            Click="CloseButton_Click"
+            Content="x" />
+        <Button
+            Name="Back"
+            Canvas.Left="700"
+            Canvas.Top="1"
+            Width="54"
+            Height="22"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Click="BackButton_Click"
+            Content="Back" />
+        <Button
+            x:Name="Previous"
+            Canvas.Left="629"
+            Canvas.Top="1"
+            Width="54"
+            Height="22"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="PreviousButton_Click"
+            Content="Previous" />
     </Canvas>
 
 
