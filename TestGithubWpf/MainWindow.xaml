@@ -1301,8 +1301,26 @@
                 <ImageBrush ImageSource="/seaweed2.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Name="Back" Click="BackButton_Click" Content="Back" Height="22" Canvas.Left="700" Canvas.Top="1" Width="54" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button x:Name="Next" Click="NextButton_Click" Content="Next" Height="22" Canvas.Left="629" Canvas.Top="1" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button
+            Name="Back"
+            Canvas.Left="700"
+            Canvas.Top="1"
+            Width="60"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Click="BackButton_Click"
+            Content="Retour&#10;au menu" />
+        <Button
+            x:Name="Next"
+            Canvas.Left="630"
+            Canvas.Top="1"
+            Width="60"
+            Height="40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="NextButton_Click"
+            Content="Niveau&#10;Prochain" />
         <Rectangle
             Canvas.Left="90"
             Canvas.Top="217"

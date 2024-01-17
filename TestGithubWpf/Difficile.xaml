@@ -1001,22 +1001,22 @@
             Name="Back"
             Canvas.Left="700"
             Canvas.Top="1"
-            Width="54"
-            Height="22"
+            Width="60"
+            Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Click="BackButton_Click"
-            Content="Back" />
+            Content="Retour&#10;au menu" />
         <Button
             x:Name="Previous"
-            Canvas.Left="629"
+            Canvas.Left="630"
             Canvas.Top="1"
-            Width="54"
-            Height="22"
+            Width="60"
+            Height="40"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Click="PreviousButton_Click"
-            Content="Previous" />
+            Content="Niveau&#10;Précédant" />
     </Canvas>
 
 

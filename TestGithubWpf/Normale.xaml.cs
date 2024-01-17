@@ -267,7 +267,7 @@ namespace TestGithubWpf
         private void GameLoop(object sender, EventArgs e)
         {
             starImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
-            txtScore.Content = "Score: " + score + "\n Press P to Pause and R to Resume";
+            txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
 
             movePacman();
             MoveGhost();

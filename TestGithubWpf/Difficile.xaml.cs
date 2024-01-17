@@ -219,9 +219,7 @@ namespace TestGithubWpf
             gameTimer.Start();
             currentGhostStep = ghostMoveStep;
 
-            //ImageBrush pacmanImage = new ImageBrush();
-            pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pacman.jpg"));
-            pacman.Fill = pacmanImage;
+            
             ImageBrush redGhost = new ImageBrush();
             redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
             violetPieuvre.Fill = redGhost;
@@ -234,44 +232,44 @@ namespace TestGithubWpf
         }
         private void GameLoop(object sender, EventArgs e)
         {
-            txtScore.Content = "Score: " + score + "\n Press P to Pause and R to Resume";
+            txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
 
-            /*switch (imageRequin)
+            switch (imageRequin)
             {
                 case 1:
                 case 2:
                 case 3:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut01.png"));
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.png"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut02.png"));
                     break;
                 case 7:
                 case 8:
                 case 9:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.png"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut03.png"));
                     break;
                 case 10:
                 case 11:
                 case 12:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut04.png"));
                     break;
                 case 13:
                 case 14:
                 case 15:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.png"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut05.png"));
                     break;
                 case 16:
                 case 17:
                 case 18:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.png"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut06.png"));
                     break;
                 case 19:
                 case 20:
                 case 21:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
+                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut07.png"));
                     break;
             }
             pacman.Fill = pacmanImage;
@@ -279,7 +277,7 @@ namespace TestGithubWpf
             if (imageRequin > 21)
             {
                 imageRequin = 1;
-            }*/
+            }
 
             if (goRight)
             {
