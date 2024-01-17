@@ -62,7 +62,6 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
-
             MyCanvas.Focus();
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
@@ -112,24 +111,36 @@ namespace TestGithubWpf
                         {
                             Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
                             goRight = false;
+                            goDown = false;
+                            goLeft = false;
+                            goUp = false;
                         }
 
                         if (goLeft)
                         {
                             Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
+                            goRight = false;
+                            goDown = false;
                             goLeft = false;
+                            goUp = false;
                         }
 
                         if (goUp)
                         {
                             Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
+                            goRight = false;
+                            goDown = false;
+                            goLeft = false;
                             goUp = false;
                         }
 
                         if (goDown)
                         {
                             Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
+                            goRight = false;
                             goDown = false;
+                            goLeft = false;
+                            goUp = false;
                         }
                     }
                 }
