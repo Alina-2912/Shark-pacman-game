@@ -99,7 +99,6 @@ namespace TestGithubWpf
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         x.Visibility = Visibility.Hidden;
-                        score++;
                     }
                 }
 
@@ -111,36 +110,24 @@ namespace TestGithubWpf
                         {
                             Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
                             goRight = false;
-                            goDown = false;
-                            goLeft = false;
-                            goUp = false;
                         }
 
                         if (goLeft)
                         {
                             Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
-                            goRight = false;
-                            goDown = false;
                             goLeft = false;
-                            goUp = false;
                         }
 
                         if (goUp)
                         {
                             Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
-                            goRight = false;
-                            goDown = false;
-                            goLeft = false;
                             goUp = false;
                         }
 
                         if (goDown)
                         {
                             Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
-                            goRight = false;
                             goDown = false;
-                            goLeft = false;
-                            goUp = false;
                         }
                     }
                 }
