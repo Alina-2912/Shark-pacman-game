@@ -62,7 +62,6 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
-
             MyCanvas.Focus();
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
@@ -100,7 +99,6 @@ namespace TestGithubWpf
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         x.Visibility = Visibility.Hidden;
-                        score++;
                     }
                 }
 
