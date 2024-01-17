@@ -226,7 +226,6 @@ namespace TestGithubWpf
                 }
             }
         }
-
         private void MoveGhost()
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
@@ -312,6 +311,7 @@ namespace TestGithubWpf
             {
                 imageRequin = 1;
             }
+            /******************************************            modePuissant     **************************************/
             if (modePuissant == true)
             {
                 speed = 9;
