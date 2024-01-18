@@ -467,7 +467,7 @@ namespace TestGithubWpf
                         Tag = "star",
                     };
                     MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 100);
+                    Canvas.SetTop(rec, 50);
                     Canvas.SetLeft(rec, 389);
                 }
             }
