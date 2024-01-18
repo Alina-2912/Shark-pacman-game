@@ -138,10 +138,6 @@ namespace TestGithubWpf
         }
         private void StartGame()
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
-
             currentGhostStep = ghostMoveStep;
 
             Canvas.SetLeft(pacman, 50);
@@ -200,10 +196,6 @@ namespace TestGithubWpf
         {
 
             itemRemover.Clear();
-
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
 
             MyCanvas.Focus();
             gameTimer.Start();
@@ -286,6 +278,14 @@ namespace TestGithubWpf
                 }
             }
         }
+
+        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
+        }
+
         private void MoveGhost()
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())

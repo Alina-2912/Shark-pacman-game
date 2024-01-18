@@ -1335,5 +1335,11 @@
                 <ImageBrush ImageSource="/seaweed2.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Button
+            Width="121"
+            Height="48"
+            Click="ButtonMusique_Click"
+            Content="Musique"
+            FontSize="25" HorizontalAlignment="Left" Canvas.Left="557" Canvas.Top="2" VerticalAlignment="Top" />
     </Canvas>
 </Window>

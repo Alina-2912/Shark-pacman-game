@@ -49,6 +49,14 @@ namespace TestGithubWpf
             this.Hide();
             mediaElement.Close();
         }
+
+        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
+        }
+
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {
             /*************************    PAUSE   *************************/
@@ -142,10 +150,6 @@ namespace TestGithubWpf
         }
         private void StartGame()
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
-
             currentGhostStep = ghostMoveStep;
 
             Canvas.SetLeft(pacman, 50);
@@ -202,10 +206,6 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/bts_dionysus.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
-
             MyCanvas.Focus();
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);

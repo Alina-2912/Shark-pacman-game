@@ -26,10 +26,6 @@ namespace TestGithubWpf
         public NiveauDialogue()
         {
             InitializeComponent();
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/sea.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
-
         }
         public string Combo_Box() 
         {
@@ -69,6 +65,13 @@ namespace TestGithubWpf
         {
             this.Close();
             App.Current.Shutdown();
+        }
+
+        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/sea.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
         }
     }
 }
