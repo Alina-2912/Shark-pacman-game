@@ -44,8 +44,7 @@ namespace TestGithubWpf
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            NiveauDialogue mw = new NiveauDialogue();
-            mw.Show();
+            this.Owner.Show();
             this.Close();
             mediaElement.Close();
         }
@@ -58,7 +57,7 @@ namespace TestGithubWpf
         }
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
+            Facile mw = new Facile();
             mw.Show();
             this.Close();
             mediaElement.Close();

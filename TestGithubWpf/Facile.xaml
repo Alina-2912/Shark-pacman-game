@@ -1,4 +1,4 @@
-﻿<Window x:Class="TestGithubWpf.MainWindow"
+﻿<Window x:Class="TestGithubWpf.Facile"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -84,17 +84,21 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="579"
+            Canvas.Left="580"
             Canvas.Top="188"
-            Width="20"
+            Width="30"
             Height="109"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Rectangle.Fill>
+                <ImageBrush/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle
-            Canvas.Left="214"
+            Canvas.Left="205"
             Canvas.Top="188"
-            Width="20"
+            Width="30"
             Height="109"
             Stroke="DarkGreen"
             StrokeThickness="3"

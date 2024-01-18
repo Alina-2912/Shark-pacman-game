@@ -19,7 +19,7 @@ namespace TestGithubWpf
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Facile : Window
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
@@ -40,7 +40,7 @@ namespace TestGithubWpf
         int imagePieuvre = 1;
         int modePuissantCompteur = 200;
 
-        public MainWindow()
+        public Facile()
         {
             InitializeComponent();
             GameSetUp();
@@ -53,8 +53,10 @@ namespace TestGithubWpf
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            NiveauDialogue mw = new NiveauDialogue();
-            mw.Show();
+            /*    NiveauDialogue mw = new NiveauDialogue();
+                mw.Show();
+                this.Close();*/
+            this.Owner.Show();
             this.Close();
             mediaElement.Close();
         }
@@ -90,7 +92,7 @@ namespace TestGithubWpf
             /*************************    RESTART - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                MainWindow mw = new MainWindow();
+                Facile mw = new Facile();
                 mw.Show();
                 this.Close();
             }

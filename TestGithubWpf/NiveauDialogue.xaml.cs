@@ -19,6 +19,10 @@ namespace TestGithubWpf
     /// </summary>
     public partial class NiveauDialogue : Window
     {
+
+        private Facile niveauFacile = new Facile();
+        private Normale niveauNormal = new Normale();
+        private Difficile niveauDifficile = new Difficile();
         public NiveauDialogue()
         {
             InitializeComponent();
@@ -37,23 +41,26 @@ namespace TestGithubWpf
         {
           if (ComboBoxItem1.IsSelected)
             {
-                MainWindow mw = new MainWindow();
-                mw.Show();
-                this.Close();
+                this.Hide();
+                niveauFacile.Show();
+                niveauFacile.Owner = this;
+               
                 mediaElement.Close();
             }
             if (ComboBoxItem2.IsSelected)
             {
-                Normale mw = new Normale();
-                mw.Show();
-                this.Close();
+                this.Hide();
+                niveauNormal.Show();
+                niveauNormal.Owner = this;
+
                 mediaElement.Close();
             }
             if (ComboBoxItem3.IsSelected)
             {
-                Difficile mw = new Difficile();
-                mw.Show();
-                this.Close();
+                this.Hide();
+                niveauDifficile.Show();
+                niveauDifficile.Owner = this;
+
                 mediaElement.Close();
             }
             
@@ -61,6 +68,7 @@ namespace TestGithubWpf
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            App.Current.Shutdown();
         }
     }
 }
