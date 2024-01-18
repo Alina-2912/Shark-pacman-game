@@ -163,8 +163,11 @@ namespace TestGithubWpf
             orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
             orangePieuvre.Fill = orangeGhost;
             //ImageBrush pinkGhost = new ImageBrush();
-            pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            rosePieuvre.Fill = pinkGhost;
+            //pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
+            //rosePieuvre.Fill = pinkGhost;
+            ImageBrush corail1 = new ImageBrush();
+            corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));
+            corailMillieu.Fill = corail1;
         }
 
         private void movePacman()
@@ -318,7 +321,7 @@ namespace TestGithubWpf
             }
 
             //////////////////////////////////////////ANIMATION PIEUVRE ROSE
-            /*switch (imagePieuvre)
+            switch (imagePieuvre)
             {
                 case 1:
                 case 2:

@@ -71,7 +71,7 @@
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle
-            Canvas.Left="150"
+            Canvas.Left="140"
             Canvas.Top="457"
             Width="38"
             Height="34"
@@ -100,7 +100,7 @@
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle
-            Canvas.Left="127"
+            Canvas.Left="120"
             Canvas.Top="487"
             Width="42"
             Height="100"
@@ -126,14 +126,15 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="395"
-            Canvas.Top="487"
-            Width="76"
-            Height="89"
+            Name="corailMillieu"
+            Canvas.Left="360"
+            Canvas.Top="475"
+            Width="120"
+            Height="110"
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/seaweed.jpg" />
+                <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
@@ -967,7 +968,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="350"
+            Canvas.Left="175"
             Canvas.Top="544"
             Width="20"
             Height="20"
@@ -977,11 +978,11 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="350"
+            Canvas.Left="175"
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson">
+            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -991,12 +992,12 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
         <Rectangle
-            Canvas.Left="388"
-            Canvas.Top="458"
-            Width="38"
-            Height="34"
+            Canvas.Left="340"
+            Canvas.Top="348"
+            Width="40"
+            Height="35"
             HorizontalAlignment="Left"
-            VerticalAlignment="Center"
+            VerticalAlignment="Top"
             StrokeThickness="3"
             Tag="wall">
             <Rectangle.Fill>
@@ -1004,7 +1005,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="263"
+            Canvas.Left="255"
             Canvas.Top="443"
             Width="38"
             Height="48"
@@ -1030,10 +1031,10 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="446"
-            Canvas.Top="457"
-            Width="36"
-            Height="38"
+            Canvas.Left="460"
+            Canvas.Top="344"
+            Width="35"
+            Height="40"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             StrokeThickness="3"
