@@ -50,7 +50,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Click="BackButton_Click"
-            Content="Retour&#10;au menu" />
+            Content="Retour&#10;au menu" Background="#FF44FF00" />
         <Label
             Name="txtScore"
             Content="Score: 0"
@@ -292,10 +292,10 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
         <Button
-            Width="68"
+            Width="41"
             Height="35"
             Click="ButtonMusique_Click"
-            Content="Musique"
-            FontSize="25" Canvas.Left="610" Canvas.Top="2" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Content="🎵"
+            FontSize="16" Canvas.Left="637" Canvas.Top="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFE5FA00" />
     </Canvas>
 </Window>

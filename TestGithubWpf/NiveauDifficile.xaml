@@ -1006,12 +1006,12 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Click="BackButton_Click"
-            Content="Retour&#10;au menu" />
+            Content="Retour&#10;au menu" Background="#FFFFE703" />
         <Button
-            Width="103"
-            Height="43"
+            Width="40"
+            Height="35"
             Click="ButtonMusique_Click"
-            Content="Musique"
-            FontSize="25" HorizontalAlignment="Left" Canvas.Left="566" Canvas.Top="2" VerticalAlignment="Top" />
+            Content="🎵"
+            FontSize="16" HorizontalAlignment="Left" Canvas.Left="629" Canvas.Top="2" VerticalAlignment="Top" Background="#FF1FFF00" />
     </Canvas>
 </Window>

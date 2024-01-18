@@ -95,13 +95,14 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" Margin="708,33,-708,-33" />
         <Button
-            Width="150"
-            Height="65"
-            Margin="572,21,0,0"
+            Width="66"
+            Height="53"
+            Margin="656,33,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="ButtonMusique_Click"
-            Content="Musique"
-            FontSize="25" />
+            Content="🎵"
+            FontSize="25" Background="#FFBBFF00" 
+            />
     </Grid>
 </Window>

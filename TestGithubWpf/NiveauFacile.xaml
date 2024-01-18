@@ -1315,7 +1315,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Click="BackButton_Click"
-            Content="Retour&#10;au menu" />
+            Content="Retour&#10;au menu" Background="#FFFFF001" />
         <Rectangle
             Canvas.Left="90"
             Canvas.Top="217"
@@ -1336,10 +1336,10 @@
             </Rectangle.Fill>
         </Rectangle>
         <Button
-            Width="121"
-            Height="48"
+            Width="44"
+            Height="39"
             Click="ButtonMusique_Click"
-            Content="Musique"
-            FontSize="25" HorizontalAlignment="Left" Canvas.Left="557" Canvas.Top="2" VerticalAlignment="Top" />
+            Content="🎵"
+            FontSize="16" HorizontalAlignment="Left" Canvas.Left="634" Canvas.Top="2" VerticalAlignment="Top" Background="#FF4DFF00" />
     </Canvas>
 </Window>
