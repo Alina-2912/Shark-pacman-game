@@ -53,9 +53,6 @@ namespace TestGithubWpf
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            /*    NiveauDialogue mw = new NiveauDialogue();
-                mw.Show();
-                this.Close();*/
             this.Owner.Show();
             this.Hide();
             mediaElement.Close();
@@ -281,7 +278,7 @@ namespace TestGithubWpf
 
         private void ButtonMusique_Click(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo.wav");
             mediaElement.Source = uri;
             mediaElement.Play();
         }

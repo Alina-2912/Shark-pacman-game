@@ -52,7 +52,7 @@ namespace TestGithubWpf
 
         private void ButtonMusique_Click(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/bts_dionysus.wav");
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/dionysus.wav");
             mediaElement.Source = uri;
             mediaElement.Play();
         }
