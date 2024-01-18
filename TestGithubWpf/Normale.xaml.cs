@@ -45,7 +45,7 @@ namespace TestGithubWpf
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
-            this.Close();
+            this.Hide();
             mediaElement.Close();
         }
         private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -59,7 +59,7 @@ namespace TestGithubWpf
         {
             Facile mw = new Facile();
             mw.Show();
-            this.Close();
+            this.Hide();
             mediaElement.Close();
         }
         private void GameSetUp()
@@ -138,7 +138,66 @@ namespace TestGithubWpf
                 }
             }
         }
+        private void StartGame()
+        {
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            mediaElement.Source = uri;
+            mediaElement.Play();
 
+            currentGhostStep = ghostMoveStep;
+
+            Canvas.SetLeft(pacman, 50);
+            Canvas.SetTop(pacman, 104);
+
+            Canvas.SetLeft(rosePieuvre, 173);
+            Canvas.SetTop(rosePieuvre, 404);
+
+            Canvas.SetLeft(violetPieuvre, 173);
+            Canvas.SetTop(violetPieuvre, 29);
+
+            Canvas.SetLeft(orangePieuvre, 651);
+            Canvas.SetTop(orangePieuvre, 104);
+
+            gameTimer.Start();
+            score = 0;
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+                pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+
+                if ((string)x.Tag == "poisson")
+                {
+                    if (x.Visibility == Visibility.Hidden)
+                    {
+                        x.Visibility = Visibility.Visible;
+                    }
+                }
+                if ((string)x.Tag == "pieuvre")
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    {
+                        gameTimer.Stop();
+                        gameover = true;
+                    }
+                    if (x.Name.ToString() == "orangePieuvre")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                    }
+                    else
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                    }
+                    currentGhostStep--;
+                    if (currentGhostStep < 1)
+                    {
+                        currentGhostStep = ghostMoveStep;
+                        ghostSpeed = -ghostSpeed;
+                    }
+                }
+
+            }
+        }
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {
             /*************************    PAUSE   *************************/
@@ -164,9 +223,7 @@ namespace TestGithubWpf
             /*************************    RESTART - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                Normale mw = new Normale();
-                mw.Show();
-                this.Close();
+                StartGame();
             }
 
             if (e.Key == Key.Left)

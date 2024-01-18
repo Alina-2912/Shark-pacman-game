@@ -46,7 +46,7 @@ namespace TestGithubWpf
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
-            this.Close();
+            this.Hide();
             mediaElement.Close();
         }
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
@@ -82,9 +82,7 @@ namespace TestGithubWpf
             /*************************    RESTART - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                Difficile mw = new Difficile();
-                mw.Show();
-                this.Close();
+                StartGame();
             }
 
             if (e.Key == Key.Left && noLeft == false)
@@ -150,7 +148,7 @@ namespace TestGithubWpf
                 pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.  jpg"));
             }
         }
-        /*private void StartGame()
+        private void StartGame()
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
             mediaElement.Source = uri;
@@ -161,14 +159,14 @@ namespace TestGithubWpf
             Canvas.SetLeft(pacman, 50);
             Canvas.SetTop(pacman, 104);
 
-            Canvas.SetLeft(pinkGuy, 173);
+            Canvas.SetLeft(rosePieuvre, 173);
             Canvas.SetTop(rosePieuvre, 404);
 
-            Canvas.SetLeft(redGuy, 173);
-            Canvas.SetTop(redGuy, 29);
+            Canvas.SetLeft(violetPieuvre, 173);
+            Canvas.SetTop(violetPieuvre, 29);
 
-            Canvas.SetLeft(orangeGuy, 651);
-            Canvas.SetTop(orangeGuy, 104);
+            Canvas.SetLeft(orangePieuvre, 651);
+            Canvas.SetTop(orangePieuvre, 104);
 
             gameTimer.Start();
             score = 0;
@@ -192,7 +190,7 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         gameover = true;
                     }
-                    if (x.Name.ToString() == "orangeGuy")
+                    if (x.Name.ToString() == "orangePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
                     }
@@ -209,7 +207,7 @@ namespace TestGithubWpf
                 }
 
             }
-        }*/
+        }
         private void GameSetUp()
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/bts_dionysus.wav");
