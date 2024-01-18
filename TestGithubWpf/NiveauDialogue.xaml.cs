@@ -20,9 +20,9 @@ namespace TestGithubWpf
     public partial class NiveauDialogue : Window
     {
 
-        private Facile niveauFacile = new Facile();
-        private Normale niveauNormal = new Normale();
-        private Difficile niveauDifficile = new Difficile();
+        private NiveauFacile niveauFacile = new NiveauFacile();
+        private NiveauNormale niveauNormal = new NiveauNormale();
+        private NiveauDifficile niveauDifficile = new NiveauDifficile();
         public NiveauDialogue()
         {
             InitializeComponent();

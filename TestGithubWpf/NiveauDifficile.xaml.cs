@@ -18,7 +18,7 @@ namespace TestGithubWpf
     /// <summary>
     /// Logique d'interaction pour Difficile.xaml
     /// </summary>
-    public partial class Difficile : Window
+    public partial class NiveauDifficile : Window
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
@@ -34,7 +34,7 @@ namespace TestGithubWpf
         ImageBrush pacmanImage = new ImageBrush();
         int imageRequin = 1;
 
-        public Difficile()
+        public NiveauDifficile()
         {
             InitializeComponent();
             GameSetUp();

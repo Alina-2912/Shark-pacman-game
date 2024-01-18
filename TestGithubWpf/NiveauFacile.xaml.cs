@@ -19,7 +19,7 @@ namespace TestGithubWpf
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Facile : Window
+    public partial class NiveauFacile : Window
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
@@ -40,7 +40,7 @@ namespace TestGithubWpf
         int imagePieuvre = 1;
         int modePuissantCompteur = 200;
 
-        public Facile()
+        public NiveauFacile()
         {
             InitializeComponent();
             GameSetUp();

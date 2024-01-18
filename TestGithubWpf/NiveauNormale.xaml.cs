@@ -18,7 +18,7 @@ namespace TestGithubWpf
     /// <summary>
     /// Logique d'interaction pour Normale.xaml
     /// </summary>
-    public partial class Normale : Window
+    public partial class NiveauNormale : Window
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
@@ -33,7 +33,7 @@ namespace TestGithubWpf
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
 
-        public Normale()
+        public NiveauNormale()
         {
             InitializeComponent();
             GameSetUp();
