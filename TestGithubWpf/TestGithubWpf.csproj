@@ -200,6 +200,12 @@
     <None Update="images\treasurebox.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="sound\bts_dionysus.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="sound\bts_idol.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="sound\gogo2.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -212,7 +212,7 @@ namespace TestGithubWpf
         }*/
         private void GameSetUp()
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/bts_dionysus.wav");
             mediaElement.Source = uri;
             mediaElement.Play();
 
