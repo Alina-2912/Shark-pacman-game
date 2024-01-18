@@ -146,8 +146,8 @@ namespace TestGithubWpf
             Canvas.SetLeft(violetPieuvre, 173);
             Canvas.SetTop(violetPieuvre, 29);
 
-            Canvas.SetLeft(orangePieuvre, 651);
-            Canvas.SetTop(orangePieuvre, 104);
+            Canvas.SetLeft(orangePieuvre, 658);
+            Canvas.SetTop(orangePieuvre, 120);
 
             gameTimer.Start();
             score = 0;
