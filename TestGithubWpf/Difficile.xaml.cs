@@ -49,14 +49,6 @@ namespace TestGithubWpf
             this.Hide();
             mediaElement.Close();
         }
-        private void PreviousButton_Click(object sender, RoutedEventArgs e)
-        {
-            Normale mw = new Normale();
-            mw.Show();
-           
-            this.Close();
-            mediaElement.Close();
-        }
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {
             /*************************    PAUSE   *************************/

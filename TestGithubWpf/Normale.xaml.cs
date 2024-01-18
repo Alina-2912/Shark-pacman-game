@@ -48,20 +48,6 @@ namespace TestGithubWpf
             this.Hide();
             mediaElement.Close();
         }
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-            Difficile mw = new Difficile();
-            mw.Show();
-            this.Close();
-            mediaElement.Close();
-        }
-        private void PreviousButton_Click(object sender, RoutedEventArgs e)
-        {
-            Facile mw = new Facile();
-            mw.Show();
-            this.Hide();
-            mediaElement.Close();
-        }
         private void GameSetUp()
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/bts_idol1.wav");

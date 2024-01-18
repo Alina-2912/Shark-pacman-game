@@ -51,26 +51,6 @@
             VerticalAlignment="Top"
             Click="BackButton_Click"
             Content="Retour&#10;au menu" />
-        <Button
-            x:Name="Next"
-            Canvas.Left="629"
-            Canvas.Top="1"
-            Width="60"
-            Height="40"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Click="NextButton_Click"
-            Content="Niveau&#10;Prochain" />
-        <Button
-            x:Name="Previous"
-            Canvas.Left="557"
-            Canvas.Top="1"
-            Width="60"
-            Height="40"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Click="PreviousButton_Click"
-            Content="Niveau&#10;Précédant" />
         <Label
             Name="txtScore"
             Content="Score: 0"
