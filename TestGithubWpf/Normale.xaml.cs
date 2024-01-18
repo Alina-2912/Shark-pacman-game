@@ -65,7 +65,7 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/bts_idol.wav");
+            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/bts_idol1.wav");
             mediaElement.Source = uri;
             mediaElement.Play();
             MyCanvas.Focus();

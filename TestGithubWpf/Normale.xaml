@@ -308,8 +308,8 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <MediaElement
-    x:Name="mediaElement"
-    LoadedBehavior="Manual"
-    UnloadedBehavior="Manual" />
+            x:Name="mediaElement"
+            LoadedBehavior="Manual"
+            UnloadedBehavior="Manual" />
     </Canvas>
 </Window>

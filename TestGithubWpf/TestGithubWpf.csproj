@@ -203,7 +203,7 @@
     <None Update="sound\bts_dionysus.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="sound\bts_idol.wav">
+    <None Update="sound\bts_idol1.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="sound\gogo2.wav">
