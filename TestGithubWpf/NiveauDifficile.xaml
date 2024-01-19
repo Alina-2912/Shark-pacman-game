@@ -83,7 +83,7 @@
         <Rectangle
             Canvas.Left="115"
             Canvas.Top="320"
-            Width="250"
+            Width="260"
             Height="30"
             Stroke="DarkGreen"
             StrokeThickness="3"
@@ -97,9 +97,9 @@
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="500"
+            Canvas.Left="485"
             Canvas.Top="480"
-            Width="100"
+            Width="115"
             Height="30"
             Stroke="DarkGreen"
             StrokeThickness="3"
@@ -123,7 +123,7 @@
         <Rectangle
             Canvas.Left="380"
             Canvas.Top="100"
-            Width="220"
+            Width="230"
             Height="30"
             Stroke="DarkGreen"
             StrokeThickness="3"
