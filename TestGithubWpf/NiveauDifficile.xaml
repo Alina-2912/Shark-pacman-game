@@ -42,24 +42,24 @@
             Fill="Yellow" />
         <Rectangle
             Name="violetPieuvre"
-            Canvas.Left="725"
-            Canvas.Top="52"
-            Width="51"
+            Canvas.Left="466"
+            Canvas.Top="130"
+            Width="52"
             Height="51"
             Fill="Red"
             Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
             Name="orangePieuvre"
-            Canvas.Left="655"
-            Canvas.Top="110"
+            Canvas.Left="14"
+            Canvas.Top="364"
             Width="51"
             Height="51"
             Fill="Orange"
-            Tag="ghost" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
             Name="rosePieuvre"
-            Canvas.Left="725"
-            Canvas.Top="184"
+            Canvas.Left="520"
+            Canvas.Top="410"
             Width="51"
             Height="51"
             Fill="Pink"
@@ -421,8 +421,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="469"
-            Canvas.Top="248"
+            Canvas.Left="170"
+            Canvas.Top="446"
             Width="20"
             Height="20"
             Tag="coin">
@@ -431,8 +431,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="469"
-            Canvas.Top="200"
+            Canvas.Left="740"
+            Canvas.Top="340"
             Width="20"
             Height="20"
             Tag="coin">
@@ -721,8 +721,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="361"
-            Canvas.Top="404"
+            Canvas.Left="424"
+            Canvas.Top="534"
             Width="20"
             Height="20"
             Tag="coin">
@@ -741,8 +741,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="465"
-            Canvas.Top="404"
+            Canvas.Left="424"
+            Canvas.Top="495"
             Width="20"
             Height="20"
             Tag="coin">
@@ -751,11 +751,11 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="404"
-            Canvas.Top="404"
+            Canvas.Left="420"
+            Canvas.Top="410"
             Width="20"
             Height="20"
-            Tag="coin">
+            Tag="coin" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -781,8 +781,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="657"
-            Canvas.Top="404"
+            Canvas.Left="647"
+            Canvas.Top="456"
             Width="20"
             Height="20"
             Tag="coin">
@@ -801,8 +801,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="700"
-            Canvas.Top="404"
+            Canvas.Left="686"
+            Canvas.Top="456"
             Width="20"
             Height="20"
             Tag="coin">
@@ -871,18 +871,18 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="592"
-            Canvas.Top="544"
+            Canvas.Left="421"
+            Canvas.Top="379"
             Width="20"
             Height="20"
-            Tag="coin">
+            Tag="coin" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="592"
-            Canvas.Top="510"
+            Canvas.Left="740"
+            Canvas.Top="456"
             Width="20"
             Height="20"
             Tag="coin">
@@ -891,8 +891,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="619"
-            Canvas.Top="544"
+            Canvas.Left="710"
+            Canvas.Top="554"
             Width="20"
             Height="20"
             Tag="coin">
@@ -901,8 +901,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="619"
-            Canvas.Top="510"
+            Canvas.Left="420"
+            Canvas.Top="456"
             Width="20"
             Height="20"
             Tag="coin">

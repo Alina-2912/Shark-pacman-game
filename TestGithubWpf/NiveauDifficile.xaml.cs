@@ -181,7 +181,7 @@ namespace TestGithubWpf
                 }
                 if ((string)x.Tag == "ghost")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    if (pacmanHitBox.IntersectsWith(hitBox) == false)
                     {
                         gameTimer.Stop();
                         gameover = true;
@@ -190,9 +190,13 @@ namespace TestGithubWpf
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
-                    else
+                    if (x.Name.ToString() == "violetPieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                    }
+                    if (x.Name.ToString() == "rosePieuvre")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
                     currentGhostStep--;
                     if (currentGhostStep < 1)
