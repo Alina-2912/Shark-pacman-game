@@ -63,11 +63,12 @@
             Fill="Pink"
             Tag="pieuvre" />
         <Rectangle
+            Name="obstacle3"
             Canvas.Left="214"
             Canvas.Top="168"
             Width="385"
             Height="20"
-            Stroke="DarkGreen"
+            Stroke="Transparent"
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle
@@ -84,23 +85,25 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="580"
-            Canvas.Top="188"
-            Width="30"
-            Height="109"
-            Stroke="DarkGreen"
+            Name="obstacle2"
+            Canvas.Left="680"
+            Canvas.Top="215"
+            Width="40"
+            Height="135"
+            Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Rectangle.Fill>
                 <ImageBrush/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
+            Name="obstacle1"
             Canvas.Left="205"
             Canvas.Top="188"
             Width="30"
             Height="109"
-            Stroke="DarkGreen"
+            Stroke="Transparent"
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <Rectangle
@@ -1288,12 +1291,12 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="673"
-            Canvas.Top="219"
-            Width="48"
-            Height="133"
+            Canvas.Left="586"
+            Canvas.Top="188"
+            Width="30"
+            Height="100"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -1318,9 +1321,9 @@
             Content="Retour&#10;au menu" Background="#FFFFF001" />
         <Rectangle
             Canvas.Left="90"
-            Canvas.Top="217"
+            Canvas.Top="215"
             Width="45"
-            Height="133"
+            Height="135"
             StrokeThickness="3"
             Tag="wall" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Rectangle.RenderTransform>
