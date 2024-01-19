@@ -168,7 +168,7 @@ namespace TestGithubWpf
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
-                if ((string)x.Tag == "poisson")
+                if ((string)x.Tag == "meduses")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
@@ -283,7 +283,7 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                if ((string)x.Tag == "poisson")
+                if ((string)x.Tag == "meduses")
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
