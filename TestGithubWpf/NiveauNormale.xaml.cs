@@ -431,7 +431,7 @@ namespace TestGithubWpf
 
                 }
             }
-            if (score == 47)
+            if (score == 31)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -450,7 +450,7 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 489);
                 }
             }
-            if (score == 68)
+            if (score == 48)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -469,9 +469,8 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 650);
                 }
             }
-            if (score == 101)
+            if (score == 89)
             {
-                string message = "";
                 gagne = true;
             }
             if (gameover)
