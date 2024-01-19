@@ -1,20 +1,28 @@
-﻿<Window x:Class="TestGithubWpf.NiveauFacile"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestGithubWpf"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="635" Width="815"
-        WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+﻿<Window
+    x:Class="TestGithubWpf.NiveauFacile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TestGithubWpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="815"
+    Height="635"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
     <Canvas
         Name="MyCanvas"
+        Margin="0,0,0,-168"
         Background="Transparent"
         Focusable="True"
-        KeyDown="CanvasKeyDown" Margin="0,0,0,-168">
+        KeyDown="CanvasKeyDown">
         <!--  This rectangle is painted with a vertical gradient.  -->
-        <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <Rectangle
+            Width="800"
+            Height="600"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0.0" Color="Aqua" />
@@ -44,16 +52,20 @@
             Canvas.Top="18"
             Width="51"
             Height="51"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Fill="Red"
-            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Tag="pieuvre" />
         <Rectangle
             Name="orangePieuvre"
             Canvas.Left="658"
             Canvas.Top="120"
             Width="52"
             Height="52"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             Fill="Orange"
-            Tag="pieuvre" HorizontalAlignment="Center" VerticalAlignment="Top"  />
+            Tag="pieuvre" />
         <Rectangle
             Name="rosePieuvre"
             Canvas.Left="173"
@@ -68,10 +80,14 @@
             Canvas.Top="168"
             Width="385"
             Height="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Tag="wall" 
+            Fill="Lavender" RadiusX="8.5" RadiusY="8.5"/>
         <Rectangle
+            Name="corail_rouge1"
             Canvas.Left="140"
             Canvas.Top="457"
             Width="38"
@@ -79,10 +95,8 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="red">
         </Rectangle>
         <Rectangle
             Name="obstacle2"
@@ -90,11 +104,13 @@
             Canvas.Top="215"
             Width="40"
             Height="135"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            Tag="wall">
             <Rectangle.Fill>
-                <ImageBrush/>
+                <ImageBrush />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
@@ -103,9 +119,11 @@
             Canvas.Top="188"
             Width="30"
             Height="109"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Tag="wall" />
         <Rectangle
             Canvas.Left="120"
             Canvas.Top="487"
@@ -138,8 +156,10 @@
             Canvas.Top="475"
             Width="120"
             Height="110"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top">
+            Tag="wall">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>
@@ -229,7 +249,9 @@
             Canvas.Top="248"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -239,7 +261,9 @@
             Canvas.Top="200"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -259,7 +283,9 @@
             Canvas.Top="200"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -409,7 +435,9 @@
             Canvas.Top="248"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -419,7 +447,9 @@
             Canvas.Top="200"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -429,7 +459,9 @@
             Canvas.Top="248"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -439,7 +471,9 @@
             Canvas.Top="200"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -449,7 +483,9 @@
             Canvas.Top="248"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -459,7 +495,9 @@
             Canvas.Top="200"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -469,7 +507,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -479,7 +519,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -489,7 +531,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -499,7 +543,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -509,7 +555,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -519,7 +567,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -529,7 +579,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -539,7 +591,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -549,7 +603,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -559,7 +615,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -569,7 +627,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -579,7 +639,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Center" VerticalAlignment="Top">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -589,7 +651,9 @@
             Canvas.Top="63"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -759,7 +823,9 @@
             Canvas.Top="544"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -769,7 +835,9 @@
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -779,7 +847,9 @@
             Canvas.Top="544"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -789,7 +859,9 @@
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -799,7 +871,9 @@
             Canvas.Top="544"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -809,7 +883,9 @@
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -819,7 +895,9 @@
             Canvas.Top="544"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -829,7 +907,9 @@
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -839,7 +919,9 @@
             Canvas.Top="544"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -849,7 +931,9 @@
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -859,7 +943,9 @@
             Canvas.Top="544"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
@@ -869,7 +955,9 @@
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -989,7 +1077,9 @@
             Canvas.Top="510"
             Width="20"
             Height="20"
-            Tag="poisson" HorizontalAlignment="Left" VerticalAlignment="Center">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo2.jpg" />
             </Rectangle.Fill>
@@ -999,6 +1089,7 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
         <Rectangle
+            Name="corail_rouge2"
             Canvas.Left="340"
             Canvas.Top="348"
             Width="40"
@@ -1006,12 +1097,11 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral2.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="red">
         </Rectangle>
         <Rectangle
+            x:Name="corail_vert1"
             Canvas.Left="255"
             Canvas.Top="443"
             Width="38"
@@ -1019,12 +1109,11 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/seaweed3.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="LightGreen">
         </Rectangle>
         <Rectangle
+            x:Name="corail_vert2"
             Canvas.Left="567"
             Canvas.Top="443"
             Width="38"
@@ -1032,10 +1121,8 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral6.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="LightGreen">
         </Rectangle>
         <Rectangle
             Canvas.Left="460"
@@ -1051,6 +1138,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
+            x:Name="corail_rouge3"
             Canvas.Left="682"
             Canvas.Top="451"
             Width="38"
@@ -1059,34 +1147,50 @@
             VerticalAlignment="Top"
             RenderTransformOrigin="0.342,0.392"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral4.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"            Fill="red">
         </Rectangle>
-        <Button Name="CloseButton" Content="x" Height="22" Canvas.Left="771" Width="24" Background="Red" Click="CloseButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="1"/>
-        <Rectangle Tag="wall" Height="41" Canvas.Left="112"  Canvas.Top="83" Width="616" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/rochets.png"/>
-            </Rectangle.Fill>
+        <Button
+            Name="CloseButton"
+            Canvas.Left="771"
+            Canvas.Top="1"
+            Width="24"
+            Height="22"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Red"
+            Click="CloseButton_Click"
+            Content="x" />
+        <Rectangle
+            x:Name="rochets"
+            Canvas.Left="112"
+            Canvas.Top="83"
+            Width="616"
+            Height="41"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="wall"
+            Fill="Gray">
         </Rectangle>
         <Rectangle
             Canvas.Left="586"
             Canvas.Top="188"
             Width="30"
             Height="100"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+            Tag="wall">
             <Rectangle.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
+                    <ScaleTransform ScaleX="-1" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Rectangle.RenderTransform>
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/seaweed2.jpg"/>
+                <ImageBrush ImageSource="/seaweed2.jpg" />
             </Rectangle.Fill>
         </Rectangle>
         <Button
@@ -1097,28 +1201,33 @@
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
+            Background="#FFFFF001"
             Click="BackButton_Click"
-            Content="Retour&#10;au menu" Background="#FFFFF001" />
+            Content="Retour&#10;au menu" />
         <Rectangle
             Canvas.Left="90"
             Canvas.Top="215"
             Width="45"
             Height="135"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
             StrokeThickness="3"
-            Tag="wall" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            Tag="wall">
             <Rectangle.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
+                    <ScaleTransform ScaleX="1" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Rectangle.RenderTransform>
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/seaweed2.jpg"/>
+                <ImageBrush ImageSource="/seaweed2.jpg" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
+            Name="bulles2"
             Canvas.Left="588"
             Canvas.Top="350"
             Width="144"
@@ -1126,20 +1235,21 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall" 
-            Name="bulles2">
+            Tag="wall">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
+            x:Name="bulles1"
             Canvas.Left="92"
             Canvas.Top="350"
             Width="144"
             Height="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall" 
-            x:Name="bulles1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            Tag="wall">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>

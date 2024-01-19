@@ -22,14 +22,17 @@ namespace TestGithubWpf
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
-        int speed = 7;
+        int speed = 10;
         Rect pacmanHitBox;
         int vitesseEnnemie = 10;
         int ghostMoveStep = 160;
         int currentGhostStep;
         int score = 0;
+        int imageRequin = 1;
         bool gameover = false;
+        bool gagne = false;
         bool isGamePaused = false;
+        ImageBrush requinImage = new ImageBrush();
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
 
@@ -69,12 +72,18 @@ namespace TestGithubWpf
                 if ((string)x.Tag == "wall")
                 {
                     ImageBrush mur = new ImageBrush();
-                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/nemo.jpg"));
+                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed2.jpg"));
                     x.Fill = mur;
                 }
+                if ((string)x.Tag == "meduses")
+                {
+                    ImageBrush meduse = new ImageBrush();
+                    meduse.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/meduse.png"));
+                    x.Fill = meduse;
                 }
-                //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
             }
+                //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+        }
         private void movePacman()
         {
             if (goRight && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
@@ -162,7 +171,7 @@ namespace TestGithubWpf
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
-                if ((string)x.Tag == "poisson")
+                if ((string)x.Tag == "meduses")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
@@ -277,12 +286,20 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                if ((string)x.Tag == "poisson")
+                if ((string)x.Tag == "meduses")
                 {
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         x.Visibility = Visibility.Hidden;
                         score++;
+                    }
+                }
+                if ((string)x.Tag == "fin")
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox) && gagne == true)
+                    {
+                        x.Visibility = Visibility.Hidden;
+                        GameOver("Vous avez gagne");
                     }
                 }
 
@@ -326,6 +343,36 @@ namespace TestGithubWpf
 
             movePacman();
             MoveGhost();
+
+            switch (imageRequin)
+            {
+                case 1:
+                case 2:
+                case 3:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req1.png"));
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req2.png"));
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req3.png"));
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req4.png"));
+                    break;
+            }
+            pacman.Fill = requinImage;
+            imageRequin++;
+            if (imageRequin > 12)
+            {
+                imageRequin = 1;
+            }
 
             if (score == 16)
             {
@@ -385,9 +432,10 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 650);
                 }
             }
-            if (score == 85)
+            if (score == 101)
             {
-                GameOver("You Win, you collected all of the coins");
+                string message = "";
+                gagne = true;
             }
             if (gameover)
             {
@@ -397,7 +445,7 @@ namespace TestGithubWpf
         private void GameOver(string message)
         {
             gameTimer.Stop();
-            MessageBox.Show(message, "The Pac Man Game WPF MOO ICT");
+            MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
 
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             //Application.Current.Shutdown();
