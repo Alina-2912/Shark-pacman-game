@@ -421,5 +421,425 @@
             Height="20"
             Tag="poisson"
             Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="277"
+            Canvas.Top="100"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="277"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="330"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="380"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="543"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="491"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="434"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="595"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="100"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="145"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="700"
+            Canvas.Top="145"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="145"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="100"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="50"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="543"
+            Canvas.Top="220"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="543"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="543"
+            Canvas.Top="325"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="542"
+            Canvas.Top="380"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="35"
+            Canvas.Top="330"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="420"
+            Canvas.Top="380"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="421"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="420"
+            Canvas.Top="495"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="420"
+            Canvas.Top="436"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="361"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="536"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="480"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="296"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="296"
+            Canvas.Top="495"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="296"
+            Canvas.Top="436"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="296"
+            Canvas.Top="380"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="230"
+            Canvas.Top="380"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="162"
+            Canvas.Top="380"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="162"
+            Canvas.Top="436"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="162"
+            Canvas.Top="495"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="162"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="95"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="35"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="35"
+            Canvas.Top="495"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="35"
+            Canvas.Top="436"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="35"
+            Canvas.Top="380"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="542"
+            Canvas.Top="436"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="595"
+            Canvas.Top="350"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="350"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="300"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="246"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="695"
+            Canvas.Top="350"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="695"
+            Canvas.Top="300"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="695"
+            Canvas.Top="246"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="300"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="350"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="405"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="457"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="695"
+            Canvas.Top="457"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="457"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="510"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="650"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            Canvas.Left="695"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="553"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Rectangle
+            Canvas.Left="750"
+            Canvas.Top="246"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Canvas>
 </Window>
