@@ -43,7 +43,9 @@ namespace TestGithubWpf
                 this.Hide();
                 niveauFacile.Show();
                 niveauFacile.Owner = this;
-                
+                Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo.wav");
+                mediaElement.Source = uri;
+                mediaElement.Play();
             }
             if (ComboBoxItem2.IsSelected)
             {
@@ -73,9 +75,7 @@ namespace TestGithubWpf
 
         private void ButtonMusique_Click(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/sea.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
+            mediaElement.Close();
         }
     }
 }

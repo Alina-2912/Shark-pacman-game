@@ -291,11 +291,5 @@
             x:Name="mediaElement"
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
-        <Button
-            Width="41"
-            Height="35"
-            Click="ButtonMusique_Click"
-            Content="🎵"
-            FontSize="16" Canvas.Left="637" Canvas.Top="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFE5FA00" />
     </Canvas>
 </Window>

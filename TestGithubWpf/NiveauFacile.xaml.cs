@@ -57,6 +57,10 @@ namespace TestGithubWpf
             this.Hide();
             mediaElement.Close();
         }
+        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Close();
+        }
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {
             /*************************    PAUSE   *************************/
@@ -279,14 +283,6 @@ namespace TestGithubWpf
                 }
             }
         }
-
-        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
-        {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
-        }
-
         private void MoveGhost()
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())

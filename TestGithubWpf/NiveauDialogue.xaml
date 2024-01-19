@@ -93,7 +93,7 @@
         <MediaElement
             x:Name="mediaElement"
             LoadedBehavior="Manual"
-            UnloadedBehavior="Manual" Margin="708,33,-708,-33" />
+            UnloadedBehavior="Manual" Margin="60,20,654,515" />
         <Button
             Width="66"
             Height="53"

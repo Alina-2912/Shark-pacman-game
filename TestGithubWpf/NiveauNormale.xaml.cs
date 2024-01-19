@@ -48,6 +48,10 @@ namespace TestGithubWpf
             this.Hide();
             mediaElement.Close();
         }
+        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Close();
+        }
         private void GameSetUp()
         {
             MyCanvas.Focus();
@@ -253,13 +257,6 @@ namespace TestGithubWpf
                 goUp = false;
 
             }
-        }
-
-        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
-        {
-            Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/idol.wav");
-            mediaElement.Source = uri;
-            mediaElement.Play();
         }
 
         private void MoveGhost()
