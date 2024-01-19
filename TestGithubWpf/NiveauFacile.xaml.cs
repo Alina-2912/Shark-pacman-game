@@ -266,7 +266,23 @@ namespace TestGithubWpf
             ImageBrush jaunecorail = new ImageBrush();
             jaunecorail.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral3.jpg"));
             corail_jaune.Fill = jaunecorail;
-            
+
+            ImageBrush algue_vert = new ImageBrush();
+            algue_vert.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed2.jpg"));
+            algue1.Fill = algue_vert;
+            algue2.Fill = algue_vert;
+            algue3.Fill = algue_vert;
+            algue4.Fill = algue_vert;
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "poisson")
+                {
+                    ImageBrush nemo = new ImageBrush();
+                    nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/nemo.jpg"));
+                    x.Fill = nemo;
+                }
+            }
         }
 
         private void movePacman()
