@@ -134,6 +134,9 @@
     <None Update="images\planteOceanVert.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\porte.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="images\red.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

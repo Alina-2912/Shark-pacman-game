@@ -60,6 +60,9 @@ namespace TestGithubWpf
             gameTimer.Start();
             currentGhostStep = ghostMoveStep;
 
+            ImageBrush porte1 = new ImageBrush();
+            porte1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/porte.png"));
+            porte.Fill = porte1;
             //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
         }
         private void movePacman()
