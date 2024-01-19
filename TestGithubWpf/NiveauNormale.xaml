@@ -26,10 +26,10 @@
             VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Offset="0.0" Color="Aqua" />
-                    <GradientStop Offset="0.25" Color="DeepSkyBlue" />
-                    <GradientStop Offset="0.75" Color="RoyalBlue" />
-                    <GradientStop Offset="1.0" Color="DarkBlue" />
+                    <GradientStop Offset="0.0" Color="#FF00A0A0" />
+                    <GradientStop Offset="0.25" Color="#FF02698C" />
+                    <GradientStop Offset="0.607" Color="#FF13359A" />
+                    <GradientStop Offset="0.877" Color="#FF020244" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -96,10 +96,8 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/seaweed2.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Stroke="Coral">
         </Rectangle>
         <Rectangle
             Canvas.Left="425"
@@ -891,7 +889,11 @@
             VerticalAlignment="Top"
             Stroke="Coral"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="wall" >
+            <Rectangle.Fill>
+                <ImageBrush/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Rectangle
             Canvas.Left="80"
             Canvas.Top="360"
@@ -1339,7 +1341,7 @@
             Height="67"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Stroke="Black" />
+             />
         <Rectangle
             Canvas.Left="366"
             Canvas.Top="472"

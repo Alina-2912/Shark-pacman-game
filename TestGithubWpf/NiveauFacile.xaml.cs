@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -268,7 +269,16 @@ namespace TestGithubWpf
                     if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         modePuissant = true;
+                        modePuissantCompteur=200;
                         x.Visibility = Visibility.Hidden;
+                    }
+                    if (modePuissant == true)
+                    {
+                        modePuissantCompteur -= 1;  
+                        if (modePuissantCompteur < 1)
+                        {
+                            modePuissant = false;
+                        }
                     }
                 }
                 if ((string)x.Tag == "wall")
