@@ -1123,10 +1123,13 @@
             Canvas.Top="350"
             Width="144"
             Height="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top">
+            Tag="wall" 
+            Name="bulles2">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/images/bulles.png"/>
+                <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
@@ -1134,19 +1137,23 @@
             Canvas.Top="348"
             Width="145"
             Height="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="-0.764,0.766"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.764,0.766">
+            Tag="wall"
+            Name="bulles1">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="UniformToFill" />
+            </Rectangle.Fill>
             <Rectangle.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
+                    <ScaleTransform ScaleX="-1" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/images/bulles.png"/>
-            </Rectangle.Fill>
         </Rectangle>
     </Canvas>
 </Window>

@@ -226,6 +226,12 @@ namespace TestGithubWpf
             ImageBrush corail4 = new ImageBrush();
             corail4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/vaguesaquatiques.jpg"));
             obstacle3.Fill = corail4;
+            ImageBrush bulles_1 = new ImageBrush();
+            bulles_1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
+            bulles1.Fill = bulles_1;
+            ImageBrush bulles_2 = new ImageBrush();
+            bulles_2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
+            bulles2.Fill = bulles_2;
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             { 
