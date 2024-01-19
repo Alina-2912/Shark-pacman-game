@@ -445,7 +445,7 @@ namespace TestGithubWpf
         private void GameOver(string message)
         {
             gameTimer.Stop();
-            MessageBox.Show(message, "The Pac Man Game WPF MOO ICT");
+            MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
 
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             //Application.Current.Shutdown();
