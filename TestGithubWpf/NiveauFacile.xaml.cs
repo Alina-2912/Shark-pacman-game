@@ -234,8 +234,8 @@ namespace TestGithubWpf
             bulles_2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
             bulles2.Fill = bulles_2;
             ImageBrush rochet = new ImageBrush();
-            rochet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
-            bulles2.Fill = rochet;
+            rochet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets.png"));
+            rochets.Fill = rochet;
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             { 
