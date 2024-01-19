@@ -227,6 +227,16 @@ namespace TestGithubWpf
             ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
             rosePieuvre.Fill = ennemieRose;
 
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "poisson")
+                {
+                    ImageBrush nemo = new ImageBrush();
+                    nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/nemo.jpg"));
+                    x.Fill = nemo;
+                }
+            }
+
             foreach (var alguesBcp in MyCanvas.Children.OfType<Rectangle>())
             {
                 if ((string)alguesBcp.Tag == "obstacleVertical")
