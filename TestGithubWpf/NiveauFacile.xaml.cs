@@ -35,10 +35,12 @@ namespace TestGithubWpf
         bool modePuissant = false;
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
-        ImageBrush pacmanImage = new ImageBrush();
-        ImageBrush pinkGhost = new ImageBrush();
+        ImageBrush requinImage = new ImageBrush();
+        ImageBrush ennemieRose = new ImageBrush();
+        ImageBrush ennemieViolet = new ImageBrush();
         int imageRequin = 1;
-        int imagePieuvre = 1;
+        int imagePieuvre1 = 1;
+        int imagePieuvre2 = 1;
         int modePuissantCompteur = 200;
 
         public NiveauFacile()
@@ -206,15 +208,13 @@ namespace TestGithubWpf
             gameTimer.Start();
             currentGhostStep = ghostMoveStep;
 
-            ImageBrush redGhost = new ImageBrush();
-            redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
-            violetPieuvre.Fill = redGhost;
+            //ImageBrush redGhost = new ImageBrush();
+            //redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
+            //violetPieuvre.Fill = redGhost;
             ImageBrush orangeGhost = new ImageBrush();
             orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
             orangePieuvre.Fill = orangeGhost;
-            //ImageBrush pinkGhost = new ImageBrush();
-            //pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            //rosePieuvre.Fill = pinkGhost;
+
             ImageBrush corail1 = new ImageBrush();
             corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));
             corailMillieu.Fill = corail1;
@@ -379,20 +379,20 @@ namespace TestGithubWpf
                 case 1:
                 case 2:
                 case 3:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani1.png"));
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani2.png"));
                     break;
                 case 7:
                 case 8:
                 case 9:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/shark_chomp-ani3.png"));
                     break;
             }
-            pacman.Fill = pacmanImage;
+            pacman.Fill = requinImage;
             imageRequin++;
             if (imageRequin > 9)
             {
@@ -400,40 +400,75 @@ namespace TestGithubWpf
             }
 
             //////////////////////////////////////////ANIMATION PIEUVRE ROSE
-            switch (imagePieuvre)
+            switch (imagePieuvre1)
             {
                 case 1:
                 case 2:
-                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose01.png"));
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose01.png"));
                     break;
                 case 3:
                 case 4:
-                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose02.png"));
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose02.png"));
                     break;
                 case 5:
                 case 6:
-                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose03.png"));
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose03.png"));
                     break;
                 case 7:
                 case 8:
-                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose04.png"));
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose04.png"));
                     break;
                 case 9:
                 case 10:
-                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose05.png"));
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose05.png"));
                     break;
                 case 11:
                 case 12:
-                    pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose06.png"));
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose06.png"));
                     break;
             }
-            rosePieuvre.Fill = pinkGhost;
-            imagePieuvre++;
-            if (imagePieuvre > 12)
+            rosePieuvre.Fill = ennemieRose;
+            imagePieuvre1++;
+            if (imagePieuvre1 > 12)
             {
-                imagePieuvre = 1;
+                imagePieuvre1 = 1;
             }
-            
+
+            //////////////////////////////////////////ANIMATION PIEUVRE VIOLET
+            switch (imagePieuvre2)
+            {
+                case 1:
+                case 2:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet01.png"));
+                    break;
+                case 3:
+                case 4:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet02.png"));
+                    break;
+                case 5:
+                case 6:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet03.png"));
+                    break;
+                case 7:
+                case 8:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet04.png"));
+                    break;
+                case 9:
+                case 10:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet05.png"));
+                    break;
+                case 11:
+                case 12:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet06.png"));
+                    break;
+            }
+            violetPieuvre.Fill = ennemieViolet;
+            imagePieuvre2++;
+            if (imagePieuvre2 > 12)
+            {
+                imagePieuvre2 = 1;
+            }
+
             /******************************************            modePuissant     **************************************/
             if (modePuissant == true)
             {

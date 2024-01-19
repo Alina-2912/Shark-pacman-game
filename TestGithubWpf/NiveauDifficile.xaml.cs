@@ -219,9 +219,9 @@ namespace TestGithubWpf
             ImageBrush orangeGhost = new ImageBrush();
             orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
             orangePieuvre.Fill = orangeGhost;
-            ImageBrush pinkGhost = new ImageBrush();
-            pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            rosePieuvre.Fill = pinkGhost;
+            ImageBrush ennemieRose = new ImageBrush();
+            ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
+            rosePieuvre.Fill = ennemieRose;
             ImageBrush xx = new ImageBrush();
             xx.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
             //wall.Fill = xx;
