@@ -69,12 +69,18 @@ namespace TestGithubWpf
                 if ((string)x.Tag == "wall")
                 {
                     ImageBrush mur = new ImageBrush();
-                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/nemo.jpg"));
+                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed2.jpg"));
                     x.Fill = mur;
                 }
+                if ((string)x.Tag == "meduses")
+                {
+                    ImageBrush meduse = new ImageBrush();
+                    meduse.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/meduse.png"));
+                    x.Fill = meduse;
                 }
-                //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
             }
+                //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+        }
         private void movePacman()
         {
             if (goRight && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
