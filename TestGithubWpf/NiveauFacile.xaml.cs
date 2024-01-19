@@ -254,8 +254,16 @@ namespace TestGithubWpf
             ImageBrush rougecorail3 = new ImageBrush();
             rougecorail3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
             corail_rouge3.Fill = rougecorail3;
-   
-            }
+
+            ImageBrush vertecorail1 = new ImageBrush();
+            vertecorail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed3.jpg"));
+            corail_vert1.Fill = vertecorail1;
+
+            ImageBrush vertecorail2 = new ImageBrush();
+            vertecorail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral6.jpg"));
+            corail_vert2.Fill = vertecorail2;
+
+        }
 
         private void movePacman()
         {

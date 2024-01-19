@@ -1100,6 +1100,7 @@
             Fill="red">
         </Rectangle>
         <Rectangle
+            x:Name="corail_vert1"
             Canvas.Left="255"
             Canvas.Top="443"
             Width="38"
@@ -1107,12 +1108,11 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/seaweed3.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="LightGreen">
         </Rectangle>
         <Rectangle
+            x:Name="corail_vert2"
             Canvas.Left="567"
             Canvas.Top="443"
             Width="38"
@@ -1120,10 +1120,8 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral6.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="LightGreen">
         </Rectangle>
         <Rectangle
             Canvas.Left="460"

@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <None Remove="background.jpg" />
-    <None Remove="bubles.jpg" />
     <None Remove="coral3.jpg" />
     <None Remove="coral5.jpg" />
     <None Remove="coral6.jpg" />
@@ -21,9 +20,6 @@
 
   <ItemGroup>
     <Resource Include="background.jpg" />
-    <Resource Include="bubles.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="coral3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
