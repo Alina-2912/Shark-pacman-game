@@ -84,7 +84,8 @@
             VerticalAlignment="Center"
             Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="wall" 
+            Fill="Lavender" RadiusX="8.5" RadiusY="8.5"/>
         <Rectangle
             Name="corail_rouge1"
             Canvas.Left="140"
