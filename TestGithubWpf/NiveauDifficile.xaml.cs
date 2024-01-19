@@ -145,7 +145,7 @@ namespace TestGithubWpf
                 goDown = false;
                 // set speed integer to -12
                 speed = -12;
-                pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.  jpg"));
+                pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
             }
         }
         private void StartGame()
@@ -181,28 +181,28 @@ namespace TestGithubWpf
                 }
                 if ((string)x.Tag == "ghost")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox) == false)
+                    if (x.Visibility == Visibility.Hidden)
+                    {
+                        x.Visibility = Visibility.Visible;
+                    }
+                    if (pacmanHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
                         gameover = true;
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
                     }
-                    if (x.Name.ToString() == "violetPieuvre")
+                    else
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                    }
-                    if (x.Name.ToString() == "rosePieuvre")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
                     }
                     currentGhostStep--;
                     if (currentGhostStep < 1)
                     {
                         currentGhostStep = ghostMoveStep;
-                        vitesseEnnemie = -vitesseEnnemie;
+                        vitesseEnnemie = - vitesseEnnemie;
                     }
                 }
 
@@ -383,7 +383,7 @@ namespace TestGithubWpf
                     }
                     else
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
                     currentGhostStep--;
                     if (currentGhostStep < 1)

@@ -42,8 +42,8 @@
             Fill="Yellow" />
         <Rectangle
             Name="violetPieuvre"
-            Canvas.Left="466"
-            Canvas.Top="130"
+            Canvas.Left="730"
+            Canvas.Top="230"
             Width="52"
             Height="51"
             Fill="Red"
