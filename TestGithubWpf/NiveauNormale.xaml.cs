@@ -22,7 +22,7 @@ namespace TestGithubWpf
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool goLeft, goRight, goDown, goUp;
-        int speed = 7;
+        int speed = 10;
         Rect pacmanHitBox;
         int ghostSpeed = 10;
         int ghostMoveStep = 160;
@@ -423,7 +423,7 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 650);
                 }
             }
-            if (score == 85)
+            if (score == 99)
             {
                 GameOver("You Win, you collected all of the coins");
             }
