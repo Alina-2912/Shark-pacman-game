@@ -255,7 +255,6 @@ namespace TestGithubWpf
                 goRight = false;
                 goLeft = false;
                 goUp = false;
-
             }
         }
 

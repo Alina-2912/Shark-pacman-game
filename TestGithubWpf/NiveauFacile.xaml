@@ -1133,27 +1133,16 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="453"
-            Canvas.Top="348"
-            Width="145"
+            Canvas.Left="92"
+            Canvas.Top="350"
+            Width="144"
             Height="30"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderTransformOrigin="-0.764,0.766"
             StrokeThickness="3"
-            Tag="wall"
-            Name="bulles1">
+            Tag="wall" 
+            x:Name="bulles1" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1" />
-                    <SkewTransform />
-                    <RotateTransform />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Rectangle.RenderTransform>
         </Rectangle>
     </Canvas>
 </Window>
