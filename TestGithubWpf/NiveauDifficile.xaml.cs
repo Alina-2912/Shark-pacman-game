@@ -21,17 +21,17 @@ namespace TestGithubWpf
     public partial class NiveauDifficile : Window
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
-        bool goLeft, goRight, goDown, goUp;
+        bool vaGauche, vaDroite, vaEnBas, vaEnHaut;
         bool noLeft, noRight, noDown, noUp;
-        int speed = 8;
-        Rect pacmanHitBox;
+        int vitesse = 8;
+        Rect requinHitBox;
         int vitesseEnnemie = 10;
-        int ghostMoveStep = 160;
-        int currentGhostStep;
+        int mouvementPieuvre = 160;
+        int actuellePieuvrePas;
         int score = 0;
         bool gameover = false;
-        bool isGamePaused = false;
-        ImageBrush pacmanImage = new ImageBrush();
+        bool estJeuEnPause = false;
+        ImageBrush requinImage = new ImageBrush();
         int imageRequin = 1;
 
         public NiveauDifficile()
@@ -39,11 +39,12 @@ namespace TestGithubWpf
             InitializeComponent();
             GameSetUp();
         }
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonFermer_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            Application.Current.Shutdown();
         }
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonRetour_Click(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
             this.Hide();
@@ -62,36 +63,36 @@ namespace TestGithubWpf
             /*************************    PAUSE   *************************/
             if (e.Key == Key.P)
             {
-                if (!isGamePaused)
+                if (!estJeuEnPause)
                 {
                     gameTimer.Stop();
-                    isGamePaused = true;
+                    estJeuEnPause = true;
                     mediaElement.Pause();
                 }
             }
             /*************************    RESUME   *************************/
             if (e.Key == Key.R)
             {
-                if (isGamePaused)
+                if (estJeuEnPause)
                 {
                     gameTimer.Start();
-                    isGamePaused = false;
+                    estJeuEnPause = false;
                     mediaElement.Play();
                 }
             }
-            /*************************    RESTART - R   *************************/
+            /*************************    REDEMARRAGE - R   *************************/
             if (e.Key == Key.R && gameover)
             {
-                StartGame();
+                CommencerJeu();
             }
 
             if (e.Key == Key.Left && noLeft == false)
             {
                 if (Canvas.GetLeft(pacman) >= 10)
                 {
-                    goRight = goUp = goDown = false;
+                    vaDroite = vaEnHaut = vaEnBas = false;
                     noRight = noUp = noDown = false;
-                    goLeft = true;
+                    vaGauche = true;
                     pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
                 }
                 else { Canvas.SetLeft(pacman, 10); }
@@ -101,11 +102,11 @@ namespace TestGithubWpf
                 if (Canvas.GetLeft(pacman) <= 790) // si possible remplacer 790 par la largeur de la fenètre
                 {
                     noLeft = noUp = noDown = false;
-                    goLeft = goUp = goDown = false;
-                    goRight = true;
+                    vaGauche = vaEnHaut = vaEnBas = false;
+                    vaDroite = true;
                     pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/requinvuhaut05.png"));
-                    pacman.Fill = pacmanImage;
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/requinvuhaut05.png"));
+                    pacman.Fill = requinImage;
                 }
                 else { Canvas.SetLeft(pacman, 790); }
             }
@@ -115,8 +116,8 @@ namespace TestGithubWpf
                 {
 
                     noRight = noDown = noLeft = false;
-                    goRight = goDown = goLeft = false;
-                    goUp = true;
+                    vaDroite = vaEnBas = vaGauche = false;
+                    vaEnHaut = true;
                     pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
                 }
                 else { Canvas.SetTop(pacman, 10); }
@@ -126,8 +127,8 @@ namespace TestGithubWpf
                 if (Canvas.GetTop(pacman) <= 590)
                 {
                     noUp = noLeft = noRight = false;
-                    goUp = goLeft = goRight = false;
-                    goDown = true;
+                    vaEnHaut = vaGauche = vaDroite = false;
+                    vaEnBas = true;
                     pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
                 }
                 else { Canvas.SetTop(pacman, 590); }
@@ -136,21 +137,21 @@ namespace TestGithubWpf
         private void Canvas_KeyUp(object sender, KeyEventArgs e)
         {
             // if the space key is pressed AND jumping boolean is true AND player y location is above 260 pixels
-            if (e.Key == Key.Left && !goLeft && Canvas.GetTop(pacman) > 260)
+            if (e.Key == Key.Left && !vaGauche && Canvas.GetTop(pacman) > 260)
             {
                 // set jumping to true
-                goLeft = true;
-                goRight = false;
-                goUp = false;
-                goDown = false;
-                // set speed integer to -12
-                speed = -12;
-                pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
+                vaGauche = true;
+                vaDroite = false;
+                vaEnHaut = false;
+                vaEnBas = false;
+                // set vitesse integer to -12
+                vitesse = -12;
+                requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
             }
         }
-        private void StartGame()
+        private void CommencerJeu()
         {
-            currentGhostStep = ghostMoveStep;
+            actuellePieuvrePas = mouvementPieuvre;
 
             Canvas.SetLeft(pacman, 50);
             Canvas.SetTop(pacman, 104);
@@ -170,7 +171,7 @@ namespace TestGithubWpf
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+                requinHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
                 if ((string)x.Tag == "coin")
                 {
@@ -185,7 +186,7 @@ namespace TestGithubWpf
                     {
                         x.Visibility = Visibility.Visible;
                     }
-                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
                         gameover = true;
@@ -198,10 +199,10 @@ namespace TestGithubWpf
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
                     }
-                    currentGhostStep--;
-                    if (currentGhostStep < 1)
+                    actuellePieuvrePas--;
+                    if (actuellePieuvrePas < 1)
                     {
-                        currentGhostStep = ghostMoveStep;
+                        actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = - vitesseEnnemie;
                     }
                 }
@@ -214,7 +215,7 @@ namespace TestGithubWpf
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Start();
-            currentGhostStep = ghostMoveStep;
+            actuellePieuvrePas = mouvementPieuvre;
 
             
             ImageBrush redGhost = new ImageBrush();
@@ -265,116 +266,116 @@ namespace TestGithubWpf
                 case 1:
                 case 2:
                 case 3:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut01.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut01.png"));
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut02.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut02.png"));
                     break;
                 case 7:
                 case 8:
                 case 9:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut03.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut03.png"));
                     break;
                 case 10:
                 case 11:
                 case 12:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut04.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut04.png"));
                     break;
                 case 13:
                 case 14:
                 case 15:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut05.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut05.png"));
                     break;
                 case 16:
                 case 17:
                 case 18:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut06.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut06.png"));
                     break;
                 case 19:
                 case 20:
                 case 21:
-                    pacmanImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut07.png"));
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut07.png"));
                     break;
             }
-            pacman.Fill = pacmanImage;
+            pacman.Fill = requinImage;
             imageRequin++;
             if (imageRequin > 21)
             {
                 imageRequin = 1;
             }
 
-            if (goRight)
+            if (vaDroite)
             {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + vitesse);
             }
-            if (goLeft)
+            if (vaGauche)
             {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - vitesse);
             }
-            if (goUp)
+            if (vaEnHaut)
             {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - vitesse);
             }
-            if (goDown)
+            if (vaEnBas)
             {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + vitesse);
             }
-            if (goDown && Canvas.GetTop(pacman) + 80 > Application.Current.MainWindow.Height)
+            if (vaEnBas && Canvas.GetTop(pacman) + 80 > Application.Current.MainWindow.Height)
             {
                 noDown = true;
-                goDown = false;
+                vaEnBas = false;
             }
-            if (goUp && Canvas.GetTop(pacman) < 1)
+            if (vaEnHaut && Canvas.GetTop(pacman) < 1)
             {
                 noUp = true;
-                goUp = false;
+                vaEnHaut = false;
             }
-            if (goLeft && Canvas.GetLeft(pacman) - 10 < 1)
+            if (vaGauche && Canvas.GetLeft(pacman) - 10 < 1)
             {
                 noLeft = true;
-                goLeft = false;
+                vaGauche = false;
             }
-            if (goRight && Canvas.GetLeft(pacman) + 70 > Application.Current.MainWindow.Width)
+            if (vaDroite && Canvas.GetLeft(pacman) + 70 > Application.Current.MainWindow.Width)
             {
                 noRight = true;
-                goRight = false;
+                vaDroite = false;
             }
-            pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+            requinHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 if ((string)x.Tag == "obstacleVertical" || (string)x.Tag == "obstacleHorizontal")
                 {
-                    if (goLeft == true && pacmanHitBox.IntersectsWith(hitBox))
+                    if (vaGauche == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + 10);
                         noLeft = true;
-                        goLeft = false;
+                        vaGauche = false;
                     }
-                    if (goRight == true && pacmanHitBox.IntersectsWith(hitBox))
+                    if (vaDroite == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 10);
                         noRight = true;
-                        goRight = false;
+                        vaDroite = false;
                     }
-                    if (goDown == true && pacmanHitBox.IntersectsWith(hitBox))
+                    if (vaEnBas == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetTop(pacman, Canvas.GetTop(pacman) - 10);
                         noDown = true;
-                        goDown = false;
+                        vaEnBas = false;
                     }
-                    if (goUp == true && pacmanHitBox.IntersectsWith(hitBox))
+                    if (vaEnHaut == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetTop(pacman, Canvas.GetTop(pacman) + 10);
                         noUp = true;
-                        goUp = false;
+                        vaEnHaut = false;
                     }
                 }
                 if ((string)x.Tag == "coin")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         x.Visibility = Visibility.Hidden;
                         score++;
@@ -382,7 +383,7 @@ namespace TestGithubWpf
                 }
                 if ((string)x.Tag == "ghost")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
                         gameover = true;
@@ -395,10 +396,10 @@ namespace TestGithubWpf
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
-                    currentGhostStep--;
-                    if (currentGhostStep < 1)
+                    actuellePieuvrePas--;
+                    if (actuellePieuvrePas < 1)
                     {
-                        currentGhostStep = ghostMoveStep;
+                        actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = -vitesseEnnemie;
                     }
                 }

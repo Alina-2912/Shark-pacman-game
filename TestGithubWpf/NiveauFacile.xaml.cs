@@ -47,7 +47,7 @@ namespace TestGithubWpf
         {
             InitializeComponent();
             ConfigurationJeu();
-            gameTimer.Tick += GameLoop;
+            gameTimer.Tick += BoucleJeu;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
         }
         private void ButtonFermer_Click(object sender, RoutedEventArgs e)
@@ -87,7 +87,7 @@ namespace TestGithubWpf
                     mediaElement.Play();
                 }
             }
-            /*************************    REbonusT - R   *************************/
+            /*************************    REDEMARRAGE - R   *************************/
             if (e.Key == Key.R && jeu_termine)
             {
                 CommencerJeu();
@@ -403,7 +403,7 @@ namespace TestGithubWpf
                 
             }
         }
-        private void GameLoop(object sender, EventArgs e)
+        private void BoucleJeu(object sender, EventArgs e)
         {
             foreach (Rectangle y in dissolvantObjets)
             {
@@ -416,7 +416,7 @@ namespace TestGithubWpf
             DeplacerRequin();
             DeplacerPieuvre();
 
-            ////////////////////////////////////////////ANIMATION REQUIN
+            ////////////////////////////////////////////  ANIMATION REQUIN
             switch (imageRequin)
             {
                 case 1:
@@ -442,7 +442,7 @@ namespace TestGithubWpf
                 imageRequin = 1;
             }
 
-            //////////////////////////////////////////ANIMATION PIEUVRE ROSE
+            //////////////////////////////////////////  ANIMATION PIEUVRE ROSE
             switch (imagePieuvre1)
             {
                 case 1:
@@ -477,7 +477,7 @@ namespace TestGithubWpf
                 imagePieuvre1 = 1;
             }
 
-            //////////////////////////////////////////ANIMATION PIEUVRE VIOLET
+            //////////////////////////////////////////  ANIMATION PIEUVRE VIOLET
             switch (imagePieuvre2)
             {
                 case 1:
@@ -512,7 +512,7 @@ namespace TestGithubWpf
                 imagePieuvre2 = 1;
             }
 
-            /******************************************            modePuissant     **************************************/
+            /*******************************    ModePuissant    ******************************/
             if (modePuissant == true)
             {
                 vitesse = 9;
@@ -525,7 +525,7 @@ namespace TestGithubWpf
                     modePuissant = false;
                 }
             }
-
+            /*******************************    BONUS    ******************************/
             if (score == 16)
             {
                 for (int i = 0; i < 5; i++)

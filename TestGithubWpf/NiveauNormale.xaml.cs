@@ -78,7 +78,7 @@ namespace TestGithubWpf
                     //mediaElement.Play();
                 }
             }
-            /*************************    REbonusT - R   *************************/
+            /*************************    REDEMARRAGE - R   *************************/
             if (e.Key == Key.R && jeu_termine)
             {
                 CommencerJeu();
@@ -135,7 +135,7 @@ namespace TestGithubWpf
         private void ConfigurationJeu()
         {
             MyCanvas.Focus();
-            gameTimer.Tick += GameLoop;
+            gameTimer.Tick += BoucleJeu;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Start();
             actuellePieuvrePas = mouvementPieuvre;
@@ -146,7 +146,7 @@ namespace TestGithubWpf
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
-                if ((string)x.Tag == "wall")
+                if ((string)x.Tag == "mur")
                 {
                     ImageBrush mur = new ImageBrush();
                     mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets2.jpg"));
@@ -193,7 +193,7 @@ namespace TestGithubWpf
                     }
                 }
 
-                if ((string)x.Tag == "wall")
+                if ((string)x.Tag == "mur")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
@@ -300,7 +300,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox) && gagne == true)
                     {
                         x.Visibility = Visibility.Hidden;
-                        GameOver("Vous avez gagne");
+                        JeuTermine("Vous avez gagne");
                     }
                 }
 
@@ -337,7 +337,7 @@ namespace TestGithubWpf
 
             }
         }
-        private void GameLoop(object sender, EventArgs e)
+        private void BoucleJeu(object sender, EventArgs e)
         {
             bonusImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
@@ -477,13 +477,10 @@ namespace TestGithubWpf
                 txtScore.Content += "   Press R to Retry";
             }
         }
-        private void GameOver(string message)
+        private void JeuTermine(string message)
         {
             gameTimer.Stop();
             MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
-
-            //System.Diagnostics.Process.bonust(Application.ResourceAssembly.Location);
-            //Application.Current.Shutdown();
         }
     }
 }

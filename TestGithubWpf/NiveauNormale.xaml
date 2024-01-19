@@ -87,7 +87,7 @@
             VerticalAlignment="Top"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="15" RadiusY="15" />
+            Tag="mur" RadiusX="15" RadiusY="15" />
         <Rectangle
             x:Name="torche"
             Canvas.Left="296"
@@ -98,7 +98,7 @@
             VerticalAlignment="Center"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             Canvas.Left="425"
             Canvas.Top="360"
@@ -108,7 +108,7 @@
             VerticalAlignment="Top"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="28.84" RadiusY="28.84" />
+            Tag="mur" RadiusX="28.84" RadiusY="28.84" />
         <Rectangle
             Canvas.Left="750"
             Canvas.Top="474"
@@ -679,7 +679,7 @@
             RenderTransformOrigin="0.5,0.5"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="16.5" RadiusY="16.5">
+            Tag="mur" RadiusX="16.5" RadiusY="16.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1" />
@@ -709,7 +709,7 @@
             VerticalAlignment="Top"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="14.5" RadiusY="14.5">
+            Tag="mur" RadiusX="14.5" RadiusY="14.5">
         </Rectangle>
         <Rectangle
             Canvas.Left="80"
@@ -720,7 +720,7 @@
             VerticalAlignment="Center"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="14.5" RadiusY="14.5" />
+            Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             Canvas.Left="84"
             Canvas.Top="225"
@@ -730,7 +730,7 @@
             VerticalAlignment="Center"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="14.5" RadiusY="14.5" />
+            Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             Canvas.Left="103"
             Canvas.Top="101"
@@ -740,7 +740,7 @@
             VerticalAlignment="Center"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="14.5" RadiusY="14.5" />
+            Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             Canvas.Left="30"
             Canvas.Top="433"
