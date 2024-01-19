@@ -87,7 +87,7 @@
             VerticalAlignment="Top"
             Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" RadiusX="42.84" RadiusY="42.84" />
+            Tag="wall" RadiusX="15" RadiusY="15" />
         <Rectangle
             x:Name="torche"
             Canvas.Left="296"

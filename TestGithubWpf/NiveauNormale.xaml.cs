@@ -345,6 +345,7 @@ namespace TestGithubWpf
             movePacman();
             MoveGhost();
 
+
             switch (imageRequin)
             {
                 case 1:

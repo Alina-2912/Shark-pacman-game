@@ -73,6 +73,12 @@
     <None Update="images\orange.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\petite_pieuvre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\petite_pieuvre2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="images\PieuvreRose01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
