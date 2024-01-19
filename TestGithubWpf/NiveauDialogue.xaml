@@ -94,15 +94,5 @@
             x:Name="mediaElement"
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" Margin="60,20,654,515" />
-        <Button
-            Width="66"
-            Height="53"
-            Margin="656,33,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="ButtonMusique_Click"
-            Content="🎵"
-            FontSize="25" Background="#FFBBFF00" 
-            />
     </Grid>
 </Window>

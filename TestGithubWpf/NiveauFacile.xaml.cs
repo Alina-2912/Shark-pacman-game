@@ -237,10 +237,6 @@ namespace TestGithubWpf
             rochet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets.png"));
             rochets.Fill = rochet;
 
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            { 
-            
-            }
             }
 
         private void movePacman()

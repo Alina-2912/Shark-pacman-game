@@ -72,10 +72,5 @@ namespace TestGithubWpf
             this.Close();
             App.Current.Shutdown();
         }
-
-        private void ButtonMusique_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Close();
-        }
     }
 }
