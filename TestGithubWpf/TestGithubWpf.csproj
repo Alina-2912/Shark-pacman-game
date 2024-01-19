@@ -9,8 +9,6 @@
 
   <ItemGroup>
     <None Remove="background.jpg" />
-    <None Remove="coral3.jpg" />
-    <None Remove="coral5.jpg" />
     <None Remove="nemo.jpg" />
     <None Remove="nemo2.jpg" />
     <None Remove="seaweed2.jpg" />
@@ -18,12 +16,6 @@
 
   <ItemGroup>
     <Resource Include="background.jpg" />
-    <Resource Include="coral3.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="coral5.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="nemo.jpg" />
     <Resource Include="nemo2.jpg" />
     <Resource Include="seaweed2.jpg" />
@@ -129,7 +121,7 @@
     <None Update="images\pink.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="images\planteOceantique.png">
+    <None Update="images\planteOceanVert.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="images\porte.png">

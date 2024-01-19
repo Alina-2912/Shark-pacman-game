@@ -1125,6 +1125,7 @@
             Fill="LightGreen">
         </Rectangle>
         <Rectangle
+            x:Name="corail_jaune"
             Canvas.Left="460"
             Canvas.Top="344"
             Width="35"
@@ -1132,10 +1133,8 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral3.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="Yellow">
         </Rectangle>
         <Rectangle
             x:Name="corail_rouge3"

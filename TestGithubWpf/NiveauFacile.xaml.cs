@@ -263,6 +263,10 @@ namespace TestGithubWpf
             vertecorail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral6.jpg"));
             corail_vert2.Fill = vertecorail2;
 
+            ImageBrush jaunecorail = new ImageBrush();
+            jaunecorail.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral3.jpg"));
+            corail_jaune.Fill = jaunecorail;
+            
         }
 
         private void movePacman()
