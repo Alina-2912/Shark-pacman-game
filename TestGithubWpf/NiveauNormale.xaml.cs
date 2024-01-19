@@ -434,7 +434,7 @@ namespace TestGithubWpf
             }
             if (score == 101)
             {
-                GameOver("Mainrenant vous pouvez aller a la porte");
+                string message = "";
                 gagne = true;
             }
             if (gameover)
