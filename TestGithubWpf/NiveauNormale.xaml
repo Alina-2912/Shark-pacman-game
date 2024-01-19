@@ -1119,6 +1119,7 @@
             Fill="HotPink">
         </Rectangle>
         <Rectangle
+            Tag="fin"
             x:Name="porte"
             Canvas.Left="361"
             Canvas.Top="523"

@@ -30,6 +30,7 @@ namespace TestGithubWpf
         int score = 0;
         int imageRequin = 1;
         bool gameover = false;
+        bool gagne = false;
         bool isGamePaused = false;
         ImageBrush requinImage = new ImageBrush();
         ImageBrush starImage = new ImageBrush();
@@ -293,6 +294,14 @@ namespace TestGithubWpf
                         score++;
                     }
                 }
+                if ((string)x.Tag == "fin")
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox) && gagne == true)
+                    {
+                        x.Visibility = Visibility.Hidden;
+                        GameOver("Vous avez gagne");
+                    }
+                }
 
                 if ((string)x.Tag == "pieuvre")
                 {
@@ -423,9 +432,10 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 650);
                 }
             }
-            if (score == 99)
+            if (score == 101)
             {
-                GameOver("You Win, you collected all of the coins");
+                GameOver("Mainrenant vous pouvez aller a la porte");
+                gagne = true;
             }
             if (gameover)
             {
