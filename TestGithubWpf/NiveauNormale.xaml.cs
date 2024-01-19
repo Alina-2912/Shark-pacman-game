@@ -28,8 +28,10 @@ namespace TestGithubWpf
         int ghostMoveStep = 160;
         int currentGhostStep;
         int score = 0;
+        int imageRequin = 1;
         bool gameover = false;
         bool isGamePaused = false;
+        ImageBrush requinImage = new ImageBrush();
         ImageBrush starImage = new ImageBrush();
         List<Rectangle> itemRemover = new List<Rectangle>();
 
@@ -332,6 +334,36 @@ namespace TestGithubWpf
 
             movePacman();
             MoveGhost();
+
+            switch (imageRequin)
+            {
+                case 1:
+                case 2:
+                case 3:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req1.png"));
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req2.png"));
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req3.png"));
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/req4.png"));
+                    break;
+            }
+            pacman.Fill = requinImage;
+            imageRequin++;
+            if (imageRequin > 12)
+            {
+                imageRequin = 1;
+            }
 
             if (score == 16)
             {

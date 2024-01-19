@@ -40,10 +40,10 @@
             Foreground="Black" />
         <Rectangle
             Name="pacman"
-            Canvas.Left="31"
+            Canvas.Left="22"
             Canvas.Top="544"
-            Width="35"
-            Height="24"
+            Width="44"
+            Height="40"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Fill="Yellow"
