@@ -33,21 +33,21 @@
             Foreground="Black" />
         <Rectangle
             Name="pacman"
-            Canvas.Left="36"
-            Canvas.Top="118"
+            Canvas.Left="35"
+            Canvas.Top="73"
             Width="45"
             Height="30"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Fill="Yellow" />
         <Rectangle
             Name="violetPieuvre"
-            Canvas.Left="185"
-            Canvas.Top="18"
+            Canvas.Left="725"
+            Canvas.Top="52"
             Width="51"
             Height="51"
             Fill="Red"
-            Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
             Name="orangePieuvre"
             Canvas.Left="655"
@@ -58,80 +58,60 @@
             Tag="ghost" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Rectangle
             Name="rosePieuvre"
-            Canvas.Left="173"
-            Canvas.Top="404"
+            Canvas.Left="725"
+            Canvas.Top="184"
             Width="51"
             Height="51"
             Fill="Pink"
             Tag="ghost" />
         <Rectangle
-            Canvas.Left="142"
-            Canvas.Top="86"
-            Width="578"
-            Height="20"
-            Stroke="DarkGreen"
-            StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Rectangle.Fill>
-                <ImageBrush />
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="231"
-            Canvas.Top="171"
-            Width="402"
-            Height="20"
-            Stroke="DarkGreen"
-            StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <Rectangle
-            Canvas.Left="142"
-            Canvas.Top="349"
+            Canvas.Left="0"
+            Canvas.Top="130"
             Width="124"
             Height="20"
             Stroke="DarkGreen"
             StrokeThickness="3"
             Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="596"
-            Canvas.Top="349"
-            Width="124"
+            Canvas.Left="135"
+            Canvas.Top="220"
+            Width="200"
             Height="20"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="142"
-            Canvas.Top="165"
-            Width="20"
-            Height="187"
+            Canvas.Left="135"
+            Canvas.Top="300"
+            Width="280"
+            Height="20"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="700"
-            Canvas.Top="165"
+            Canvas.Left="225"
+            Canvas.Top="0"
             Width="20"
-            Height="187"
+            Height="220"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="613"
-            Canvas.Top="188"
+            Canvas.Left="120"
+            Canvas.Top="300"
             Width="20"
-            Height="109"
+            Height="200"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="231"
-            Canvas.Top="188"
+            Canvas.Left="260"
+            Canvas.Top="400"
             Width="20"
-            Height="109"
+            Height="200"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
             Canvas.Left="204"
             Canvas.Top="134"

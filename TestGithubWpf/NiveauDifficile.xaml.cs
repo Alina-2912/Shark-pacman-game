@@ -222,6 +222,9 @@ namespace TestGithubWpf
             ImageBrush pinkGhost = new ImageBrush();
             pinkGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
             rosePieuvre.Fill = pinkGhost;
+            ImageBrush xx = new ImageBrush();
+            xx.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
+            //wall.Fill = xx;
         }
         private void GameLoop(object sender, EventArgs e)
         {
