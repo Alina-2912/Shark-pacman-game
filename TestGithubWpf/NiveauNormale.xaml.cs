@@ -60,8 +60,21 @@ namespace TestGithubWpf
             gameTimer.Start();
             currentGhostStep = ghostMoveStep;
 
-            //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
-        }
+            ImageBrush porte1 = new ImageBrush();
+            porte1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/porte.png"));
+            porte.Fill = porte1;
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "wall")
+                {
+                    ImageBrush mur = new ImageBrush();
+                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/nemo.jpg"));
+                    x.Fill = mur;
+                }
+                }
+                //pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+            }
         private void movePacman()
         {
             if (goRight && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
