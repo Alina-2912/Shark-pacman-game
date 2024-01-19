@@ -9,14 +9,10 @@
 
   <ItemGroup>
     <None Remove="background.jpg" />
-    <None Remove="nemo.jpg" />
-    <None Remove="nemo2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="background.jpg" />
-    <Resource Include="nemo.jpg" />
-    <Resource Include="nemo2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
