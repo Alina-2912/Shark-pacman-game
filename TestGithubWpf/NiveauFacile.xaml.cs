@@ -23,18 +23,18 @@ namespace TestGithubWpf
     public partial class NiveauFacile : Window
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
-        bool goLeft, goRight, goDown, goUp;
-        int speed = 7;
-        Rect pacmanHitBox;
+        bool vaGauche, vaDroite, vaEnBas, vaEnHaut;
+        int vitesse = 7;
+        Rect requinHitBox;
         int vitesseEnnemie = 10;
-        int ghostMoveStep = 160;
-        int currentGhostStep;
+        int mouvementPieuvre = 160;
+        int actuellePieuvrePas;
         int score = 0;
-        bool gameover = false;
-        bool isGamePaused = false;
+        bool jeu_termine = false;
+        bool estJeuEnPause = false;
         bool modePuissant = false;
-        ImageBrush starImage = new ImageBrush();
-        List<Rectangle> itemRemover = new List<Rectangle>();
+        ImageBrush treasureImage = new ImageBrush();
+        List<Rectangle> dissolvantObjets = new List<Rectangle>();
         ImageBrush requinImage = new ImageBrush();
         ImageBrush ennemieRose = new ImageBrush();
         ImageBrush ennemieViolet = new ImageBrush();
@@ -46,15 +46,16 @@ namespace TestGithubWpf
         public NiveauFacile()
         {
             InitializeComponent();
-            GameSetUp();
+            ConfigurationJeu();
             gameTimer.Tick += GameLoop;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
         }
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonFermer_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            Application.Current.Shutdown();
         }
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonRetour_Click(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
             this.Hide();
@@ -69,80 +70,80 @@ namespace TestGithubWpf
             /*************************    PAUSE   *************************/
             if (e.Key == Key.P)
             {
-                if (!isGamePaused)
+                if (!estJeuEnPause)
                 {
                     gameTimer.Stop();
-                    isGamePaused = true;
+                    estJeuEnPause = true;
                     mediaElement.Pause();
                 }
             }
             /*************************    RESUME   *************************/
             if (e.Key == Key.C)
             {
-                if (isGamePaused)
+                if (estJeuEnPause)
                 {
                     gameTimer.Start();
-                    isGamePaused = false;
+                    estJeuEnPause = false;
                     mediaElement.Play();
                 }
             }
             /*************************    RESTART - R   *************************/
-            if (e.Key == Key.R && gameover)
+            if (e.Key == Key.R && jeu_termine)
             {
-                StartGame();
+                CommencerJeu();
             }
 
             if (e.Key == Key.Left)
             {
-                goLeft = true;
+                vaGauche = true;
                 //pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
                 pacman.RenderTransformOrigin = new Point(0.5, 0.2);
                 ScaleTransform flipTrans = new ScaleTransform();
                 flipTrans.ScaleX = -1;
                 pacman.RenderTransform = flipTrans;
-                goRight = false;
-                goUp = false;
-                goDown = false;
+                vaDroite = false;
+                vaEnHaut = false;
+                vaEnBas = false;
             }
             if (e.Key == Key.Right)
             {
-                goRight = true;
+                vaDroite = true;
                 pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
-                goLeft = false;
-                goUp = false;
-                goDown = false;
+                vaGauche = false;
+                vaEnHaut = false;
+                vaEnBas = false;
 
             }
             if (e.Key == Key.Up)
             {
-                if (!goUp && !goDown)
+                if (!vaEnHaut && !vaEnBas)
                 {
                     Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
                 }
-                goUp = true;
+                vaEnHaut = true;
                 pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
-                goRight = false;
-                goLeft = false;
-                goDown = false;
+                vaDroite = false;
+                vaGauche = false;
+                vaEnBas = false;
 
 
             }
             if (e.Key == Key.Down)
             {
-                if (!goUp && !goDown)
+                if (!vaEnHaut && !vaEnBas)
                 {
                     Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
                 }
-                goDown = true;
+                vaEnBas = true;
                 pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
-                goRight = false;
-                goLeft = false;
-                goUp = false;
+                vaDroite = false;
+                vaGauche = false;
+                vaEnHaut = false;
             }
         }
-        private void StartGame()
+        private void CommencerJeu()
         {
-            currentGhostStep = ghostMoveStep;
+            actuellePieuvrePas = mouvementPieuvre;
 
             Canvas.SetLeft(pacman, 50);
             Canvas.SetTop(pacman, 104);
@@ -162,7 +163,7 @@ namespace TestGithubWpf
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+                requinHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
 
                 if ((string)x.Tag == "poisson")
                 {
@@ -177,10 +178,10 @@ namespace TestGithubWpf
                     {
                         x.Visibility = Visibility.Visible;
                     }
-                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        gameover = true;
+                        jeu_termine = true;
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
@@ -190,30 +191,27 @@ namespace TestGithubWpf
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
-                    currentGhostStep--;
-                    if (currentGhostStep < 1)
+                    actuellePieuvrePas--;
+                    if (actuellePieuvrePas < 1)
                     {
-                        currentGhostStep = ghostMoveStep;
+                        actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = -vitesseEnnemie;
                     }
                 }
 
             }
         }
-        private void GameSetUp()
+        private void ConfigurationJeu()
         {
-            itemRemover.Clear();
+            dissolvantObjets.Clear();
 
             MyCanvas.Focus();
             gameTimer.Start();
-            currentGhostStep = ghostMoveStep;
+            actuellePieuvrePas = mouvementPieuvre;
 
-            //ImageBrush redGhost = new ImageBrush();
-            //redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
-            //violetPieuvre.Fill = redGhost;
-            ImageBrush orangeGhost = new ImageBrush();
-            orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
-            orangePieuvre.Fill = orangeGhost;
+            ImageBrush orange = new ImageBrush();
+            orange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
+            orangePieuvre.Fill = orange;
 
             ImageBrush corail1 = new ImageBrush();
             corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));
@@ -285,33 +283,33 @@ namespace TestGithubWpf
             }
         }
 
-        private void movePacman()
+        private void DeplacerPieuvre()
         {
-            if (goRight && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
+            if (vaDroite && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
             {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + vitesse);
             }
-            if (goLeft && Canvas.GetLeft(pacman) > 20)
+            if (vaGauche && Canvas.GetLeft(pacman) > 20)
             {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - vitesse);
             }
-            if (goUp && Canvas.GetTop(pacman) > 20)
+            if (vaEnHaut && Canvas.GetTop(pacman) > 20)
             {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - vitesse);
             }
-            if (goDown && Canvas.GetTop(pacman) < Application.Current.MainWindow.Height - 60)
+            if (vaEnBas && Canvas.GetTop(pacman) < Application.Current.MainWindow.Height - 60)
             {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + vitesse);
             }
 
-            pacmanHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+            requinHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
                 if ((string)x.Tag == "star")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         modePuissant = true;
                         modePuissantCompteur=200;
@@ -328,30 +326,30 @@ namespace TestGithubWpf
                 }
                 if ((string)x.Tag == "wall")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    if (requinHitBox.IntersectsWith(hitBox))
                     {
-                        if (goRight)
+                        if (vaDroite)
                         {
-                            Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
-                            goRight = false;
+                            Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - vitesse);
+                            vaDroite = false;
                         }
 
-                        if (goLeft)
+                        if (vaGauche)
                         {
-                            Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
-                            goLeft = false;
+                            Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + vitesse);
+                            vaGauche = false;
                         }
 
-                        if (goUp)
+                        if (vaEnHaut)
                         {
-                            Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
-                            goUp = false;
+                            Canvas.SetTop(pacman, Canvas.GetTop(pacman) + vitesse);
+                            vaEnHaut = false;
                         }
 
-                        if (goDown)
+                        if (vaEnBas)
                         {
-                            Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
-                            goDown = false;
+                            Canvas.SetTop(pacman, Canvas.GetTop(pacman) - vitesse);
+                            vaEnBas = false;
                         }
                     }
                 }
@@ -365,7 +363,7 @@ namespace TestGithubWpf
 
                 if ((string)x.Tag == "poisson")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         x.Visibility = Visibility.Hidden;
                         score++;
@@ -374,14 +372,14 @@ namespace TestGithubWpf
 
                 if ((string)x.Tag == "pieuvre")
                 {
-                    if (pacmanHitBox.IntersectsWith(hitBox) && modePuissant == false)
+                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
                     {
                         gameTimer.Stop();
-                        gameover = true;
+                        jeu_termine = true;
                     }
-                    if (pacmanHitBox.IntersectsWith(hitBox) && modePuissant == true)
+                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
-                        itemRemover.Add(x);
+                        dissolvantObjets.Add(x);
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
@@ -395,10 +393,10 @@ namespace TestGithubWpf
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
-                    currentGhostStep--;
-                    if (currentGhostStep < 1)
+                    actuellePieuvrePas--;
+                    if (actuellePieuvrePas < 1)
                     {
-                        currentGhostStep = ghostMoveStep;
+                        actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = -vitesseEnnemie;
                     }
                 }
@@ -407,15 +405,15 @@ namespace TestGithubWpf
         }
         private void GameLoop(object sender, EventArgs e)
         {
-            foreach (Rectangle y in itemRemover)
+            foreach (Rectangle y in dissolvantObjets)
             {
                 MyCanvas.Children.Remove(y);
             }
 
-            starImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
+            treasureImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\nCliquer P pour mettre le jeu en pause et C pour continuer";
 
-            movePacman();
+            DeplacerPieuvre();
             MoveGhost();
 
             ////////////////////////////////////////////ANIMATION REQUIN
@@ -517,12 +515,12 @@ namespace TestGithubWpf
             /******************************************            modePuissant     **************************************/
             if (modePuissant == true)
             {
-                speed = 9;
+                vitesse = 9;
                 vitesseEnnemie = 2;
                 modePuissantCompteur -= 1;
                 if (modePuissantCompteur < 1)
                 {
-                    speed = 7;
+                    vitesse = 7;
                     vitesseEnnemie = 10;
                     modePuissant = false;
                 }
@@ -536,7 +534,7 @@ namespace TestGithubWpf
                     {
                         Width = 30,
                         Height = 30,
-                        Fill = starImage,
+                        Fill = treasureImage,
                         StrokeThickness = 2,
                         Tag = "star",
                     };
@@ -554,7 +552,7 @@ namespace TestGithubWpf
                     {
                         Width = 30,
                         Height = 30,
-                        Fill = starImage,
+                        Fill = treasureImage,
                         StrokeThickness = 2,
                         Tag = "star",
                     };
@@ -571,7 +569,7 @@ namespace TestGithubWpf
                     {
                         Width = 30,
                         Height = 30,
-                        Fill = starImage,
+                        Fill = treasureImage,
                         StrokeThickness = 2,
                         Tag = "star",
                     };
@@ -582,15 +580,15 @@ namespace TestGithubWpf
             }
             if (score == 85)
             {
-                GameOver("Vous avez gagné ! \nVous avez mangé tous les poissons !");
+                JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons !");
             }
-            if (gameover)
+            if (jeu_termine)
             {
                 mediaElement.Close();
                 txtScore.Content += "\n\n\nCliquer R \npour Réessayer";   
             }
         }
-        private void GameOver(string message)
+        private void JeuTermine(string message)
         {
             gameTimer.Stop();
             MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
