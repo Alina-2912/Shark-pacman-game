@@ -25,7 +25,7 @@ namespace TestGithubWpf
         private NiveauDifficile niveauDifficile = new NiveauDifficile();
         public NiveauDialogue()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
         public string Combo_Box() 
         {
@@ -40,24 +40,27 @@ namespace TestGithubWpf
                 this.Hide();
                 niveauFacile.Show();
                 niveauFacile.Owner = this;
-               
-                mediaElement.Close();
+                Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo.wav");
+                mediaElement.Source = uri;
+                mediaElement.Play();
             }
             if (ComboBoxItem2.IsSelected)
             {
                 this.Hide();
                 niveauNormal.Show();
                 niveauNormal.Owner = this;
-
-                mediaElement.Close();
+                Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/idol.wav");
+                mediaElement.Source = uri;
+                mediaElement.Play();
             }
             if (ComboBoxItem3.IsSelected)
             {
                 this.Hide();
                 niveauDifficile.Show();
                 niveauDifficile.Owner = this;
-
-                mediaElement.Close();
+                Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/dionysus.wav");
+                mediaElement.Source = uri;
+                mediaElement.Play();
             }
             
         }

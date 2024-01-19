@@ -54,7 +54,7 @@ namespace TestGithubWpf
         {
             Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/dionysus.wav");
             mediaElement.Source = uri;
-            mediaElement.Play();
+            mediaElement.Close();
         }
 
         private void CanvasKeyDown(object sender, KeyEventArgs e)

@@ -191,7 +191,7 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
-
+            
             itemRemover.Clear();
 
             MyCanvas.Focus();
@@ -210,7 +210,12 @@ namespace TestGithubWpf
             ImageBrush corail1 = new ImageBrush();
             corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));
             corailMillieu.Fill = corail1;
-        }
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            { 
+            
+            }
+            }
 
         private void movePacman()
         {
