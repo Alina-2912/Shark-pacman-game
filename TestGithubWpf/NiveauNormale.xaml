@@ -28,8 +28,8 @@
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0.0" Color="#FF00A0A0" />
                     <GradientStop Offset="0.25" Color="#FF02698C" />
-                    <GradientStop Offset="0.607" Color="#FF13359A" />
-                    <GradientStop Offset="0.877" Color="#FF020244" />
+                    <GradientStop Offset="0.75" Color="#FF13359A" />
+                    <GradientStop Offset="1.0" Color="#FF020244" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>

@@ -16,7 +16,6 @@
     <None Remove="coral4.jpg" />
     <None Remove="coral5.jpg" />
     <None Remove="coral6.jpg" />
-    <None Remove="manuel-fuentes-animated-gif.gif" />
     <None Remove="nemo.jpg" />
     <None Remove="nemo2.jpg" />
     <None Remove="rochets.png" />
@@ -48,7 +47,6 @@
     <Resource Include="coral6.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="manuel-fuentes-animated-gif.gif" />
     <Resource Include="nemo.jpg" />
     <Resource Include="nemo2.jpg" />
     <Resource Include="rochets.png" />
@@ -62,6 +60,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="images\acweed.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\alguesHorizontal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="images\alguesVert.png">
@@ -98,9 +99,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="images\cweedhori.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="images\eau.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="images\fish_seaweed.png">
@@ -157,7 +155,7 @@
     <None Update="images\pink.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="images\planteOceanVert.png">
+    <None Update="images\planteOceantique.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="images\porte.png">

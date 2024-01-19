@@ -25,7 +25,7 @@ namespace TestGithubWpf
         bool noLeft, noRight, noDown, noUp;
         int speed = 8;
         Rect pacmanHitBox;
-        int ghostSpeed = 10;
+        int vitesseEnnemie = 10;
         int ghostMoveStep = 160;
         int currentGhostStep;
         int score = 0;
@@ -188,17 +188,17 @@ namespace TestGithubWpf
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
                     else
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
                     currentGhostStep--;
                     if (currentGhostStep < 1)
                     {
                         currentGhostStep = ghostMoveStep;
-                        ghostSpeed = -ghostSpeed;
+                        vitesseEnnemie = -vitesseEnnemie;
                     }
                 }
 
@@ -222,9 +222,25 @@ namespace TestGithubWpf
             ImageBrush ennemieRose = new ImageBrush();
             ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
             rosePieuvre.Fill = ennemieRose;
-            ImageBrush xx = new ImageBrush();
-            xx.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            //wall.Fill = xx;
+
+            foreach (var alguesBcp in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)alguesBcp.Tag == "obstacleVertical")
+                {
+                    ImageBrush mur = new ImageBrush();
+                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguesVert.png"));
+                    alguesBcp.Fill = mur;
+                }
+            }
+            foreach (var alguesBcp in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)alguesBcp.Tag == "obstacleHorizontal")
+                {
+                    ImageBrush mur = new ImageBrush();
+                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguesHorizontal.png"));
+                    alguesBcp.Fill = mur;
+                }
+            }
         }
         private void GameLoop(object sender, EventArgs e)
         {
@@ -315,7 +331,7 @@ namespace TestGithubWpf
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                if ((string)x.Tag == "wall")
+                if ((string)x.Tag == "obstacleVertical" || (string)x.Tag == "obstacleHorizontal")
                 {
                     if (goLeft == true && pacmanHitBox.IntersectsWith(hitBox))
                     {
@@ -359,17 +375,17 @@ namespace TestGithubWpf
                     }
                     if (x.Name.ToString() == "orangeGuy")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
                     else
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
                     currentGhostStep--;
                     if (currentGhostStep < 1)
                     {
                         currentGhostStep = ghostMoveStep;
-                        ghostSpeed = -ghostSpeed;
+                        vitesseEnnemie = -vitesseEnnemie;
                     }
                 }
             }

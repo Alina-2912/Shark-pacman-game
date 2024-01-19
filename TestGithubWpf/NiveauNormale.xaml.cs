@@ -24,7 +24,7 @@ namespace TestGithubWpf
         bool goLeft, goRight, goDown, goUp;
         int speed = 7;
         Rect pacmanHitBox;
-        int ghostSpeed = 10;
+        int vitesseEnnemie = 10;
         int ghostMoveStep = 160;
         int currentGhostStep;
         int score = 0;
@@ -178,17 +178,17 @@ namespace TestGithubWpf
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
                     else
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
                     currentGhostStep--;
                     if (currentGhostStep < 1)
                     {
                         currentGhostStep = ghostMoveStep;
-                        ghostSpeed = -ghostSpeed;
+                        vitesseEnnemie = -vitesseEnnemie;
                     }
                 }
 
@@ -295,25 +295,25 @@ namespace TestGithubWpf
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
                     if (x.Name.ToString() == "violetPieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
                     if (x.Name.ToString() == "rosePieuvre")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
                     if (x.Name.ToString() == "greenGuy")
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                     }
                     currentGhostStep--;
                     if (currentGhostStep < 1)
                     {
                         currentGhostStep = ghostMoveStep;
-                        ghostSpeed = -ghostSpeed;
+                        vitesseEnnemie = -vitesseEnnemie;
                     }
                 }
 

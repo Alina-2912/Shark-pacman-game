@@ -19,10 +19,10 @@
         <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Offset="0.0" Color="Aqua" />
-                    <GradientStop Offset="0.25" Color="DeepSkyBlue" />
-                    <GradientStop Offset="0.75" Color="RoyalBlue" />
-                    <GradientStop Offset="1.0" Color="DarkBlue" />
+                    <GradientStop Offset="0.0" Color="DodgerBlue" />
+                    <GradientStop Offset="0.25" Color="#FF000080" />
+                    <GradientStop Offset="0.75" Color="#FF020244" />
+                    <GradientStop Offset="1.0" Color="Black" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -68,50 +68,138 @@
             Canvas.Left="0"
             Canvas.Top="130"
             Width="124"
-            Height="20"
+            Height="30"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            Tag="obstacleHorizontal" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="135"
-            Canvas.Top="220"
+            Canvas.Left="90"
+            Canvas.Top="215"
+            Width="300"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="115"
+            Canvas.Top="320"
+            Width="250"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="380"
+            Canvas.Top="320"
+            Width="100"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="500"
+            Canvas.Top="480"
+            Width="100"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="610"
+            Canvas.Top="400"
+            Width="100"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="700"
+            Canvas.Top="500"
+            Width="120"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="380"
+            Canvas.Top="100"
+            Width="220"
+            Height="30"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="620"
+            Canvas.Top="184"
             Width="200"
-            Height="20"
+            Height="30"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Rectangle
-            Canvas.Left="135"
-            Canvas.Top="300"
-            Width="280"
-            Height="20"
-            Stroke="DarkGreen"
-            StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
             Canvas.Left="225"
             Canvas.Top="0"
-            Width="20"
+            Width="30"
             Height="220"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="120"
-            Canvas.Top="300"
-            Width="20"
+            Canvas.Left="690"
+            Canvas.Top="0"
+            Width="30"
+            Height="120"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="90"
+            Canvas.Top="320"
+            Width="30"
             Height="200"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
-            Canvas.Left="260"
+            Canvas.Left="360"
+            Canvas.Top="320"
+            Width="30"
+            Height="200"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="470"
+            Canvas.Top="210"
+            Width="30"
+            Height="300"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="595"
+            Canvas.Top="100"
+            Width="30"
+            Height="220"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleVertical" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="595"
             Canvas.Top="400"
-            Width="20"
+            Width="30"
             Height="200"
             Stroke="DarkGreen"
             StrokeThickness="3"
-            Tag="wall" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            Canvas.Left="225"
+            Canvas.Top="440"
+            Width="30"
+            Height="180"
+            Stroke="DarkGreen"
+            StrokeThickness="3"
+            Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
             Canvas.Left="204"
             Canvas.Top="134"
