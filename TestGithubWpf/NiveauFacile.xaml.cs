@@ -233,6 +233,9 @@ namespace TestGithubWpf
             ImageBrush bulles_2 = new ImageBrush();
             bulles_2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
             bulles2.Fill = bulles_2;
+            ImageBrush rochet = new ImageBrush();
+            rochet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
+            bulles2.Fill = rochet;
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             { 
@@ -439,7 +442,7 @@ namespace TestGithubWpf
             {
                 case 1:
                 case 2:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet01.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet01.png"));
                     break;
                 case 3:
                 case 4:
