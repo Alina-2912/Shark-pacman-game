@@ -29,6 +29,7 @@ namespace TestGithubWpf
         int currentGhostStep;
         int score = 0;
         int imageRequin = 1;
+        int imageTorche = 1;
         bool gameover = false;
         bool gagne = false;
         bool isGamePaused = false;
@@ -55,6 +56,82 @@ namespace TestGithubWpf
         {
             mediaElement.Close();
         }
+        private void CanvasKeyDown(object sender, KeyEventArgs e)
+        {
+            /*************************    PAUSE   *************************/
+            if (e.Key == Key.P)
+            {
+                if (!isGamePaused)
+                {
+                    gameTimer.Stop();
+                    isGamePaused = true;
+                    //mediaElement.Pause();
+                }
+            }
+            /*************************    RESUME   *************************/
+            if (e.Key == Key.R)
+            {
+                if (isGamePaused)
+                {
+                    gameTimer.Start();
+                    isGamePaused = false;
+                    //mediaElement.Play();
+                }
+            }
+            /*************************    RESTART - R   *************************/
+            if (e.Key == Key.R && gameover)
+            {
+                StartGame();
+            }
+
+            if (e.Key == Key.Left)
+            {
+                goLeft = true;
+                //pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
+                pacman.RenderTransformOrigin = new Point(0.5, 0.2);
+                ScaleTransform flipTrans = new ScaleTransform();
+                flipTrans.ScaleX = -1;
+                pacman.RenderTransform = flipTrans;
+                goRight = false;
+                goUp = false;
+                goDown = false;
+            }
+            if (e.Key == Key.Right)
+            {
+                goRight = true;
+                pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
+                goLeft = false;
+                goUp = false;
+                goDown = false;
+
+            }
+            if (e.Key == Key.Up)
+            {
+                if (!goUp && !goDown)
+                {
+                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
+                }
+                goUp = true;
+                pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
+                goRight = false;
+                goLeft = false;
+                goDown = false;
+
+
+            }
+            if (e.Key == Key.Down)
+            {
+                if (!goUp && !goDown)
+                {
+                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
+                }
+                goDown = true;
+                pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
+                goRight = false;
+                goLeft = false;
+                goUp = false;
+            }
+        }
         private void GameSetUp()
         {
             MyCanvas.Focus();
@@ -72,7 +149,7 @@ namespace TestGithubWpf
                 if ((string)x.Tag == "wall")
                 {
                     ImageBrush mur = new ImageBrush();
-                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed2.jpg"));
+                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets2.jpg"));
                     x.Fill = mur;
                 }
                 if ((string)x.Tag == "meduses")
@@ -203,82 +280,6 @@ namespace TestGithubWpf
 
             }
         }
-        private void CanvasKeyDown(object sender, KeyEventArgs e)
-        {
-            /*************************    PAUSE   *************************/
-            if (e.Key == Key.P)
-            {
-                if (!isGamePaused)
-                {
-                    gameTimer.Stop();
-                    isGamePaused = true;
-                    //mediaElement.Pause();
-                }
-            }
-            /*************************    RESUME   *************************/
-            if (e.Key == Key.R)
-            {
-                if (isGamePaused)
-                {
-                    gameTimer.Start();
-                    isGamePaused = false;
-                    //mediaElement.Play();
-                }
-            }
-            /*************************    RESTART - R   *************************/
-            if (e.Key == Key.R && gameover)
-            {
-                StartGame();
-            }
-
-            if (e.Key == Key.Left)
-            {
-                goLeft = true;
-                //pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
-                pacman.RenderTransformOrigin = new Point(0.5, 0.2);
-                ScaleTransform flipTrans = new ScaleTransform();
-                flipTrans.ScaleX = -1;
-                pacman.RenderTransform = flipTrans;
-                goRight = false;
-                goUp = false;
-                goDown = false;
-            }
-            if (e.Key == Key.Right)
-            {
-                goRight = true;
-                pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
-                goLeft = false;
-                goUp = false;
-                goDown = false;
-
-            }
-            if (e.Key == Key.Up)
-            {
-                if (!goUp && !goDown)
-                {
-                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
-                }
-                goUp = true;
-                pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
-                goRight = false;
-                goLeft = false;
-                goDown = false;
-
-
-            }
-            if (e.Key == Key.Down)
-            {
-                if (!goUp && !goDown)
-                {
-                    Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 7);
-                }
-                goDown = true;
-                pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
-                goRight = false;
-                goLeft = false;
-                goUp = false;
-            }
-        }
 
         private void MoveGhost()
         {
@@ -372,6 +373,42 @@ namespace TestGithubWpf
             if (imageRequin > 12)
             {
                 imageRequin = 1;
+            }
+
+            ImageBrush torcheImage = new ImageBrush();
+            switch (imageTorche)
+            {
+                case 1:
+                case 2:
+                case 3:
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche1.png"));
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche2.png"));
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche3.png"));
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche4.png"));
+                    break;
+                case 13:
+                case 14:
+                case 15:
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche5.png"));
+                    break;
+            }
+            torche.Fill = torcheImage;
+            imageTorche++;
+            if (imageTorche > 15)
+            {
+                imageTorche = 1;
             }
 
             if (score == 16)

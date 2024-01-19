@@ -16,7 +16,7 @@
         Focusable="True"
         KeyDown="CanvasKeyDown">
         <!--  This rectangle is painted with a vertical gradient.  -->
-        <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="3">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0.0" Color="DodgerBlue" />
@@ -69,7 +69,7 @@
             Canvas.Top="130"
             Width="124"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Rectangle
@@ -77,7 +77,7 @@
             Canvas.Top="215"
             Width="300"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -85,7 +85,7 @@
             Canvas.Top="320"
             Width="260"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -93,7 +93,7 @@
             Canvas.Top="320"
             Width="100"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -101,7 +101,7 @@
             Canvas.Top="480"
             Width="115"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -109,7 +109,7 @@
             Canvas.Top="400"
             Width="100"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -117,7 +117,7 @@
             Canvas.Top="500"
             Width="120"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -125,7 +125,7 @@
             Canvas.Top="100"
             Width="230"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -133,7 +133,7 @@
             Canvas.Top="184"
             Width="200"
             Height="30"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleHorizontal" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -141,7 +141,7 @@
             Canvas.Top="0"
             Width="30"
             Height="220"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -149,7 +149,7 @@
             Canvas.Top="0"
             Width="30"
             Height="120"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -157,7 +157,7 @@
             Canvas.Top="320"
             Width="30"
             Height="200"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -165,7 +165,7 @@
             Canvas.Top="320"
             Width="30"
             Height="200"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -173,7 +173,7 @@
             Canvas.Top="210"
             Width="30"
             Height="300"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -181,7 +181,7 @@
             Canvas.Top="100"
             Width="30"
             Height="220"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Center" VerticalAlignment="Top" />
         <Rectangle
@@ -189,7 +189,7 @@
             Canvas.Top="400"
             Width="30"
             Height="200"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
@@ -197,7 +197,7 @@
             Canvas.Top="440"
             Width="30"
             Height="180"
-            Stroke="DarkGreen"
+            Fill="DarkGreen"
             StrokeThickness="3"
             Tag="obstacleVertical" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
@@ -227,166 +227,136 @@
             Click="BackButton_Click"
             Content="Retour&#10;au menu" Background="#FFFFE703" />
         <Rectangle
-            Canvas.Left="160"
-            Canvas.Top="134"
+            Canvas.Left="162"
+            Canvas.Top="78"
             Width="20"
             Height="20"
             Tag="poisson"
             Fill="PaleVioletRed">
         </Rectangle>
         <Rectangle
-            Canvas.Left="241"
-            Canvas.Top="134"
+            Canvas.Left="162"
+            Canvas.Top="128"
             Width="20"
             Height="20"
             Tag="poisson"
-            Fill="PaleVioletRed">
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top">
         </Rectangle>
         <Rectangle
-            Canvas.Left="325"
-            Canvas.Top="134"
+            Canvas.Left="35"
+            Canvas.Top="176"
             Width="20"
             Height="20"
             Tag="poisson"
-            Fill="PaleVioletRed">
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top">
         </Rectangle>
         <Rectangle
             Canvas.Left="421"
-            Canvas.Top="134"
+            Canvas.Top="220"
             Width="20"
             Height="20"
             Tag="poisson"
-            Fill="PaleVioletRed">
+            Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top">
         </Rectangle>
         <Rectangle
-            Canvas.Left="267"
-            Canvas.Top="248"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="298"
-            Canvas.Top="200"
+            Canvas.Left="35"
+            Canvas.Top="276"
             Width="20"
             Height="20"
             HorizontalAlignment="Left"
-            VerticalAlignment="Center"
+            VerticalAlignment="Top"
             Tag="poisson"
             Fill="PaleVioletRed">
         </Rectangle>
         <Rectangle
-            Canvas.Left="325"
-            Canvas.Top="248"
-            Width="20"
-            Height="20"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="357"
-            Canvas.Top="200"
-            Width="20"
-            Height="20"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="383"
-            Canvas.Top="248"
-            Width="20"
-            Height="20"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="410"
-            Canvas.Top="200"
-            Width="20"
-            Height="20"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="437"
-            Canvas.Top="248"
-            Width="20"
-            Height="20"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="469"
-            Canvas.Top="200"
-            Width="20"
-            Height="20"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="497"
-            Canvas.Top="248"
-            Width="20"
-            Height="20"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="525"
-            Canvas.Top="200"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="554"
-            Canvas.Top="248"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="239"
-            Canvas.Top="200"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="182"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="poisson"
-            Fill="PaleVioletRed">
-        </Rectangle>
-        <Rectangle
-            Canvas.Left="261"
-            Canvas.Top="63"
+            Canvas.Left="104"
+            Canvas.Top="175"
             Width="20"
             Height="20"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Tag="poisson"
             Fill="PaleVioletRed">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="91"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="144"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="202"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center">
         </Rectangle>
         <Rectangle
             Canvas.Left="361"
-            Canvas.Top="63"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="253"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="421"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="306"
+            Canvas.Top="276"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="330"
+            Canvas.Top="166"
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson"
+            Fill="PaleVioletRed">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="491"
+            Canvas.Top="166"
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson"
+            Fill="PaleVioletRed">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="162"
+            Canvas.Top="176"
             Width="20"
             Height="20"
             HorizontalAlignment="Center"
@@ -395,8 +365,18 @@
             Fill="PaleVioletRed">
         </Rectangle>
         <Rectangle
-            Canvas.Left="465"
-            Canvas.Top="63"
+            Canvas.Left="105"
+            Canvas.Top="78"
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Tag="poisson"
+            Fill="PaleVioletRed">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="35"
+            Canvas.Top="225"
             Width="20"
             Height="20"
             HorizontalAlignment="Center"
@@ -405,14 +385,41 @@
             Fill="PaleVioletRed">
         </Rectangle>
         <Rectangle
-            Canvas.Left="557"
-            Canvas.Top="63"
+            Canvas.Left="434"
+            Canvas.Top="166"
             Width="20"
             Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Tag="poisson"
             Fill="PaleVioletRed">
         </Rectangle>
+        <Rectangle
+            Canvas.Left="380"
+            Canvas.Top="166"
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson"
+            Fill="PaleVioletRed">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="543"
+            Canvas.Top="165"
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Tag="poisson"
+            Fill="PaleVioletRed">
+        </Rectangle>
+        <Rectangle
+            Canvas.Left="277"
+            Canvas.Top="166"
+            Width="20"
+            Height="20"
+            Tag="poisson"
+            Fill="PaleVioletRed" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Canvas>
 </Window>

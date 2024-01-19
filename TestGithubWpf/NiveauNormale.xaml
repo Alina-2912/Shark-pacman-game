@@ -27,7 +27,7 @@
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0.0" Color="#FF00BECC" />
-                    <GradientStop Offset="0.287" Color="#FF002C84" />
+                    <GradientStop Offset="0.287" Color="#FF3820BA" />
                     <GradientStop Offset="0.5" Color="#FF13359A" />
                     <GradientStop Offset="0.903" Color="#FF020244" />
                 </LinearGradientBrush>
@@ -85,17 +85,18 @@
             Height="387"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="wall" RadiusX="42.84" RadiusY="42.84" />
         <Rectangle
+            x:Name="torche"
             Canvas.Left="296"
             Canvas.Top="498"
             Width="42"
             Height="100"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
             Tag="wall" />
         <Rectangle
@@ -105,9 +106,9 @@
             Height="239"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="wall" RadiusX="28.84" RadiusY="28.84" />
         <Rectangle
             Canvas.Left="750"
             Canvas.Top="474"
@@ -715,9 +716,9 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             RenderTransformOrigin="0.5,0.5"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
-            Tag="wall">
+            Tag="wall" RadiusX="16.5" RadiusY="16.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1" />
@@ -745,12 +746,9 @@
             Height="29"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush />
-            </Rectangle.Fill>
+            Tag="wall" RadiusX="14.5" RadiusY="14.5">
         </Rectangle>
         <Rectangle
             Canvas.Left="80"
@@ -759,9 +757,9 @@
             Height="29"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="wall" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             Canvas.Left="84"
             Canvas.Top="225"
@@ -769,9 +767,9 @@
             Height="29"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="wall" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             Canvas.Left="103"
             Canvas.Top="101"
@@ -779,9 +777,9 @@
             Height="29"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Stroke="Coral"
+            Fill="Coral"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="wall" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             Canvas.Left="30"
             Canvas.Top="433"
