@@ -170,6 +170,10 @@ namespace TestGithubWpf
                 }
                 if ((string)x.Tag == "pieuvre")
                 {
+                    if (x.Visibility == Visibility.Hidden)
+                    {
+                        x.Visibility = Visibility.Visible;
+                    }
                     if (pacmanHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
