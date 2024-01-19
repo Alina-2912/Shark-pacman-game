@@ -191,7 +191,6 @@ namespace TestGithubWpf
         }
         private void GameSetUp()
         {
-            
             itemRemover.Clear();
 
             MyCanvas.Focus();
