@@ -218,25 +218,43 @@ namespace TestGithubWpf
             ImageBrush corail1 = new ImageBrush();
             corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));
             corailMillieu.Fill = corail1;
+
             ImageBrush corail2 = new ImageBrush();
             corail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/corailleRose.png"));
             obstacle1.Fill = corail2;
+
             ImageBrush corail3 = new ImageBrush();
             corail3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/creatureMer.png"));
             obstacle2.Fill = corail3;
+
             ImageBrush corail4 = new ImageBrush();
             corail4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/vaguesaquatiques.jpg"));
             obstacle3.Fill = corail4;
+
             ImageBrush bulles_1 = new ImageBrush();
             bulles_1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
             bulles1.Fill = bulles_1;
+
             ImageBrush bulles_2 = new ImageBrush();
             bulles_2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
             bulles2.Fill = bulles_2;
+
             ImageBrush rochet = new ImageBrush();
             rochet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets.png"));
             rochets.Fill = rochet;
 
+            ImageBrush rougecorail1 = new ImageBrush();
+            rougecorail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral.jpg"));
+            corail_rouge1.Fill = rougecorail1;
+
+            ImageBrush rougecorail2 = new ImageBrush();
+            rougecorail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral2.jpg"));
+            corail_rouge2.Fill = rougecorail2;
+
+            ImageBrush rougecorail3 = new ImageBrush();
+            rougecorail3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
+            corail_rouge3.Fill = rougecorail3;
+   
             }
 
         private void movePacman()

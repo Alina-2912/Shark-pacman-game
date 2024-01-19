@@ -86,6 +86,7 @@
             StrokeThickness="3"
             Tag="wall" />
         <Rectangle
+            Name="corail_rouge1"
             Canvas.Left="140"
             Canvas.Top="457"
             Width="38"
@@ -93,10 +94,8 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="red">
         </Rectangle>
         <Rectangle
             Name="obstacle2"
@@ -1089,6 +1088,7 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
         <Rectangle
+            Name="corail_rouge2"
             Canvas.Left="340"
             Canvas.Top="348"
             Width="40"
@@ -1096,10 +1096,8 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral2.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"
+            Fill="red">
         </Rectangle>
         <Rectangle
             Canvas.Left="255"
@@ -1141,6 +1139,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
+            x:Name="corail_rouge3"
             Canvas.Left="682"
             Canvas.Top="451"
             Width="38"
@@ -1149,10 +1148,7 @@
             VerticalAlignment="Top"
             RenderTransformOrigin="0.342,0.392"
             StrokeThickness="3"
-            Tag="wall">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/coral4.jpg" />
-            </Rectangle.Fill>
+            Tag="wall"            Fill="red">
         </Rectangle>
         <Button
             Name="CloseButton"

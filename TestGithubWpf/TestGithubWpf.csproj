@@ -10,15 +10,11 @@
   <ItemGroup>
     <None Remove="background.jpg" />
     <None Remove="bubles.jpg" />
-    <None Remove="coral.jpg" />
-    <None Remove="coral2.jpg" />
     <None Remove="coral3.jpg" />
-    <None Remove="coral4.jpg" />
     <None Remove="coral5.jpg" />
     <None Remove="coral6.jpg" />
     <None Remove="nemo.jpg" />
     <None Remove="nemo2.jpg" />
-    <None Remove="seaweed.jpg" />
     <None Remove="seaweed2.jpg" />
     <None Remove="seaweed3.jpg" />
   </ItemGroup>
@@ -28,16 +24,7 @@
     <Resource Include="bubles.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="coral.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="coral2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="coral3.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="coral4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="coral5.jpg">
@@ -48,7 +35,6 @@
     </Resource>
     <Resource Include="nemo.jpg" />
     <Resource Include="nemo2.jpg" />
-    <Resource Include="seaweed.jpg" />
     <Resource Include="seaweed2.jpg" />
     <Resource Include="seaweed3.jpg" />
   </ItemGroup>
