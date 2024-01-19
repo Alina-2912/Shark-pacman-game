@@ -791,11 +791,11 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle
-            Canvas.Left="604"
+            Canvas.Left="730"
             Canvas.Top="404"
             Width="20"
             Height="20"
-            Tag="coin">
+            Tag="coin" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/nemo.jpg" />
             </Rectangle.Fill>
