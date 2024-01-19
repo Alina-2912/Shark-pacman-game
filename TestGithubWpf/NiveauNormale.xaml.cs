@@ -30,22 +30,23 @@ namespace TestGithubWpf
         int score = 0;
         int imageRequin = 1;
         int imageTorche = 1;
-        bool gameover = false;
+        bool jeu_termine = false;
         bool gagne = false;
         bool estJeuEnPause = false;
         ImageBrush requinImage = new ImageBrush();
-        ImageBrush starImage = new ImageBrush();
+        ImageBrush bonusImage = new ImageBrush();
 
         public NiveauNormale()
         {
             InitializeComponent();
-            GameSetUp();
+            ConfigurationJeu();
         }
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonFermer_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            Application.Current.Shutdown();
         }
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void ButtonRetour_Click(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
             this.Hide();
@@ -77,10 +78,10 @@ namespace TestGithubWpf
                     //mediaElement.Play();
                 }
             }
-            /*************************    RESTART - R   *************************/
-            if (e.Key == Key.R && gameover)
+            /*************************    REbonusT - R   *************************/
+            if (e.Key == Key.R && jeu_termine)
             {
-                StartGame();
+                CommencerJeu();
             }
 
             if (e.Key == Key.Left)
@@ -131,7 +132,7 @@ namespace TestGithubWpf
                 vaEnHaut = false;
             }
         }
-        private void GameSetUp()
+        private void ConfigurationJeu()
         {
             MyCanvas.Focus();
             gameTimer.Tick += GameLoop;
@@ -160,7 +161,7 @@ namespace TestGithubWpf
             }
                 //requinHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
         }
-        private void movePacman()
+        private void DeplacerRequin()
         {
             if (vaDroite && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
             {
@@ -184,7 +185,7 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                if ((string)x.Tag == "star")
+                if ((string)x.Tag == "bonus")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
@@ -223,7 +224,7 @@ namespace TestGithubWpf
                 }
             }
         }
-        private void StartGame()
+        private void CommencerJeu()
         {
             actuellePieuvrePas = mouvementPieuvre;
 
@@ -259,7 +260,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        gameover = true;
+                        jeu_termine = true;
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
@@ -280,7 +281,7 @@ namespace TestGithubWpf
             }
         }
 
-        private void MoveGhost()
+        private void DeplacerPieuvre()
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
@@ -308,7 +309,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        gameover = true;
+                        jeu_termine = true;
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
@@ -338,11 +339,11 @@ namespace TestGithubWpf
         }
         private void GameLoop(object sender, EventArgs e)
         {
-            starImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
+            bonusImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
 
-            movePacman();
-            MoveGhost();
+            DeplacerRequin();
+            DeplacerPieuvre();
 
 
             switch (imageRequin)
@@ -419,11 +420,9 @@ namespace TestGithubWpf
                     {
                         Width = 30,
                         Height = 30,
-                        Fill = starImage,
-                        //Stroke = Brushes.Red,
-                        //Visibility = Visibility.Hidden,
+                        Fill = bonusImage,
                         StrokeThickness = 2,
-                        Tag = "star",
+                        Tag = "bonus",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 529);
@@ -439,11 +438,11 @@ namespace TestGithubWpf
                     {
                         Width = 30,
                         Height = 30,
-                        Fill = starImage,
+                        Fill = bonusImage,
                         //Stroke = Brushes.Red,
                         //Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
-                        Tag = "star",
+                        Tag = "bonus",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 199);
@@ -458,11 +457,11 @@ namespace TestGithubWpf
                     {
                         Width = 30,
                         Height = 30,
-                        Fill = starImage,
+                        Fill = bonusImage,
                         //Stroke = Brushes.Red,
                         Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
-                        Tag = "star",
+                        Tag = "bonus",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 50);
@@ -473,7 +472,7 @@ namespace TestGithubWpf
             {
                 gagne = true;
             }
-            if (gameover)
+            if (jeu_termine)
             {
                 txtScore.Content += "   Press R to Retry";
             }
@@ -483,7 +482,7 @@ namespace TestGithubWpf
             gameTimer.Stop();
             MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
 
-            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            //System.Diagnostics.Process.bonust(Application.ResourceAssembly.Location);
             //Application.Current.Shutdown();
         }
     }

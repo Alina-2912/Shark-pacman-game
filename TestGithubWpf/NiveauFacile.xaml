@@ -87,7 +87,7 @@
             RadiusY="8.5"
             Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             Name="corail_rouge1"
             Canvas.Left="140"
@@ -98,7 +98,7 @@
             VerticalAlignment="Center"
             Fill="red"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             Name="obstacle2"
             Canvas.Left="680"
@@ -109,7 +109,7 @@
             VerticalAlignment="Top"
             Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall">
+            Tag="mur">
             <Rectangle.Fill>
                 <ImageBrush />
             </Rectangle.Fill>
@@ -124,7 +124,7 @@
             VerticalAlignment="Center"
             Stroke="Transparent"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             Name="algue3"
             Canvas.Left="120"
@@ -135,7 +135,7 @@
             VerticalAlignment="Top"
             Fill="Green"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             Name="algue4"
             Canvas.Left="681"
@@ -147,7 +147,7 @@
             Fill="Green"
             RenderTransformOrigin="0.5,0.5"
             StrokeThickness="3"
-            Tag="wall">
+            Tag="mur">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1" />
@@ -166,7 +166,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall">
+            Tag="mur">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>
@@ -579,7 +579,7 @@
             VerticalAlignment="Top"
             Fill="red"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             x:Name="corail_vert1"
             Canvas.Left="255"
@@ -590,7 +590,7 @@
             VerticalAlignment="Center"
             Fill="LightGreen"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             x:Name="corail_vert2"
             Canvas.Left="567"
@@ -601,7 +601,7 @@
             VerticalAlignment="Top"
             Fill="LightGreen"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             x:Name="corail_jaune"
             Canvas.Left="460"
@@ -612,7 +612,7 @@
             VerticalAlignment="Top"
             Fill="Yellow"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             x:Name="corail_rouge3"
             Canvas.Left="682"
@@ -624,7 +624,7 @@
             Fill="red"
             RenderTransformOrigin="0.342,0.392"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Button
             Name="ButtonFermer"
             Canvas.Left="771"
@@ -645,7 +645,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Fill="Gray"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             Name="algue2"
             Canvas.Left="586"
@@ -657,7 +657,7 @@
             Fill="Green"
             RenderTransformOrigin="0.5,0.5"
             StrokeThickness="3"
-            Tag="wall">
+            Tag="mur">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1" />
@@ -689,7 +689,7 @@
             Fill="Green"
             RenderTransformOrigin="0.5,0.5"
             StrokeThickness="3"
-            Tag="wall">
+            Tag="mur">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1" />
@@ -708,7 +708,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             StrokeThickness="3"
-            Tag="wall">
+            Tag="mur">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" />
             </Rectangle.Fill>
@@ -723,7 +723,7 @@
             VerticalAlignment="Top"
             Fill="PaleVioletRed"
             StrokeThickness="3"
-            Tag="wall" />
+            Tag="mur" />
         <Rectangle
             Canvas.Left="204"
             Canvas.Top="544"

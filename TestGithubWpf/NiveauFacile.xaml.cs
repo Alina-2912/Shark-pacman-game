@@ -87,7 +87,7 @@ namespace TestGithubWpf
                     mediaElement.Play();
                 }
             }
-            /*************************    RESTART - R   *************************/
+            /*************************    REbonusT - R   *************************/
             if (e.Key == Key.R && jeu_termine)
             {
                 CommencerJeu();
@@ -283,7 +283,7 @@ namespace TestGithubWpf
             }
         }
 
-        private void DeplacerPieuvre()
+        private void DeplacerRequin()
         {
             if (vaDroite && Canvas.GetLeft(pacman) < Application.Current.MainWindow.Width - 60)
             {
@@ -307,7 +307,7 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                if ((string)x.Tag == "star")
+                if ((string)x.Tag == "bonus")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
@@ -324,7 +324,7 @@ namespace TestGithubWpf
                         }
                     }
                 }
-                if ((string)x.Tag == "wall")
+                if ((string)x.Tag == "mur")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
@@ -355,7 +355,7 @@ namespace TestGithubWpf
                 }
             }
         }
-        private void MoveGhost()
+        private void DeplacerPieuvre()
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
@@ -413,8 +413,8 @@ namespace TestGithubWpf
             treasureImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\nCliquer P pour mettre le jeu en pause et C pour continuer";
 
+            DeplacerRequin();
             DeplacerPieuvre();
-            MoveGhost();
 
             ////////////////////////////////////////////ANIMATION REQUIN
             switch (imageRequin)
@@ -536,7 +536,7 @@ namespace TestGithubWpf
                         Height = 30,
                         Fill = treasureImage,
                         StrokeThickness = 2,
-                        Tag = "star",
+                        Tag = "bonus",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 529);
@@ -554,7 +554,7 @@ namespace TestGithubWpf
                         Height = 30,
                         Fill = treasureImage,
                         StrokeThickness = 2,
-                        Tag = "star",
+                        Tag = "bonus",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 199);
@@ -571,7 +571,7 @@ namespace TestGithubWpf
                         Height = 30,
                         Fill = treasureImage,
                         StrokeThickness = 2,
-                        Tag = "star",
+                        Tag = "bonus",
                     };
                     MyCanvas.Children.Add(rec);
                     Canvas.SetTop(rec, 50);
