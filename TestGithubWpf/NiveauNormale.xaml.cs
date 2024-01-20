@@ -333,9 +333,18 @@ namespace TestGithubWpf
             {
                 if (x.Name.ToString() == "orangePieuvre")
                 {
-                    if (Canvas.GetLeft(x) < 700 && Canvas.GetTop(x) == 37)
+                    if (Canvas.GetLeft(x) < 740 && Canvas.GetTop(x) == 37)
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
+                    }
+                    if (Canvas.GetLeft(x) > 734)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesse);
+                    }
+                    if (Canvas.GetTop(x) == 537 && Canvas.GetLeft(x) > 734)
+                    {
+                        Canvas.SetLeft(x, 15);
+                        Canvas.SetTop(x, 37);
                     }
                 }
             }
