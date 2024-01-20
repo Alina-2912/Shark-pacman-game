@@ -343,7 +343,7 @@ namespace TestGithubWpf
                     }
                     if (Canvas.GetTop(x) == 537 && Canvas.GetLeft(x) > 734)
                     {
-                        Canvas.SetLeft(x, 15);
+                        Canvas.SetLeft(x, 5);
                         Canvas.SetTop(x, 37);
                     }
                 }
