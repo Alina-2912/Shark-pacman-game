@@ -32,7 +32,12 @@ namespace TestGithubWpf
         bool jeu_termine = false;
         bool estJeuEnPause = false;
         ImageBrush requinImage = new ImageBrush();
+        ImageBrush ennemieRose = new ImageBrush();
+        int imagePieuvre1 = 1;
         int imageRequin = 1;
+        private double startX = 145;
+        private double startY = 370;
+        private int direction = 0; // 0: droite, 1: enBas, 2: gauche, 3: haut
 
         public NiveauDifficile()
         {
@@ -105,8 +110,6 @@ namespace TestGithubWpf
                     vaGauche = vaEnHaut = vaEnBas = false;
                     vaDroite = true;
                     requin.RenderTransform = new RotateTransform(0, requin.Width / 2, requin.Height / 2);
-                    requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/requinvuhaut05.png"));
-                    requin.Fill = requinImage;
                 }
                 else { Canvas.SetLeft(requin, 790); }
             }
@@ -156,6 +159,14 @@ namespace TestGithubWpf
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
+                if ((string)x.Tag == "poisson")
+                {
+                    if (x.Visibility == Visibility.Hidden)
+                    {
+                        x.Visibility = Visibility.Visible;
+                    }
+                }
+
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
 
@@ -199,7 +210,7 @@ namespace TestGithubWpf
         private void DeplacerPieuvre()
         {
 
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            /*foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 if (x.Name.ToString() == "rosePieuvre")
                 {
@@ -218,12 +229,50 @@ namespace TestGithubWpf
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
                     }
                 }
+            }*/
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if (x.Name.ToString() == "rosePieuvre")
+                {
+                    double GaucheActuel = Canvas.GetLeft(x);
+                    double TopActuel = Canvas.GetTop(x);
+
+                    switch (direction)
+                    {
+                        case 0: // Move to the right
+                            Canvas.SetLeft(x, GaucheActuel + vitesse);
+                            if (GaucheActuel >= startX + 200)
+                                direction = 1; // Change direction to down
+                            break;
+
+                        case 1: // Move down
+                            Canvas.SetTop(x, TopActuel + vitesse);
+                            if (TopActuel >= startY + 200)
+                                direction = 2; // Change direction to left
+                            break;
+
+                        case 2: // Move to the left
+                            Canvas.SetLeft(x, GaucheActuel - vitesse);
+                            if (GaucheActuel <= startX)
+                                direction = 3; // Change direction to up
+                            break;
+
+                        case 3: // Move up
+                            Canvas.SetTop(x, TopActuel - vitesse);
+                            if (TopActuel <= startY)
+                                direction = 0; // Change direction to right
+                            break;
+                    }
+                }
             }
+
+
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                if ((string)x.Tag == "meduses")
+                if ((string)x.Tag == "poisson")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
@@ -231,6 +280,7 @@ namespace TestGithubWpf
                         score++;
                     }
                 }
+
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
@@ -313,7 +363,7 @@ namespace TestGithubWpf
         private void BoucleJeu(object sender, EventArgs e)
         {
             DeplacerPieuvre();
-            txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
+            txtScore.Content = "Score: " + score + "\nCliquer P pour mettre le jeu en pause et C pour continuer";
 
             switch (imageRequin)
             {
@@ -358,6 +408,40 @@ namespace TestGithubWpf
             if (imageRequin > 21)
             {
                 imageRequin = 1;
+            }
+
+            switch (imagePieuvre1)
+            {
+                case 1:
+                case 2:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose01.png"));
+                    break;
+                case 3:
+                case 4:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose02.png"));
+                    break;
+                case 5:
+                case 6:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose03.png"));
+                    break;
+                case 7:
+                case 8:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose04.png"));
+                    break;
+                case 9:
+                case 10:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose05.png"));
+                    break;
+                case 11:
+                case 12:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose06.png"));
+                    break;
+            }
+            rosePieuvre.Fill = ennemieRose;
+            imagePieuvre1++;
+            if (imagePieuvre1 > 12)
+            {
+                imagePieuvre1 = 1;
             }
 
             if (vaDroite)
@@ -458,19 +542,29 @@ namespace TestGithubWpf
                     }*/
                 }
             }
-            if (score == 85)
+            if (score == 82)
             {
-                JeuTermine("You Win, you collected all of the bonuss");
+                JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons !");
             }
             if (jeu_termine)
             {
-                txtScore.Content += "   Press R to Retry";
+                mediaElement.Close();
+                txtScore.Content += "\n        Cliquer R \n        pour Réessayer";
+
+                if (txtScore.Content.Equals("\n        Cliquer R \n        pour Réessayer"))
+                {
+                    txtScore.Foreground = Brushes.White;
+                }
+                else
+                {
+                    txtScore.Foreground = Brushes.Black;
+                }
             }
         }
         private void JeuTermine(string message)
         {
             gameTimer.Stop();
-            MessageBox.Show(message, "The Pac Man Game WPF MOO ICT");
+            MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
 
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             //Application.Current.Shutdown();

@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:TestGithubWpf"
         Title="MainWindow" 
         mc:Ignorable="PresentationOptions"
-            Width="815"
-    Height="635"
-    ResizeMode="NoResize"
-    WindowStartupLocation="CenterScreen">
+        Width="815"
+        Height="635"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
         <!-- This is the geometry creates the animation path. Because 
@@ -863,8 +863,8 @@
             Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Rectangle
             x:Name="rosePieuvre"
-            Canvas.Left="732"
-            Canvas.Top="538"
+            Canvas.Left="145"
+            Canvas.Top="370"
             Width="51"
             Height="50"
             Fill="Pink"
