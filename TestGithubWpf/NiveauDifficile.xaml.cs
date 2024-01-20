@@ -35,9 +35,9 @@ namespace TestGithubWpf
         ImageBrush ennemieRose = new ImageBrush();
         int imagePieuvre1 = 1;
         int imageRequin = 1;
-        private double startX = 145;
-        private double startY = 370;
-        private int direction = 0; // 0: droite, 1: enBas, 2: gauche, 3: haut
+        private double debutX = 145;
+        private double debutY = 530;
+        private int direction = 0; // 0: haut, 1: droite, 2: en bas, 3: gauche
 
         public NiveauDifficile()
         {
@@ -240,28 +240,28 @@ namespace TestGithubWpf
 
                     switch (direction)
                     {
-                        case 0: // Move to the right
-                            Canvas.SetLeft(x, GaucheActuel + vitesse);
-                            if (GaucheActuel >= startX + 200)
-                                direction = 1; // Change direction to down
-                            break;
-
-                        case 1: // Move down
-                            Canvas.SetTop(x, TopActuel + vitesse);
-                            if (TopActuel >= startY + 200)
-                                direction = 2; // Change direction to left
-                            break;
-
-                        case 2: // Move to the left
-                            Canvas.SetLeft(x, GaucheActuel - vitesse);
-                            if (GaucheActuel <= startX)
-                                direction = 3; // Change direction to up
-                            break;
-
-                        case 3: // Move up
+                        case 0: // Move up
                             Canvas.SetTop(x, TopActuel - vitesse);
-                            if (TopActuel <= startY)
-                                direction = 0; // Change direction to right
+                            if (TopActuel <= debutY - 200)
+                                direction = 1; // Change direction to right
+                            break;
+
+                        case 1: // Move to the right
+                            Canvas.SetLeft(x, GaucheActuel + vitesse);
+                            if (GaucheActuel >= debutX + 200)
+                                direction = 2; // Change direction to down
+                            break;
+
+                        case 2: // Move down
+                            Canvas.SetTop(x, TopActuel + vitesse);
+                            if (TopActuel >= debutY)
+                                direction = 3; // Change direction to left
+                            break;
+
+                        case 3: // Move to the left
+                            Canvas.SetLeft(x, GaucheActuel - vitesse);
+                            if (GaucheActuel <= debutX)
+                                direction = 0; // Change direction to up
                             break;
                     }
                 }
