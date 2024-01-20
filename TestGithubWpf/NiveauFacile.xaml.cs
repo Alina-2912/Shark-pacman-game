@@ -22,10 +22,6 @@ namespace TestGithubWpf
     /// </summary>
     public partial class NiveauFacile : Window
     {
-        public readonly int APPARITION_BONUS_1 = 15;
-        public readonly int APPARITION_BONUS_2 = 35;
-        public readonly int APPARITION_BONUS_3 = 55;
-
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool vaGauche, vaDroite, vaEnBas, vaEnHaut;
         int vitesse = 7;
@@ -442,7 +438,7 @@ namespace TestGithubWpf
                 {
                     if (Canvas.GetTop(x) == 120)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesse);
                         if (Canvas.GetLeft(x) < 90)
                         {
                             Canvas.SetTop(x, 119);
@@ -450,7 +446,7 @@ namespace TestGithubWpf
                     }
                     if (Canvas.GetTop(x) == 119)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
                         if (Canvas.GetLeft(x) > 650)
                         {
                             Canvas.SetTop(x, 120);
@@ -643,7 +639,7 @@ namespace TestGithubWpf
                 }
             }
             //*******************************    BONUS    ******************************/
-            if (score == APPARITION_BONUS_1)
+            if (score == 15)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -661,7 +657,7 @@ namespace TestGithubWpf
                     
                 }
             }
-            if (score == APPARITION_BONUS_2)
+            if (score == 35)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -678,7 +674,7 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 489);
                 }
             }
-            if (score == APPARITION_BONUS_3)
+            if (score == 55)
             {
                 for (int i = 0; i < 5; i++)
                 {
