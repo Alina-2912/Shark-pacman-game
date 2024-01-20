@@ -272,17 +272,8 @@ namespace TestGithubWpf
         {
             actuellePieuvrePas = mouvementPieuvre;
 
-            Canvas.SetLeft(requin, 50);
-            Canvas.SetTop(requin, 104);
-
-            /*Canvas.SetLeft(rosePieuvre, 173);
-            Canvas.SetTop(rosePieuvre, 404);
-
-            Canvas.SetLeft(violetPieuvre, 173);
-            Canvas.SetTop(violetPieuvre, 29);
-
-            Canvas.SetLeft(orangePieuvre, 651);
-            Canvas.SetTop(orangePieuvre, 104);*/
+            Canvas.SetLeft(requin, 22);
+            Canvas.SetTop(requin, 544);
 
             gameTimer.Start();
             score = 0;
@@ -307,14 +298,6 @@ namespace TestGithubWpf
                         jeu_termine = true;
                     }
                     
-                    /*if (x.Name.ToString() == "orangePieuvre")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                    }
-                    else
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                    }*/
                     actuellePieuvrePas--;
                     if (actuellePieuvrePas < 1)
                     {
@@ -347,6 +330,23 @@ namespace TestGithubWpf
                         Canvas.SetTop(x, 37);
                     }
                 }
+                if (x.Name.ToString() == "rosePieuvre")
+                {
+
+                    if (Canvas.GetLeft(x) > 470)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesse);
+                    }
+                    if (Canvas.GetTop(x) < 148)
+                    {
+                        Canvas.SetLeft(x, 10);
+                        Canvas.SetTop(x, 275);
+                    }
+                    if (Canvas.GetLeft(x) < 700 && Canvas.GetTop(x) == 275)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
+                    }
+                }
             }
                 foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
@@ -368,24 +368,7 @@ namespace TestGithubWpf
                         JeuTermine("Vous avez gagne");
                     }
                 }
-                if (x.Name.ToString() == "rosePieuvre")
-                {
-                    
-                    if (Canvas.GetLeft(x) > 470 )
-                    {
-                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesse);
-                    }
-                    if (Canvas.GetTop(x) < 148)
-                    {
-                        Canvas.SetLeft(x, 10);
-                        Canvas.SetTop(x, 275);
-                    }
-                    if (Canvas.GetLeft(x) < 700 && Canvas.GetTop(x) == 275)
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
-                    }
-                }
-
+                
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
@@ -487,6 +470,7 @@ namespace TestGithubWpf
             }
             torche.Fill = torcheImage;
             imageTorche++;
+            torche_1.Fill = torcheImage;
             if (imageTorche > 15)
             {
                 imageTorche = 1;

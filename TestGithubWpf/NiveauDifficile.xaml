@@ -861,5 +861,13 @@
             Height="20"
             Tag="poisson"
             Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Rectangle
+            x:Name="rosePieuvre"
+            Canvas.Left="732"
+            Canvas.Top="538"
+            Width="51"
+            Height="50"
+            Fill="Pink"
+            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </Canvas>
 </Window>

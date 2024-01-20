@@ -381,14 +381,14 @@ namespace TestGithubWpf
                         score++;
                     }
                 }
-                if ((string)x.Tag == "ghost")
+                if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
                         gameover = true;
                     }
-                    if (x.Name.ToString() == "orangeGuy")
+                    /*if (x.Name.ToString() == "orangeGuy")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
@@ -401,7 +401,7 @@ namespace TestGithubWpf
                     {
                         actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = -vitesseEnnemie;
-                    }
+                    }*/
                 }
             }
             if (score == 85)

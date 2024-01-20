@@ -133,12 +133,12 @@
     Fill="Yellow"
     RenderTransformOrigin="0.486,0.502"  />
         <Rectangle
-    Canvas.Left="564"
+    Canvas.Left="562"
     Canvas.Top="216"
     Width="30"
     Height="387"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Top"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="15" RadiusY="15" />
@@ -154,10 +154,10 @@
     StrokeThickness="3"
     Tag="mur" />
         <Rectangle
-    Canvas.Left="425"
-    Canvas.Top="360"
+    Canvas.Left="427"
+    Canvas.Top="344"
     Width="41"
-    Height="239"
+    Height="104"
     HorizontalAlignment="Center"
     VerticalAlignment="Top"
     Fill="Coral"
@@ -643,12 +643,12 @@
     Fill="HotPink">
         </Rectangle>
         <Rectangle
-    Canvas.Left="750"
-    Canvas.Top="564"
+    Canvas.Left="710"
+    Canvas.Top="554"
     Width="20"
     Height="20"
     HorizontalAlignment="Left"
-    VerticalAlignment="Top"
+    VerticalAlignment="Center"
     Tag="meduses"
     Fill="HotPink">
         </Rectangle>
@@ -700,8 +700,8 @@
     Tag="meduses" 
     Fill="HotPink"/>
         <Rectangle
-    Canvas.Left="630"
-    Canvas.Top="564"
+    Canvas.Left="667"
+    Canvas.Top="554"
     Width="20"
     Height="20"
     HorizontalAlignment="Left"
@@ -714,10 +714,10 @@
     UnloadedBehavior="Manual" />
 
         <Rectangle
-    Canvas.Left="682"
+    Canvas.Left="684"
     Canvas.Top="101"
     Width="33"
-    Height="496"
+    Height="398"
     HorizontalAlignment="Left"
     VerticalAlignment="Center"
     RenderTransformOrigin="0.5,0.5"
@@ -1111,5 +1111,14 @@
             Height="52"
             Fill="Orange"
             Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            x:Name="torche_1"
+            Canvas.Left="427"
+            Canvas.Top="498"
+            Width="42"
+            Height="100"
+            Fill="Coral"
+            StrokeThickness="3"
+            Tag="mur" HorizontalAlignment="Left" VerticalAlignment="Center" />
     </Canvas>
 </Window>
