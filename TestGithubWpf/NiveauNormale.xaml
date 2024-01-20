@@ -16,7 +16,7 @@
          this example uses it multiple times, it's declared as a resource and
          frozen to improve performance. -->
         <PathGeometry x:Key="AnimationPath" 
-      Figures="M 10,0 670,0 10,0 10,430 10,0 670,0 10,0 10,430 10,0 "
+      Figures="M 38,0 670,0 38,0 38,430 38,0 670,0 38,0 38,430 38,0 "
       PresentationOptions:Freeze="True" />
         <PathGeometry x:Key="AnimationPath2" 
         Figures="M 423,151 423,290 38,290 423,290 423,151 423,290 38,290 423,290 423,151 "
@@ -51,8 +51,8 @@
             Height="30" 
             Tag="pieuvre"
             Fill="Blue" 
-            Canvas.Left="405"
-            Canvas.Top="25" 
+            Canvas.Left="-31"
+            Canvas.Top="43" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Center">
             <Rectangle.RenderTransform>
@@ -85,11 +85,11 @@
             Width="30" 
             Height="30" 
             Fill="Orange"  
-            Canvas.Left="120"
-            Canvas.Top="290" 
+            Canvas.Left="83"
+            Canvas.Top="-29" 
             Tag="pieuvre"
             HorizontalAlignment="Left" 
-            VerticalAlignment="Top">
+            VerticalAlignment="Center">
             <Rectangle.RenderTransform>
                 <TranslateTransform x:Name="orange"  />
             </Rectangle.RenderTransform>
