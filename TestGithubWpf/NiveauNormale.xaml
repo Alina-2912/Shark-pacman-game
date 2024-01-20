@@ -1095,5 +1095,13 @@
             Content="Retour&#xA;au menu" 
             HorizontalAlignment="Center" VerticalAlignment="Center" 
             />
+        <Rectangle
+            x:Name="rosePieuvre"
+            Canvas.Left="18"
+            Canvas.Top="275"
+            Width="52"
+            Height="50"
+            Fill="Pink"
+            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </Canvas>
 </Window>

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -43,6 +43,7 @@ namespace TestGithubWpf
         {
             InitializeComponent();
             ConfigurationJeu();
+            
         }
         private void ButtonFermer_Click(object sender, RoutedEventArgs e)
         {
@@ -135,8 +136,47 @@ namespace TestGithubWpf
                 vaEnHaut = false;
             }
         }
+        private void Chase(FrameworkElement enemy)
+        {
+            var enemyLeft = Canvas.GetLeft(rosePieuvre);
+            var enemyTop = Canvas.GetTop(rosePieuvre);
+
+            var playerLeft = Canvas.GetLeft(requin);
+            var playerTop = Canvas.GetTop(requin);
+
+            var distance = new Point(playerLeft - enemyLeft, playerTop - enemyTop);
+
+            if (distance.X == 0 && distance.Y == 0) 
+                return;
+            
+            if (distance.X > 0 && distance.Y > 0)
+            {
+                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) + 20);
+                //Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) + 10);
+                //Canvas.SetLeft(rosePieuvre, Canvas.GetLeft(rosePieuvre) + 10);
+
+            }
+            else if (distance.X < 0 && distance.Y < 0)
+            {
+                //Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) - 50);
+                //Canvas.SetLeft(rosePieuvre, Canvas.GetLeft(rosePieuvre) - 50);
+                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) - 20);
+            }
+            else if (distance.X > 0 && distance.Y < 0)
+            {
+                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) + 20);
+
+            }
+            else if (distance.X < 0 && distance.Y > 0)
+            {
+                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) - 20);
+            }
+
+        }
         private void ConfigurationJeu()
         {
+            //Chase(rosePieuvre);
+
             MyCanvas.Focus();
             gameTimer.Tick += BoucleJeu;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
@@ -225,6 +265,7 @@ namespace TestGithubWpf
                         }
                     }
                 }
+
             }
         }
         private void CommencerJeu()
@@ -265,6 +306,14 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
+                    if (x.Name.ToString() == "rosePieuvre")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) == 150)
+                        {
+                            Canvas.SetLeft(x, -152);
+                        }
+                    }
                     /*if (x.Name.ToString() == "orangePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
@@ -272,13 +321,13 @@ namespace TestGithubWpf
                     else
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                    }
+                    }*/
                     actuellePieuvrePas--;
                     if (actuellePieuvrePas < 1)
                     {
                         actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = -vitesseEnnemie;
-                    }*/
+                    }
                 }
 
             }
@@ -306,7 +355,23 @@ namespace TestGithubWpf
                         JeuTermine("Vous avez gagne");
                     }
                 }
-
+                if ((string)x.Tag == "pieuvre")
+                {
+                    
+                    if (Canvas.GetLeft(x) > 450)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - 5);
+                    }
+                    if (Canvas.GetTop(x) < 148)
+                    {
+                        Canvas.SetLeft(x, 10);
+                        Canvas.SetTop(x, 275);
+                    }
+                    if (Canvas.GetLeft(x) < 700 && Canvas.GetTop(x) == 275)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
+                    }
+                }
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
@@ -314,6 +379,7 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
+
                     /*if (x.Name.ToString() == "orangePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
