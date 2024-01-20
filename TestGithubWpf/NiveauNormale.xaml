@@ -18,6 +18,9 @@
         <PathGeometry x:Key="AnimationPath" 
       Figures="M 10,0 670,0 10,0 10,430 10,0 670,0 10,0 10,430 10,0 "
       PresentationOptions:Freeze="True" />
+        <PathGeometry x:Key="AnimationPath2" 
+        Figures="M 423,151 423,290 38,290 423,290 423,151 423,290 38,290 423,290 423,151 "
+        PresentationOptions:Freeze="True" />
     </Window.Resources>
 
     <Canvas
@@ -41,7 +44,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <!-- The object to animate. -->
+        <!-- ************************************************************************ -->
         <Rectangle   
       Width="30" Height="30" Fill="Blue" Canvas.Left="21"
 Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -53,19 +56,46 @@ Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <EventTrigger RoutedEvent="Path.Loaded">
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
-
-                            <!-- Animates the rectangle horizotally along the path. -->
                             <DoubleAnimationUsingPath
                 Storyboard.TargetName="AnimatedTranslateTransform"
                 Storyboard.TargetProperty="X"
                 PathGeometry="{StaticResource AnimationPath}"
                 Source="X" 
                 Duration="0:0:10"  />
-                            <!-- Animates the rectangle vertically along the path. -->
                             <DoubleAnimationUsingPath
                 Storyboard.TargetName="AnimatedTranslateTransform"
                 Storyboard.TargetProperty="Y"
                 PathGeometry="{StaticResource AnimationPath}"
+                Source="Y" 
+                Duration="0:0:10"  />
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
+        <Rectangle   
+      Width="30" Height="30" Fill="Orange" Canvas.Left="90"
+Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Rectangle.RenderTransform>
+                <TranslateTransform x:Name="orange"  />
+            </Rectangle.RenderTransform>
+
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Path.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimationUsingPath
+                Storyboard.TargetName="orange"
+                Storyboard.TargetProperty="X"
+                PathGeometry="{StaticResource AnimationPath2}"
+                Source="X" 
+                Duration="0:0:10"  />
+                            <DoubleAnimationUsingPath
+                Storyboard.TargetName="orange"
+                Storyboard.TargetProperty="Y"
+                PathGeometry="{StaticResource AnimationPath2}"
                 Source="Y" 
                 Duration="0:0:10"  />
 
@@ -90,27 +120,6 @@ Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Top">
     VerticalAlignment="Top"
     Fill="Yellow"
     RenderTransformOrigin="0.486,0.502"  />
-        <Rectangle
-    Name="violetPieuvre"
-    Canvas.Left="185"
-    Canvas.Top="18"
-    Width="51"
-    Height="51"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
-    Fill="Red"
-    Tag="pieuvre" />
-        <Rectangle
-    Name="orangePieuvre"
-    Canvas.Left="475"
-    Canvas.Top="274"
-    Width="52"
-    Height="52"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Top"
-    Fill="Orange"
-    Tag="pieuvre"
-    />
 
         <Rectangle
     Name="rosePieuvre"

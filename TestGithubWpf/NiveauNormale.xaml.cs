@@ -338,14 +338,14 @@ namespace TestGithubWpf
             Canvas.SetLeft(requin, 50);
             Canvas.SetTop(requin, 104);
 
-            Canvas.SetLeft(rosePieuvre, 173);
+            /*Canvas.SetLeft(rosePieuvre, 173);
             Canvas.SetTop(rosePieuvre, 404);
 
             Canvas.SetLeft(violetPieuvre, 173);
             Canvas.SetTop(violetPieuvre, 29);
 
             Canvas.SetLeft(orangePieuvre, 651);
-            Canvas.SetTop(orangePieuvre, 104);
+            Canvas.SetTop(orangePieuvre, 104);*/
 
             gameTimer.Start();
             score = 0;
