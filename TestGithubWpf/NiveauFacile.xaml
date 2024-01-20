@@ -60,7 +60,7 @@
             Name="orangePieuvre"
             Canvas.Left="658"
             Canvas.Top="120"
-            Width="52"
+            Width="55"
             Height="52"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"

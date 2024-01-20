@@ -69,7 +69,7 @@ namespace TestGithubWpf
                 {
                     gameTimer.Stop();
                     estJeuEnPause = true;
-                    //mediaElement.Pause();
+                    mediaElement.Pause();
                 }
             }
             /*************************    RESUME   *************************/
@@ -79,7 +79,7 @@ namespace TestGithubWpf
                 {
                     gameTimer.Start();
                     estJeuEnPause = false;
-                    //mediaElement.Play();
+                    mediaElement.Play();
                 }
             }
             /*************************    REDEMARRAGE - R   *************************/

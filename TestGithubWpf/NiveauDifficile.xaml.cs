@@ -71,7 +71,7 @@ namespace TestGithubWpf
                 }
             }
             /*************************    RESUME   *************************/
-            if (e.Key == Key.R)
+            if (e.Key == Key.C)
             {
                 if (estJeuEnPause)
                 {

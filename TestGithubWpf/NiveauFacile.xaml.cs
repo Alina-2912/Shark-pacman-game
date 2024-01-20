@@ -38,9 +38,11 @@ namespace TestGithubWpf
         ImageBrush requinImage = new ImageBrush();
         ImageBrush ennemieRose = new ImageBrush();
         ImageBrush ennemieViolet = new ImageBrush();
+        ImageBrush ennemieOrange = new ImageBrush();
         int imageRequin = 1;
         int imagePieuvre1 = 1;
         int imagePieuvre2 = 1;
+        int imagePieuvre3 = 1;
         int modePuissantCompteur = 200;
 
         public NiveauFacile()
@@ -208,10 +210,6 @@ namespace TestGithubWpf
             MyCanvas.Focus();
             gameTimer.Start();
             actuellePieuvrePas = mouvementPieuvre;
-
-            ImageBrush orange = new ImageBrush();
-            orange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
-            orangePieuvre.Fill = orange;
 
             ImageBrush corail1 = new ImageBrush();
             corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));
@@ -486,23 +484,23 @@ namespace TestGithubWpf
                     break;
                 case 3:
                 case 4:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet02.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet02.png"));
                     break;
                 case 5:
                 case 6:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet03.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet03.png"));
                     break;
                 case 7:
                 case 8:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet04.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet04.png"));
                     break;
                 case 9:
                 case 10:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet05.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet05.png"));
                     break;
                 case 11:
                 case 12:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreViolet06.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet06.png"));
                     break;
             }
             violetPieuvre.Fill = ennemieViolet;
@@ -512,8 +510,39 @@ namespace TestGithubWpf
                 imagePieuvre2 = 1;
             }
 
-            /*******************************    ModePuissant    ******************************/
-            if (modePuissant == true)
+            //////////////////////////////////////////  ANIMATION PIEUVRE ORANGE
+            switch(imagePieuvre3)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange01.png"));
+                    break;
+                case 7:
+                case 8:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange02.png"));
+                    break;
+                case 9:
+                case 10:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange03.png"));
+                    break;
+                case 11:
+                case 12:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange04.png"));
+                    break;
+            }
+                orangePieuvre.Fill = ennemieOrange;
+                imagePieuvre3++;
+                if (imagePieuvre3 > 12)
+                {
+                    imagePieuvre3 = 1;
+                }
+
+                /*******************************    ModePuissant    ******************************/
+                if (modePuissant == true)
             {
                 vitesse = 9;
                 vitesseEnnemie = 2;
@@ -525,7 +554,7 @@ namespace TestGithubWpf
                     modePuissant = false;
                 }
             }
-            /*******************************    BONUS    ******************************/
+            //*******************************    BONUS    ******************************/
             if (score == 16)
             {
                 for (int i = 0; i < 5; i++)
