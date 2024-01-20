@@ -39,8 +39,8 @@
             Foreground="Black" />
         <Rectangle
             Name="pacman"
-            Canvas.Left="31"
-            Canvas.Top="134"
+            Canvas.Left="40"
+            Canvas.Top="300"
             Width="35"
             Height="24"
             HorizontalAlignment="Left"
@@ -48,7 +48,7 @@
             Fill="Yellow" />
         <Rectangle
             Name="violetPieuvre"
-            Canvas.Left="185"
+            Canvas.Left="175"
             Canvas.Top="18"
             Width="51"
             Height="51"
