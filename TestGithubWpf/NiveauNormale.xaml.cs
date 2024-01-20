@@ -306,14 +306,7 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
-                    if (x.Name.ToString() == "rosePieuvre")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                        if (Canvas.GetLeft(x) == 150)
-                        {
-                            Canvas.SetLeft(x, -152);
-                        }
-                    }
+                    
                     /*if (x.Name.ToString() == "orangePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
@@ -335,7 +328,18 @@ namespace TestGithubWpf
 
         private void DeplacerPieuvre()
         {
+            
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if (x.Name.ToString() == "orangePieuvre")
+                {
+                    if (Canvas.GetLeft(x) < 700 && Canvas.GetTop(x) == 37)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
+                    }
+                }
+            }
+                foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
@@ -360,7 +364,7 @@ namespace TestGithubWpf
                     
                     if (Canvas.GetLeft(x) > 470 )
                     {
-                        Canvas.SetTop(x, Canvas.GetTop(x) - 5);
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesse);
                     }
                     if (Canvas.GetTop(x) < 148)
                     {
@@ -372,6 +376,7 @@ namespace TestGithubWpf
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
                     }
                 }
+
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
