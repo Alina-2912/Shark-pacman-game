@@ -153,7 +153,7 @@ namespace TestGithubWpf
         {
             actuellePieuvrePas = mouvementPieuvre;
 
-            Canvas.SetLeft(pacman, 50);
+            /*Canvas.SetLeft(pacman, 50);
             Canvas.SetTop(pacman, 104);
 
             Canvas.SetLeft(rosePieuvre, 173);
@@ -163,7 +163,7 @@ namespace TestGithubWpf
             Canvas.SetTop(violetPieuvre, 29);
 
             Canvas.SetLeft(orangePieuvre, 651);
-            Canvas.SetTop(orangePieuvre, 104);
+            Canvas.SetTop(orangePieuvre, 104);*/
 
             gameTimer.Start();
             score = 0;
@@ -218,7 +218,7 @@ namespace TestGithubWpf
             actuellePieuvrePas = mouvementPieuvre;
 
             
-            ImageBrush redGhost = new ImageBrush();
+            /*ImageBrush redGhost = new ImageBrush();
             redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
             violetPieuvre.Fill = redGhost;
             ImageBrush orangeGhost = new ImageBrush();
@@ -226,7 +226,7 @@ namespace TestGithubWpf
             orangePieuvre.Fill = orangeGhost;
             ImageBrush ennemieRose = new ImageBrush();
             ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            rosePieuvre.Fill = ennemieRose;
+            rosePieuvre.Fill = ennemieRose;*/
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {

@@ -46,8 +46,13 @@
         </Rectangle>
         <!-- ************************************************************************ -->
         <Rectangle   
-      Width="30" Height="30" Fill="Blue" Canvas.Left="21"
-Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Top">
+            Width="30" 
+            Height="30" 
+            Fill="Blue" 
+            Canvas.Left="21"
+            Canvas.Top="25" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
             <Rectangle.RenderTransform>
                 <TranslateTransform x:Name="AnimatedTranslateTransform"  />
             </Rectangle.RenderTransform>

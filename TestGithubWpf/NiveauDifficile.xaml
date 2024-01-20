@@ -1,15 +1,24 @@
-﻿<Window
-    x:Class="TestGithubWpf.NiveauDifficile"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:TestGithubWpf"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Difficile"
-    Width="815"
+﻿<Window x:Class="TestGithubWpf.NiveauDifficile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:PresentationOptions="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestGithubWpf"
+        Title="MainWindow" 
+        mc:Ignorable="PresentationOptions"
+            Width="815"
     Height="635"
-    WindowStartupLocation="CenterScreen"
-    ResizeMode="NoResize">
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+
+        <!-- This is the geometry creates the animation path. Because 
+     this example uses it multiple times, it's declared as a resource and
+     frozen to improve performance. -->
+        <PathGeometry x:Key="AnimationPath" 
+        Figures="M 750,553 650,553 650,457 750,457 750,350 543,350 543,165 421,166 421,276 35,276 35,553, 162,553 162,380 296,380 296,553 536,553 296,553 296,380 162,380 162,553 35,553 35,276 421,276 421,166 543,165 543,350 750,350 750,457 650,457 650,553 750,553"
+        PresentationOptions:Freeze="True" />
+    </Window.Resources>
     <Canvas
         Name="MyCanvas"
         Background="Transparent"
@@ -26,6 +35,40 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle   
+    Width="30" 
+    Height="30" 
+    Fill="Blue" 
+    Canvas.Left="21"
+    Canvas.Top="25" 
+    HorizontalAlignment="Left" 
+    VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TranslateTransform x:Name="AnimatedTranslateTransform"  />
+            </Rectangle.RenderTransform>
+
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Path.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimationUsingPath
+        Storyboard.TargetName="AnimatedTranslateTransform"
+        Storyboard.TargetProperty="X"
+        PathGeometry="{StaticResource AnimationPath}"
+        Source="X" 
+        Duration="0:0:10"  />
+                            <DoubleAnimationUsingPath
+        Storyboard.TargetName="AnimatedTranslateTransform"
+        Storyboard.TargetProperty="Y"
+        PathGeometry="{StaticResource AnimationPath}"
+        Source="Y" 
+        Duration="0:0:10"  />
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
         <Label
             Name="txtScore"
             Content="Score: 0"
@@ -40,30 +83,6 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Fill="Yellow" />
-        <Rectangle
-            Name="violetPieuvre"
-            Canvas.Left="730"
-            Canvas.Top="230"
-            Width="52"
-            Height="51"
-            Fill="Red"
-            Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Rectangle
-            Name="orangePieuvre"
-            Canvas.Left="14"
-            Canvas.Top="364"
-            Width="51"
-            Height="51"
-            Fill="Orange"
-            Tag="ghost" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Rectangle
-            Name="rosePieuvre"
-            Canvas.Left="520"
-            Canvas.Top="410"
-            Width="51"
-            Height="51"
-            Fill="Pink"
-            Tag="ghost" />
         <Rectangle
             Canvas.Left="0"
             Canvas.Top="130"
