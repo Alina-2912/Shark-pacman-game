@@ -313,14 +313,6 @@ namespace TestGithubWpf
                         modePuissantCompteur=200;
                         x.Visibility = Visibility.Hidden;
                     }
-                    if (modePuissant == true)
-                    {
-                        modePuissantCompteur -= 1;  
-                        if (modePuissantCompteur < 1)
-                        {
-                            modePuissant = false;
-                        }
-                    }
                 }
                 if ((string)x.Tag == "mur")
                 {
