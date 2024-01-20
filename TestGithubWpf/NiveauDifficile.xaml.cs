@@ -88,56 +88,56 @@ namespace TestGithubWpf
 
             if (e.Key == Key.Left && noLeft == false)
             {
-                if (Canvas.GetLeft(pacman) >= 10)
+                if (Canvas.GetLeft(requin) >= 10)
                 {
                     vaDroite = vaEnHaut = vaEnBas = false;
                     noRight = noUp = noDown = false;
                     vaGauche = true;
-                    pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
+                    requin.RenderTransform = new RotateTransform(-180, requin.Width / 2, requin.Height / 2);
                 }
-                else { Canvas.SetLeft(pacman, 10); }
+                else { Canvas.SetLeft(requin, 10); }
             }
             if (e.Key == Key.Right && noRight == false)
             {
-                if (Canvas.GetLeft(pacman) <= 790) // si possible remplacer 790 par la largeur de la fenètre
+                if (Canvas.GetLeft(requin) <= 790) // si possible remplacer 790 par la largeur de la fenètre
                 {
                     noLeft = noUp = noDown = false;
                     vaGauche = vaEnHaut = vaEnBas = false;
                     vaDroite = true;
-                    pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
+                    requin.RenderTransform = new RotateTransform(0, requin.Width / 2, requin.Height / 2);
                     requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/requinvuhaut05.png"));
-                    pacman.Fill = requinImage;
+                    requin.Fill = requinImage;
                 }
-                else { Canvas.SetLeft(pacman, 790); }
+                else { Canvas.SetLeft(requin, 790); }
             }
             if (e.Key == Key.Up && noUp == false)
             {
-                if (Canvas.GetTop(pacman) >= 10)
+                if (Canvas.GetTop(requin) >= 10)
                 {
 
                     noRight = noDown = noLeft = false;
                     vaDroite = vaEnBas = vaGauche = false;
                     vaEnHaut = true;
-                    pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
+                    requin.RenderTransform = new RotateTransform(-90, requin.Width / 2, requin.Height / 2);
                 }
-                else { Canvas.SetTop(pacman, 10); }
+                else { Canvas.SetTop(requin, 10); }
             }
             if (e.Key == Key.Down && noDown == false)
             {
-                if (Canvas.GetTop(pacman) <= 590)
+                if (Canvas.GetTop(requin) <= 590)
                 {
                     noUp = noLeft = noRight = false;
                     vaEnHaut = vaGauche = vaDroite = false;
                     vaEnBas = true;
-                    pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
+                    requin.RenderTransform = new RotateTransform(90, requin.Width / 2, requin.Height / 2);
                 }
-                else { Canvas.SetTop(pacman, 590); }
+                else { Canvas.SetTop(requin, 590); }
             }
         }
         private void Canvas_KeyUp(object sender, KeyEventArgs e)
         {
             // if the space key is pressed AND jumping boolean is true AND player y location is above 260 pixels
-            if (e.Key == Key.Left && !vaGauche && Canvas.GetTop(pacman) > 260)
+            if (e.Key == Key.Left && !vaGauche && Canvas.GetTop(requin) > 260)
             {
                 // set jumping to true
                 vaGauche = true;
@@ -153,10 +153,10 @@ namespace TestGithubWpf
         {
             actuellePieuvrePas = mouvementPieuvre;
 
-            /*Canvas.SetLeft(pacman, 50);
-            Canvas.SetTop(pacman, 104);
+            Canvas.SetLeft(requin, 50);
+            Canvas.SetTop(requin, 104);
 
-            Canvas.SetLeft(rosePieuvre, 173);
+            /*Canvas.SetLeft(rosePieuvre, 173);
             Canvas.SetTop(rosePieuvre, 404);
 
             Canvas.SetLeft(violetPieuvre, 173);
@@ -171,9 +171,9 @@ namespace TestGithubWpf
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                requinHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+                requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
 
-                if ((string)x.Tag == "coin")
+                if ((string)x.Tag == "bonus")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
@@ -299,7 +299,7 @@ namespace TestGithubWpf
                     requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/requinvuhaut07.png"));
                     break;
             }
-            pacman.Fill = requinImage;
+            requin.Fill = requinImage;
             imageRequin++;
             if (imageRequin > 21)
             {
@@ -308,41 +308,41 @@ namespace TestGithubWpf
 
             if (vaDroite)
             {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + vitesse);
+                Canvas.SetLeft(requin, Canvas.GetLeft(requin) + vitesse);
             }
             if (vaGauche)
             {
-                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - vitesse);
+                Canvas.SetLeft(requin, Canvas.GetLeft(requin) - vitesse);
             }
             if (vaEnHaut)
             {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - vitesse);
+                Canvas.SetTop(requin, Canvas.GetTop(requin) - vitesse);
             }
             if (vaEnBas)
             {
-                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + vitesse);
+                Canvas.SetTop(requin, Canvas.GetTop(requin) + vitesse);
             }
-            if (vaEnBas && Canvas.GetTop(pacman) + 80 > Application.Current.MainWindow.Height)
+            if (vaEnBas && Canvas.GetTop(requin) + 80 > Application.Current.MainWindow.Height)
             {
                 noDown = true;
                 vaEnBas = false;
             }
-            if (vaEnHaut && Canvas.GetTop(pacman) < 1)
+            if (vaEnHaut && Canvas.GetTop(requin) < 1)
             {
                 noUp = true;
                 vaEnHaut = false;
             }
-            if (vaGauche && Canvas.GetLeft(pacman) - 10 < 1)
+            if (vaGauche && Canvas.GetLeft(requin) - 10 < 1)
             {
                 noLeft = true;
                 vaGauche = false;
             }
-            if (vaDroite && Canvas.GetLeft(pacman) + 70 > Application.Current.MainWindow.Width)
+            if (vaDroite && Canvas.GetLeft(requin) + 70 > Application.Current.MainWindow.Width)
             {
                 noRight = true;
                 vaDroite = false;
             }
-            requinHitBox = new Rect(Canvas.GetLeft(pacman), Canvas.GetTop(pacman), pacman.Width, pacman.Height);
+            requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
@@ -350,30 +350,30 @@ namespace TestGithubWpf
                 {
                     if (vaGauche == true && requinHitBox.IntersectsWith(hitBox))
                     {
-                        Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + 10);
+                        Canvas.SetLeft(requin, Canvas.GetLeft(requin) + 10);
                         noLeft = true;
                         vaGauche = false;
                     }
                     if (vaDroite == true && requinHitBox.IntersectsWith(hitBox))
                     {
-                        Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - 10);
+                        Canvas.SetLeft(requin, Canvas.GetLeft(requin) - 10);
                         noRight = true;
                         vaDroite = false;
                     }
                     if (vaEnBas == true && requinHitBox.IntersectsWith(hitBox))
                     {
-                        Canvas.SetTop(pacman, Canvas.GetTop(pacman) - 10);
+                        Canvas.SetTop(requin, Canvas.GetTop(requin) - 10);
                         noDown = true;
                         vaEnBas = false;
                     }
                     if (vaEnHaut == true && requinHitBox.IntersectsWith(hitBox))
                     {
-                        Canvas.SetTop(pacman, Canvas.GetTop(pacman) + 10);
+                        Canvas.SetTop(requin, Canvas.GetTop(requin) + 10);
                         noUp = true;
                         vaEnHaut = false;
                     }
                 }
-                if ((string)x.Tag == "coin")
+                if ((string)x.Tag == "bonus")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
@@ -406,7 +406,7 @@ namespace TestGithubWpf
             }
             if (score == 85)
             {
-                GameOver("You Win, you collected all of the coins");
+                GameOver("You Win, you collected all of the bonuss");
             }
             if (gameover)
             {

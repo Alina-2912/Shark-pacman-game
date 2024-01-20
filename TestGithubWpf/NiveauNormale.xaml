@@ -29,7 +29,8 @@
       Margin="0,0,0,-168"
       HorizontalAlignment="Left"
       Background="Transparent"
-      Focusable="True">
+      Focusable="True"
+      KeyDown="CanvasKeyDown">
         <Rectangle
     Width="800"
     Height="600"
@@ -48,11 +49,12 @@
         <Rectangle   
             Width="30" 
             Height="30" 
+            Tag="pieuvre"
             Fill="Blue" 
-            Canvas.Left="21"
+            Canvas.Left="405"
             Canvas.Top="25" 
             HorizontalAlignment="Left" 
-            VerticalAlignment="Top">
+            VerticalAlignment="Center">
             <Rectangle.RenderTransform>
                 <TranslateTransform x:Name="AnimatedTranslateTransform"  />
             </Rectangle.RenderTransform>
@@ -80,8 +82,14 @@
             </Rectangle.Triggers>
         </Rectangle>
         <Rectangle   
-      Width="30" Height="30" Fill="Orange" Canvas.Left="90"
-Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center">
+            Width="30" 
+            Height="30" 
+            Fill="Orange"  
+            Canvas.Left="120"
+            Canvas.Top="290" 
+            Tag="pieuvre"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
             <Rectangle.RenderTransform>
                 <TranslateTransform x:Name="orange"  />
             </Rectangle.RenderTransform>
@@ -113,8 +121,7 @@ Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center">
     Name="txtScore"
     Content="Score: 0"
     FontSize="20"
-    Foreground="Black" 
-    Visibility="Hidden"/>
+    Foreground="Black" />
         <Rectangle
     Name="requin"
     Canvas.Left="22"
@@ -125,17 +132,6 @@ Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center">
     VerticalAlignment="Top"
     Fill="Yellow"
     RenderTransformOrigin="0.486,0.502"  />
-
-        <Rectangle
-    Name="rosePieuvre"
-    Canvas.Left="272"
-    Canvas.Top="417"
-    Width="52"
-    Height="50"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Top"
-    Fill="Pink"
-    Tag="pieuvre" />
         <Rectangle
     Canvas.Left="564"
     Canvas.Top="216"
@@ -1088,5 +1084,16 @@ Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center">
     Height="20"
     Tag="meduses"
     Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button
+            x:Name="ButtonRetour"
+            Canvas.Left="700"
+            Canvas.Top="1"
+            Width="60"
+            Height="40"
+            Background="#FFFFF001"
+            Click="ButtonRetour_Click"
+            Content="Retour&#xA;au menu" 
+            HorizontalAlignment="Center" VerticalAlignment="Center" 
+            />
     </Canvas>
 </Window>

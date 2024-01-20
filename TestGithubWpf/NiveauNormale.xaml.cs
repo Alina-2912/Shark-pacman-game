@@ -44,110 +44,6 @@ namespace TestGithubWpf
             InitializeComponent();
             ConfigurationJeu();
         }
-        public class DoubleAnimationUsingPathExample : Page
-        {
-
-            public DoubleAnimationUsingPathExample()
-            {
-
-                // Create a NameScope for the page so that
-                // we can use Storyboards.
-                NameScope.SetNameScope(this, new NameScope());
-
-                // Create a rectangle.
-                Rectangle aRectangle = new Rectangle();
-                aRectangle.Width = 30;
-                aRectangle.Height = 30;
-                aRectangle.Fill = Brushes.Blue;
-
-                // Create a transform. This transform
-                // will be used to move the rectangle.
-                TranslateTransform animatedTranslateTransform =
-                    new TranslateTransform();
-
-                // Register the transform's name with the page
-                // so that they it be targeted by a Storyboard.
-                this.RegisterName("AnimatedTranslateTransform", animatedTranslateTransform);
-
-                aRectangle.RenderTransform = animatedTranslateTransform;
-
-                // Create a Canvas to contain the rectangle
-                // and add it to the page.
-                Canvas mainPanel = new Canvas();
-                mainPanel.Width = 400;
-                mainPanel.Height = 400;
-                mainPanel.Children.Add(aRectangle);
-                this.Content = mainPanel;
-
-                // Create the animation path.
-                PathGeometry animationPath = new PathGeometry();
-                PathFigure pFigure = new PathFigure();
-                pFigure.StartPoint = new Point(10, 100);
-                PolyBezierSegment pBezierSegment = new PolyBezierSegment();
-                pBezierSegment.Points.Add(new Point(35, 0));
-                pBezierSegment.Points.Add(new Point(135, 0));
-                pBezierSegment.Points.Add(new Point(160, 100));
-                pBezierSegment.Points.Add(new Point(180, 190));
-                pBezierSegment.Points.Add(new Point(285, 200));
-                pBezierSegment.Points.Add(new Point(310, 100));
-                pFigure.Segments.Add(pBezierSegment);
-                animationPath.Figures.Add(pFigure);
-
-                // Freeze the PathGeometry for performance benefits.
-                animationPath.Freeze();
-
-                // Create a DoubleAnimationUsingPath to move the
-                // rectangle horizontally along the path by animating
-                // its TranslateTransform.
-                DoubleAnimationUsingPath translateXAnimation =
-                    new DoubleAnimationUsingPath();
-                translateXAnimation.PathGeometry = animationPath;
-                translateXAnimation.Duration = TimeSpan.FromSeconds(5);
-
-                // Set the Source property to X. This makes
-                // the animation generate horizontal offset values from
-                // the path information.
-                translateXAnimation.Source = PathAnimationSource.X;
-
-                // Set the animation to target the X property
-                // of the TranslateTransform named "AnimatedTranslateTransform".
-                Storyboard.SetTargetName(translateXAnimation, "AnimatedTranslateTransform");
-                Storyboard.SetTargetProperty(translateXAnimation,
-                    new PropertyPath(TranslateTransform.XProperty));
-
-                // Create a DoubleAnimationUsingPath to move the
-                // rectangle vertically along the path by animating
-                // its TranslateTransform.
-                DoubleAnimationUsingPath translateYAnimation =
-                    new DoubleAnimationUsingPath();
-                translateYAnimation.PathGeometry = animationPath;
-                translateYAnimation.Duration = TimeSpan.FromSeconds(5);
-
-                // Set the Source property to Y. This makes
-                // the animation generate vertical offset values from
-                // the path information.
-                translateYAnimation.Source = PathAnimationSource.Y;
-
-                // Set the animation to target the Y property
-                // of the TranslateTransform named "AnimatedTranslateTransform".
-                Storyboard.SetTargetName(translateYAnimation, "AnimatedTranslateTransform");
-                Storyboard.SetTargetProperty(translateYAnimation,
-                    new PropertyPath(TranslateTransform.YProperty));
-
-                // Create a Storyboard to contain and apply the animations.
-                Storyboard pathAnimationStoryboard = new Storyboard();
-                pathAnimationStoryboard.RepeatBehavior = RepeatBehavior.Forever;
-                pathAnimationStoryboard.Children.Add(translateXAnimation);
-                pathAnimationStoryboard.Children.Add(translateYAnimation);
-
-                // Start the animations when the rectangle is loaded.
-                aRectangle.Loaded += delegate (object sender, RoutedEventArgs e)
-                {
-                    // Start the storyboard.
-                    pathAnimationStoryboard.Begin(this);
-                };
-            }
-        }
         private void ButtonFermer_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -369,7 +265,7 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
-                    if (x.Name.ToString() == "orangePieuvre")
+                    /*if (x.Name.ToString() == "orangePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
@@ -382,7 +278,7 @@ namespace TestGithubWpf
                     {
                         actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = -vitesseEnnemie;
-                    }
+                    }*/
                 }
 
             }
@@ -390,21 +286,7 @@ namespace TestGithubWpf
 
         private void DeplacerPieuvre()
         {
-            /*foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                if (x.Name.ToString() == "orangePieuvre")
-                {
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 10);
-
-                    if (Canvas.GetLeft(x) < 50)
-                    {
-                        Canvas.SetLeft(orangePieuvre, 400);
-                        Canvas.SetTop(orangePieuvre, 120);
-                        Canvas.SetRight(x, Canvas.GetRight(x) + 400);
-                    }
-                }
-            }
-            /*foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
@@ -432,7 +314,7 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
-                    if (x.Name.ToString() == "orangePieuvre")
+                    /*if (x.Name.ToString() == "orangePieuvre")
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                     }
@@ -449,38 +331,11 @@ namespace TestGithubWpf
                     {
                         actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = -vitesseEnnemie;
-                    }
+                    }*/
                 }
 
             }
-            //////////////////////////////
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                /*if (x is Rectangle && x.Tag == "pieuvre")
-                {
-                    //move zombie towards the player picture box
-                    if (violetPieuvre.Left > requin.Left)
-                    {
-                        ((PictureBox)x).Left -= zombieSpeed; // move zombie towards the left of the player
-                        ((PictureBox)x).Image = Properties.Resources.zleft; // change the zombie image to the left
-                    }
-                    if (((PictureBox)x).Top > player.Top)
-                    {
-                        ((PictureBox)x).Top -= zombieSpeed; // move zombie upwards towards the players top
-                        ((PictureBox)x).Image = Properties.Resources.zup; // change the zombie picture to the top pointing image
-                    }
-                    if (((PictureBox)x).Left < player.Left)
-                    {
-                        ((PictureBox)x).Left += zombieSpeed; // move zombie towards the right of the player
-                        ((PictureBox)x).Image = Properties.Resources.zright; // change the image to the right image
-                    }
-                    if (((PictureBox)x).Top < player.Top)
-                    {
-                        ((PictureBox)x).Top += zombieSpeed; // move the zombie towards the bottom of the player
-                        ((PictureBox)x).Image = Properties.Resources.zdown; // change the image to the down zombie
-                    }
-                }
-            }*/
+
         }
         private void BoucleJeu(object sender, EventArgs e)
         {

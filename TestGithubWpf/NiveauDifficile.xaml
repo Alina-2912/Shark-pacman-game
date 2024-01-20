@@ -23,7 +23,8 @@
         Name="MyCanvas"
         Background="Transparent"
         Focusable="True"
-        KeyDown="CanvasKeyDown">
+        KeyDown="CanvasKeyDown"
+        >
         <!--  This rectangle is painted with a vertical gradient.  -->
         <Rectangle Width="800" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="3">
             <Rectangle.Fill>
@@ -70,12 +71,12 @@
             </Rectangle.Triggers>
         </Rectangle>
         <Label
-            Name="txtScore"
-            Content="Score: 0"
-            FontSize="20"
-            Foreground="Black" />
+    Name="txtScore"
+    Content="Score: 0"
+    FontSize="20"
+    Foreground="Black" />
         <Rectangle
-            Name="pacman"
+            Name="requin"
             Canvas.Left="35"
             Canvas.Top="73"
             Width="45"
