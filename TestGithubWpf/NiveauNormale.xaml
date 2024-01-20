@@ -49,7 +49,7 @@
         <Rectangle   
             Width="30" 
             Height="30" 
-            Tag="pieuvre"
+            
             Fill="Blue" 
             Canvas.Left="-31"
             Canvas.Top="43" 
@@ -87,7 +87,7 @@
             Fill="Orange"  
             Canvas.Left="83"
             Canvas.Top="-29" 
-            Tag="pieuvre"
+           
             HorizontalAlignment="Left" 
             VerticalAlignment="Center">
             <Rectangle.RenderTransform>
@@ -1102,6 +1102,14 @@
             Width="52"
             Height="50"
             Fill="Pink"
+            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle
+            x:Name="orangePieuvre"
+            Canvas.Left="725"
+            Canvas.Top="32"
+            Width="52"
+            Height="52"
+            Fill="Orange"
             Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </Canvas>
 </Window>

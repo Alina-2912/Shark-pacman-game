@@ -355,10 +355,10 @@ namespace TestGithubWpf
                         JeuTermine("Vous avez gagne");
                     }
                 }
-                if ((string)x.Tag == "pieuvre")
+                if (x.Name.ToString() == "rosePieuvre")
                 {
                     
-                    if (Canvas.GetLeft(x) > 450)
+                    if (Canvas.GetLeft(x) > 470 )
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) - 5);
                     }
