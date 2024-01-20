@@ -29,7 +29,7 @@ namespace TestGithubWpf
         int mouvementPieuvre = 160;
         int actuellePieuvrePas;
         int score = 0;
-        bool gameover = false;
+        bool jeu_termine = false;
         bool estJeuEnPause = false;
         ImageBrush requinImage = new ImageBrush();
         int imageRequin = 1;
@@ -37,7 +37,7 @@ namespace TestGithubWpf
         public NiveauDifficile()
         {
             InitializeComponent();
-            GameSetUp();
+            ConfigurationJeu();
         }
         private void ButtonFermer_Click(object sender, RoutedEventArgs e)
         {
@@ -81,7 +81,7 @@ namespace TestGithubWpf
                 }
             }
             /*************************    REDEMARRAGE - R   *************************/
-            if (e.Key == Key.R && gameover)
+            if (e.Key == Key.R && jeu_termine)
             {
                 CommencerJeu();
             }
@@ -134,21 +134,7 @@ namespace TestGithubWpf
                 else { Canvas.SetTop(requin, 590); }
             }
         }
-        private void Canvas_KeyUp(object sender, KeyEventArgs e)
-        {
-            // if the space key is pressed AND jumping boolean is true AND player y location is above 260 pixels
-            if (e.Key == Key.Left && !vaGauche && Canvas.GetTop(requin) > 260)
-            {
-                // set jumping to true
-                vaGauche = true;
-                vaDroite = false;
-                vaEnHaut = false;
-                vaEnBas = false;
-                // set vitesse integer to -12
-                vitesse = -12;
-                requinImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
-            }
-        }
+
         private void CommencerJeu()
         {
             actuellePieuvrePas = mouvementPieuvre;
@@ -180,6 +166,7 @@ namespace TestGithubWpf
                         x.Visibility = Visibility.Visible;
                     }
                 }
+                /*
                 if ((string)x.Tag == "ghost")
                 {
                     if (x.Visibility == Visibility.Hidden)
@@ -189,7 +176,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        gameover = true;
+                        jeu_termine = true;
                     }
                     if (x.Name.ToString() == "orangePieuvre")
                     {
@@ -205,14 +192,80 @@ namespace TestGithubWpf
                         actuellePieuvrePas = mouvementPieuvre;
                         vitesseEnnemie = - vitesseEnnemie;
                     }
-                }
+                }*/
 
             }
         }
-        private void GameSetUp()
+        private void DeplacerPieuvre()
+        {
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if (x.Name.ToString() == "rosePieuvre")
+                {
+
+                    if (Canvas.GetLeft(x) > 470)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesse);
+                    }
+                    if (Canvas.GetTop(x) < 148)
+                    {
+                        Canvas.SetLeft(x, 10);
+                        Canvas.SetTop(x, 275);
+                    }
+                    if (Canvas.GetLeft(x) < 700 && Canvas.GetTop(x) == 275)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
+                    }
+                }
+            }
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                if ((string)x.Tag == "meduses")
+                {
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    {
+                        x.Visibility = Visibility.Hidden;
+                        score++;
+                    }
+                }
+                if ((string)x.Tag == "pieuvre")
+                {
+                    if (requinHitBox.IntersectsWith(hitBox))
+                    {
+                        gameTimer.Stop();
+                        jeu_termine = true;
+                    }
+
+                    /*if (x.Name.ToString() == "orangePieuvre")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                    }
+                    if (x.Name.ToString() == "violetPieuvre")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                    }
+                    if (x.Name.ToString() == "rosePieuvre")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                    }
+                    actuellePieuvrePas--;
+                    if (actuellePieuvrePas < 1)
+                    {
+                        actuellePieuvrePas = mouvementPieuvre;
+                        vitesseEnnemie = -vitesseEnnemie;
+                    }*/
+                }
+
+            }
+
+        }
+        private void ConfigurationJeu()
         {
             MyCanvas.Focus();
-            gameTimer.Tick += GameLoop;
+            gameTimer.Tick += BoucleJeu;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Start();
             actuellePieuvrePas = mouvementPieuvre;
@@ -257,8 +310,9 @@ namespace TestGithubWpf
                 }
             }
         }
-        private void GameLoop(object sender, EventArgs e)
+        private void BoucleJeu(object sender, EventArgs e)
         {
+            DeplacerPieuvre();
             txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
 
             switch (imageRequin)
@@ -386,7 +440,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        gameover = true;
+                        jeu_termine = true;
                     }
                     /*if (x.Name.ToString() == "orangeGuy")
                     {
@@ -406,14 +460,14 @@ namespace TestGithubWpf
             }
             if (score == 85)
             {
-                GameOver("You Win, you collected all of the bonuss");
+                JeuTermine("You Win, you collected all of the bonuss");
             }
-            if (gameover)
+            if (jeu_termine)
             {
                 txtScore.Content += "   Press R to Retry";
             }
         }
-        private void GameOver(string message)
+        private void JeuTermine(string message)
         {
             gameTimer.Stop();
             MessageBox.Show(message, "The Pac Man Game WPF MOO ICT");
