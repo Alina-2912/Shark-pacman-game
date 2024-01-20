@@ -58,7 +58,7 @@
             Tag="pieuvre" />
         <Rectangle
             Name="orangePieuvre"
-            Canvas.Left="658"
+            Canvas.Left="650"
             Canvas.Top="120"
             Width="55"
             Height="52"

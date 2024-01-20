@@ -315,7 +315,7 @@ namespace TestGithubWpf
                 {
                     if (Canvas.GetTop(x) == 404)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                         if (Canvas.GetLeft(x) > 700)
                         {
                             Canvas.SetTop(x, 405);
@@ -323,7 +323,7 @@ namespace TestGithubWpf
                     }
                     if (Canvas.GetTop(x) == 405)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesse);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                         if (Canvas.GetLeft(x) < 115)
                         {
                             Canvas.SetTop(x, 404);
@@ -336,7 +336,7 @@ namespace TestGithubWpf
                 {
                     if (Canvas.GetTop(x) == 18)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                         if (Canvas.GetLeft(x) > 700)
                         {
                             Canvas.SetTop(x, 19);
@@ -344,7 +344,7 @@ namespace TestGithubWpf
                     }
                     if (Canvas.GetTop(x) == 19)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesse);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                         if (Canvas.GetLeft(x) < 115)
                         {
                             Canvas.SetTop(x, 18);
@@ -358,15 +358,15 @@ namespace TestGithubWpf
                     if (Canvas.GetTop(x) == 120)
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesse);
-                        if (Canvas.GetLeft(x) > 734)
+                        if (Canvas.GetLeft(x) < 115)
                         {
-                            Canvas.SetTop(x, 121);
+                            Canvas.SetTop(x, 119);
                         }
                     }
-                    if (Canvas.GetTop(x) == 121)
+                    if (Canvas.GetTop(x) == 119)
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
-                        if (Canvas.GetLeft(x) < 115)
+                        if (Canvas.GetLeft(x) > 700)
                         {
                             Canvas.SetTop(x, 120);
                         }
