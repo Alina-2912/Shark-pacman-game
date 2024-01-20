@@ -1,29 +1,37 @@
-﻿<Window
-    x:Class="TestGithubWpf.NiveauNormale"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:TestGithubWpf"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Normale"
-    Width="815"
+﻿<Window x:Class="TestGithubWpf.NiveauNormale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:PresentationOptions="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestGithubWpf"
+        Title="MainWindow" 
+        mc:Ignorable="PresentationOptions"
+            Width="815"
     Height="635"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+
+        <!-- This is the geometry creates the animation path. Because 
+         this example uses it multiple times, it's declared as a resource and
+         frozen to improve performance. -->
+        <PathGeometry x:Key="AnimationPath" 
+      Figures="M 10,0 670,0 10,0 10,430 10,0 670,0 10,0 10,430 10,0 "
+      PresentationOptions:Freeze="True" />
+    </Window.Resources>
+
     <Canvas
-        Name="MyCanvas"
-        Width="801"
-        Margin="0,0,0,-168"
-        HorizontalAlignment="Left"
-        Background="Transparent"
-        Focusable="True"
-        KeyDown="CanvasKeyDown">
-        <!--  This rectangle is painted with a vertical gradient.  -->
+      Name="MyCanvas"
+      Width="801"
+      Margin="0,0,0,-168"
+      HorizontalAlignment="Left"
+      Background="Transparent"
+      Focusable="True">
         <Rectangle
-            Width="800"
-            Height="600"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top">
+    Width="800"
+    Height="600"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0.0" Color="#FF00BECC" />
@@ -33,653 +41,679 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
+        <!-- The object to animate. -->
+        <Rectangle   
+      Width="30" Height="30" Fill="Blue" Canvas.Left="21"
+Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TranslateTransform x:Name="AnimatedTranslateTransform"  />
+            </Rectangle.RenderTransform>
+
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Path.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <!-- Animates the rectangle horizotally along the path. -->
+                            <DoubleAnimationUsingPath
+                Storyboard.TargetName="AnimatedTranslateTransform"
+                Storyboard.TargetProperty="X"
+                PathGeometry="{StaticResource AnimationPath}"
+                Source="X" 
+                Duration="0:0:10"  />
+                            <!-- Animates the rectangle vertically along the path. -->
+                            <DoubleAnimationUsingPath
+                Storyboard.TargetName="AnimatedTranslateTransform"
+                Storyboard.TargetProperty="Y"
+                PathGeometry="{StaticResource AnimationPath}"
+                Source="Y" 
+                Duration="0:0:10"  />
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
         <Label
-            Name="txtScore"
-            Content="Score: 0"
-            FontSize="20"
-            Foreground="Black" />
+    Name="txtScore"
+    Content="Score: 0"
+    FontSize="20"
+    Foreground="Black" 
+    Visibility="Hidden"/>
         <Rectangle
-            Name="pacman"
-            Canvas.Left="22"
-            Canvas.Top="544"
-            Width="44"
-            Height="40"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Fill="Yellow"
-            RenderTransformOrigin="0.486,0.502" />
+    Name="requin"
+    Canvas.Left="22"
+    Canvas.Top="544"
+    Width="44"
+    Height="40"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Fill="Yellow"
+    RenderTransformOrigin="0.486,0.502"  />
         <Rectangle
-            Name="violetPieuvre"
-            Canvas.Left="185"
-            Canvas.Top="18"
-            Width="51"
-            Height="51"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="Red"
-            Tag="pieuvre" />
+    Name="violetPieuvre"
+    Canvas.Left="185"
+    Canvas.Top="18"
+    Width="51"
+    Height="51"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="Red"
+    Tag="pieuvre" />
         <Rectangle
-            Name="orangePieuvre"
-            Canvas.Left="378"
-            Canvas.Top="291"
-            Width="52"
-            Height="52"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Fill="Orange"
-            Tag="pieuvre" />
+    Name="orangePieuvre"
+    Canvas.Left="475"
+    Canvas.Top="274"
+    Width="52"
+    Height="52"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Fill="Orange"
+    Tag="pieuvre"
+    />
+
         <Rectangle
-            Name="rosePieuvre"
-            Canvas.Left="48"
-            Canvas.Top="418"
-            Width="52"
-            Height="50"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Fill="Pink"
-            Tag="pieuvre" />
+    Name="rosePieuvre"
+    Canvas.Left="272"
+    Canvas.Top="417"
+    Width="52"
+    Height="50"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Fill="Pink"
+    Tag="pieuvre" />
         <Rectangle
-            Canvas.Left="564"
-            Canvas.Top="216"
-            Width="30"
-            Height="387"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" RadiusX="15" RadiusY="15" />
+    Canvas.Left="564"
+    Canvas.Top="216"
+    Width="30"
+    Height="387"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" RadiusX="15" RadiusY="15" />
         <Rectangle
-            x:Name="torche"
-            Canvas.Left="296"
-            Canvas.Top="498"
-            Width="42"
-            Height="100"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" />
+    x:Name="torche"
+    Canvas.Left="296"
+    Canvas.Top="498"
+    Width="42"
+    Height="100"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" />
         <Rectangle
-            Canvas.Left="425"
-            Canvas.Top="360"
-            Width="41"
-            Height="239"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" RadiusX="28.84" RadiusY="28.84" />
+    Canvas.Left="425"
+    Canvas.Top="360"
+    Width="41"
+    Height="239"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" RadiusX="28.84" RadiusY="28.84" />
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="474"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            RenderTransformOrigin="1.167,0.569"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="474"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    RenderTransformOrigin="1.167,0.569"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="520"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="520"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="374"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="374"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="423"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="423"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="276"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="276"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="323"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="323"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="188"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="188"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="230"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="230"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="267"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="267"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="216"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="216"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="366"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Center">
+    Canvas.Left="366"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Center">
         </Rectangle>
         <Rectangle
-            Canvas.Left="318"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="318"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="168"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="168"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="120"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="120"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="74"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="74"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="30"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="30"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="249"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="249"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="206"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="206"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="410"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="410"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="200"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="200"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="148"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="148"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="258"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="258"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="361"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="361"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="308"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="308"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="459"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="459"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="410"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="410"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="559"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="559"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="650"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="650"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="609"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="609"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="700"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            RenderTransformOrigin="1.067,0.552"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="700"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    RenderTransformOrigin="1.067,0.552"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="146"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="146"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="101"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            RenderTransformOrigin="1.1,0.585"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="101"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    RenderTransformOrigin="1.1,0.585"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="117"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="117"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="71"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink"/>
+    Canvas.Left="71"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="209"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="209"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="165"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="165"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="314"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="314"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="258"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="258"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="333"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="333"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="366"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="366"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="455"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            RenderTransformOrigin="0.475,0.527"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="455"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    RenderTransformOrigin="0.475,0.527"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="380"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="380"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="380"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="630"
+    Canvas.Top="380"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="423"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink" RenderTransformOrigin="0.573,0.519" HorizontalAlignment="Left" VerticalAlignment="Center">
+    Canvas.Left="630"
+    Canvas.Top="423"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink" RenderTransformOrigin="0.573,0.519" HorizontalAlignment="Left" VerticalAlignment="Center">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="564"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="564"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="520"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="520"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="474"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="474"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="750"
-            Canvas.Top="564"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="750"
+    Canvas.Top="564"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="423"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderTransformOrigin="-1.117,-3.198"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="507"
+    Canvas.Top="423"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    RenderTransformOrigin="-1.117,-3.198"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="209"
-            Canvas.Top="549"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="209"
+    Canvas.Top="549"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="110"
-            Canvas.Top="549"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="110"
+    Canvas.Top="549"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="258"
-            Canvas.Top="549"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="258"
+    Canvas.Top="549"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="520"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="630"
+    Canvas.Top="520"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="564"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="630"
+    Canvas.Top="564"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <MediaElement
-            x:Name="mediaElement"
-            LoadedBehavior="Manual"
-            UnloadedBehavior="Manual" />
-        <Button
-            Name="ButtonFermer"
-            Canvas.Left="771"
-            Canvas.Top="1"
-            Width="24"
-            Height="22"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Background="Red"
-            Click="ButtonFermer_Click"
-            Content="x" />
+    x:Name="mediaElement"
+    LoadedBehavior="Manual"
+    UnloadedBehavior="Manual" />
+
         <Rectangle
-            Canvas.Left="682"
-            Canvas.Top="101"
-            Width="33"
-            Height="496"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            RenderTransformOrigin="0.5,0.5"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" RadiusX="16.5" RadiusY="16.5">
+    Canvas.Left="682"
+    Canvas.Top="101"
+    Width="33"
+    Height="496"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    RenderTransformOrigin="0.5,0.5"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" RadiusX="16.5" RadiusY="16.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1" />
@@ -689,366 +723,356 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button
-            Name="ButtonRetour"
-            Canvas.Left="700"
-            Canvas.Top="1"
-            Width="60"
-            Height="40"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Background="#FFFFF001"
-            Click="ButtonRetour_Click"
-            Content="Retour&#10;au menu" />
+
         <Rectangle
-            Canvas.Left="10"
-            Canvas.Top="489"
-            Width="214"
-            Height="29"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" RadiusX="14.5" RadiusY="14.5">
+    Canvas.Left="10"
+    Canvas.Top="489"
+    Width="214"
+    Height="29"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" RadiusX="14.5" RadiusY="14.5">
         </Rectangle>
         <Rectangle
-            Canvas.Left="80"
-            Canvas.Top="360"
-            Width="248"
-            Height="29"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" RadiusX="14.5" RadiusY="14.5" />
+    Canvas.Left="80"
+    Canvas.Top="360"
+    Width="248"
+    Height="29"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
-            Canvas.Left="84"
-            Canvas.Top="225"
-            Width="391"
-            Height="29"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" RadiusX="14.5" RadiusY="14.5" />
+    Canvas.Left="84"
+    Canvas.Top="225"
+    Width="391"
+    Height="29"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
-            Canvas.Left="103"
-            Canvas.Top="101"
-            Width="466"
-            Height="29"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="Coral"
-            StrokeThickness="3"
-            Tag="mur" RadiusX="14.5" RadiusY="14.5" />
+    Canvas.Left="103"
+    Canvas.Top="101"
+    Width="466"
+    Height="29"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="Coral"
+    StrokeThickness="3"
+    Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
-            Canvas.Left="30"
-            Canvas.Top="433"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="30"
+    Canvas.Top="433"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="30"
-            Canvas.Top="388"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink"/>
+    Canvas.Left="30"
+    Canvas.Top="388"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="30"
-            Canvas.Top="343"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink"/>
+    Canvas.Left="30"
+    Canvas.Top="343"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="258"
-            Canvas.Top="472"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="258"
+    Canvas.Top="472"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="258"
-            Canvas.Top="513"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="258"
+    Canvas.Top="513"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="158"
-            Canvas.Top="548"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="HotPink"
-            Tag="meduses" />
+    Canvas.Left="158"
+    Canvas.Top="548"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Fill="HotPink"
+    Tag="meduses" />
         <Rectangle
-            Canvas.Left="459"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="459"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
 
         </Rectangle>
         <Rectangle
-            Canvas.Left="410"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="410"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="361"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="361"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="308"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="308"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="257"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="257"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="200"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="200"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="148"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="148"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="94"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="94"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="30"
-            Canvas.Top="239"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="30"
+    Canvas.Top="239"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="31"
-            Canvas.Top="196"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="31"
+    Canvas.Top="196"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="94"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="94"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="31"
-            Canvas.Top="63"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="31"
+    Canvas.Top="63"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="31"
-            Canvas.Top="152"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="31"
+    Canvas.Top="152"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="333"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="630"
+    Canvas.Top="333"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="290"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="630"
+    Canvas.Top="290"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="249"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="630"
+    Canvas.Top="249"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="206"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="630"
+    Canvas.Top="206"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="559"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="559"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="630"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="472"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses"
-            Fill="HotPink">
+    Canvas.Left="630"
+    Canvas.Top="472"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses"
+    Fill="HotPink">
         </Rectangle>
         <Rectangle
-            Tag="fin"
-            x:Name="porte"
-            Canvas.Left="361"
-            Canvas.Top="523"
-            Width="43"
-            Height="67"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="DarkOliveGreen" />
+    Tag="fin"
+    x:Name="porte"
+    Canvas.Left="361"
+    Canvas.Top="523"
+    Width="43"
+    Height="67"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    Fill="DarkOliveGreen" />
         <Rectangle
-            Canvas.Left="366"
-            Canvas.Top="472"
-            Width="20"
-            Height="20"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Tag="meduses" 
-            Fill="HotPink"/>
+    Canvas.Left="366"
+    Canvas.Top="472"
+    Width="20"
+    Height="20"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
+    Tag="meduses" 
+    Fill="HotPink"/>
         <Rectangle
-            Canvas.Left="507"
-            Canvas.Top="162"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+    Canvas.Left="507"
+    Canvas.Top="162"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Rectangle
-            Canvas.Left="630"
-            Canvas.Top="110"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    Canvas.Left="630"
+    Canvas.Top="110"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Rectangle
-            Canvas.Left="31"
-            Canvas.Top="106"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+    Canvas.Left="31"
+    Canvas.Top="106"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Rectangle
-            Canvas.Left="366"
-            Canvas.Top="384"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    Canvas.Left="366"
+    Canvas.Top="384"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Rectangle
-            Canvas.Left="366"
-            Canvas.Top="333"
-            Width="20"
-            Height="20"
-            Tag="meduses"
-            Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    Canvas.Left="366"
+    Canvas.Top="333"
+    Width="20"
+    Height="20"
+    Tag="meduses"
+    Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Canvas>
 </Window>

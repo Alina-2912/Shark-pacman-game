@@ -677,7 +677,8 @@
             VerticalAlignment="Top"
             Background="#FFFFF001"
             Click="ButtonRetour_Click"
-            Content="Retour&#10;au menu" />
+            Content="Retour&#10;au menu" 
+            />
         <Rectangle
             Name="algue1"
             Canvas.Left="90"
