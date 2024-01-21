@@ -357,7 +357,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         modePuissant = true;
-                        modePuissantCompteur=200;
+                        modePuissantCompteur = 200;
                         x.Visibility = Visibility.Hidden;
                     }
                 }
