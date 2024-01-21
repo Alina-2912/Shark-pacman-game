@@ -175,8 +175,6 @@ namespace TestGithubWpf
         }
         private void ConfigurationJeu()
         {
-            //Chase(rosePieuvre);
-
             MyCanvas.Focus();
             gameTimer.Tick += BoucleJeu;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);

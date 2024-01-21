@@ -601,20 +601,6 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
-                    /*if (x.Name.ToString() == "orangeGuy")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                    }
-                    else
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                    }
-                    actuellePieuvrePas--;
-                    if (actuellePieuvrePas < 1)
-                    {
-                        actuellePieuvrePas = mouvementPieuvre;
-                        vitesseEnnemie = -vitesseEnnemie;
-                    }*/
                 }
             }
             if (score == 82)
@@ -641,8 +627,6 @@ namespace TestGithubWpf
             gameTimer.Stop();
             MessageBox.Show(message, "Chasse Aquatique Pac-Requin");
 
-            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            //Application.Current.Shutdown();
         }
     }
 }
