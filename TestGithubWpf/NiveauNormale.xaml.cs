@@ -311,8 +311,106 @@ namespace TestGithubWpf
 
         private void DeplacerPieuvre()
         {
-            
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if (x.Name.ToString() == "rosePieuvre")
+                {
+                    if (Canvas.GetTop(x) == 275)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 489)
+                        {
+                            Canvas.SetTop(x, 405);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 405)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 80)
+                        {
+                            Canvas.SetTop(x, 404);
+                        }
+
+                    }
+
+                }
+                if (x.Name.ToString() == "orangePieuvre")
+                {
+                    if (Canvas.GetTop(x) == 37)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 735)
+                        {
+                            Canvas.SetLeft(x, 736);
+
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 736)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 540)
+                        {
+                            Canvas.SetTop(x, 533);
+                        }
+
+                    }
+                    if (Canvas.GetTop(x) == 533)
+                    {
+                        Canvas.SetLeft(x, 737); 
+                    }
+                    if (Canvas.GetLeft(x) == 737)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 40)
+                        {
+                            Canvas.SetLeft(x, 738);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 738)
+                    {
+                        Canvas.SetTop(x, 39);
+                    }
+                    if (Canvas.GetTop(x) == 39)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 20)
+                        {
+                            Canvas.SetTop(x, 37);
+                        }
+                    }
+                    /*
+                    if (Canvas.GetLeft(x) == 735 && Canvas.GetTop(x) > 36)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesse);
+                    }
+                    if (Canvas.GetTop(x) == 537)
+                    {
+                        Canvas.SetLeft(x, 734);
+                        //Canvas.SetTop(x, 38);
+                    }
+                    if (Canvas.GetLeft(x) == 734) 
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesse);
+                        Canvas.SetLeft(x, 528);
+                    }
+                    if (Canvas.GetLeft(x) == 528)
+                    {
+                        Canvas.SetTop(x, 33);
+                    }
+                    if (Canvas.GetTop(x) == 33)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesse);
+                        if (Canvas.GetLeft(x) == 18)
+                        {
+                            Canvas.SetTop(x, 37);
+                        }
+                    }
+                    */
+
+                }
+
+            }
+            /*foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 if (x.Name.ToString() == "orangePieuvre")
                 {
@@ -347,7 +445,7 @@ namespace TestGithubWpf
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesse);
                     }
                 }
-            }
+            }*/
                 foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
