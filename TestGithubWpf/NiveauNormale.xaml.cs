@@ -38,6 +38,12 @@ namespace TestGithubWpf
         bool jeu_termine = false;
         bool gagne = false;
         bool estJeuEnPause = false;
+        int imagePieuvre1 = 1;
+        int imagePieuvre2 = 1;
+        int imagePieuvre3 = 1;
+        ImageBrush ennemieRose = new ImageBrush();
+        ImageBrush ennemieViolet = new ImageBrush();
+        ImageBrush ennemieOrange = new ImageBrush();
         List<Rectangle> dissolvantObjets = new List<Rectangle>();
         ImageBrush requinImage = new ImageBrush();
         ImageBrush bonusImage = new ImageBrush();
@@ -613,6 +619,106 @@ namespace TestGithubWpf
             if (imageTorche > 15)
             {
                 imageTorche = 1;
+            }
+            //////////////////////////////////////////  ANIMATION PIEUVRE ROSE
+            switch (imagePieuvre1)
+            {
+                case 1:
+                case 2:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose01.png"));
+                    break;
+                case 3:
+                case 4:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose02.png"));
+                    break;
+                case 5:
+                case 6:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose03.png"));
+                    break;
+                case 7:
+                case 8:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose04.png"));
+                    break;
+                case 9:
+                case 10:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose05.png"));
+                    break;
+                case 11:
+                case 12:
+                    ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/PieuvreRose06.png"));
+                    break;
+            }
+            rosePieuvre.Fill = ennemieRose;
+            imagePieuvre1++;
+            if (imagePieuvre1 > 12)
+            {
+                imagePieuvre1 = 1;
+            }
+
+            //////////////////////////////////////////  ANIMATION PIEUVRE VIOLET
+            switch (imagePieuvre2)
+            {
+                case 1:
+                case 2:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet01.png"));
+                    break;
+                case 3:
+                case 4:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet02.png"));
+                    break;
+                case 5:
+                case 6:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet03.png"));
+                    break;
+                case 7:
+                case 8:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet04.png"));
+                    break;
+                case 9:
+                case 10:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet05.png"));
+                    break;
+                case 11:
+                case 12:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet06.png"));
+                    break;
+            }
+            violetPieuvre.Fill = ennemieViolet;
+            imagePieuvre2++;
+            if (imagePieuvre2 > 12)
+            {
+                imagePieuvre2 = 1;
+            }
+
+            //////////////////////////////////////////  ANIMATION PIEUVRE ORANGE
+            switch (imagePieuvre3)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange01.png"));
+                    break;
+                case 7:
+                case 8:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange02.png"));
+                    break;
+                case 9:
+                case 10:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange03.png"));
+                    break;
+                case 11:
+                case 12:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange04.png"));
+                    break;
+            }
+            orangePieuvre.Fill = ennemieOrange;
+            imagePieuvre3++;
+            if (imagePieuvre3 > 12)
+            {
+                imagePieuvre3 = 1;
             }
 
             if (score == 15)
