@@ -33,7 +33,9 @@ namespace TestGithubWpf
         bool estJeuEnPause = false;
         ImageBrush requinImage = new ImageBrush();
         ImageBrush ennemieRose = new ImageBrush();
+        ImageBrush ennemieOrange = new ImageBrush();
         int imagePieuvre1 = 1;
+        int imagePieuvre3 = 1;
         int imageRequin = 1;
         private double debutX = 145;
         private double debutY = 530;
@@ -237,16 +239,6 @@ namespace TestGithubWpf
                 {
                     double GaucheActuel = Canvas.GetLeft(x);
                     double TopActuel = Canvas.GetTop(x);
-
-
-                    /*while (GaucheActuel == debutX && TopActuel <= debutY)
-                    {
-                        Canvas.SetTop(x, TopActuel - vitesse);
-                        if (GaucheActuel == debutX && TopActuel == debutY - 150)
-                        {
-                            Canvas.SetLeft(x, GaucheActuel + vitesse);
-                        }
-                    }*/
 
 
                     /*switch (direction)
@@ -489,6 +481,42 @@ namespace TestGithubWpf
             if (imagePieuvre1 > 12)
             {
                 imagePieuvre1 = 1;
+            }
+
+            switch (imagePieuvre3)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange01.png"));
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange02.png"));
+                    break;
+                case 13:
+                case 14:
+                case 15:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange03.png"));
+                    break;
+                case 16:
+                case 17:
+                case 18:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange04.png"));
+                    break;
+            }
+            orangePieuvre.Fill = ennemieOrange;
+            imagePieuvre3++;
+            if (imagePieuvre3 > 18)
+            {
+                imagePieuvre3 = 1;
             }
 
             if (vaDroite)
