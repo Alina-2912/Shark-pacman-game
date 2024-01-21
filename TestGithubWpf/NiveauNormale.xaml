@@ -571,11 +571,11 @@
         </Rectangle>
         <Rectangle
     Canvas.Left="710"
-    Canvas.Top="554"
+    Canvas.Top="552"
     Width="20"
     Height="20"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     Tag="meduses"
     Fill="HotPink">
         </Rectangle>
@@ -628,11 +628,11 @@
     Fill="HotPink"/>
         <Rectangle
     Canvas.Left="667"
-    Canvas.Top="554"
+    Canvas.Top="552"
     Width="20"
     Height="20"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     Tag="meduses" 
     Fill="HotPink"/>
         <MediaElement
@@ -642,12 +642,12 @@
 
         <Rectangle
             x:Name="algue6"
-    Canvas.Left="684"
-    Canvas.Top="101"
-    Width="33"
-    Height="398"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
+    Canvas.Left="677"
+    Canvas.Top="106"
+    Width="49"
+    Height="417"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     RenderTransformOrigin="0.5,0.5"
     Fill="Coral"
     StrokeThickness="3"
@@ -664,31 +664,31 @@
 
         <Rectangle
             x:Name="algue2"
-    Canvas.Left="10"  
+    Canvas.Left="20"  
     Canvas.Top="474"
-    Width="214"
-    Height="49"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Top"
+    Width="199"
+    Height="47"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="14.5" RadiusY="14.5">
         </Rectangle>
         <Rectangle
      x:Name="algue1"
-    Canvas.Left="80"
+    Canvas.Left="84"
     Canvas.Top="344"
-    Width="248"
-    Height="52"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Top"
+    Width="236"
+    Height="49"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             x:Name="algue3"
     Canvas.Left="84"
-    Canvas.Top="207"
+    Canvas.Top="210"
     Width="391"
     Height="52"
     HorizontalAlignment="Center"
@@ -699,11 +699,11 @@
         <Rectangle
             Name="algue5"
     Canvas.Left="103"
-    Canvas.Top="101"
+    Canvas.Top="91"
     Width="466"
-    Height="29"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
+    Height="54"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="14.5" RadiusY="14.5" />

@@ -311,14 +311,21 @@ namespace TestGithubWpf
             algue3.Fill = algue_3;
 
             ImageBrush algue_4 = new ImageBrush();
-            algue_4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal.png"));
+            algue_4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal7.png"));
             algue4.Fill = algue_4;
 
-            ImageBrush mur = new ImageBrush();
-            mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets2.jpg"));
-            algue5.Fill = mur;
-            algue6.Fill = mur;
-            algue7.Fill = mur;
+            ImageBrush algue_5 = new ImageBrush();
+            algue_5.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal5.png"));
+            algue5.Fill = algue_5;
+
+            ImageBrush algue_6 = new ImageBrush();
+            algue_6.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal6.png"));
+            algue7.Fill = algue_6;
+
+            ImageBrush algue_7 = new ImageBrush();
+            algue_7.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal8.png"));
+            algue6.Fill = algue_7;
+
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
