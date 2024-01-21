@@ -1049,5 +1049,13 @@
             Fill="Coral"
             StrokeThickness="3"
             Tag="mur" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle
+            x:Name="violetPieuvre"
+            Canvas.Left="94"
+            Canvas.Top="146"
+            Width="52"
+            Height="52"
+            Fill="Red"
+            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Center" />
     </Canvas>
 </Window>
