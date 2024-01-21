@@ -237,7 +237,7 @@ namespace TestGithubWpf
             {
                 if (x.Name.ToString() == "orangePieuvre")
                 {
-                    if (Canvas.GetTop(x) == 260)
+                    if (Canvas.GetTop(x) == 260) //right
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                         if (Canvas.GetLeft(x) > 400)
@@ -245,7 +245,7 @@ namespace TestGithubWpf
                             Canvas.SetLeft(x, 395);
                         }
                     }
-                    if (Canvas.GetLeft(x) == 395)
+                    if (Canvas.GetLeft(x) == 395) //up
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
                         if (Canvas.GetTop(x) < 145)
@@ -253,11 +253,64 @@ namespace TestGithubWpf
                             Canvas.SetTop(x, 146);
                         }
                     }
-                    if (Canvas.GetTop(x) == 146)
+                    if (Canvas.GetTop(x) == 146) //right
                     {
-                        Canvas.SetLeft(x, 401);
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 530)
+                        {
+                            Canvas.SetLeft(x, 529);
+                        }
                     }
-                    if (Canvas.GetLeft(x) == 401)
+                    if (Canvas.GetLeft(x) == 529) //down
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 335)
+                        {
+                            Canvas.SetTop(x, 333);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 333) //right
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 730)
+                        {
+                            Canvas.SetLeft(x, 729);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 729) //up
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 230)
+                        {
+                            Canvas.SetTop(x, 235);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 235)
+                    {
+                        Canvas.SetLeft(x, 731);
+                    }
+                    if (Canvas.GetLeft(x) == 731)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 335)
+                        {
+                            Canvas.SetLeft(x, 732);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 732)
+                    {
+                        Canvas.SetTop(x, 262);
+                    }
+                    if (Canvas.GetTop(x) == 262)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 20)
+                        {
+                            Canvas.SetTop(x, 260);
+                        }
+                    }
+
+                    /*if (Canvas.GetLeft(x) == 401)
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
                         if (Canvas.GetTop(x) > 261)
@@ -276,7 +329,7 @@ namespace TestGithubWpf
                         {
                             Canvas.SetTop(x, 260);
                         }
-                    }
+                    }*/
 
                 }
             }
