@@ -242,6 +242,54 @@ namespace TestGithubWpf
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
                         if (Canvas.GetLeft(x) > 400)
                         {
+                            Canvas.SetLeft(x, 395);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 395)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 145)
+                        {
+                            Canvas.SetTop(x, 146);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 146)
+                    {
+                        Canvas.SetLeft(x, 401);
+                    }
+                    if (Canvas.GetLeft(x) == 401)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 261)
+                        {
+                            Canvas.SetLeft(x, 402);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 402)
+                    {
+                        Canvas.SetTop(x, 262);
+                    }
+                    if (Canvas.GetTop(x) == 262)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 20)
+                        {
+                            Canvas.SetTop(x, 260);
+                        }
+                    }
+
+                }
+            }
+
+            /*foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if (x.Name.ToString() == "orangePieuvre")
+                {
+                    if (Canvas.GetTop(x) == 260)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 400)
+                        {
                             Canvas.SetLeft(x, 391);
 
                         }
@@ -351,7 +399,7 @@ namespace TestGithubWpf
                             break;
                     }
                 }
-            }
+            }*/
 
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
