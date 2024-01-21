@@ -620,7 +620,7 @@ namespace TestGithubWpf
             }
 
             //////////////////////////////////////////  ANIMATION PIEUVRE ORANGE
-            switch(imagePieuvre3)
+            switch (imagePieuvre3)
             {
                 case 1:
                 case 2:
@@ -628,30 +628,36 @@ namespace TestGithubWpf
                 case 4:
                 case 5:
                 case 6:
-                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange01.png"));
-                    break;
                 case 7:
                 case 8:
-                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange02.png"));
-                    break;
                 case 9:
-                case 10:
-                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange03.png"));
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange01.png"));
                     break;
+                case 10:
                 case 11:
                 case 12:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange02.png"));
+                    break;
+                case 13:
+                case 14:
+                case 15:
+                    ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange03.png"));
+                    break;
+                case 16:
+                case 17:
+                case 18:
                     ennemieOrange.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poulpeOrange04.png"));
                     break;
             }
-                orangePieuvre.Fill = ennemieOrange;
-                imagePieuvre3++;
-                if (imagePieuvre3 > 12)
-                {
-                    imagePieuvre3 = 1;
-                }
+            orangePieuvre.Fill = ennemieOrange;
+            imagePieuvre3++;
+            if (imagePieuvre3 > 18)
+            {
+                imagePieuvre3 = 1;
+            }
 
-                //*******************************    ModePuissant    ******************************
-                if (modePuissant == true)
+            //*******************************    ModePuissant    ******************************
+            if (modePuissant == true)
             {
                 vitesse = 9;
                 vitesseEnnemie = 2;
