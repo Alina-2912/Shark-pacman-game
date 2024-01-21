@@ -676,9 +676,9 @@
         </Rectangle>
         <Rectangle
      x:Name="algue1"
-    Canvas.Left="84"
+    Canvas.Left="94"
     Canvas.Top="344"
-    Width="236"
+    Width="226"
     Height="49"
     HorizontalAlignment="Left"
     VerticalAlignment="Center"
@@ -687,23 +687,23 @@
     Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             x:Name="algue3"
-    Canvas.Left="84"
+    Canvas.Left="104"
     Canvas.Top="210"
-    Width="391"
+    Width="344"
     Height="52"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Top"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
             Name="algue5"
-    Canvas.Left="103"
+    Canvas.Left="117"
     Canvas.Top="91"
-    Width="466"
+    Width="434"
     Height="54"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Top"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Center"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="14.5" RadiusY="14.5" />

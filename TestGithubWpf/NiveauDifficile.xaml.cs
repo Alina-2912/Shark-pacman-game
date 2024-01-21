@@ -91,6 +91,11 @@ namespace TestGithubWpf
             {
                 CommencerJeu();
             }
+            //*************************    TricheMod - T   *************************
+            if (e.Key == Key.T)
+            {
+                TricheMod();
+            }
 
             if (e.Key == Key.Left && gaucheNon == false)
             {
@@ -207,6 +212,12 @@ namespace TestGithubWpf
                 }*/
 
             }
+        }
+        private void TricheMod()
+        {
+            vitesse = 13;
+            vitesseEnnemie = 2;
+            pieuvrePasActuel = mouvementPieuvre;
         }
         private void DeplacerPieuvre()
         {
@@ -614,7 +625,7 @@ namespace TestGithubWpf
                     }
                 }
             }
-            if (score == 82)
+            if (score == 83)
             {
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons !");
             }
@@ -622,7 +633,6 @@ namespace TestGithubWpf
             {
                 mediaElement.Close();
                 txtScore.Content += "\n        Cliquer R \n        pour Rejouer";
-
                 /*if (txtScore.Content.Equals("\n        Cliquer R \n        pour Rejouer"))
                 {
                     txtScore.Content = Brushes.White;

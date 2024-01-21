@@ -579,6 +579,14 @@ namespace TestGithubWpf
                         x.Visibility = Visibility.Hidden;
                     }
                 }
+                if ((string)x.Tag == "fin")
+                {
+                    if (requinHitBox.IntersectsWith(hitBox) && gagne == true)
+                    {
+                        JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons !");
+                        jeu_termine = true;
+                    }
+                }
 
             }
         }
