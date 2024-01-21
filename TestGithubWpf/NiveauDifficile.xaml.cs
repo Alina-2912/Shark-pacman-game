@@ -237,72 +237,74 @@ namespace TestGithubWpf
             {
                 if (x.Name.ToString() == "rosePieuvre")
                 {
+                    
+
                     double GaucheActuel = Canvas.GetLeft(x);
                     double TopActuel = Canvas.GetTop(x);
 
 
-                    /*switch (direction)
+                    switch (direction)
                     {
                         case 0: // Move up
                             Canvas.SetTop(x, TopActuel - vitesse);
-                            if (GaucheActuel == debutX && TopActuel == debutY - 150)
+                            if (GaucheActuel >= debutX && TopActuel == debutY - 150)
                                 direction = 1; // Change direction to right
                             break;
 
                         case 1: // Move to the right
                             Canvas.SetLeft(x, GaucheActuel + vitesse);
-                            if (GaucheActuel == debutX + 135 && TopActuel == debutY - 150)
+                            if (GaucheActuel >= debutX + 135 && TopActuel == debutY - 150)
                                 direction = 2; // Change direction to down
                             break;
 
                         case 2: // Move down
                             Canvas.SetTop(x, TopActuel + vitesse);
-                            if (GaucheActuel == debutX + 135 && TopActuel == debutY)
+                            if (GaucheActuel >= debutX + 135 && TopActuel == debutY)
                                 direction = 3; // Change direction to right
                             break;
 
                         case 3: // Move to the right
                             Canvas.SetLeft(x, GaucheActuel + vitesse);
-                            if (GaucheActuel == debutX + 260 && TopActuel == debutY)
+                            if (GaucheActuel >= debutX + 260 && TopActuel == debutY)
                                 direction = 4; // Change direction to up
                             break;
 
                         case 4: // Move up
                             Canvas.SetLeft(x, GaucheActuel - vitesse);
-                            if (GaucheActuel == debutX + 260 && TopActuel == debutY - 160)
+                            if (GaucheActuel >= debutX + 260 && TopActuel == debutY - 160)
                                 direction = 5; // Change direction to down
                             break;
 
                         case 5: // Move down
                             Canvas.SetTop(x, TopActuel + vitesse);
-                            if (GaucheActuel == debutX + 260 && TopActuel == debutY)
+                            if (GaucheActuel >= debutX + 260 && TopActuel == debutY)
                                 direction = 6; // Change direction to left
                             break;
 
                         case 6: // Move to the left
                             Canvas.SetLeft(x, GaucheActuel - vitesse);
-                            if (GaucheActuel == debutX + 135 && TopActuel == debutY)
+                            if (GaucheActuel >= debutX + 135 && TopActuel == debutY)
                                 direction = 7; // Change direction to up
                             break;
 
                         case 7: // Move up
                             Canvas.SetTop(x, TopActuel - vitesse);
-                            if (GaucheActuel == debutX + 135 && TopActuel == debutY - 150)
+                            if (GaucheActuel >= debutX + 135 && TopActuel == debutY - 150)
                                 direction = 8; // Change direction to left
                             break;
 
                         case 8: // Move to the left
                             Canvas.SetLeft(x, GaucheActuel - vitesse);
-                            if (GaucheActuel == debutX && TopActuel == debutY - 150)
+                            if (GaucheActuel >= debutX && TopActuel == debutY - 150)
                                 direction = 9; // Change direction to down
                             break;
 
                         case 9: // Move down
                             Canvas.SetTop(x, TopActuel + vitesse);
-                            if (GaucheActuel == debutX && TopActuel == debutY)
+                            if (GaucheActuel >= debutX && TopActuel == debutY)
                                 direction = 0; // Change direction to up
                             break;
-                    }*/
+                    }
                 }
             }
 
