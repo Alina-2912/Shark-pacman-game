@@ -170,16 +170,16 @@ namespace TestGithubWpf
                         x.Visibility = Visibility.Visible;
                     }
                 }
+                if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
+                {
+                    x.Visibility = Visibility.Hidden;
+                }
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
                         x.Visibility = Visibility.Visible;
                     }
-                }
-                if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
-                {
-                    x.Visibility = Visibility.Hidden;
                 }
             }
 
@@ -352,15 +352,6 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                if ((string)x.Tag == "bonus")
-                {
-                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
-                    {
-                        modePuissant = true;
-                        modePuissantCompteur = 200;
-                        x.Visibility = Visibility.Hidden;
-                    }
-                }
                 if ((string)x.Tag == "bonus")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
