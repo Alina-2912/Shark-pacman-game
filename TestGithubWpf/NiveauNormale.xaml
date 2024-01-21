@@ -58,12 +58,13 @@
     Fill="Yellow"
     RenderTransformOrigin="0.486,0.502"  />
         <Rectangle
-    Canvas.Left="562"
-    Canvas.Top="216"
-    Width="30"
-    Height="387"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
+            x:Name="algue4"
+    Canvas.Left="550"
+    Canvas.Top="225"
+    Width="52"
+    Height="372"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="15" RadiusY="15" />
@@ -79,6 +80,7 @@
     StrokeThickness="3"
     Tag="mur" />
         <Rectangle
+            Name="algue7"
     Canvas.Left="427"
     Canvas.Top="344"
     Width="41"
@@ -639,6 +641,7 @@
     UnloadedBehavior="Manual" />
 
         <Rectangle
+            x:Name="algue6"
     Canvas.Left="684"
     Canvas.Top="101"
     Width="33"
@@ -660,10 +663,11 @@
         </Rectangle>
 
         <Rectangle
-    Canvas.Left="10"
-    Canvas.Top="489"
+            x:Name="algue2"
+    Canvas.Left="10"  
+    Canvas.Top="474"
     Width="214"
-    Height="29"
+    Height="49"
     HorizontalAlignment="Center"
     VerticalAlignment="Top"
     Fill="Coral"
@@ -671,26 +675,29 @@
     Tag="mur" RadiusX="14.5" RadiusY="14.5">
         </Rectangle>
         <Rectangle
+     x:Name="algue1"
     Canvas.Left="80"
-    Canvas.Top="360"
+    Canvas.Top="344"
     Width="248"
-    Height="29"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
+    Height="52"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
+            x:Name="algue3"
     Canvas.Left="84"
-    Canvas.Top="225"
+    Canvas.Top="207"
     Width="391"
-    Height="29"
-    HorizontalAlignment="Left"
-    VerticalAlignment="Center"
+    Height="52"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     Fill="Coral"
     StrokeThickness="3"
     Tag="mur" RadiusX="14.5" RadiusY="14.5" />
         <Rectangle
+            Name="algue5"
     Canvas.Left="103"
     Canvas.Top="101"
     Width="466"
@@ -926,7 +933,7 @@
     Fill="HotPink">
         </Rectangle>
         <Rectangle
-    Canvas.Left="559"
+    Canvas.Left="564"
     Canvas.Top="162"
     Width="20"
     Height="20"

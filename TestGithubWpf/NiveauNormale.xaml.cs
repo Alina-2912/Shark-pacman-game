@@ -298,14 +298,36 @@ namespace TestGithubWpf
             porte1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/porte.png"));
             porte.Fill = porte1;
 
+            ImageBrush algue_1 = new ImageBrush();
+            algue_1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal2.png"));
+            algue1.Fill = algue_1;
+
+            ImageBrush algue_2 = new ImageBrush();
+            algue_2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal1.png"));
+            algue2.Fill = algue_2;
+
+            ImageBrush algue_3 = new ImageBrush();
+            algue_3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal3.png"));
+            algue3.Fill = algue_3;
+
+            ImageBrush algue_4 = new ImageBrush();
+            algue_4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/alguenormal.png"));
+            algue4.Fill = algue_4;
+
+            ImageBrush mur = new ImageBrush();
+            mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets2.jpg"));
+            algue5.Fill = mur;
+            algue6.Fill = mur;
+            algue7.Fill = mur;
+
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
-                if ((string)x.Tag == "mur")
+                /*if ((string)x.Tag == "mur")
                 {
                     ImageBrush mur = new ImageBrush();
                     mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets2.jpg"));
                     x.Fill = mur;
-                }
+                }*/
                 if ((string)x.Tag == "meduses")
                 {
                     ImageBrush meduse = new ImageBrush();
