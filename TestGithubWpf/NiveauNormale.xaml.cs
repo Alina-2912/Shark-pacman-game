@@ -46,6 +46,8 @@ namespace TestGithubWpf
         {
             InitializeComponent();
             ConfigurationJeu();
+            gameTimer.Tick += BoucleJeu;
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             
         }
         private void ButtonFermer_Click(object sender, RoutedEventArgs e)
@@ -76,7 +78,7 @@ namespace TestGithubWpf
                 }
             }
             /*************************    RESUME   *************************/
-            if (e.Key == Key.R)
+            if (e.Key == Key.C)
             {
                 if (estJeuEnPause)
                 {
@@ -139,101 +141,6 @@ namespace TestGithubWpf
                 vaEnHaut = false;
             }
         }
-        private void ConfigurationJeu()
-        {
-            MyCanvas.Focus();
-            gameTimer.Tick += BoucleJeu;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
-            gameTimer.Start();
-            actuellePieuvrePas = mouvementPieuvre;
-
-            ImageBrush porte1 = new ImageBrush();
-            porte1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/porte.png"));
-            porte.Fill = porte1;
-
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                if ((string)x.Tag == "mur")
-                {
-                    ImageBrush mur = new ImageBrush();
-                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets2.jpg"));
-                    x.Fill = mur;
-                }
-                if ((string)x.Tag == "meduses")
-                {
-                    ImageBrush meduse = new ImageBrush();
-                    meduse.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/meduse.png"));
-                    x.Fill = meduse;
-                }
-            }
-                //requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
-        }
-        private void DeplacerRequin()
-        {
-            if (vaDroite && Canvas.GetLeft(requin) < Application.Current.MainWindow.Width - 60)
-            {
-                Canvas.SetLeft(requin, Canvas.GetLeft(requin) + vitesse);
-            }
-            if (vaGauche && Canvas.GetLeft(requin) > 20)
-            {
-                Canvas.SetLeft(requin, Canvas.GetLeft(requin) - vitesse);
-            }
-            if (vaEnHaut && Canvas.GetTop(requin) > 20)
-            {
-                Canvas.SetTop(requin, Canvas.GetTop(requin) - vitesse);
-            }
-            if (vaEnBas && Canvas.GetTop(requin) < Application.Current.MainWindow.Height - 60)
-            {
-                Canvas.SetTop(requin, Canvas.GetTop(requin) + vitesse);
-            }
-  
-            requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
-                if ((string)x.Tag == "bonus")
-                {
-                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
-                    {
-                        modePuissant = true;
-                        modePuissantCompteur = 200;
-                        x.Visibility = Visibility.Hidden;
-                    }
-                }
-
-                if ((string)x.Tag == "mur")
-                {
-                    if (requinHitBox.IntersectsWith(hitBox))
-                    {
-                        if (vaDroite)
-                        {
-                            Canvas.SetLeft(requin, Canvas.GetLeft(requin) - vitesse);
-                            vaDroite = false;
-                        }
-
-                        if (vaGauche)
-                        {
-                            Canvas.SetLeft(requin, Canvas.GetLeft(requin) + vitesse);
-                            vaGauche = false;
-                        }
-
-                        if (vaEnHaut)
-                        {
-                            Canvas.SetTop(requin, Canvas.GetTop(requin) + vitesse);
-                            vaEnHaut = false;
-                        }
-
-                        if (vaEnBas)
-                        {
-                            Canvas.SetTop(requin, Canvas.GetTop(requin) - vitesse);
-                            vaEnBas = false;
-                        }
-                    }
-                }
-
-            }
-        }
         private void CommencerJeu()
         {
             actuellePieuvrePas = mouvementPieuvre;
@@ -243,6 +150,22 @@ namespace TestGithubWpf
 
             gameTimer.Start();
             score = 0;
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "meduses")
+                {
+                    if (x.Visibility == Visibility.Hidden)
+                    {
+                        x.Visibility = Visibility.Visible;
+                    }
+                }
+                if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
+                {
+                    x.Visibility = Visibility.Hidden;
+                }
+
+            }
+
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 if (x.Name.ToString() == "rosePieuvre")
@@ -337,41 +260,100 @@ namespace TestGithubWpf
                     }
                 }
             }
+        }
+        private void ConfigurationJeu()
+        {
+            dissolvantObjets.Clear();
+
+            MyCanvas.Focus();
+            gameTimer.Start();
+            actuellePieuvrePas = mouvementPieuvre;
+
+            ImageBrush porte1 = new ImageBrush();
+            porte1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/porte.png"));
+            porte.Fill = porte1;
+
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "mur")
+                {
+                    ImageBrush mur = new ImageBrush();
+                    mur.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets2.jpg"));
+                    x.Fill = mur;
+                }
+                if ((string)x.Tag == "meduses")
+                {
+                    ImageBrush meduse = new ImageBrush();
+                    meduse.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/meduse.png"));
+                    x.Fill = meduse;
+                }
+            }
+                //requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
+        }
+        private void DeplacerRequin()
+        {
+            if (vaDroite && Canvas.GetLeft(requin) < Application.Current.MainWindow.Width - 60)
+            {
+                Canvas.SetLeft(requin, Canvas.GetLeft(requin) + vitesse);
+            }
+            if (vaGauche && Canvas.GetLeft(requin) > 20)
+            {
+                Canvas.SetLeft(requin, Canvas.GetLeft(requin) - vitesse);
+            }
+            if (vaEnHaut && Canvas.GetTop(requin) > 20)
+            {
+                Canvas.SetTop(requin, Canvas.GetTop(requin) - vitesse);
+            }
+            if (vaEnBas && Canvas.GetTop(requin) < Application.Current.MainWindow.Height - 60)
+            {
+                Canvas.SetTop(requin, Canvas.GetTop(requin) + vitesse);
+            }
+
+            requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
 
-                if ((string)x.Tag == "meduses")
+                if ((string)x.Tag == "bonus")
                 {
-                    if (x.Visibility == Visibility.Hidden)
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
-                        x.Visibility = Visibility.Visible;
-                    }
-                }
-                if ((string)x.Tag == "fin")
-                {
-                    if (requinHitBox.IntersectsWith(hitBox) && gagne == true)
-                    {
+                        modePuissant = true;
+                        modePuissantCompteur = 200;
                         x.Visibility = Visibility.Hidden;
-                        JeuTermine("Vous avez gagne");
                     }
                 }
-                if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
+                if ((string)x.Tag == "mur")
                 {
-                    x.Visibility = Visibility.Hidden;
-                }
-                if ((string)x.Tag == "pieuvre")
-                {
-                    if (x.Visibility == Visibility.Hidden)
+                    if (requinHitBox.IntersectsWith(hitBox))
                     {
-                        x.Visibility = Visibility.Visible;
+                        if (vaDroite)
+                        {
+                            Canvas.SetLeft(requin, Canvas.GetLeft(requin) - vitesse);
+                            vaDroite = false;
+                        }
+
+                        if (vaGauche)
+                        {
+                            Canvas.SetLeft(requin, Canvas.GetLeft(requin) + vitesse);
+                            vaGauche = false;
+                        }
+
+                        if (vaEnHaut)
+                        {
+                            Canvas.SetTop(requin, Canvas.GetTop(requin) + vitesse);
+                            vaEnHaut = false;
+                        }
+
+                        if (vaEnBas)
+                        {
+                            Canvas.SetTop(requin, Canvas.GetTop(requin) - vitesse);
+                            vaEnBas = false;
+                        }
                     }
                 }
-
             }
         }
-
         private void DeplacerPieuvre()
         {
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
@@ -442,7 +424,7 @@ namespace TestGithubWpf
                     }
                     if (Canvas.GetTop(x) == 533)
                     {
-                        Canvas.SetLeft(x, 737); 
+                        Canvas.SetLeft(x, 737);
                     }
                     if (Canvas.GetLeft(x) == 737)
                     {
@@ -463,7 +445,7 @@ namespace TestGithubWpf
                         {
                             Canvas.SetTop(x, 37);
                         }
-                    }  
+                    }
                 }
                 if (x.Name.ToString() == "violetPieuvre")
                 {
@@ -515,7 +497,6 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-
                 if ((string)x.Tag == "meduses")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
@@ -524,15 +505,7 @@ namespace TestGithubWpf
                         score++;
                     }
                 }
-                if ((string)x.Tag == "fin")
-                {
-                    if (requinHitBox.IntersectsWith(hitBox) && gagne == true)
-                    {
-                        x.Visibility = Visibility.Hidden;
-                        JeuTermine("Vous avez gagne");
-                    }
-                }
-                
+
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
@@ -547,10 +520,13 @@ namespace TestGithubWpf
                 }
 
             }
-
         }
         private void BoucleJeu(object sender, EventArgs e)
         {
+            foreach (Rectangle y in dissolvantObjets)
+            {
+                MyCanvas.Children.Remove(y);
+            }
             bonusImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
             txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
 
