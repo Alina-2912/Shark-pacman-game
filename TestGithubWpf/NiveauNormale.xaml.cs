@@ -163,6 +163,13 @@ namespace TestGithubWpf
                 {
                     x.Visibility = Visibility.Hidden;
                 }
+                if ((string)x.Tag == "pieuvre")
+                {
+                    if (x.Visibility == Visibility.Hidden)
+                    {
+                        x.Visibility = Visibility.Visible;
+                    }
+                }
 
             }
 
@@ -510,12 +517,19 @@ namespace TestGithubWpf
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
                     {
-                        gameTimer.Stop();
-                        jeu_termine = true;
+                        if (x.Visibility == Visibility.Visible)
+                        {
+                            gameTimer.Stop();
+                            jeu_termine = true;
+                        }
+                    }
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
+                    {
+                        jeu_termine = false;
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
-                        dissolvantObjets.Add(x);
+                        x.Visibility = Visibility.Hidden;
                     }
                 }
 
@@ -628,8 +642,6 @@ namespace TestGithubWpf
                         Width = 30,
                         Height = 30,
                         Fill = bonusImage,
-                        //Stroke = Brushes.Red,
-                        //Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
                         Tag = "bonus",
                     };
@@ -647,7 +659,6 @@ namespace TestGithubWpf
                         Width = 30,
                         Height = 30,
                         Fill = bonusImage,
-                        //Stroke = Brushes.Red,
                         Visibility = Visibility.Hidden,
                         StrokeThickness = 2,
                         Tag = "bonus",

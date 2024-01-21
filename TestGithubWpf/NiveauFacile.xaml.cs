@@ -170,6 +170,13 @@ namespace TestGithubWpf
                         x.Visibility = Visibility.Visible;
                     }
                 }
+                if ((string)x.Tag == "pieuvre")
+                {
+                    if (x.Visibility == Visibility.Hidden)
+                    {
+                        x.Visibility = Visibility.Visible;
+                    }
+                }
                 if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
                 {
                     x.Visibility = Visibility.Hidden;
@@ -350,6 +357,15 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         modePuissant = true;
+                        modePuissantCompteur = 200;
+                        x.Visibility = Visibility.Hidden;
+                    }
+                }
+                if ((string)x.Tag == "bonus")
+                {
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    {
+                        modePuissant = true;
                         modePuissantCompteur=200;
                         x.Visibility = Visibility.Hidden;
                     }
@@ -471,12 +487,19 @@ namespace TestGithubWpf
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
                     {
-                        gameTimer.Stop();
-                        jeu_termine = true;
+                        if (x.Visibility == Visibility.Visible)
+                        {
+                            gameTimer.Stop();
+                            jeu_termine = true;
+                        }
+                    }
+                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
+                    {
+                        jeu_termine = false;
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
-                        dissolvantObjets.Add(x);
+                        x.Visibility = Visibility.Hidden;
                     }
                 }
                 
