@@ -837,9 +837,9 @@
             Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Rectangle
     Name="orangePieuvre"
-    Canvas.Left="730"
-    Canvas.Top="230"
-    Width="55"
+    Canvas.Left="18"
+    Canvas.Top="260"
+    Width="54"
     Height="52"
     HorizontalAlignment="Left"
     VerticalAlignment="Top"

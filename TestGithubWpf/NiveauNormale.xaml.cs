@@ -542,7 +542,6 @@ namespace TestGithubWpf
                         }
                     }
                 }
-                //146
             }
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {

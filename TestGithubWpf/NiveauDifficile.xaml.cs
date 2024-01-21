@@ -235,6 +235,51 @@ namespace TestGithubWpf
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
+                if (x.Name.ToString() == "orangePieuvre")
+                {
+                    if (Canvas.GetTop(x) == 260)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 400)
+                        {
+                            Canvas.SetLeft(x, 391);
+
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 391)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 150)
+                        {
+                            Canvas.SetTop(x, 149);
+                        }
+
+                    }
+                    if (Canvas.GetTop(x) == 450)
+                    {
+                        Canvas.SetLeft(x, 737);
+                    }
+                    if (Canvas.GetLeft(x) == 737)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 40)
+                        {
+                            Canvas.SetLeft(x, 738);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 738)
+                    {
+                        Canvas.SetTop(x, 39);
+                    }
+                    if (Canvas.GetTop(x) == 39)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 20)
+                        {
+                            Canvas.SetTop(x, 37);
+                        }
+                    }
+                }
                 if (x.Name.ToString() == "rosePieuvre")
                 {
                     double GaucheActuel = Canvas.GetLeft(x);
