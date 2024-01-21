@@ -81,6 +81,7 @@ namespace TestGithubWpf
                     gameTimer.Stop();
                     estJeuEnPause = true;
                     mediaElement.Pause();
+                    txtScore_pause.Visibility = Visibility.Visible;
                 }
             }
             /*************************    RESUME   *************************/
@@ -91,6 +92,7 @@ namespace TestGithubWpf
                     gameTimer.Start();
                     estJeuEnPause = false;
                     mediaElement.Play();
+                    txtScore_pause.Visibility = Visibility.Hidden;
                 }
             }
             /*************************    REDEMARRAGE - R   *************************/
@@ -98,7 +100,10 @@ namespace TestGithubWpf
             {
                 CommencerJeu();
             }
-
+            if (e.Key == Key.T)
+            {
+                TricheMod();
+            }
             if (e.Key == Key.Left)
             {
                 vaGauche = true;
@@ -147,6 +152,7 @@ namespace TestGithubWpf
                 vaEnHaut = false;
             }
         }
+
         private void CommencerJeu()
         {
             actuellePieuvrePas = mouvementPieuvre;
@@ -273,6 +279,12 @@ namespace TestGithubWpf
                     }
                 }
             }
+        }
+        private void TricheMod()
+        {
+            vitesse = 13;
+            vitesseEnnemie = 2;
+            actuellePieuvrePas = mouvementPieuvre;
         }
         private void ConfigurationJeu()
         {
