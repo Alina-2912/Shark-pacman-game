@@ -698,7 +698,7 @@ namespace TestGithubWpf
             if (jeu_termine)
             {
                 mediaElement.Close();
-                txtScore.Content += "\n\n\nCliquer R \npour Réessayer";   
+                txtScore.Content += "\n\n\nCliquer R \npour Rejouer";   
             }
         }
         private void JeuTermine(string message)
