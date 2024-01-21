@@ -721,7 +721,7 @@ namespace TestGithubWpf
                 imagePieuvre3 = 1;
             }
 
-            if (score == 15)
+            if (score == 25)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -739,7 +739,7 @@ namespace TestGithubWpf
 
                 }
             }
-            if (score == 35)
+            if (score == 45)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -756,7 +756,7 @@ namespace TestGithubWpf
                     Canvas.SetLeft(rec, 489);
                 }
             }
-            if (score == 55)
+            if (score == 65)
             {
                 for (int i = 0; i < 5; i++)
                 {
