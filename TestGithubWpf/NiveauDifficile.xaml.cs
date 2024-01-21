@@ -22,7 +22,7 @@ namespace TestGithubWpf
     {
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool vaGauche, vaDroite, vaEnBas, vaEnHaut;
-        bool noLeft, noRight, noDown, noUp;
+        bool gaucheNon, rightNon, basNon, hautNon;
         int vitesse = 8;
         Rect requinHitBox;
         int vitesseEnnemie = 10;
@@ -92,45 +92,45 @@ namespace TestGithubWpf
                 CommencerJeu();
             }
 
-            if (e.Key == Key.Left && noLeft == false)
+            if (e.Key == Key.Left && gaucheNon == false)
             {
                 if (Canvas.GetLeft(requin) >= 10)
                 {
                     vaDroite = vaEnHaut = vaEnBas = false;
-                    noRight = noUp = noDown = false;
+                    rightNon = hautNon = basNon = false;
                     vaGauche = true;
                     requin.RenderTransform = new RotateTransform(-180, requin.Width / 2, requin.Height / 2);
                 }
                 else { Canvas.SetLeft(requin, 10); }
             }
-            if (e.Key == Key.Right && noRight == false)
+            if (e.Key == Key.Right && rightNon == false)
             {
                 if (Canvas.GetLeft(requin) <= 790) // si possible remplacer 790 par la largeur de la fenètre
                 {
-                    noLeft = noUp = noDown = false;
+                    gaucheNon = hautNon = basNon = false;
                     vaGauche = vaEnHaut = vaEnBas = false;
                     vaDroite = true;
                     requin.RenderTransform = new RotateTransform(0, requin.Width / 2, requin.Height / 2);
                 }
                 else { Canvas.SetLeft(requin, 790); }
             }
-            if (e.Key == Key.Up && noUp == false)
+            if (e.Key == Key.Up && hautNon == false)
             {
                 if (Canvas.GetTop(requin) >= 10)
                 {
 
-                    noRight = noDown = noLeft = false;
+                    rightNon = basNon = gaucheNon = false;
                     vaDroite = vaEnBas = vaGauche = false;
                     vaEnHaut = true;
                     requin.RenderTransform = new RotateTransform(-90, requin.Width / 2, requin.Height / 2);
                 }
                 else { Canvas.SetTop(requin, 10); }
             }
-            if (e.Key == Key.Down && noDown == false)
+            if (e.Key == Key.Down && basNon == false)
             {
                 if (Canvas.GetTop(requin) <= 590)
                 {
-                    noUp = noLeft = noRight = false;
+                    hautNon = gaucheNon = rightNon = false;
                     vaEnHaut = vaGauche = vaDroite = false;
                     vaEnBas = true;
                     requin.RenderTransform = new RotateTransform(90, requin.Width / 2, requin.Height / 2);
@@ -324,6 +324,7 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
+                //////////////////////////////////////////////MANGER LES POISSONS
                 if ((string)x.Tag == "poisson")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
@@ -333,6 +334,7 @@ namespace TestGithubWpf
                     }
                 }
 
+                /////////////////////////////////////////////MOURIR PAR LES ENNEMIES
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
@@ -353,17 +355,7 @@ namespace TestGithubWpf
             gameTimer.Start();
             actuellePieuvrePas = mouvementPieuvre;
 
-            
-            /*ImageBrush redGhost = new ImageBrush();
-            redGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/red.jpg"));
-            violetPieuvre.Fill = redGhost;
-            ImageBrush orangeGhost = new ImageBrush();
-            orangeGhost.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/orange.jpg"));
-            orangePieuvre.Fill = orangeGhost;
-            ImageBrush ennemieRose = new ImageBrush();
-            ennemieRose.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pink.jpg"));
-            rosePieuvre.Fill = ennemieRose;*/
-
+            /////////////////////////////////////////////IMAGES POISSONS
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 if ((string)x.Tag == "poisson")
@@ -374,6 +366,7 @@ namespace TestGithubWpf
                 }
             }
 
+            //////////////////////////////////////////////IMAGES MURS
             foreach (var alguesBcp in MyCanvas.Children.OfType<Rectangle>())
             {
                 if ((string)alguesBcp.Tag == "obstacleVertical")
@@ -516,6 +509,7 @@ namespace TestGithubWpf
                 imagePieuvre3 = 1;
             }
 
+            //////////////////////////////////////////////////////DEPLACER REQUIN
             if (vaDroite)
             {
                 Canvas.SetLeft(requin, Canvas.GetLeft(requin) + vitesse);
@@ -534,22 +528,22 @@ namespace TestGithubWpf
             }
             if (vaEnBas && Canvas.GetTop(requin) + 80 > Application.Current.MainWindow.Height)
             {
-                noDown = true;
+                basNon = true;
                 vaEnBas = false;
             }
             if (vaEnHaut && Canvas.GetTop(requin) < 1)
             {
-                noUp = true;
+                hautNon = true;
                 vaEnHaut = false;
             }
             if (vaGauche && Canvas.GetLeft(requin) - 10 < 1)
             {
-                noLeft = true;
+                gaucheNon = true;
                 vaGauche = false;
             }
             if (vaDroite && Canvas.GetLeft(requin) + 70 > Application.Current.MainWindow.Width)
             {
-                noRight = true;
+                rightNon = true;
                 vaDroite = false;
             }
             requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
@@ -561,25 +555,25 @@ namespace TestGithubWpf
                     if (vaGauche == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetLeft(requin, Canvas.GetLeft(requin) + 10);
-                        noLeft = true;
+                        gaucheNon = true;
                         vaGauche = false;
                     }
                     if (vaDroite == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetLeft(requin, Canvas.GetLeft(requin) - 10);
-                        noRight = true;
+                        rightNon = true;
                         vaDroite = false;
                     }
                     if (vaEnBas == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetTop(requin, Canvas.GetTop(requin) - 10);
-                        noDown = true;
+                        basNon = true;
                         vaEnBas = false;
                     }
                     if (vaEnHaut == true && requinHitBox.IntersectsWith(hitBox))
                     {
                         Canvas.SetTop(requin, Canvas.GetTop(requin) + 10);
-                        noUp = true;
+                        hautNon = true;
                         vaEnHaut = false;
                     }
                 }
