@@ -11,10 +11,6 @@
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen">
     <Window.Resources>
-
-        <!-- This is the geometry creates the animation path. Because 
-         this example uses it multiple times, it's declared as a resource and
-         frozen to improve performance. -->
         <PathGeometry x:Key="AnimationPath" 
       Figures="M 38,0 670,0 38,0 38,430 38,0 670,0 38,0 38,430 38,0 "
       PresentationOptions:Freeze="True" />
