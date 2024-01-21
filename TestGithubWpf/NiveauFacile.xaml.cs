@@ -241,10 +241,7 @@ namespace TestGithubWpf
                     }
 
                 }
-
             }
-
-
         }
         private void ConfigurationJeu()
         {

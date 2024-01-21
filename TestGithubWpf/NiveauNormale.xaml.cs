@@ -31,11 +31,14 @@ namespace TestGithubWpf
         int mouvementPieuvre = 160;
         int actuellePieuvrePas;
         int score = 0;
+        int modePuissantCompteur = 200;
         int imageRequin = 1;
         int imageTorche = 1;
+        bool modePuissant = false;
         bool jeu_termine = false;
         bool gagne = false;
         bool estJeuEnPause = false;
+        List<Rectangle> dissolvantObjets = new List<Rectangle>();
         ImageBrush requinImage = new ImageBrush();
         ImageBrush bonusImage = new ImageBrush();
 
@@ -136,43 +139,6 @@ namespace TestGithubWpf
                 vaEnHaut = false;
             }
         }
-        private void Chase(FrameworkElement enemy)
-        {
-            var enemyLeft = Canvas.GetLeft(rosePieuvre);
-            var enemyTop = Canvas.GetTop(rosePieuvre);
-
-            var playerLeft = Canvas.GetLeft(requin);
-            var playerTop = Canvas.GetTop(requin);
-
-            var distance = new Point(playerLeft - enemyLeft, playerTop - enemyTop);
-
-            if (distance.X == 0 && distance.Y == 0) 
-                return;
-            
-            if (distance.X > 0 && distance.Y > 0)
-            {
-                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) + 20);
-                //Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) + 10);
-                //Canvas.SetLeft(rosePieuvre, Canvas.GetLeft(rosePieuvre) + 10);
-
-            }
-            else if (distance.X < 0 && distance.Y < 0)
-            {
-                //Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) - 50);
-                //Canvas.SetLeft(rosePieuvre, Canvas.GetLeft(rosePieuvre) - 50);
-                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) - 20);
-            }
-            else if (distance.X > 0 && distance.Y < 0)
-            {
-                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) + 20);
-
-            }
-            else if (distance.X < 0 && distance.Y > 0)
-            {
-                Canvas.SetTop(rosePieuvre, Canvas.GetTop(rosePieuvre) - 20);
-            }
-
-        }
         private void ConfigurationJeu()
         {
             MyCanvas.Focus();
@@ -230,6 +196,8 @@ namespace TestGithubWpf
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
+                        modePuissant = true;
+                        modePuissantCompteur = 200;
                         x.Visibility = Visibility.Hidden;
                     }
                 }
@@ -381,23 +349,23 @@ namespace TestGithubWpf
                         x.Visibility = Visibility.Visible;
                     }
                 }
+                if ((string)x.Tag == "fin")
+                {
+                    if (requinHitBox.IntersectsWith(hitBox) && gagne == true)
+                    {
+                        x.Visibility = Visibility.Hidden;
+                        JeuTermine("Vous avez gagne");
+                    }
+                }
                 if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
                 {
                     x.Visibility = Visibility.Hidden;
                 }
                 if ((string)x.Tag == "pieuvre")
                 {
-                    if (requinHitBox.IntersectsWith(hitBox))
+                    if (x.Visibility == Visibility.Hidden)
                     {
-                        gameTimer.Stop();
-                        jeu_termine = true;
-                    }
-                    
-                    actuellePieuvrePas--;
-                    if (actuellePieuvrePas < 1)
-                    {
-                        actuellePieuvrePas = mouvementPieuvre;
-                        vitesseEnnemie = -vitesseEnnemie;
+                        x.Visibility = Visibility.Visible;
                     }
                 }
 
@@ -547,6 +515,7 @@ namespace TestGithubWpf
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
+
                 if ((string)x.Tag == "meduses")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
@@ -566,30 +535,15 @@ namespace TestGithubWpf
                 
                 if ((string)x.Tag == "pieuvre")
                 {
-                    if (requinHitBox.IntersectsWith(hitBox))
+                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
                     {
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
-
-                    /*if (x.Name.ToString() == "orangePieuvre")
+                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        dissolvantObjets.Add(x);
                     }
-                    if (x.Name.ToString() == "violetPieuvre")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                    }
-                    if (x.Name.ToString() == "rosePieuvre")
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                    }
-                    actuellePieuvrePas--;
-                    if (actuellePieuvrePas < 1)
-                    {
-                        actuellePieuvrePas = mouvementPieuvre;
-                        vitesseEnnemie = -vitesseEnnemie;
-                    }*/
                 }
 
             }
@@ -733,7 +687,20 @@ namespace TestGithubWpf
             }
             if (jeu_termine)
             {
-                txtScore.Content += "   Press R to Retry";
+                txtScore.Content += "\n\n\nCliquer R \npour Rejouer";
+            }
+            /*******************************    ModePuissant    ******************************/
+                if (modePuissant == true)
+            {
+                vitesse = 12;
+                vitesseEnnemie = 4;
+                modePuissantCompteur -= 1;
+                if (modePuissantCompteur < 1)
+                {
+                    vitesse = 7;
+                    vitesseEnnemie = 10;
+                    modePuissant = false;
+                }
             }
         }
         private void JeuTermine(string message)
