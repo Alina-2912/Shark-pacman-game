@@ -28,7 +28,7 @@ namespace TestGithubWpf
         Rect requinHitBox;
         int vitesseEnnemie = 10;
         int mouvementPieuvre = 160;
-        int actuellePieuvrePas;
+        int pieuvrePasActuel;
         int score = 0;
         bool jeu_termine = false;
         bool estJeuEnPause = false;
@@ -150,7 +150,7 @@ namespace TestGithubWpf
         }
         private void CommencerJeu()
         {
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
 
             Canvas.SetLeft(pacman, 50);
             Canvas.SetTop(pacman, 104);
@@ -259,7 +259,7 @@ namespace TestGithubWpf
         {
             vitesse = 13;
             vitesseEnnemie = 2;
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
 
         }
         private void ConfigurationJeu()
@@ -268,7 +268,7 @@ namespace TestGithubWpf
 
             MyCanvas.Focus();
             gameTimer.Start();
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
 
             ImageBrush corail1 = new ImageBrush();
             corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));

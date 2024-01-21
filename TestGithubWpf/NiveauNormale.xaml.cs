@@ -29,7 +29,7 @@ namespace TestGithubWpf
         Rect requinHitBox;
         int vitesseEnnemie = 10;
         int mouvementPieuvre = 160;
-        int actuellePieuvrePas;
+        int pieuvrePasActuel;
         int score = 0;
         int modePuissantCompteur = 200;
         int imageRequin = 1;
@@ -155,7 +155,7 @@ namespace TestGithubWpf
 
         private void CommencerJeu()
         {
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
 
             Canvas.SetLeft(requin, 22);
             Canvas.SetTop(requin, 544);
@@ -284,7 +284,7 @@ namespace TestGithubWpf
         {
             vitesse = 13;
             vitesseEnnemie = 2;
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
         }
         private void ConfigurationJeu()
         {
@@ -292,7 +292,7 @@ namespace TestGithubWpf
 
             MyCanvas.Focus();
             gameTimer.Start();
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
 
             ImageBrush porte1 = new ImageBrush();
             porte1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/porte.png"));

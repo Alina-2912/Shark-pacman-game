@@ -148,6 +148,12 @@
     <None Update="images\planteOceanVert.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\poisson_couleurs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\poisson_violet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="images\porte.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -27,7 +27,7 @@ namespace TestGithubWpf
         Rect requinHitBox;
         int vitesseEnnemie = 10;
         int mouvementPieuvre = 160;
-        int actuellePieuvrePas;
+        int pieuvrePasActuel;
         int score = 0;
         bool jeu_termine = false;
         bool estJeuEnPause = false;
@@ -141,7 +141,7 @@ namespace TestGithubWpf
 
         private void CommencerJeu()
         {
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
 
             Canvas.SetLeft(requin, 50);
             Canvas.SetTop(requin, 104);
@@ -198,10 +198,10 @@ namespace TestGithubWpf
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
                     }
-                    actuellePieuvrePas--;
-                    if (actuellePieuvrePas < 1)
+                    pieuvrePasActuel--;
+                    if (pieuvrePasActuel < 1)
                     {
-                        actuellePieuvrePas = mouvementPieuvre;
+                        pieuvrePasActuel = mouvementPieuvre;
                         vitesseEnnemie = - vitesseEnnemie;
                     }
                 }*/
@@ -279,42 +279,51 @@ namespace TestGithubWpf
                     if (Canvas.GetTop(x) == 334) //re left
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                        if (Canvas.GetLeft(x) < 18)
+                        if (Canvas.GetLeft(x) < 518)
                         {
-                            Canvas.SetLeft(x, 20);
+                            Canvas.SetLeft(x, 519);
                         }
                     }
-                    if (Canvas.GetLeft(x) == 20) //re up
+                    if (Canvas.GetLeft(x) == 519) //re up
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
-                        if (Canvas.GetTop(x) < 258)
+                        if (Canvas.GetTop(x) < 144)
                         {
-                            Canvas.SetTop(x, 260);
+                            Canvas.SetTop(x, 147);
                         }
                     }
-
-
-                    /*if (Canvas.GetLeft(x) == 401)
-                    {
-                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
-                        if (Canvas.GetTop(x) > 261)
-                        {
-                            Canvas.SetLeft(x, 402);
-                        }
-                    }
-                    if (Canvas.GetLeft(x) == 402)
-                    {
-                        Canvas.SetTop(x, 262);
-                    }
-                    if (Canvas.GetTop(x) == 262)
+                    if (Canvas.GetTop(x) == 334) //re left
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                        if (Canvas.GetLeft(x) < 20)
+                        if (Canvas.GetLeft(x) < 399)
+                        {
+                            Canvas.SetLeft(x, 403);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 531) //re down
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 265)
+                        {
+                            Canvas.SetTop(x, 264);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 264) //re left
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 18)
+                        {
+                            Canvas.SetLeft(x, 19);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 19) //re up
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 257)
                         {
                             Canvas.SetTop(x, 260);
                         }
-                    }*/
-
+                    }
                 }
             }
 
@@ -353,7 +362,7 @@ namespace TestGithubWpf
             gameTimer.Tick += BoucleJeu;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Start();
-            actuellePieuvrePas = mouvementPieuvre;
+            pieuvrePasActuel = mouvementPieuvre;
 
             /////////////////////////////////////////////IMAGES POISSONS
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
@@ -361,7 +370,7 @@ namespace TestGithubWpf
                 if ((string)x.Tag == "poisson")
                 {
                     ImageBrush nemo = new ImageBrush();
-                    nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/nemo.jpg"));
+                    nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poisson_violet.png"));
                     x.Fill = nemo;
                 }
             }
@@ -370,7 +379,7 @@ namespace TestGithubWpf
                 if ((string)x.Tag == "poissons")
                 {
                     ImageBrush nemo = new ImageBrush();
-                    nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/corailleRose.png"));
+                    nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/poisson_couleurs.png"));
                     x.Fill = nemo;
                 }
             }
@@ -555,6 +564,7 @@ namespace TestGithubWpf
                 rightNon = true;
                 vaDroite = false;
             }
+            //////////////////////////////////////////////////////////INTERSECTION REQUIN AVEC MUR
             requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
@@ -594,6 +604,7 @@ namespace TestGithubWpf
                         score++;
                     }
                 }
+                //////////////////////////////////////////////MOURIR PAR LES ENNEMIES
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox))
