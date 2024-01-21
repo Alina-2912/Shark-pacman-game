@@ -643,27 +643,27 @@ namespace TestGithubWpf
                 case 1:
                 case 2:
                 case 3:
-                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche1.png"));
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche_1.png"));
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche2.png"));
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche_2.png"));
                     break;
                 case 7:
                 case 8:
                 case 9:
-                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche3.png"));
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche_3.png"));
                     break;
                 case 10:
                 case 11:
                 case 12:
-                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche4.png"));
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche_4.png"));
                     break;
                 case 13:
                 case 14:
                 case 15:
-                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche5.png"));
+                    torcheImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/torche_1.png"));
                     break;
             }
             torche.Fill = torcheImage;
