@@ -261,108 +261,6 @@ namespace TestGithubWpf
             vitesseEnnemie = 2;
             actuellePieuvrePas = mouvementPieuvre;
 
-            Canvas.SetLeft(pacman, 50);
-            Canvas.SetTop(pacman, 104);
-
-            Canvas.SetLeft(rosePieuvre, 173);
-            Canvas.SetTop(rosePieuvre, 404);
-
-            Canvas.SetLeft(violetPieuvre, 173);
-            Canvas.SetTop(violetPieuvre, 18);
-
-            Canvas.SetLeft(orangePieuvre, 658);
-            Canvas.SetTop(orangePieuvre, 120);
-
-            gameTimer.Start();
-            score = 0;
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                if ((string)x.Tag == "poisson")
-                {
-                    if (x.Visibility == Visibility.Hidden)
-                    {
-                        x.Visibility = Visibility.Visible;
-                    }
-                }
-                if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
-                {
-                    x.Visibility = Visibility.Hidden;
-                }
-                if ((string)x.Tag == "pieuvre")
-                {
-                    if (x.Visibility == Visibility.Hidden)
-                    {
-                        x.Visibility = Visibility.Visible;
-                    }
-                }
-            }
-
-            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
-            {
-                if (x.Name.ToString() == "rosePieuvre")
-                {
-                    if (Canvas.GetTop(x) == 404)
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                        if (Canvas.GetLeft(x) > 700)
-                        {
-                            Canvas.SetTop(x, 405);
-                        }
-                    }
-                    if (Canvas.GetTop(x) == 405)
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                        if (Canvas.GetLeft(x) < 80)
-                        {
-                            Canvas.SetTop(x, 404);
-                        }
-
-                    }
-
-                }
-                if (x.Name.ToString() == "violetPieuvre")
-                {
-                    if (Canvas.GetTop(x) == 18)
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                        if (Canvas.GetLeft(x) > 700)
-                        {
-                            Canvas.SetTop(x, 19);
-                        }
-                    }
-                    if (Canvas.GetTop(x) == 19)
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                        if (Canvas.GetLeft(x) < 80)
-                        {
-                            Canvas.SetTop(x, 18);
-                        }
-
-                    }
-
-                }
-                if (x.Name.ToString() == "orangePieuvre")
-                {
-                    if (Canvas.GetTop(x) == 120)
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                        if (Canvas.GetLeft(x) < 90)
-                        {
-                            Canvas.SetTop(x, 119);
-                        }
-                    }
-                    if (Canvas.GetTop(x) == 119)
-                    {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                        if (Canvas.GetLeft(x) > 650)
-                        {
-                            Canvas.SetTop(x, 120);
-                        }
-
-                    }
-
-                }
-            }
         }
         private void ConfigurationJeu()
         {
@@ -764,6 +662,7 @@ namespace TestGithubWpf
                 }
             }
             //*******************************    BONUS    ******************************/
+
             if (score == 15)
             {
                 for (int i = 0; i < 5; i++)

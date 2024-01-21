@@ -75,6 +75,7 @@ namespace TestGithubWpf
                     gameTimer.Stop();
                     estJeuEnPause = true;
                     mediaElement.Pause();
+                    txtScore_pause.Visibility = Visibility.Visible;
                 }
             }
             /*************************    RESUME   *************************/
@@ -85,6 +86,7 @@ namespace TestGithubWpf
                     gameTimer.Start();
                     estJeuEnPause = false;
                     mediaElement.Play();
+                    txtScore_pause.Visibility = Visibility.Hidden;
                 }
             }
             /*************************    REDEMARRAGE - R   *************************/

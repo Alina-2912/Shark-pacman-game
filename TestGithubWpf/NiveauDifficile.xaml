@@ -845,5 +845,20 @@
     VerticalAlignment="Top"
     Fill="Orange"
     Tag="pieuvre" />
+        <TextBlock x:Name="txtScore_pause"
+    Visibility="Hidden"
+    FontSize="25"
+    FontWeight="Bold"
+    HorizontalAlignment="Center"
+    TextAlignment="Center"
+    Padding="20"
+    Foreground="OrangeRed"  VerticalAlignment="Center" Canvas.Left="331" Canvas.Top="225" Height="74" Width="161" Text="Pause" >
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD69300"/>
+                    <GradientStop Color="#FF15F600" Offset="1"/>
+                    <GradientStop Color="#FFF1F400" Offset="0.505"/>
+                </LinearGradientBrush>
+            </TextBlock.Background></TextBlock>
     </Canvas>
 </Window>
