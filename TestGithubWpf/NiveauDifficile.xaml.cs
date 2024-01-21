@@ -325,7 +325,7 @@ namespace TestGithubWpf
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
                 //////////////////////////////////////////////MANGER LES POISSONS
-                if ((string)x.Tag == "poisson")
+                if ((string)x.Tag == "poisson" || (string)x.Tag == "poissons")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
@@ -362,6 +362,15 @@ namespace TestGithubWpf
                 {
                     ImageBrush nemo = new ImageBrush();
                     nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/nemo.jpg"));
+                    x.Fill = nemo;
+                }
+            }
+            foreach (var x in MyCanvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "poissons")
+                {
+                    ImageBrush nemo = new ImageBrush();
+                    nemo.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/corailleRose.png"));
                     x.Fill = nemo;
                 }
             }
@@ -603,14 +612,14 @@ namespace TestGithubWpf
                 mediaElement.Close();
                 txtScore.Content += "\n        Cliquer R \n        pour Rejouer";
 
-                if (txtScore.Content.Equals("\n        Cliquer R \n        pour Rejouer"))
+                /*if (txtScore.Content.Equals("\n        Cliquer R \n        pour Rejouer"))
                 {
-                    txtScore.Foreground = Brushes.White;
+                    txtScore.Content = Brushes.White;
                 }
                 else
                 {
-                    txtScore.Foreground = Brushes.Black;
-                }
+                    txtScore.Content = Brushes.Red;
+                }*/
             }
         }
         private void JeuTermine(string message)
