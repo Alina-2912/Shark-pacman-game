@@ -846,7 +846,7 @@
     Fill="Orange"
     Tag="pieuvre" />
         <Rectangle
-    Name="Fin"
+    Name="Roi"
     Canvas.Left="740"
     Canvas.Top="540"
     Width="55"

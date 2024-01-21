@@ -583,7 +583,7 @@ namespace TestGithubWpf
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && gagne == true)
                     {
-                        JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons !");
+                        JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et trouvé la porte secrète!");
                         jeu_termine = true;
                     }
                 }
@@ -597,12 +597,13 @@ namespace TestGithubWpf
                 MyCanvas.Children.Remove(y);
             }
             bonusImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
-            txtScore.Content = "Score: " + score + "\nPress P to Pause and R to Resume";
+
+            txtScore.Content = "Score: " + score + "\nCliquer P pour mettre le jeu en pause et C pour continuer";
 
             DeplacerRequin();
             DeplacerPieuvre();
 
-
+            //////////////////////////////////////////////ANIMATION REQUIN
             switch (imageRequin)
             {
                 case 1:
@@ -633,6 +634,7 @@ namespace TestGithubWpf
                 imageRequin = 1;
             }
 
+            ///////////////////////////////////////////////////////ANIMATION TORCHE
             ImageBrush torcheImage = new ImageBrush();
             switch (imageTorche)
             {

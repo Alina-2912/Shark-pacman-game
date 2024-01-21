@@ -25,7 +25,7 @@ namespace TestGithubWpf
         bool gaucheNon, rightNon, basNon, hautNon;
         int vitesse = 8;
         Rect requinHitBox;
-        Rect finHitbox;
+        Rect roiHitbox;
         int vitesseEnnemie = 10;
         int mouvementPieuvre = 160;
         int pieuvrePasActuel;
@@ -184,8 +184,8 @@ namespace TestGithubWpf
                         x.Visibility = Visibility.Visible;
                     }
                 }
-                /*
-                if ((string)x.Tag == "ghost")
+                
+                if ((string)x.Tag == "pieuvre")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
@@ -196,22 +196,7 @@ namespace TestGithubWpf
                         gameTimer.Stop();
                         jeu_termine = true;
                     }
-                    if (x.Name.ToString() == "orangePieuvre")
-                    {
-                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
-                    }
-                    else
-                    {
-                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
-                    }
-                    pieuvrePasActuel--;
-                    if (pieuvrePasActuel < 1)
-                    {
-                        pieuvrePasActuel = mouvementPieuvre;
-                        vitesseEnnemie = - vitesseEnnemie;
-                    }
-                }*/
-
+                }
             }
         }
         private void TricheMod()
@@ -459,7 +444,7 @@ namespace TestGithubWpf
 
             ImageBrush roiRequin = new ImageBrush();
             roiRequin.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/roi_requin.png"));
-            Fin.Fill = roiRequin;
+            Roi.Fill = roiRequin;
 
             /////////////////////////////////////////////IMAGES POISSONS
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
@@ -663,11 +648,11 @@ namespace TestGithubWpf
             }
             //////////////////////////////////////////////////////////INTERSECTION REQUIN AVEC MUR
             requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
-            finHitbox = new Rect(Canvas.GetLeft(Fin), Canvas.GetTop(Fin), Fin.Width, Fin.Height);
+            roiHitbox = new Rect(Canvas.GetLeft(Roi), Canvas.GetTop(Roi), Roi.Width, Roi.Height);
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                if ((string)x.Tag == "obstacleVertical" || (string)x.Tag == "obstacleHorizontal" || x.Name.ToString() == "Fin")
+                if ((string)x.Tag == "obstacleVertical" || (string)x.Tag == "obstacleHorizontal" || x.Name.ToString() == "Roi")
                 {
                     if (vaGauche == true && requinHitBox.IntersectsWith(hitBox))
                     {
@@ -712,7 +697,7 @@ namespace TestGithubWpf
                     }
                 }
             }
-            if (score == 82 && requinHitBox.IntersectsWith(finHitbox))
+            if (score == 82 && requinHitBox.IntersectsWith(roiHitbox))
             {
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et rejoint le roi des requins !");
             }

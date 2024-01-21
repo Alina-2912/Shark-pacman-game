@@ -188,6 +188,7 @@ namespace TestGithubWpf
                 }
             }
 
+            //////////////////////////////////////////DEPLACEMENT DES PIEUVRES
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 if (x.Name.ToString() == "rosePieuvre")
@@ -270,6 +271,7 @@ namespace TestGithubWpf
             gameTimer.Start();
             pieuvrePasActuel = mouvementPieuvre;
 
+            /////////////////////////////////////////////////////////LES IMAGES
             ImageBrush corail1 = new ImageBrush();
             corail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/fish_seaweed.png"));
             corailMillieu.Fill = corail1;
@@ -648,7 +650,7 @@ namespace TestGithubWpf
                     imagePieuvre3 = 1;
                 }
 
-                /*******************************    ModePuissant    ******************************/
+                //*******************************    ModePuissant    ******************************
                 if (modePuissant == true)
             {
                 vitesse = 9;
@@ -661,7 +663,7 @@ namespace TestGithubWpf
                     modePuissant = false;
                 }
             }
-            //*******************************    BONUS    ******************************/
+            //*******************************    BONUS    ******************************
 
             if (score == 15)
             {
