@@ -318,19 +318,44 @@ namespace TestGithubWpf
                     if (Canvas.GetTop(x) == 275)
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
-                        if (Canvas.GetLeft(x) < 489)
+                        if (Canvas.GetLeft(x) > 480)
                         {
-                            Canvas.SetTop(x, 405);
+                            Canvas.SetLeft(x, 478);
+
                         }
                     }
-                    if (Canvas.GetTop(x) == 405)
+                    if (Canvas.GetLeft(x) == 478)
                     {
-                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
-                        if (Canvas.GetLeft(x) < 80)
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 146)
                         {
-                            Canvas.SetTop(x, 404);
+                            Canvas.SetTop(x, 147);
                         }
 
+                    }
+                    if (Canvas.GetTop(x) == 147)
+                    {
+                        Canvas.SetLeft(x, 479);
+                    }
+                    if (Canvas.GetLeft(x) == 479)
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 276)
+                        {
+                            Canvas.SetLeft(x, 480);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 480)
+                    {
+                        Canvas.SetTop(x, 148);
+                    }
+                    if (Canvas.GetTop(x) == 148)
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 20)
+                        {
+                            Canvas.SetTop(x, 275);
+                        }
                     }
 
                 }
