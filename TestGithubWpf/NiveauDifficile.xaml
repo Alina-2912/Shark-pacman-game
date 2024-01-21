@@ -829,7 +829,7 @@
             Fill="PaleVioletRed" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Rectangle
             x:Name="rosePieuvre"
-            Canvas.Left="145"
+            Canvas.Left="20"
             Canvas.Top="530"
             Width="51"
             Height="50"
