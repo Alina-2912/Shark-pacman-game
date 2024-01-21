@@ -232,6 +232,9 @@
     <None Update="images\rochets2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\roi_requin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="images\seaweed.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

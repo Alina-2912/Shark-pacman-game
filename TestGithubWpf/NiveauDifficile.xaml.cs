@@ -25,6 +25,7 @@ namespace TestGithubWpf
         bool gaucheNon, rightNon, basNon, hautNon;
         int vitesse = 8;
         Rect requinHitBox;
+        Rect finHitbox;
         int vitesseEnnemie = 10;
         int mouvementPieuvre = 160;
         int pieuvrePasActuel;
@@ -165,7 +166,7 @@ namespace TestGithubWpf
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
-                if ((string)x.Tag == "poisson")
+                if ((string)x.Tag == "poisson" || (string)x.Tag == "poissons")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
@@ -222,9 +223,9 @@ namespace TestGithubWpf
         private void DeplacerPieuvre()
         {
 
-            //////////////////////////////////////////////DEPLACEMENT PIEUVRE ORANGE
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
+                //////////////////////////////////////////////DEPLACEMENT PIEUVRE ORANGE
                 if (x.Name.ToString() == "orangePieuvre")
                 {
                     if (Canvas.GetTop(x) == 260) //right
@@ -277,9 +278,9 @@ namespace TestGithubWpf
                     }
                     if (Canvas.GetTop(x) == 235) //switch
                     {
-                        Canvas.SetLeft(x, 731);
+                        Canvas.SetLeft(x, 728);
                     }
-                    if (Canvas.GetLeft(x) == 731) // re down + switch
+                    if (Canvas.GetLeft(x) == 728) // re down + switch
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
                         if (Canvas.GetTop(x) > 336)
@@ -303,7 +304,7 @@ namespace TestGithubWpf
                             Canvas.SetTop(x, 147);
                         }
                     }
-                    if (Canvas.GetTop(x) == 334) //re left
+                    if (Canvas.GetTop(x) == 147) //re left
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                         if (Canvas.GetLeft(x) < 399)
@@ -311,7 +312,7 @@ namespace TestGithubWpf
                             Canvas.SetLeft(x, 403);
                         }
                     }
-                    if (Canvas.GetLeft(x) == 531) //re down
+                    if (Canvas.GetLeft(x) == 403) //re down
                     {
                         Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
                         if (Canvas.GetTop(x) > 265)
@@ -333,6 +334,87 @@ namespace TestGithubWpf
                         if (Canvas.GetTop(x) < 257)
                         {
                             Canvas.SetTop(x, 260);
+                        }
+                    }
+                }
+
+                //////////////////////////////////////////////DEPLACEMENT PIEUVRE ROSE
+                if (x.Name.ToString() == "rosePieuvre")
+                {
+                    if (Canvas.GetTop(x) == 530) //right
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 146)
+                        {
+                            Canvas.SetLeft(x, 145);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 145) //up
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 585)
+                        {
+                            Canvas.SetTop(x, 584);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 584) //right
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 281)
+                        {
+                            Canvas.SetLeft(x, 280);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 280) //down
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 532)
+                        {
+                            Canvas.SetTop(x, 531);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 531) //right
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + vitesseEnnemie);
+                        if (Canvas.GetLeft(x) > 406)
+                        {
+                            Canvas.SetLeft(x, 405);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 405) //up
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 369)
+                        {
+                            Canvas.SetTop(x, 370);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 370) //switch
+                    {
+                        Canvas.SetLeft(x, 404);
+                    }
+                    if (Canvas.GetLeft(x) == 404) // re down + switch
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 529)
+                        {
+                            Canvas.SetTop(x, 528);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 528) //left
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 18)
+                        {
+                            Canvas.SetLeft(x, 19);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 19) //up
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 527)
+                        {
+                            Canvas.SetTop(x, 530);
                         }
                     }
                 }
@@ -374,6 +456,10 @@ namespace TestGithubWpf
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Start();
             pieuvrePasActuel = mouvementPieuvre;
+
+            ImageBrush roiRequin = new ImageBrush();
+            roiRequin.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/roi_requin.png"));
+            Fin.Fill = roiRequin;
 
             /////////////////////////////////////////////IMAGES POISSONS
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
@@ -577,10 +663,11 @@ namespace TestGithubWpf
             }
             //////////////////////////////////////////////////////////INTERSECTION REQUIN AVEC MUR
             requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
+            finHitbox = new Rect(Canvas.GetLeft(Fin), Canvas.GetTop(Fin), Fin.Width, Fin.Height);
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                if ((string)x.Tag == "obstacleVertical" || (string)x.Tag == "obstacleHorizontal")
+                if ((string)x.Tag == "obstacleVertical" || (string)x.Tag == "obstacleHorizontal" || x.Name.ToString() == "Fin")
                 {
                     if (vaGauche == true && requinHitBox.IntersectsWith(hitBox))
                     {
@@ -625,9 +712,9 @@ namespace TestGithubWpf
                     }
                 }
             }
-            if (score == 83)
+            if (score == 82 && requinHitBox.IntersectsWith(finHitbox))
             {
-                JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons !");
+                JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et rejoint le roi des requins !");
             }
             if (jeu_termine)
             {
