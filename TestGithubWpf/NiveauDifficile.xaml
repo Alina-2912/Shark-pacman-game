@@ -864,10 +864,10 @@
         <Rectangle
             x:Name="rosePieuvre"
             Canvas.Left="145"
-            Canvas.Top="370"
+            Canvas.Top="530"
             Width="51"
             Height="50"
             Fill="Pink"
-            Tag="pieuvre" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            Tag="pieuvre" HorizontalAlignment="Center" VerticalAlignment="Top" />
     </Canvas>
 </Window>
