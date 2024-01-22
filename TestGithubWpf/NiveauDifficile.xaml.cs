@@ -744,7 +744,7 @@ namespace TestGithubWpf
                     }
                 }
             }
-            if (score == 82 && requinHitBox.IntersectsWith(roiHitbox))
+            if (score == 83 && requinHitBox.IntersectsWith(roiHitbox))
             {
                 jeu_termine = true;
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et rejoint le roi des requins !");
