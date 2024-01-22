@@ -147,6 +147,8 @@ namespace TestGithubWpf
 
         private void CommencerJeu()
         {
+            vitesse = 8;
+            vitesseEnnemie = 10;
             pieuvrePasActuel = mouvementPieuvre;
 
             Canvas.SetLeft(requin, 50);

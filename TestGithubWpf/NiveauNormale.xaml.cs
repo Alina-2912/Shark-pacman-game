@@ -155,6 +155,8 @@ namespace TestGithubWpf
 
         private void CommencerJeu()
         {
+            vitesse = 10;
+            vitesseEnnemie = 10;
             pieuvrePasActuel = mouvementPieuvre;
 
             Canvas.SetLeft(requin, 22);
@@ -797,23 +799,6 @@ namespace TestGithubWpf
                 }
             }
             if (score == 45)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Rectangle rec = new Rectangle()
-                    {
-                        Width = 30,
-                        Height = 30,
-                        Fill = bonusImage,
-                        StrokeThickness = 2,
-                        Tag = "bonus",
-                    };
-                    MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 199);
-                    Canvas.SetLeft(rec, 489);
-                }
-            }
-            if (score == 65)
             {
                 for (int i = 0; i < 5; i++)
                 {

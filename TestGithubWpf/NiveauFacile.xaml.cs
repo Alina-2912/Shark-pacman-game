@@ -150,6 +150,8 @@ namespace TestGithubWpf
         }
         private void CommencerJeu()
         {
+            vitesse = 7;
+            vitesseEnnemie = 10;
             pieuvrePasActuel = mouvementPieuvre;
 
             Canvas.SetLeft(pacman, 50);
