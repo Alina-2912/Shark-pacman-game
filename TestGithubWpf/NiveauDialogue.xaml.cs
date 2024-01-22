@@ -43,7 +43,7 @@ namespace TestGithubWpf
                 this.Hide();
                 niveauFacile.Show();
                 niveauFacile.Owner = this;
-                Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo2.wav");
+                Uri uri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "sound/gogo.wav");
                 mediaElement.Source = uri;
                 mediaElement.Play();
             }
