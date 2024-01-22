@@ -717,6 +717,8 @@ namespace TestGithubWpf
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
+                        modePuissant = true;
+                        modePuissantCompteur = 200;
                         x.Visibility = Visibility.Hidden;
                     }
                 }
@@ -809,6 +811,7 @@ namespace TestGithubWpf
             {
                 txtScore.Content += "\n\n\nCliquer R \npour Rejouer";
             }
+
             /*******************************    ModePuissant    ******************************/
             if (modePuissant == true)
             {
@@ -822,19 +825,7 @@ namespace TestGithubWpf
                     modePuissant = false;
                 }
             }
-            if (jeu_termine)
-            {
-                mediaElement.Close();
-                txtScore.Content += "\n        Cliquer R \n        pour Rejouer";
-                /*if (txtScore.Content.Equals("\n        Cliquer R \n        pour Rejouer"))
-                {
-                    txtScore.Content = Brushes.White;
-                }
-                else
-                {
-                    txtScore.Content = Brushes.Red;
-                }*/
-            }
+
         }
         private void JeuTermine(string message)
         {
