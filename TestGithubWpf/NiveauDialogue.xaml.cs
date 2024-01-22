@@ -30,15 +30,15 @@ namespace TestGithubWpf
             mediaElement.Source = uri;
             mediaElement.Play();
         }
-        public string Combo_Box() 
+        public string ChoixNiveauComboBox() 
         {
-            string combo = ComboBox.SelectedValue.ToString();
-            return combo;
+            string comboboxFonctionnement = ComboBoxChoisirNiveau.SelectedValue.ToString();
+            return comboboxFonctionnement;
             
         }
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void BouttonChoisirNiveau_Click(object sender, RoutedEventArgs e)
         {
-          if (ComboBoxItem1.IsSelected)
+          if (premierNiveau.IsSelected)
             {
                 this.Hide();
                 niveauFacile.Show();
@@ -47,7 +47,7 @@ namespace TestGithubWpf
                 mediaElement.Source = uri;
                 mediaElement.Play();
             }
-            if (ComboBoxItem2.IsSelected)
+            if (deuxiemeNiveau.IsSelected)
             {
                 this.Hide();
                 niveauNormal.Show();
@@ -56,7 +56,7 @@ namespace TestGithubWpf
                 mediaElement.Source = uri;
                 mediaElement.Play();
             }
-            if (ComboBoxItem3.IsSelected)
+            if (troisiemeNiveau.IsSelected)
             {
                 this.Hide();
                 niveauDifficile.Show();
@@ -67,7 +67,7 @@ namespace TestGithubWpf
             }
 
         }
-        private void Button2_Click(object sender, RoutedEventArgs e)
+        private void BouttonAnnuler_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             App.Current.Shutdown();

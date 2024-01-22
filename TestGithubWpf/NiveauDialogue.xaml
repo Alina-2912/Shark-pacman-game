@@ -21,7 +21,7 @@
             Margin="-400,300,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Click="Button1_Click"
+            Click="BouttonChoisirNiveau_Click"
             Content="Jouer"
             FontSize="25" />
         <Button
@@ -30,7 +30,7 @@
             Margin="400,300,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Click="Button2_Click"
+            Click="BouttonAnnuler_Click"
             Content="Annuler"
             FontSize="25" />
 
@@ -61,22 +61,22 @@
             </Rectangle.Fill>
         </Rectangle>
         <ComboBox
-            Name="ComboBox"
+            Name="ComboBoxChoisirNiveau"
             Width="200"
             Height="40"
             Margin="0,-40,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
             <ComboBoxItem
-                Name="ComboBoxItem1"
+                Name="premierNiveau"
                 Content="Facile"
                 FontSize="20" />
             <ComboBoxItem
-                Name="ComboBoxItem2"
+                Name="deuxiemeNiveau"
                 Content="Normale"
                 FontSize="20" />
             <ComboBoxItem
-                Name="ComboBoxItem3"
+                Name="troisiemeNiveau"
                 Content="Difficile"
                 FontSize="20" />
         </ComboBox>
