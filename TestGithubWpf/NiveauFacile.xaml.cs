@@ -30,7 +30,7 @@ namespace TestGithubWpf
         int mouvementPieuvre = 160;
         int pieuvrePasActuel;
         int score = 0;
-        bool jeu_termine = false;
+        bool jeuEstTermine = false;
         bool jeuEstEnPause = false;
         bool modePuissant = false;
         ImageBrush treasureImage = new ImageBrush();
@@ -92,7 +92,7 @@ namespace TestGithubWpf
                 }
             }
             /*************************    REDEMARRAGE - R   *************************/
-            if (e.Key == Key.R && jeu_termine)
+            if (e.Key == Key.R && jeuEstTermine)
             {
                 CommencerJeu();
             }
@@ -498,12 +498,12 @@ namespace TestGithubWpf
                         if (x.Visibility == Visibility.Visible)
                         {
                             gameTimer.Stop();
-                            jeu_termine = true;
+                            jeuEstTermine = true;
                         }
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
                     {
-                        jeu_termine = false;
+                        jeuEstTermine = false;
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
@@ -728,10 +728,10 @@ namespace TestGithubWpf
             }
             if (score == 85)
             {
-                jeu_termine = true;
+                jeuEstTermine = true;
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons !");
             }
-            if (jeu_termine)
+            if (jeuEstTermine)
             {
                 mediaElement.Close();
                 txtScore.Content += "\n\n\nCliquer R \npour Rejouer";

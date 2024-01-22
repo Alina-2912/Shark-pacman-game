@@ -30,7 +30,7 @@ namespace TestGithubWpf
         int mouvementPieuvre = 160;
         int pieuvrePasActuel;
         int score = 0;
-        bool jeu_termine = false;
+        bool jeuEstTermine = false;
         bool jeuEstEnPause = false;
         ImageBrush requinImage = new ImageBrush();
         ImageBrush ennemieRose = new ImageBrush();
@@ -88,7 +88,7 @@ namespace TestGithubWpf
                 }
             }
             //*************************    REDEMARRAGE - R   *************************
-            if (e.Key == Key.R && jeu_termine)
+            if (e.Key == Key.R && jeuEstTermine)
             {
                 CommencerJeu();
             }
@@ -186,7 +186,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        jeu_termine = true;
+                        jeuEstTermine = true;
                     }
                 }
             }
@@ -451,7 +451,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        jeu_termine = true;
+                        jeuEstTermine = true;
                     }
                 }
 
@@ -710,16 +710,16 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
-                        jeu_termine = true;
+                        jeuEstTermine = true;
                     }
                 }
             }
             if (score == 83 && requinHitBox.IntersectsWith(roiHitbox))
             {
-                jeu_termine = true;
+                jeuEstTermine = true;
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et rejoint le roi des requins !");
             }
-            if (jeu_termine)
+            if (jeuEstTermine)
             {
                 mediaElement.Close();
                 txtScore.Content += "\n        Cliquer R \n        pour Rejouer";

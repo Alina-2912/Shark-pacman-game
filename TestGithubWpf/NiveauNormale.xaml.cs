@@ -35,7 +35,7 @@ namespace TestGithubWpf
         int imageRequin = 1;
         int imageTorche = 1;
         bool modePuissant = false;
-        bool jeu_termine = false;
+        bool jeuEstTermine = false;
         bool gagne = false;
         bool jeuEstEnPause = false;
         int imagePieuvre1 = 1;
@@ -96,7 +96,7 @@ namespace TestGithubWpf
                 }
             }
             /*************************    REDEMARRAGE - R   *************************/
-            if (e.Key == Key.R && jeu_termine)
+            if (e.Key == Key.R && jeuEstTermine)
             {
                 CommencerJeu();
             }
@@ -567,12 +567,12 @@ namespace TestGithubWpf
                         if (x.Visibility == Visibility.Visible)
                         {
                             gameTimer.Stop();
-                            jeu_termine = true;
+                            jeuEstTermine = true;
                         }
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
                     {
-                        jeu_termine = false;
+                        jeuEstTermine = false;
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
@@ -584,7 +584,7 @@ namespace TestGithubWpf
                     if (requinHitBox.IntersectsWith(hitBox) && gagne == true)
                     {
                         JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et trouvé la porte secrète!");
-                        jeu_termine = true;
+                        jeuEstTermine = true;
                     }
                 }
 
@@ -835,7 +835,7 @@ namespace TestGithubWpf
             {
                 gagne = true;
             }
-            if (jeu_termine)
+            if (jeuEstTermine)
             {
                 txtScore.Content += "\n\n\nCliquer R \npour Rejouer";
             }
