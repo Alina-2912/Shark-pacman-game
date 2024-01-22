@@ -91,6 +91,11 @@ namespace TestGithubWpf
             if (e.Key == Key.R && jeuEstTermine)
             {
                 CommencerJeu();
+#if DEBUG
+                Console.WriteLine("Key.R=Déboguer");
+#else
+    Console.WriteLine("Key.R=Libérer"); 
+#endif
             }
             //*************************    TricheMod - T   *************************
             if (e.Key == Key.T)
@@ -444,7 +449,13 @@ namespace TestGithubWpf
                     {
                         gameTimer.Stop();
                         jeuEstTermine = true;
+#if DEBUG
+                        Console.WriteLine("IntersectsWith pieuvre=Déboguer");
+#else
+    Console.WriteLine("IntersectsWith pieuvre=Libérer"); 
+#endif
                     }
+
                 }
 
             }
@@ -713,6 +724,7 @@ namespace TestGithubWpf
             }
             if (jeuEstTermine)
             {
+
                 mediaElement.Close();
                 txtScore.Content += "\n        Cliquer R \n        pour Rejouer";
                 /*if (txtScore.Content.Equals("\n        Cliquer R \n        pour Rejouer"))

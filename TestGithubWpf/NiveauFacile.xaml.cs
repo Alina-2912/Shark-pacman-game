@@ -95,6 +95,11 @@ namespace TestGithubWpf
             if (e.Key == Key.R && jeuEstTermine)
             {
                 CommencerJeu();
+#if DEBUG
+                Console.WriteLine("Key.R = true  =Déboguer");
+#else
+    Console.WriteLine("Key.R = true  =Libérer"); 
+#endif
             }
             if (e.Key == Key.T)
             {
@@ -179,6 +184,11 @@ namespace TestGithubWpf
                 }
                 if ((string)x.Tag == "bonus" && x.Visibility == Visibility.Visible)
                 {
+#if DEBUG
+                    Console.WriteLine("bonus  =Déboguer");
+#else
+    Console.WriteLine("bonus  =Libérer"); 
+#endif
                     x.Visibility = Visibility.Hidden;
                 }
                 if ((string)x.Tag == "pieuvre")
@@ -375,6 +385,11 @@ namespace TestGithubWpf
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
+#if DEBUG
+                        Console.WriteLine("bonus  =Déboguer");
+#else
+    Console.WriteLine("bonus  =Libérer"); 
+#endif
                         modePuissant = true;
                         modePuissantCompteur = 200;
                         x.Visibility = Visibility.Hidden;
@@ -501,6 +516,11 @@ namespace TestGithubWpf
                         {
                             gameTimer.Stop();
                             jeuEstTermine = true;
+#if DEBUG
+                            Console.WriteLine("IntersectsWith pieuvre=Déboguer");
+#else
+    Console.WriteLine("IntersectsWith pieuvre=Libérer"); 
+#endif
                         }
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
@@ -509,6 +529,11 @@ namespace TestGithubWpf
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
+#if DEBUG
+                        Console.WriteLine("modePuissant = true et IntersectsWith pieuvre =Déboguer");
+#else
+    Console.WriteLine("modePuissant = true et IntersectsWith pieuvre =Libérer"); 
+#endif
                         x.Visibility = Visibility.Hidden;
                     }
                 }

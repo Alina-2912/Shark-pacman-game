@@ -99,6 +99,11 @@ namespace TestGithubWpf
             if (e.Key == Key.R && jeuEstTermine)
             {
                 CommencerJeu();
+#if DEBUG
+                Console.WriteLine("Key.R =Déboguer");
+#else
+    Console.WriteLine("Key.R =Libérer"); 
+#endif
             }
             if (e.Key == Key.T)
             {
@@ -372,6 +377,11 @@ namespace TestGithubWpf
 
                 if ((string)x.Tag == "bonus")
                 {
+#if DEBUG
+                    Console.WriteLine("bonus =Déboguer");
+#else
+    Console.WriteLine("bonus =Libérer"); 
+#endif
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
                     {
                         modePuissant = true;
@@ -570,6 +580,11 @@ namespace TestGithubWpf
                         {
                             gameTimer.Stop();
                             jeuEstTermine = true;
+#if DEBUG
+                            Console.WriteLine("IntersectsWith pieuvre=Déboguer");
+#else
+    Console.WriteLine("IntersectsWith pieuvre=Libérer"); 
+#endif
                         }
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
@@ -578,6 +593,11 @@ namespace TestGithubWpf
                     }
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
                     {
+#if DEBUG
+                        Console.WriteLine("modePuissant = true et IntersectsWith pieuvre =Déboguer");
+#else
+    Console.WriteLine("modePuissant = true et IntersectsWith pieuvre =Libérer"); 
+#endif
                         x.Visibility = Visibility.Hidden;
                     }
                 }
@@ -827,6 +847,11 @@ namespace TestGithubWpf
             /*******************************    ModePuissant    ******************************/
                 if (modePuissant == true)
             {
+#if DEBUG
+                Console.WriteLine("modePuissant = true  =Déboguer");
+#else
+    Console.WriteLine("modePuissant = true  =Libérer"); 
+#endif
                 vitesse = 12;
                 vitesseEnnemie = 4;
                 modePuissantCompteur -= 1;
