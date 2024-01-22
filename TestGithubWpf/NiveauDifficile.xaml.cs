@@ -171,14 +171,6 @@ namespace TestGithubWpf
 
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
-
-                if ((string)x.Tag == "bonus")
-                {
-                    if (x.Visibility == Visibility.Hidden)
-                    {
-                        x.Visibility = Visibility.Visible;
-                    }
-                }
                 
                 if ((string)x.Tag == "pieuvre")
                 {
@@ -192,9 +184,7 @@ namespace TestGithubWpf
         }
         private void TricheMod()
         {
-            vitesse = 13;
-            vitesseEnnemie = 2;
-            pieuvrePasActuel = mouvementPieuvre;
+            vitesse = 15;
         }
         private void DeplacerPieuvre()
         {
@@ -449,19 +439,8 @@ namespace TestGithubWpf
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
                     {
-                        if (x.Visibility == Visibility.Visible)
-                        {
-                            gameTimer.Stop();
-                            jeu_termine = true;
-                        }
-                    }
-                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
-                    {
-                        jeu_termine = false;
-                    }
-                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
-                    {
-                        x.Visibility = Visibility.Hidden;
+                        gameTimer.Stop();
+                        jeu_termine = true;
                     }
                 }
 
@@ -713,35 +692,16 @@ namespace TestGithubWpf
                         vaEnHaut = false;
                     }
                 }
-                if ((string)x.Tag == "bonus")
-                {
-                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
-                    {
-                        modePuissant = true;
-                        modePuissantCompteur = 200;
-                        x.Visibility = Visibility.Hidden;
-                    }
-                }
                 //////////////////////////////////////////////MOURIR PAR LES ENNEMIES
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
                     {
-                        if (x.Visibility == Visibility.Visible)
-                        {
-                            gameTimer.Stop();
-                            jeu_termine = true;
-                        }
+                        gameTimer.Stop();
+                        jeu_termine = true;
+
                     }
-                    if (requinHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Hidden)
-                    {
-                        jeu_termine = false;
-                    }
-                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == true)
-                    {
-                        x.Visibility = Visibility.Hidden;
-                        jeu_termine = false;
-                    }
+
                 }
             }
             if (score == 83 && requinHitBox.IntersectsWith(roiHitbox))
@@ -749,64 +709,7 @@ namespace TestGithubWpf
                 jeu_termine = true;
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et rejoint le roi des requins !");
             }
-            bonusImage.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "/images/treasurebox.jpg"));
-            if (score == 25)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Rectangle rec = new Rectangle()
-                    {
-                        Width = 30,
-                        Height = 30,
-                        Fill = bonusImage,
-                        StrokeThickness = 2,
-                        Tag = "bonus",
-                    };
-                    MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 260);
-                    Canvas.SetLeft(rec, 279);
-
-                }
-            }
-            if (score == 45)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Rectangle rec = new Rectangle()
-                    {
-                        Width = 30,
-                        Height = 30,
-                        Fill = bonusImage,
-                        StrokeThickness = 2,
-                        Tag = "bonus",
-                    };
-                    MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 373);
-                    Canvas.SetLeft(rec, 17);
-                }
-            }
-            if (score == 65)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Rectangle rec = new Rectangle()
-                    {
-                        Width = 30,
-                        Height = 30,
-                        Fill = bonusImage,
-                        Visibility = Visibility.Hidden,
-                        StrokeThickness = 2,
-                        Tag = "bonus",
-                    };
-                    MyCanvas.Children.Add(rec);
-                    Canvas.SetTop(rec, 256);
-                    Canvas.SetLeft(rec, 695);
-                }
-            }
-            if (score == 82)
-            {
-                gagne = true;
-            }
+            
             if (jeu_termine)
             {
                 txtScore.Content += "\n\n\nCliquer R \npour Rejouer";
