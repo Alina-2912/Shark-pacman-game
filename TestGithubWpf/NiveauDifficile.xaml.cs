@@ -194,7 +194,6 @@ namespace TestGithubWpf
         private void TricheMod()
         {
             vitesse = 13;
-            vitesseEnnemie = 2;
             pieuvrePasActuel = mouvementPieuvre;
         }
         private void DeplacerPieuvre()
