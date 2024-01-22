@@ -37,7 +37,7 @@ namespace TestGithubWpf
         bool modePuissant = false;
         bool jeu_termine = false;
         bool gagne = false;
-        bool estJeuEnPause = false;
+        bool jeuEstEnPause = false;
         int imagePieuvre1 = 1;
         int imagePieuvre2 = 1;
         int imagePieuvre3 = 1;
@@ -76,10 +76,10 @@ namespace TestGithubWpf
             /*************************    PAUSE   *************************/
             if (e.Key == Key.P)
             {
-                if (!estJeuEnPause)
+                if (!jeuEstEnPause)
                 {
                     gameTimer.Stop();
-                    estJeuEnPause = true;
+                    jeuEstEnPause = true;
                     mediaElement.Pause();
                     txtScore_pause.Visibility = Visibility.Visible;
                 }
@@ -87,10 +87,10 @@ namespace TestGithubWpf
             /*************************    RESUME   *************************/
             if (e.Key == Key.C)
             {
-                if (estJeuEnPause)
+                if (jeuEstEnPause)
                 {
                     gameTimer.Start();
-                    estJeuEnPause = false;
+                    jeuEstEnPause = false;
                     mediaElement.Play();
                     txtScore_pause.Visibility = Visibility.Hidden;
                 }
@@ -711,32 +711,38 @@ namespace TestGithubWpf
             {
                 case 1:
                 case 2:
+                case 3:
                     ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet01.png"));
                     break;
-                case 3:
                 case 4:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet02.png"));
-                    break;
                 case 5:
                 case 6:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet03.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet02.png"));
                     break;
                 case 7:
                 case 8:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet04.png"));
-                    break;
                 case 9:
-                case 10:
-                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet05.png"));
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet03.png"));
                     break;
+                case 10:
                 case 11:
                 case 12:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet04.png"));
+                    break;
+                case 13:
+                case 14:
+                case 15:
+                    ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet05.png"));
+                    break;
+                case 16:
+                case 17:
+                case 18:
                     ennemieViolet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/pieuvreViolet06.png"));
                     break;
             }
             violetPieuvre.Fill = ennemieViolet;
             imagePieuvre2++;
-            if (imagePieuvre2 > 12)
+            if (imagePieuvre2 > 18)
             {
                 imagePieuvre2 = 1;
             }

@@ -31,7 +31,7 @@ namespace TestGithubWpf
         int pieuvrePasActuel;
         int score = 0;
         bool jeu_termine = false;
-        bool estJeuEnPause = false;
+        bool jeuEstEnPause = false;
         ImageBrush requinImage = new ImageBrush();
         ImageBrush ennemieRose = new ImageBrush();
         ImageBrush ennemieOrange = new ImageBrush();
@@ -68,10 +68,10 @@ namespace TestGithubWpf
             //*************************    PAUSE   ******************************
             if (e.Key == Key.P)
             {
-                if (!estJeuEnPause)
+                if (!jeuEstEnPause)
                 {
                     gameTimer.Stop();
-                    estJeuEnPause = true;
+                    jeuEstEnPause = true;
                     mediaElement.Pause();
                     txtScore_pause.Visibility = Visibility.Visible;
                 }
@@ -79,10 +79,10 @@ namespace TestGithubWpf
             //*************************    RESUME   *******************************
             if (e.Key == Key.C)
             {
-                if (estJeuEnPause)
+                if (jeuEstEnPause)
                 {
                     gameTimer.Start();
-                    estJeuEnPause = false;
+                    jeuEstEnPause = false;
                     mediaElement.Play();
                     txtScore_pause.Visibility = Visibility.Hidden;
                 }
@@ -389,15 +389,47 @@ namespace TestGithubWpf
                     if (Canvas.GetTop(x) == 528) // retour gauche
                     {
                         Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 276)
+                        {
+                            Canvas.SetLeft(x, 277);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 277) // retour haut
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 365)
+                        {
+                            Canvas.SetTop(x, 366);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 366) // retour gauche
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
+                        if (Canvas.GetLeft(x) < 147)
+                        {
+                            Canvas.SetLeft(x, 148);
+                        }
+                    }
+                    if (Canvas.GetLeft(x) == 148) // retour bas
+                    {
+                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
+                        if (Canvas.GetTop(x) > 528)
+                        {
+                            Canvas.SetTop(x, 527);
+                        }
+                    }
+                    if (Canvas.GetTop(x) == 527) // retour gauche
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - vitesseEnnemie);
                         if (Canvas.GetLeft(x) < 18)
                         {
                             Canvas.SetLeft(x, 19);
                         }
                     }
-                    if (Canvas.GetLeft(x) == 19) // retour bas
+                    if (Canvas.GetLeft(x) == 19) // retour haut
                     {
-                        Canvas.SetTop(x, Canvas.GetTop(x) + vitesseEnnemie);
-                        if (Canvas.GetTop(x) > 532)
+                        Canvas.SetTop(x, Canvas.GetTop(x) - vitesseEnnemie);
+                        if (Canvas.GetTop(x) < 529)
                         {
                             Canvas.SetTop(x, 530);
                         }
@@ -697,8 +729,9 @@ namespace TestGithubWpf
                     }
                 }
             }
-            if (score == 82 && requinHitBox.IntersectsWith(roiHitbox))
+            if (score == 83 && requinHitBox.IntersectsWith(roiHitbox))
             {
+                jeu_termine = true;
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et rejoint le roi des requins !");
             }
             if (jeu_termine)
