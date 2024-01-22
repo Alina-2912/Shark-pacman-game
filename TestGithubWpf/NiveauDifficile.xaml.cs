@@ -32,13 +32,9 @@ namespace TestGithubWpf
         int score = 0;
         bool jeu_termine = false;
         bool jeuEstEnPause = false;
-        bool gagne = false;
-        bool modePuissant = false;
-        int modePuissantCompteur = 200;
         ImageBrush requinImage = new ImageBrush();
         ImageBrush ennemieRose = new ImageBrush();
         ImageBrush ennemieOrange = new ImageBrush();
-        ImageBrush bonusImage = new ImageBrush();
         int imagePieuvre1 = 1;
         int imagePieuvre3 = 1;
         int imageRequin = 1;
@@ -156,6 +152,15 @@ namespace TestGithubWpf
             Canvas.SetLeft(requin, 50);
             Canvas.SetTop(requin, 104);
 
+            /*Canvas.SetLeft(rosePieuvre, 173);
+            Canvas.SetTop(rosePieuvre, 404);
+
+            Canvas.SetLeft(violetPieuvre, 173);
+            Canvas.SetTop(violetPieuvre, 29);
+
+            Canvas.SetLeft(orangePieuvre, 651);
+            Canvas.SetTop(orangePieuvre, 104);*/
+
             gameTimer.Start();
             score = 0;
 
@@ -171,20 +176,26 @@ namespace TestGithubWpf
 
                 Rect hitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                 requinHitBox = new Rect(Canvas.GetLeft(requin), Canvas.GetTop(requin), requin.Width, requin.Height);
-                
+
                 if ((string)x.Tag == "pieuvre")
                 {
                     if (x.Visibility == Visibility.Hidden)
                     {
                         x.Visibility = Visibility.Visible;
                     }
-                   
+                    if (requinHitBox.IntersectsWith(hitBox))
+                    {
+                        gameTimer.Stop();
+                        jeu_termine = true;
+                    }
                 }
             }
         }
         private void TricheMod()
         {
-            vitesse = 15;
+            vitesse = 13;
+            vitesseEnnemie = 2;
+            pieuvrePasActuel = mouvementPieuvre;
         }
         private void DeplacerPieuvre()
         {
@@ -437,7 +448,7 @@ namespace TestGithubWpf
                 /////////////////////////////////////////////MOURIR PAR LES ENNEMIES
                 if ((string)x.Tag == "pieuvre")
                 {
-                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
+                    if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
                         jeu_termine = true;
@@ -692,16 +703,15 @@ namespace TestGithubWpf
                         vaEnHaut = false;
                     }
                 }
+
                 //////////////////////////////////////////////MOURIR PAR LES ENNEMIES
                 if ((string)x.Tag == "pieuvre")
                 {
-                    if (requinHitBox.IntersectsWith(hitBox) && modePuissant == false)
+                    if (requinHitBox.IntersectsWith(hitBox))
                     {
                         gameTimer.Stop();
                         jeu_termine = true;
-
                     }
-
                 }
             }
             if (score == 83 && requinHitBox.IntersectsWith(roiHitbox))
@@ -709,26 +719,19 @@ namespace TestGithubWpf
                 jeu_termine = true;
                 JeuTermine("Vous avez gagné ! \nVous avez mangé tous les poissons et rejoint le roi des requins !");
             }
-            
             if (jeu_termine)
             {
-                txtScore.Content += "\n\n\nCliquer R \npour Rejouer";
-            }
-
-            /*******************************    ModePuissant    ******************************/
-            if (modePuissant == true)
-            {
-                vitesse = 12;
-                vitesseEnnemie = 4;
-                modePuissantCompteur -= 1;
-                if (modePuissantCompteur < 1)
+                mediaElement.Close();
+                txtScore.Content += "\n        Cliquer R \n        pour Rejouer";
+                /*if (txtScore.Content.Equals("\n        Cliquer R \n        pour Rejouer"))
                 {
-                    vitesse = 7;
-                    vitesseEnnemie = 10;
-                    modePuissant = false;
+                    txtScore.Content = Brushes.White;
                 }
+                else
+                {
+                    txtScore.Content = Brushes.Red;
+                }*/
             }
-
         }
         private void JeuTermine(string message)
         {
