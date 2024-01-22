@@ -49,6 +49,9 @@
     <None Update="images\alguesVert.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\algues_avec_pierre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="images\bubles.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

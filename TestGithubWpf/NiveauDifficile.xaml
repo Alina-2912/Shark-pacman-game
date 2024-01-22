@@ -192,7 +192,7 @@
             LoadedBehavior="Manual"
             UnloadedBehavior="Manual" />
         <Button
-            Name="ButtonFermer"
+            Name="BouttonFermer"
             Canvas.Left="771"
             Canvas.Top="1"
             Width="24"
@@ -200,17 +200,17 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Background="Red"
-            Click="ButtonFermer_Click"
+            Click="BouttonFermer_Click"
             Content="x" />
         <Button
-            Name="ButtonRetour"
+            Name="BouttonRetour"
             Canvas.Left="700"
             Canvas.Top="1"
             Width="60"
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Click="ButtonRetour_Click"
+            Click="BouttonRetour_Click"
             Content="Retour&#10;au menu" Background="#FFFFE703" />
         <Rectangle
             Canvas.Left="162"

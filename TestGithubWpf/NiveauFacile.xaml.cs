@@ -52,12 +52,12 @@ namespace TestGithubWpf
             gameTimer.Tick += BoucleJeu;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
         }
-        private void ButtonFermer_Click(object sender, RoutedEventArgs e)
+        private void BouttonFermer_Click(object sender, RoutedEventArgs e)
         {
             Close();
             Application.Current.Shutdown();
         }
-        private void ButtonRetour_Click(object sender, RoutedEventArgs e)
+        private void BouttonRetour_Click(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
             this.Hide();
@@ -283,53 +283,56 @@ namespace TestGithubWpf
             ImageBrush corail3 = new ImageBrush();
             corail3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/creatureMer.png"));
             obstacle2.Fill = corail3;
+            algue4.Fill = corail3;
 
             ImageBrush corail4 = new ImageBrush();
             corail4.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/vaguesaquatiques.jpg"));
             obstacle3.Fill = corail4;
 
-            ImageBrush bulles_1 = new ImageBrush();
-            bulles_1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
-            bulles1.Fill = bulles_1;
+            ImageBrush bulle1 = new ImageBrush();
+            bulle1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
+            bulles1.Fill = bulle1;
 
-            ImageBrush bulles_2 = new ImageBrush();
-            bulles_2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
-            bulles2.Fill = bulles_2;
+            ImageBrush bulle2 = new ImageBrush();
+            bulle2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/bulles.png"));
+            bulles2.Fill = bulle2;
 
             ImageBrush rochet = new ImageBrush();
             rochet.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/rochets.png"));
             rochets.Fill = rochet;
 
-            ImageBrush rougecorail1 = new ImageBrush();
-            rougecorail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral.jpg"));
-            corail_rouge1.Fill = rougecorail1;
+            ImageBrush rougeCorail1 = new ImageBrush();
+            rougeCorail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral.jpg"));
+            corail_rouge1.Fill = rougeCorail1;
 
-            ImageBrush rougecorail2 = new ImageBrush();
-            rougecorail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral2.jpg"));
-            corail_rouge2.Fill = rougecorail2;
+            ImageBrush rougeCorail2 = new ImageBrush();
+            rougeCorail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral2.jpg"));
+            corail_rouge2.Fill = rougeCorail2;
 
-            ImageBrush rougecorail3 = new ImageBrush();
-            rougecorail3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
-            corail_rouge3.Fill = rougecorail3;
+            ImageBrush rougeCorail3 = new ImageBrush();
+            rougeCorail3.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral4.jpg"));
+            corail_rouge3.Fill = rougeCorail3;
 
             ImageBrush vertecorail1 = new ImageBrush();
             vertecorail1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed3.jpg"));
             corail_vert1.Fill = vertecorail1;
 
-            ImageBrush vertecorail2 = new ImageBrush();
-            vertecorail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral6.jpg"));
-            corail_vert2.Fill = vertecorail2;
+            ImageBrush verteCorail2 = new ImageBrush();
+            verteCorail2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral6.jpg"));
+            corail_vert2.Fill = verteCorail2;
 
-            ImageBrush jaunecorail = new ImageBrush();
-            jaunecorail.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral3.jpg"));
-            corail_jaune.Fill = jaunecorail;
+            ImageBrush jauneCorail = new ImageBrush();
+            jauneCorail.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/coral3.jpg"));
+            corail_jaune.Fill = jauneCorail;
 
-            ImageBrush algue_vert = new ImageBrush();
-            algue_vert.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed2.jpg"));
-            algue1.Fill = algue_vert;
-            algue2.Fill = algue_vert;
-            algue3.Fill = algue_vert;
-            algue4.Fill = algue_vert;
+            ImageBrush nouveauAlgue = new ImageBrush();
+            nouveauAlgue.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/algues_avec_pierre.png"));
+            algue1.Fill = nouveauAlgue;
+
+            ImageBrush algueVert = new ImageBrush();
+            algueVert.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "images/seaweed2.jpg"));
+            algue2.Fill = algueVert;
+            algue3.Fill = algueVert;
 
             foreach (var x in MyCanvas.Children.OfType<Rectangle>())
             {

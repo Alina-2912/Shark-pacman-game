@@ -90,7 +90,7 @@
             Tag="mur" />
         <Rectangle
             Name="corail_rouge1"
-            Canvas.Left="140"
+            Canvas.Left="142"
             Canvas.Top="457"
             Width="38"
             Height="34"
@@ -126,18 +126,18 @@
             StrokeThickness="3"
             Tag="mur" />
         <Rectangle
-            Name="algue3"
-            Canvas.Left="120"
-            Canvas.Top="487"
-            Width="42"
-            Height="100"
+            Name="algue4"
+            Canvas.Left="90"
+            Canvas.Top="460"
+            Width="55"
+            Height="135"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Fill="Green"
             StrokeThickness="3"
             Tag="mur" />
         <Rectangle
-            Name="algue4"
+            Name="algue3"
             Canvas.Left="681"
             Canvas.Top="487"
             Width="42"
@@ -626,7 +626,7 @@
             StrokeThickness="3"
             Tag="mur" />
         <Button
-            Name="ButtonFermer"
+            Name="BouttonFermer"
             Canvas.Left="771"
             Canvas.Top="1"
             Width="24"
@@ -634,7 +634,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Background="Red"
-            Click="ButtonFermer_Click"
+            Click="BouttonFermer_Click"
             Content="x" />
         <Rectangle
             x:Name="rochets"
@@ -668,7 +668,7 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Button
-            Name="ButtonRetour"
+            Name="BouttonRetour"
             Canvas.Left="700"
             Canvas.Top="1"
             Width="60"
@@ -676,7 +676,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Background="#FFFFF001"
-            Click="ButtonRetour_Click"
+            Click="BouttonRetour_Click"
             Content="Retour&#10;au menu" 
             />
         <Rectangle

@@ -56,12 +56,12 @@ namespace TestGithubWpf
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             
         }
-        private void ButtonFermer_Click(object sender, RoutedEventArgs e)
+        private void BouttonFermer_Click(object sender, RoutedEventArgs e)
         {
             Close();
             Application.Current.Shutdown();
         }
-        private void ButtonRetour_Click(object sender, RoutedEventArgs e)
+        private void BouttonRetour_Click(object sender, RoutedEventArgs e)
         {
             this.Owner.Show();
             this.Hide();

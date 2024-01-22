@@ -1017,13 +1017,24 @@
     Tag="meduses"
     Fill="HotPink" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button
-            x:Name="ButtonRetour"
+    Name="BouttonFermer"
+    Canvas.Left="771"
+    Canvas.Top="1"
+    Width="24"
+    Height="22"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Background="Red"
+    Click="BouttonFermer_Click"
+    Content="x" />
+        <Button
+            x:Name="BouttonRetour"
             Canvas.Left="700"
             Canvas.Top="1"
             Width="60"
             Height="40"
             Background="#FFFFF001"
-            Click="ButtonRetour_Click"
+            Click="BouttonRetour_Click"
             Content="Retour&#xA;au menu" 
             HorizontalAlignment="Center" VerticalAlignment="Center" 
             />
