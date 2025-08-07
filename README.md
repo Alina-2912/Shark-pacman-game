@@ -33,7 +33,7 @@ Vous incarnez un **requin** dans un labyrinthe rempli de **petits poissons**, d�
 
 ## 🎞️ Aperçu (Screenshots)
 
-> *(Ajoute ici des captures d’écran de ton jeu : menu, gameplay, changement de niveaux, animations, etc.)*
+> 
 
 ---
 
